@@ -3,7 +3,7 @@
 ## Members:
 
 [![FerJota](https://img.shields.io/badge/UO277938-Fernando%20Jos%C3%A9%20Gonz%C3%A1lez-orange)](https://github.com/UO277938) 
-[![LaraFmz](https://img.shields.io/badge/UO267026-Lara%20Fernández%20Méndez-orange)](https://github.com/UO276026)
+[![LaraFmz](https://img.shields.io/badge/UO267026-Lara%20Fernández%20Méndez-green)](https://github.com/UO276026)
 
 ## Description:
 [![Deploy on release](https://github.com/Arquisoft/wiq_es05a/actions/workflows/release.yml/badge.svg)](https://github.com/Arquisoft/wiq_es05a/actions/workflows/release.yml)
