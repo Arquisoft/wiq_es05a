@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
-== Introduction and Goals (wiq_es05a)
+== Introducción y Metas (wiq_es05a)
 
 [role="arc42help"]
 ****
@@ -20,7 +20,7 @@ These include
 * de diferentes temáticas y respuestas, que deberán responderse en un tiempo determinado.
 * Por cada respuesta correcta se obtendrá un premio.
 
-=== Requirements Overview
+=== Vista de Requerimientos
 
 [role="arc42help"]
 ****
@@ -51,7 +51,7 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 * Los usuarios registrados podrán jugar.
 * Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.
 
-=== Quality Goals
+=== Metas de Calidad
 
 [role="arc42help"]
 ****
