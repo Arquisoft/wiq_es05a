@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
-== Introduction and Goals (wiq_es05a)
+== Introducción y Metas (wiq_es05a)
 
 [role="arc42help"]
 ****
@@ -15,7 +15,11 @@ These include
 * relevant stakeholders and their expectations
 ****
 
-=== Requirements Overview
+El objetivo es crear una aplicación web llamada WIQ_es05 basada en el programa de televisión "Saber y Ganar".
+La aplicación permitirá registrarse a los usuarios para poder jugar. Dicho juego consiste en una serie de preguntas generadas aleatoriamente, de diferentes temáticas y respuestas, que deberán responderse en un tiempo determinado.
+Por cada respuesta correcta se obtendrá un premio.
+
+=== Vista de Requerimientos
 
 [role="arc42help"]
 ****
@@ -37,11 +41,16 @@ Keep these excerpts as short as possible. Balance readability of this document w
 
 .Further Information
 
-See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 documentation.
+See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 documentation
 
 ****
 
-=== Quality Goals
+* Los usuarios podrá registrarse en la aplicación.
+* Los ususarios registrados podrán iniciar su sesión en la aplicación.
+* Los usuarios registrados podrán jugar.
+* Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.
+
+=== Metas de Calidad
 
 [role="arc42help"]
 ****
@@ -62,7 +71,12 @@ If you as an architect do not know how the quality of your work will be judged..
 .Form
 A table with quality goals and concrete scenarios, ordered by priorities
 ****
-
+|===
+|Nombre|Descripción
+|Usabilidad| La aplicación tiene que poder usarse por un publico diverso
+|Privacidad| Los datos de los usuarios tienen que ser privados
+|Testeable| La aplicación debe probarse con cada actualización
+|===
 === Stakeholders
 
 [role="arc42help"]
@@ -87,7 +101,11 @@ Table with role names, person names, and their expectations with respect to the 
 
 [options="header",cols="1,2,2"]
 |===
-|Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|Rol/Nombre|Expectativa|Descripción
+| Cristian Augusto | Una buena aplicación | Profesor de la asignatura 
+| HappySw | Una aplicación buena para atraer al mayor número de usuarios | Equipo de desarrollo
+| Wikidata | Un buen uso de su aplicación | Empresa que nos facilita la API para obtener información
+| Usuarios Registrados | Una buena aplicación | Los usuarios de la aplicación
+| Usuarios No Registrados | Una buena aplicación | Los usuarios de la aplicación
+| RTVE | Una buena versión de su juego "Saber y Ganar" | Empresa contratista, el cliente
 |===
