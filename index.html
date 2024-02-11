@@ -444,14 +444,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#section-introduction-and-goals">1. Introduction and Goals (wiq_es05a)</a>
+<li><a href="#section-introduction-and-goals">1. Introducción y Metas (wiq_es05a)</a>
 <ul class="sectlevel2">
-<li><a href="#_requirements_overview">1.1. Requirements Overview</a></li>
-<li><a href="#_quality_goals">1.2. Quality Goals</a></li>
+<li><a href="#_vista_de_requerimientos">1.1. Vista de Requerimientos</a></li>
+<li><a href="#_metas_de_calidad">1.2. Metas de Calidad</a></li>
 <li><a href="#_stakeholders">1.3. Stakeholders</a></li>
 </ul>
 </li>
-<li><a href="#section-architecture-constraints">2. Architecture Constraints</a></li>
+<li><a href="#section-architecture-constraints">2. Limitaciones de Arquitectura</a>
+<ul class="sectlevel2">
+<li><a href="#_limitaciones_técnicas">2.1. Limitaciones técnicas</a></li>
+<li><a href="#_limitaciones_organizativas">2.2. Limitaciones organizativas</a></li>
+<li><a href="#_convenciones">2.3. Convenciones</a></li>
+</ul>
+</li>
 <li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
 <ul class="sectlevel2">
 <li><a href="#_business_context">3.1. Business Context</a></li>
@@ -494,7 +500,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
+<ul class="sectlevel2">
+<li><a href="#_riesgos_técnicos">11.1. Riesgos Técnicos</a></li>
+</ul>
+</li>
 <li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
@@ -549,7 +559,7 @@ For documentation of your own system you use better the <em>plain</em> version.<
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-introduction-and-goals">1. Introduction and Goals (wiq_es05a)</h2>
+<h2 id="section-introduction-and-goals">1. Introducción y Metas (wiq_es05a)</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -578,8 +588,13 @@ These include</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>El objetivo es crear una aplicación web llamada WIQ_es05 basada en el programa de televisión "Saber y Ganar".
+La aplicación permitirá registrarse a los usuarios para poder jugar. Dicho juego consiste en una serie de preguntas generadas aleatoriamente, de diferentes temáticas y respuestas, que deberán responderse en un tiempo determinado.
+Por cada respuesta correcta se obtendrá un premio.</p>
+</div>
 <div class="sect2">
-<h3 id="_requirements_overview">1.1. Requirements Overview</h3>
+<h3 id="_vista_de_requerimientos">1.1. Vista de Requerimientos</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -603,13 +618,29 @@ If requirements documents exist this overview should refer to these documents.</
 </div>
 <div class="paragraph">
 <div class="title">Further Information</div>
-<p>See <a href="https://docs.arc42.org/section-1/">Introduction and Goals</a> in the arc42 documentation.</p>
+<p>See <a href="https://docs.arc42.org/section-1/">Introduction and Goals</a> in the arc42 documentation</p>
 </div>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Los usuarios podrá registrarse en la aplicación.</p>
+</li>
+<li>
+<p>Los ususarios registrados podrán iniciar su sesión en la aplicación.</p>
+</li>
+<li>
+<p>Los usuarios registrados podrán jugar.</p>
+</li>
+<li>
+<p>Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_quality_goals">1.2. Quality Goals</h3>
+<h3 id="_metas_de_calidad">1.2. Metas de Calidad</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -638,6 +669,30 @@ If you as an architect do not know how the quality of your work will be judged&#
 </div>
 </div>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descripción</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tiene que poder usarse por un publico diverso</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Privacidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los datos de los usuarios tienen que ser privados</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testeable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debe probarse con cada actualización</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_stakeholders">1.3. Stakeholders</h3>
@@ -686,21 +741,41 @@ These stakeholders determine the extent and the level of detail of your work and
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Role/Name</th>
-<th class="tableblock halign-left valign-top">Contact</th>
-<th class="tableblock halign-left valign-top">Expectations</th>
+<th class="tableblock halign-left valign-top">Rol/Nombre</th>
+<th class="tableblock halign-left valign-top">Expectativa</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cristian Augusto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profesor de la asignatura</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Role-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Contact-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Expectation-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HappySw</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una aplicación buena para atraer al mayor número de usuarios</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equipo de desarrollo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wikidata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un buen uso de su aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empresa que nos facilita la API para obtener información</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usuarios Registrados</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los usuarios de la aplicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usuarios No Registrados</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los usuarios de la aplicación</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RTVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena versión de su juego "Saber y Ganar"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empresa contratista, el cliente</p></td>
 </tr>
 </tbody>
 </table>
@@ -709,7 +784,7 @@ These stakeholders determine the extent and the level of detail of your work and
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-architecture-constraints">2. Architecture Constraints</h2>
+<h2 id="section-architecture-constraints">2. Limitaciones de Arquitectura</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -735,7 +810,104 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Este proyecto está limitado por una serie de pautas marcadas por los responsables de la asignatura.
+Por ello esta aplicación está desarrollada siguiendo una serie de requisitos los cuales nombraremos a continuación.</p>
+</div>
+<div class="sect2">
+<h3 id="_limitaciones_técnicas">2.1. Limitaciones técnicas</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Restricción</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GIT</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología nos permite almacenar el proyecto y llevar un control de versiones de este, utilizando el servicio de GitHub. Además nos permite
+una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
+miembro del equipo mediante el uso de las Issues.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Todas las preguntas del juego se obtienen a partir de esta plataforma, generando aleatoriamente las preguntas y respuestas correctas y también las falsas.</em></em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_limitaciones_organizativas">2.2. Limitaciones organizativas</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Restricción</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Equipo</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El equipo de trabajo está compuesto por 4 integrantes, por lo que la cooperación y coordinación es esencial
+para el desarrollo de la aplicación.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Experiencia</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Es la primera ocasión en la que los miembros del equipo trabajan en un proyecto de esta envergadura. Al comienzo del proyecto, los miembros del equipo de desarrollo
+estaban poco experimentados con el uso de algunas de las tecnologías necesarias por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
+con alguna de estas.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Reuniones</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para mantener un buen ritmo de trabajo a través de una correcta organización se realizan reuniones semanales en las clases prácticas de la asignatura. Además, mantenemos contacto
+a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reuniones extraordinarias utilizando nuestro servidor de Discord.</em></em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_convenciones">2.3. Convenciones</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Restricción</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Diseño del software</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Documentación</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Accesibilidad</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestro aplicación puede ser utilizada por cualquier tipo de usuario hispanohablante, sin importar quien sea, ya que será fácil de entender e interactuar.</em></em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -880,6 +1052,26 @@ Refer to details in the following sections.</p>
 <p>See <a href="https://docs.arc42.org/section-4/">Solution Strategy</a> in the arc42 documentation.</p>
 </div>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>JavaScript</em>: Este lenguaje es muy buena opción para utilizar en proyectos en que se emplé la tecnología REACT. Nos pareció mejor opción que otros lenguajes como TypeScript
+debido a que su compresión y manejo es más sencillo.</p>
+</li>
+<li>
+<p><em>React</em>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web, simplificando la creación de interfaces gráficas.</p>
+</li>
+<li>
+<p><em>Docker</em>: Utilizaremos los contenedores de Docker como lugar donde desplegar la aplicacion web, de manera que pueda probarse la aplicación de forma aislada.</p>
+</li>
+<li>
+<p><em>Firebase</em>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
+</li>
+<li>
+<p><em>WikiData</em>: Se trata de otra API a partir de la cual se generarán aleatoriamente las preguntas y respuestas, tanto correctas como incorrectas, que el usuario visualizará.</p>
+</li>
+</ul>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1708,7 +1900,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
+<h2 id="section-technical-risks">11. Riesgos y Deudas Técnicas</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1733,7 +1925,44 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_riesgos_técnicos">11.1. Riesgos Técnicos</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Riesgo</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Abandono</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante el desarrollo del proyecto cabe la posibilidad de que alguno de los miembros que conforman el equipo abandone este, provocando un serio problema el ritmo y carga
+de trabajo de los demás compañeros.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Otras Asignaturas</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las demás asignaturas en la que están matriculados los miembros del equipo puede exigir una carga importante de trabajo por lo que provocar que el equipo no dedique el
+suficiente tiempo al desarrollo de este proyecto.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Errores</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante las pruebas de la aplicación pueden surgir errores que nos obliguen a realizar importantes cambios en esta. Esto puede provocar que el equipo invierta más horas de
+las planeadas para solucionar este tipo de problemas.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, pueden no funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
+funcionalidades del proyecto.</em></em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1788,12 +2017,52 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>API</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas de software.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Arc42</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Un marco de arquitectura que proporciona un conjunto de prácticas y plantillas para documentar y diseñar arquitecturas de software.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Back-end</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La parte de un sitio web o aplicación que no es visible para los usuarios finales y se encarga del procesamiento de la lógica del negocio y la gestión de los datos.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Contenedor</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Entorno virtual ligero que contiene todo lo necesario para ejecutar una aplicación, incluidas bibliotecas, herramientas y códigos.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Front-end</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La parte de un sitio web o aplicación que interactúa directamente con los usuarios, visible y accesible en el navegador.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GitHub</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>IDE</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Entorno de desarrollo integrado que proporciona herramientas y características para facilitar la escritura y depuración de código.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>JavaScript</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación utilizado principalmente para agregar interactividad y dinamismo a sitios web.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Saber y Ganar</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Programa de televisión español de tipo concurso de preguntas y respuestas culturales.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WikiData</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1803,7 +2072,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-01-22 15:51:43 +0100
+Last updated 2024-02-01 11:54:02 +0100
 </div>
 </div>
 </body>
