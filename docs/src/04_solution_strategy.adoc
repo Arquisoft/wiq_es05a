@@ -30,3 +30,14 @@ Refer to details in the following sections.
 See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentation.
 
 ****
+
+* _JavaScript_: Este lenguaje es muy buena opción para utilizar en proyectos en que se emplé la tecnología REACT. Nos pareció mejor opción que otros lenguajes como TypeScript
+debido a que su compresión y manejo es más sencillo.
+
+* _React_: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web, simplificando la creación de interfaces gráficas.
+
+* _Docker_: Utilizaremos los contenedores de Docker como lugar donde desplegar la aplicacion web, de manera que pueda probarse la aplicación de forma aislada.
+
+* _Firebase_: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
+
+* _WikiData_: Se trata de otra API a partir de la cual se generarán aleatoriamente las preguntas y respuestas, tanto correctas como incorrectas, que el usuario visualizará.
