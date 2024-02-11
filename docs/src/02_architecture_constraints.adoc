@@ -1,27 +1,65 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-architecture-constraints]]
-== Architecture Constraints
+== Limitaciones de Arquitectura
 
 
 [role="arc42help"]
 ****
-.Contents
-Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
+Este proyecto está limitado por una serie de pautas marcadas por los responsables de la asignatura. 
+Por ello esta aplicación está desarrollada siguiendo una serie de requisitos los cuales nombraremos a continuación.
 
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
+=== Limitaciones técnicas
 
-.Form
-Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)
+[cols="e,2e" options="header"]
+|===
+|Restricción |Explicación
 
+|*GIT*
+|_Esta tecnología nos permite almacenar el proyecto y llevar un control de versiones de este, utilizando el servicio de GitHub. Además nos permite 
+una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
+miembro del equipo mediante el uso de las Issues._
 
-.Further Information
+|*Docker*
+|_Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes._
 
-See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 documentation.
+|*Wikidata*
+|_Todas las preguntas del juego se obtienen a partir de esta plataforma, generando aleatoriamente las preguntas y respuestas correctas y también las falsas._
+|===
 
+=== Limitaciones organizativas
+
+[cols="e,2e" options="header"]
+|===
+|Restricción |Explicación
+
+|*Equipo* 
+|_El equipo de trabajo está compuesto por 4 integrantes, por lo que la cooperación y coordinación es esencial 
+para el desarrollo de la aplicación._
+
+|*Experiencia*
+|_Es la primera ocasión en la que los miembros del equipo trabajan en un proyecto de esta envergadura. Al comienzo del proyecto, los miembros del equipo de desarrollo 
+estaban poco experimentados con el uso de algunas de las tecnologías necesarias por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
+con alguna de estas._
+
+|*Reuniones*
+|_Para mantener un buen ritmo de trabajo a través de una correcta organización se realizan reuniones semanales en las clases prácticas de la asignatura. Además, mantenemos contacto
+a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reuniones extraordinarias utilizando nuestro servidor de Discord._
+|===
+
+=== Convenciones
+
+[cols="e,2e" options="header"]
+|===
+|Restricción |Explicación
+
+|*Diseño del software*
+|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible._
+
+|*Documentación*
+|_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
+
+|*Accesibilidad*
+|_Nuestro aplicación puede ser utilizada por cualquier tipo de usuario hispanohablante, sin importar quien sea, ya que será fácil de entender e interactuar._
+|===
 ****
