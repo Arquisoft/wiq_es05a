@@ -30,3 +30,18 @@ Refer to details in the following sections.
 See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentation.
 
 ****
+
+* *Microservicios:*
+Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido por encima de MVC, por la facilidad a la hora de modificar una parte de la aplicación sin afectar al resto.
+
+* *Docker:*
+Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes. Facilidad a la hora de desplegar junto con una máquina virtual de Azure.
+
+* *Wikidata:*
+API impuesta al equipo de desarrollo como requisito del sistema, su proposito en la aplicación es la obtención de información de diferentes temas para un posterior desarrollo de preguntas.
+
+* *Javascript:*
+Lenguaje de programación interpretado, no tipado y facil de aprender y desarrollar. Utilizado para desarrollar todos los microservicios.
+
+* *React:*
+ Biblioteca de Javascript que se centra en el desarrollo de interfaces. Actualmente está en un momento de auge, por lo que aprender esta tecnologia sería bueno para el mercado laboral.
