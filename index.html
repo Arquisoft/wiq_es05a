@@ -451,7 +451,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_stakeholders">1.3. Stakeholders</a></li>
 </ul>
 </li>
-<li><a href="#section-architecture-constraints">2. Limitaciones de Arquitectura</a></li>
+<li><a href="#section-architecture-constraints">2. Limitaciones de Arquitectura</a>
+<ul class="sectlevel2">
+<li><a href="#_limitaciones_técnicas">2.1. Limitaciones técnicas</a></li>
+<li><a href="#_limitaciones_organizativas">2.2. Limitaciones organizativas</a></li>
+<li><a href="#_convenciones">2.3. Convenciones</a></li>
+</ul>
+</li>
 <li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
 <ul class="sectlevel2">
 <li><a href="#_business_context">3.1. Business Context</a></li>
@@ -494,7 +500,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
-<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
+<ul class="sectlevel2">
+<li><a href="#_riesgos_técnicos">11.1. Riesgos Técnicos</a></li>
+</ul>
+</li>
 <li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
@@ -779,12 +789,33 @@ These stakeholders determine the extent and the level of detail of your work and
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
+<div class="title">Contents</div>
+<p>Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.</p>
+</div>
+<div class="paragraph">
+<div class="title">Motivation</div>
+<p>Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
+Constraints must always be dealt with; they may be negotiable, though.</p>
+</div>
+<div class="paragraph">
+<div class="title">Form</div>
+<p>Simple tables of constraints with explanations.
+If needed you can subdivide them into
+technical constraints, organizational and political constraints and
+conventions (e.g. programming or versioning guidelines, documentation or naming conventions)</p>
+</div>
+<div class="paragraph">
+<div class="title">Further Information</div>
+<p>See <a href="https://docs.arc42.org/section-2/">Architecture Constraints</a> in the arc42 documentation.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>Este proyecto está limitado por una serie de pautas marcadas por los responsables de la asignatura.
 Por ello esta aplicación está desarrollada siguiendo una serie de requisitos los cuales nombraremos a continuación.</p>
 </div>
-<div class="paragraph">
-<p>=== Limitaciones técnicas</p>
-</div>
+<div class="sect2">
+<h3 id="_limitaciones_técnicas">2.1. Limitaciones técnicas</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -813,9 +844,9 @@ miembro del equipo mediante el uso de las Issues.</em></em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Limitaciones organizativas</p>
 </div>
+<div class="sect2">
+<h3 id="_limitaciones_organizativas">2.2. Limitaciones organizativas</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -846,9 +877,9 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Convenciones</p>
 </div>
+<div class="sect2">
+<h3 id="_convenciones">2.3. Convenciones</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -875,9 +906,8 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -940,10 +970,11 @@ The title of the table is the name of your system, the three columns contain the
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/03_1_contexto-negocio.png" alt="Diagrama de contexto de negocio">
+<div class="paragraph">
+<p><strong>&lt;Diagram or Table&gt;</strong></p>
 </div>
+<div class="paragraph">
+<p><strong>&lt;optionally: Explanation of external domain interfaces&gt;</strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -1025,24 +1056,20 @@ Refer to details in the following sections.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Microservicios:</strong>
-Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido por encima de MVC, por la facilidad a la hora de modificar una parte de la aplicación sin afectar al resto.</p>
+<p><em>JavaScript</em>: Este lenguaje es muy buena opción para utilizar en proyectos en que se emplé la tecnología REACT. Nos pareció mejor opción que otros lenguajes como TypeScript
+debido a que su compresión y manejo es más sencillo.</p>
 </li>
 <li>
-<p><strong>Docker:</strong>
-Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes. Facilidad a la hora de desplegar junto con una máquina virtual de Azure.</p>
+<p><em>React</em>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web, simplificando la creación de interfaces gráficas.</p>
 </li>
 <li>
-<p><strong>Wikidata:</strong>
-API impuesta al equipo de desarrollo como requisito del sistema, su proposito en la aplicación es la obtención de información de diferentes temas para un posterior desarrollo de preguntas.</p>
+<p><em>Docker</em>: Utilizaremos los contenedores de Docker como lugar donde desplegar la aplicacion web, de manera que pueda probarse la aplicación de forma aislada.</p>
 </li>
 <li>
-<p><strong>Javascript:</strong>
-Lenguaje de programación interpretado, no tipado y facil de aprender y desarrollar. Utilizado para desarrollar todos los microservicios.</p>
+<p><em>Firebase</em>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
 </li>
 <li>
-<p><strong>React:</strong>
-Biblioteca de Javascript que se centra en el desarrollo de interfaces. Actualmente está en un momento de auge, por lo que aprender esta tecnologia sería bueno para el mercado laboral.</p>
+<p><em>WikiData</em>: Se trata de otra API a partir de la cual se generarán aleatoriamente las preguntas y respuestas, tanto correctas como incorrectas, que el usuario visualizará.</p>
 </li>
 </ul>
 </div>
@@ -1873,7 +1900,7 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
+<h2 id="section-technical-risks">11. Riesgos y Deudas Técnicas</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1898,7 +1925,44 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_riesgos_técnicos">11.1. Riesgos Técnicos</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Riesgo</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Abandono</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante el desarrollo del proyecto cabe la posibilidad de que alguno de los miembros que conforman el equipo abandone este, provocando un serio problema el ritmo y carga
+de trabajo de los demás compañeros.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Otras Asignaturas</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las demás asignaturas en la que están matriculados los miembros del equipo puede exigir una carga importante de trabajo por lo que provocar que el equipo no dedique el
+suficiente tiempo al desarrollo de este proyecto.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Errores</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante las pruebas de la aplicación pueden surgir errores que nos obliguen a realizar importantes cambios en esta. Esto puede provocar que el equipo invierta más horas de
+las planeadas para solucionar este tipo de problemas.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, pueden no funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
+funcionalidades del proyecto.</em></em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1953,12 +2017,52 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>API</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas de software.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Arc42</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Un marco de arquitectura que proporciona un conjunto de prácticas y plantillas para documentar y diseñar arquitecturas de software.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Back-end</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La parte de un sitio web o aplicación que no es visible para los usuarios finales y se encarga del procesamiento de la lógica del negocio y la gestión de los datos.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Contenedor</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Entorno virtual ligero que contiene todo lo necesario para ejecutar una aplicación, incluidas bibliotecas, herramientas y códigos.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Front-end</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La parte de un sitio web o aplicación que interactúa directamente con los usuarios, visible y accesible en el navegador.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GitHub</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>IDE</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Entorno de desarrollo integrado que proporciona herramientas y características para facilitar la escritura y depuración de código.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>JavaScript</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación utilizado principalmente para agregar interactividad y dinamismo a sitios web.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Saber y Ganar</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Programa de televisión español de tipo concurso de preguntas y respuestas culturales.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WikiData</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.</em></p></td>
 </tr>
 </tbody>
 </table>
