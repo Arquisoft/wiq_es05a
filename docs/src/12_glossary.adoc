@@ -34,9 +34,40 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 |===
 |Term |Definition
 
-|<Term-1>
-|<definition-1>
+|*API*
+|Interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas de software.
 
-|<Term-2>
-|<definition-2>
+|*Arc42*
+|Un marco de arquitectura que proporciona un conjunto de prácticas y plantillas para documentar y diseñar arquitecturas de software.
+
+|*Back-end*
+|La parte de un sitio web o aplicación que no es visible para los usuarios finales y se encarga del procesamiento de la lógica del negocio y la gestión de los datos.
+
+|*Contenedor*
+|Entorno virtual ligero que contiene todo lo necesario para ejecutar una aplicación, incluidas bibliotecas, herramientas y códigos.
+
+|*Docker*
+|Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.
+
+|*Front-end*
+|La parte de un sitio web o aplicación que interactúa directamente con los usuarios, visible y accesible en el navegador.
+
+|*GitHub*
+|Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git.
+
+|*IDE*
+|Entorno de desarrollo integrado que proporciona herramientas y características para facilitar la escritura y depuración de código.
+
+|*JavaScript*
+|Lenguaje de programación utilizado principalmente para agregar interactividad y dinamismo a sitios web.
+
+|*Saber y Ganar*
+|Programa de televisión español de tipo concurso de preguntas y respuestas culturales.
+
+|*TypeScript*
+|Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.
+
+|*WikiData*
+|Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.
+
 |===

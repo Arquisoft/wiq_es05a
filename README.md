@@ -4,7 +4,7 @@
 
 [![FerJota](https://img.shields.io/badge/UO277938-Fernando%20Jos%C3%A9%20Gonz%C3%A1lez-orange)](https://github.com/UO277938) 
 [![LaraFmz](https://img.shields.io/badge/UO267026-Lara%20Fernández%20Méndez-green)](https://github.com/UO276026)
-[![FerSrz](https://img.shields.io/badge/UO289324-Fernando%20Suárez%20Hevia-red)](https://github.com/UO289324)
+[![FerSrz](https://img.shields.io/badge/UO289324-Fernando%20Suárez%20Hevia-red)](https://github.com/fer4github)
 [![PabloRdrz](https://img.shields.io/badge/UO289432-Pablo%20Rodríguez%20Alonso-blue)](https://github.com/uo289432)
 
 ## Description:
@@ -33,10 +33,16 @@ The fastest way for launching this sample project is using docker. Just clone th
 git clone https://github.com/Arquisoft/wiq_es05a.git
 ```
 
-and launch it with docker compose:
+launch it with docker compose:
 
 ```sh
 docker compose --profile dev up --build
+```
+
+and tear it down:
+
+```sh
+docker compose --profile dev down
 ```
 
 ### Starting Component by component
@@ -110,7 +116,7 @@ deploy:
         command: |
           wget https://raw.githubusercontent.com/arquisoft/wiq_es05a/master/docker-compose.yml -O docker-compose.yml
           wget https://raw.githubusercontent.com/arquisoft/wiq_es05a/master/.env -O .env
-          docker compose down --volumes
+          docker compose --profile prod down
           docker compose --profile prod up -d
 ```
 
