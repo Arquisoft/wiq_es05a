@@ -57,8 +57,8 @@ image::03_1_contexto-negocio.png["Diagrama de contexto de negocio"]
 |*Sistema*
 |_Contiene el frontend y backend de la aplicación._
 
-|*MongoDB*
-|_Base de datos para almacenar la información de los usuarios._
+|*Base de Datos*
+|_Almacenamiento principal del sistema._
 
 |*Usuario*
 |_Los usuarios que interactuaran con la aplicación._
@@ -86,3 +86,31 @@ together with a mapping table showing the relationships between channels and inp
 ****
 
 image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
+
+|===
+|Componentes |Explicación
+
+|*Sistema*
+|_Contiene el frontend y backend de la aplicación._
+
+|*MongoDB*
+|_Base de datos no relacional para el almacenamiento de usuarios._
+
+|*Usuario*
+|_Los usuarios que interactuaran con la aplicación._
+
+|*Wikidata API*
+|_API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación._
+
+|*Javascript*
+|_Lenguaje de programación principal de la aplicación._
+
+|*Express JS*
+|_Framework para la creación de aplicaciones web en Javascript, utilizado en el backend._
+
+|*React*
+|_Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend._
+
+|*Firebase*
+|_Plataforma de desarrollo de Google, se utiliza en el login del sistema._
+|===
