@@ -39,6 +39,6 @@ See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentat
 
 * *Firebase*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
 
-* *WikiData*: Se trata de otra API a partir de la cual se generarán aleatoriamente las preguntas y respuestas, tanto correctas como incorrectas, que el usuario visualizará.
-
 * *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido por encima de MVC, por la facilidad a la hora de modificar una parte de la aplicación sin afectar al resto.
+
+* *MongoDB:* Es una base de datos NoSQL sencilla de utilizar y que ya conocemos.

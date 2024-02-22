@@ -74,8 +74,9 @@ A table with quality goals and concrete scenarios, ordered by priorities
 |===
 |Nombre|Descripción
 |Usabilidad| La aplicación tiene que poder usarse por un publico diverso
-|Privacidad| Los datos de los usuarios tienen que ser privados
+|Rendimiento| El tiempo de respuesta de la aplicación debe ser rápido
 |Testeable| La aplicación debe probarse con cada actualización
+|Disponibilidad| La aplicación debe estar disponible y caerse lo menos posible
 |===
 === Stakeholders
 

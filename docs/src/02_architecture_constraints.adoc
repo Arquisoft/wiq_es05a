@@ -80,5 +80,5 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
 
 |*Accesibilidad*
-|_Nuestro aplicación puede ser utilizada por cualquier tipo de usuario hispanohablante, sin importar quien sea, ya que será fácil de entender e interactuar._
+|_Nuestro aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quien sea, ya que será fácil de entender e interactuar._
 |===
