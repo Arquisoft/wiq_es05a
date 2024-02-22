@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-glossary]]
-== Glossary
+== Glosario
 
 [role="arc42help"]
 ****
@@ -30,9 +30,9 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 
 ****
 
-[cols="e,2e" options="header"]
+[cols="e,2" options="header"]
 |===
-|Term |Definition
+|Término |Definición
 
 |*API*
 |Interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas de software.
