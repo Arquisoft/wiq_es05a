@@ -75,12 +75,13 @@ If you as an architect do not know how the quality of your work will be judged..
 .Form
 A table with quality goals and concrete scenarios, ordered by priorities
 ****
+[cols="e,2e" options="header"]
 |===
-|*Nombre* |*Descripción*
-|Usabilidad| La aplicación tiene que poder usarse por un publico diverso
-|Rendimiento| El tiempo de respuesta de la aplicación debe ser rápido
-|Testeable| La aplicación debe probarse con cada actualización
-|Disponibilidad| La aplicación debe estar disponible y caerse lo menos posible
+|Nombre|Descripción
+|*Usabilidad*| _La aplicación tiene que poder usarse por un publico diverso_
+|*Rendimiento*| _El tiempo de respuesta de la aplicación debe ser rápido_
+|*Testeable*| _La aplicación debe probarse con cada actualización_
+|*Disponibilidad*| _La aplicación debe estar disponible y caerse lo menos posible_
 |===
 === Stakeholders
 
@@ -104,13 +105,13 @@ These stakeholders determine the extent and the level of detail of your work and
 Table with role names, person names, and their expectations with respect to the architecture and its documentation.
 ****
 
-[options="header",cols="1,2,2"]
+[cols="e,2e,2e" options="header"]
 |===
 |Rol/Nombre|Expectativa|Descripción
-| Cristian Augusto | Una buena aplicación | Profesor de la asignatura 
-| HappySw | Una aplicación buena para atraer al mayor número de usuarios | Equipo de desarrollo
-| Wikidata | Un buen uso de su aplicación | Empresa que nos facilita la API para obtener información
-| Usuarios Registrados | Una buena aplicación | Los usuarios de la aplicación
-| Usuarios No Registrados | Una buena aplicación | Los usuarios de la aplicación
-| RTVE | Una buena versión de su juego "Saber y Ganar" | Empresa contratista, el cliente
+| *Cristian Augusto* | _Una buena aplicación_ | _Profesor de la asignatura_
+| *HappySw* | _Una aplicación buena para atraer al mayor número de usuarios_ | _Equipo de desarrollo_
+| *Wikidata* | _Un buen uso de su aplicación_ | _Empresa que nos facilita la API para obtener información_
+| *Usuarios Registrados* | _Una buena aplicación_ | _Los usuarios de la aplicación_
+| *Usuarios No Registrados* | _Una buena aplicación_ | _Los usuarios de la aplicación_
+| *RTVE* | _Una buena versión de su juego "Saber y Ganar"_ | _Empresa contratista, el cliente_
 |===
