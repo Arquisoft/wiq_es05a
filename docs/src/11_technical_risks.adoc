@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-technical-risks]]
-== Risks and Technical Debts
+== Riesgos y Deudas Técnicas
 
 
 [role="arc42help"]
@@ -17,9 +17,35 @@ This should be your motto for systematic detection and evaluation of risks and t
 .Form
 List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
 
-
 .Further Information
 
 See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 documentation.
 
 ****
+
+=== Riesgos Técnicos
+
+[cols="e,2e" options="header"]
+|===
+|Riesgo |Explicación
+
+|*Abandono* 
+|_Durante el desarrollo del proyecto cabe la posibilidad de que alguno de los miembros que conforman el equipo abandone este, provocando un serio problema el ritmo y carga
+de trabajo de los demás compañeros._
+
+|*Otras Asignaturas* 
+|_Las demás asignaturas en la que están matriculados los miembros del equipo puede exigir una carga importante de trabajo por lo que provocar que el equipo no dedique el
+suficiente tiempo al desarrollo de este proyecto._
+
+|*Errores* 
+|_Durante las pruebas de la aplicación pueden surgir errores que nos obliguen a realizar importantes cambios en esta. Esto puede provocar que el equipo invierta más horas de
+las planeadas para solucionar este tipo de problemas._
+
+|*Caída de Servicios* 
+|_El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, pueden no funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
+funcionalidades del proyecto._
+
+|===
+
+
+
