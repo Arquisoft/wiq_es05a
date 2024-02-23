@@ -45,10 +45,14 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 
 ****
 
-* Los usuarios podrá registrarse en la aplicación.
+* Los usuarios podrán registrarse en la aplicación.
 * Los ususarios registrados podrán iniciar su sesión en la aplicación.
 * Los usuarios registrados podrán jugar.
-* Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.
+* Los usuarios registrados podrán consultar su historial de participación
+** Número de juegos
+** Preguntas acertadas/falladas
+** Tiempo de respuesta y partida
+
 
 === Metas de Calidad
 
