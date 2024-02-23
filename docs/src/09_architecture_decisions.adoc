@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
-== Architecture Decisions
+== Decisiones arquitectónicas
 
 
 [role="arc42help"]
@@ -34,7 +34,7 @@ There you will find links and examples about ADR.
 
 ****
 
-[options="header",cols="1,2,1,2,2"]
+[options="header",cols="1,2,1,2,2e"]
 |===
 |Aspecto |Descripción |Decisión |Explicación |Alternativas
 
@@ -42,24 +42,24 @@ There you will find links and examples about ADR.
 |_Lenguaje en el que se desarrollara la aplicación._
 |*JavaScript*
 |_Nos ha parecido la mejor opción; ya que es el más recomendable para utilizar en proyectos con REACT; y su comprensión y manejo es sencillo._
-|*TypeScript*, _pero creemos que es mas complejo._
+|*TypeScript*, pero creemos que es mas complejo.
 
 |*Framework* 
 |_Marco de trabajo para desarrollar la parte grafica de la aplicación._
 |*React*
 |_Hemos elegido este framework ya que simplifica la creación de interfaces gráficas._
-|*Angular*.
+|*Angular.*
 
 |*Base de Datos* 
 |_Donde almacenaremos la informacion de los usuarios._
 |*MongoDB*
 |_La hemos elegido porque es una base de datos NoSQL fácil de usar que ya conocemos._
-|*MySQL*
+|*MySQL.*
 
 |*Arquitectura* 
 |_La forma en la que se estructura la aplicación._
 |*Microservicios*
 |_Es una forma sencilla de estructurar; facil de desacoplar y reutilizar._
-|_Simplemente basada en_ *front-end y back-end*
+|Simplemente basada en *front-end y back-end.*
 
 |===
