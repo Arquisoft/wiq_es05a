@@ -87,30 +87,31 @@ together with a mapping table showing the relationships between channels and inp
 
 image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 
+[options="header",cols="1e,2"]
 |===
 |Componentes |Explicación
 
 |*Sistema*
-|_Contiene el frontend y backend de la aplicación._
+|Contiene el frontend y backend de la aplicación.
 
 |*MongoDB*
-|_Base de datos no relacional para el almacenamiento de usuarios._
+|Base de datos no relacional para el almacenamiento de usuarios.
 
 |*Usuario*
-|_Los usuarios que interactuaran con la aplicación._
+|Los usuarios que interactuaran con la aplicación.
 
 |*Wikidata API*
-|_API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación._
+|API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.
 
 |*Javascript*
-|_Lenguaje de programación principal de la aplicación._
+|Lenguaje de programación principal de la aplicación.
 
 |*Express JS*
-|_Framework para la creación de aplicaciones web en Javascript, utilizado en el backend._
+|Framework para la creación de aplicaciones web en Javascript, utilizado en el backend.
 
 |*React*
-|_Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend._
+|Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.
 
 |*Firebase*
-|_Plataforma de desarrollo de Google, se utiliza en el login del sistema._
+|Plataforma de desarrollo de Google, se utiliza en el login del sistema.
 |===
