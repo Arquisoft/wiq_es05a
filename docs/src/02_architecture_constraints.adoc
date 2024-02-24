@@ -26,8 +26,8 @@ See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 doc
 
 ****
 
-Este proyecto está limitado por una serie de pautas marcadas por los responsables de la asignatura. 
-Por ello esta aplicación está desarrollada siguiendo una serie de requisitos los cuales nombraremos a continuación.
+Este proyecto está limitado por una serie de restricciones de arquitectura marcadas por los responsables de la asignatura. 
+Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones las cuales nombraremos a continuación.
 
 === Limitaciones técnicas
 
@@ -36,15 +36,15 @@ Por ello esta aplicación está desarrollada siguiendo una serie de requisitos l
 |Restricción |Explicación
 
 |*GIT*
-|_Esta tecnología nos permite almacenar el proyecto y llevar un control de versiones de este, utilizando el servicio de GitHub. Además nos permite 
+|_Esta tecnología es un sistema de control de versiones que nos permite almacenar el proyecto, además de utilizar el servicio de GitHub. Además nos permite 
 una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
 miembro del equipo mediante el uso de las Issues._
 
 |*Docker*
-|_Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes._
+|_Este sistema es utilizado para desplegar la aplicación web en el entorno de desarrollo como en el de producción._
 
 |*Wikidata*
-|_Todas las preguntas del juego se obtienen a partir de esta plataforma, generando aleatoriamente las preguntas y respuestas correctas y también las falsas._
+|_Fuente de información desde donde generaremos las preguntas y respuestas correctas e incorrectas del juego._
 |===
 
 === Limitaciones organizativas
@@ -80,5 +80,13 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
 
 |*Accesibilidad*
-|_Nuestro aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quien sea, ya que será fácil de entender e interactuar._
+|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quien sea. Seguiremos los estandares de accesibilidad y
+usaremos el color, tamaño de texto... adecuados para ello._
+
+|*Estructura*
+|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estaran separados en carpetas
+principalmente: 'users' para el la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
+para la documentación._
+
+
 |===
