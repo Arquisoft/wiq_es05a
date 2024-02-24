@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.21">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -494,10 +495,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Decisiones arquitectónicas</a></li>
-<li><a href="#section-quality-scenarios">10. Requerimientos de Calidad</a>
+<li><a href="#section-quality-scenarios">10. Quality Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#_árbol_de_calidad">10.1. Árbol de Calidad</a></li>
-<li><a href="#_escenarios_de_calidad">10.2. Escenarios de Calidad</a></li>
+<li><a href="#_quality_tree">10.1. Quality Tree</a></li>
+<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
 <li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
@@ -611,7 +612,7 @@ If requirements documents exist this overview should refer to these documents.</
 <div class="ulist">
 <ul>
 <li>
-<p>Los usuarios podrán registrarse en la aplicación.</p>
+<p>Los usuarios podrá registrarse en la aplicación.</p>
 </li>
 <li>
 <p>Los ususarios registrados podrán iniciar su sesión en la aplicación.</p>
@@ -620,20 +621,7 @@ If requirements documents exist this overview should refer to these documents.</
 <p>Los usuarios registrados podrán jugar.</p>
 </li>
 <li>
-<p>Los usuarios registrados podrán consultar su historial de participación</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Número de juegos</p>
-</li>
-<li>
-<p>Preguntas acertadas/falladas</p>
-</li>
-<li>
-<p>Tiempo de respuesta y partida</p>
-</li>
-</ul>
-</div>
+<p>Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.</p>
 </li>
 </ul>
 </div>
@@ -997,8 +985,8 @@ The title of the table is the name of your system, the three columns contain the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Contiene el frontend y backend de la aplicación.</em></em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Base de Datos</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Almacenamiento principal del sistema.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Base de datos para almacenar la información de los usuarios.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
@@ -1035,52 +1023,6 @@ together with a mapping table showing the relationships between channels and inp
 <img src="./images/03_2_contexto_tecnico.png" alt="Diagrama de contexto técnico">
 </div>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Componentes</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sistema</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Contiene el frontend y backend de la aplicación.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Base de datos no relacional para el almacenamiento de usuarios.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Usuario</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Los usuarios que interactuaran con la aplicación.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Wikidata API</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Javascript</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación principal de la aplicación.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Express JS</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Framework para la creación de aplicaciones web en Javascript, utilizado en el backend.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>React</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Firebase</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Plataforma de desarrollo de Google, se utiliza en el login del sistema.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1925,7 +1867,7 @@ There you will find links and examples about ADR.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-quality-scenarios">10. Requerimientos de Calidad</h2>
+<h2 id="section-quality-scenarios">10. Quality Requirements</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1950,7 +1892,7 @@ concrete and measurable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_árbol_de_calidad">10.1. Árbol de Calidad</h3>
+<h3 id="_quality_tree">10.1. Quality Tree</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1980,14 +1922,9 @@ concrete and measurable.</p>
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/10_1_arbol-calidad.png" alt="Diagrama de árbol de calidad">
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_escenarios_de_calidad">10.2. Escenarios de Calidad</h3>
+<h3 id="_quality_scenarios">10.2. Quality Scenarios</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -2026,46 +1963,6 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Calidad</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Escenario</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Acciones de usuario</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Respuesta</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario que nunca ha interactuado con la aplicación</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario quiere iniciar sesión y posteriormente jugar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación facilita al usuario iniciar/registrar en la aplicación y posteriormente se le muestra la opción para jugar de forma visual</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rendimiento</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usario, un poco impaciente y ya registrado quiere jugar tranquilamente una partida</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Empieza la partida y espera a que se procese la pregunta y respuestas</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El sistema de obtención de preguntas es ágil y se muestra la pregunta con sus respuestas antes de que el usuario se canse de esperar</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Testeable</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un desarrollador esta realizando una nueva funcionalidad del sistema, pero se equivoca y produce fallos en la aplicación</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Igualmente realiza un commit en su rama con el objetivo de incorporar la nueva funcionalidad al sistema</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Las pruebas automáticas detectan un error de programación e impide que el problema se propague a la aplicación funcional</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Disponibilidad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario quiere jugar a las 03:00 AM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario inicializa  la aplicación de forma estandar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación es funcional pese a no ser una hora habitual</p></td>
-</tr>
-</tbody>
-</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -2257,7 +2154,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-22 19:31:15 +0100
+Last updated 2024-02-22 14:40:47 +0100
 </div>
 </div>
 </body>
