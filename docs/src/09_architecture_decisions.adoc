@@ -48,13 +48,13 @@ There you will find links and examples about ADR.
 |_Marco de trabajo para desarrollar la parte grafica de la aplicación._
 |*React*
 |_Hemos elegido este framework ya que simplifica la creación de interfaces gráficas._
-|*Angular.*
+|*Angular, Vue...*
 
 |*Base de Datos* 
 |_Donde almacenaremos la informacion de los usuarios._
 |*MongoDB*
 |_La hemos elegido porque es una base de datos NoSQL fácil de usar que ya conocemos._
-|*MySQL.*
+|*MySQL, Postgress, Redis, MariaDB, SQLLite...*
 
 |*Arquitectura* 
 |_La forma en la que se estructura la aplicación._

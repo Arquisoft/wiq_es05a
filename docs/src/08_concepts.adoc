@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-concepts]]
-== Cross-cutting Concepts
+== Conceptos transversales
 
 
 [role="arc42help"]
@@ -56,18 +56,26 @@ See https://docs.arc42.org/section-8/[Concepts] in the arc42 documentation.
 ****
 
 
-=== _<Concept 1>_
+=== Prototipos de pantalla
 
-_<explanation>_
+En la siguiente sección, vamos a mostrar los primeros prototipos de pantalla, aunque pueden estar sujetos a cambios en el futuro.
+
+*Pantalla principal*
+La pantalla principal que aparece al entrar en la aplicación, con las opciones de jugar y ver las estadisticas de los juegos
+solo si estás registrado en la aplicación. Además de las propias opciones de iniciar sesión y registrarse.
+
+image::08_1_pantalla-principal.png["Prototipo de pantalla principal"]
+
+*Pantalla de juego*
+Irán apareciendo 5 diferentes preguntas con 4 posibles rspuestas, de las cuales solo una 
+será la correcta. También podremos ver el tiempo que trascurre durante todo el juego. 
+
+image::08_1_pantalla-juego.png["Prototipo de pantalla de juego"]
+
+*Pantalla de estadísticas*
+Solo se podrá acceder a esta página si estás registrado en la aplicación. Aqui
+podremos observar diferentes estadisticas en los juego que hayas jugado.
+
+image::08_1_pantalla-estadisticas.png["Prototipo de pantalla de destadisticas"]
 
 
-
-=== _<Concept 2>_
-
-_<explanation>_
-
-...
-
-=== _<Concept n>_
-
-_<explanation>_

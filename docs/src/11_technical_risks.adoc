@@ -42,7 +42,7 @@ suficiente tiempo al desarrollo de este proyecto._
 las planeadas para solucionar este tipo de problemas._
 
 |*Caída de Servicios* 
-|_El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, pueden no funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
+|_El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
 funcionalidades del proyecto._
 
 |===
