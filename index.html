@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.21">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,7 +162,6 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
-body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +327,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -610,42 +609,30 @@ If requirements documents exist this overview should refer to these documents.</
 <div class="ulist">
 <ul>
 <li>
-<p>Los usuarios podrán registrarse en la aplicación.</p>
+<p><strong>Frontend Web Desplegado</strong>: Habrá una interfaz web accesible vía navegador.</p>
 </li>
 <li>
-<p>Los ususarios registrados podrán iniciar su sesión en la aplicación.</p>
+<p><strong>Registro de Usuarios y Consulta de Historial</strong>: Usuarios podrán registrarse y ver su historial de participación.</p>
 </li>
 <li>
-<p>Los usuarios registrados podrán jugar.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>El juego tendrá 5 preguntas con 3 respuestas incorrectas y una correcta cada una, generadas aleatoriamente.</p>
+<p><strong>Generación Automática de Preguntas desde Wikidata</strong>: Las preguntas se generarán automáticamente usando datos de Wikidata.</p>
 </li>
 <li>
-<p>Cada pregunta deberá ser respondida en un plazo de tiempo.</p>
+<p><strong>Plazo de Tiempo para Responder</strong>: Los usuarios tendrán un límite de tiempo para responder preguntas.</p>
+</li>
+<li>
+<p><strong>Respuestas Correctas e Incorrectas Automatizadas</strong>: Cada pregunta tendrá una respuesta correcta y varias incorrectas, generadas automáticamente.</p>
+</li>
+<li>
+<p><strong>Acceso a Información de Usuarios vía API</strong>: Otros sistemas podrán acceder a los datos de los usuarios a través de un API.</p>
+</li>
+<li>
+<p><strong>Acceso a Información de Preguntas vía API</strong>: Otros sistemas podrán acceder a los detalles de las preguntas generadas mediante un API.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Los usuarios registrados podrán consultar su historial de participación</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Número de juegos jugados</p>
-</li>
-<li>
-<p>Preguntas acertadas/falladas</p>
-</li>
-<li>
-<p>Tiempo de respuesta y partida
-*</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>Mira los <a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit">Requisitos de la práctica</a> para obtener más información.</p>
 </div>
 </div>
 <div class="sect2">
@@ -764,7 +751,7 @@ These stakeholders determine the extent and the level of detail of your work and
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Cristian Augusto</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Una aplicación que cumpla todos los requisitos propuestos en la asignatura</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Profesor de la asignatura</em></em></p></td>
 </tr>
 <tr>
@@ -1152,19 +1139,19 @@ Refer to details in the following sections.</p>
 <p><strong>JavaScript</strong>: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.</p>
 </li>
 <li>
-<p><strong>React</strong>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web, simplificando el desarrollo de las interfaces gráficas.</p>
+<p><strong>React</strong>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web de forma sencilla.</p>
 </li>
 <li>
-<p><strong>Docker</strong>: Utilizaremos esta plataforma para desplegar la aplicacion web.</p>
+<p><strong>Docker</strong>: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.</p>
 </li>
 <li>
 <p><strong>Firebase</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
 </li>
 <li>
-<p><strong>Microservicios:</strong> Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes.</p>
+<p><strong>Microservicios:</strong> Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.</p>
 </li>
 <li>
-<p><strong>MongoDB:</strong> Es una base de datos NoSQL sencilla de utilizar y que ya conocemos.</p>
+<p><strong>MySQL:</strong> Es una base de datos relacional ampliamente utilizada en proyectos debido a su fiabilidad, rendimiento y escalabilidad. Su estructura tabular facilita la organización de datos y su consulta a través de un lenguaje estándar (SQL).</p>
 </li>
 </ul>
 </div>
@@ -1927,28 +1914,29 @@ There you will find links and examples about ADR.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lenguaje de Programación</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje en el que se desarrollara la aplicación.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>JavaScript</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Nos ha parecido la mejor opción; ya que es el más recomendable para utilizar en proyectos con REACT; y su comprensión y manejo es sencillo.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Hemos elegido esta opción porque es la mejor para usar en proyectos con REACT. Es fácil de entender y de manejar.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong>, pero creemos que es mas complejo.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Framework</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Marco de trabajo para desarrollar la parte grafica de la aplicación.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>React</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Hemos elegido este framework ya que simplifica la creación de interfaces gráficas.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Optamos por este framework debido a su capacidad para simplificar el proceso de creación de interfaces gráficas.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Angular, Vue&#8230;&#8203;</strong></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base de Datos</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Donde almacenaremos la informacion de los usuarios.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La hemos elegido porque es una base de datos NoSQL fácil de usar que ya conocemos.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MySQL, Postgress, Redis, MariaDB, SQLLite&#8230;&#8203;</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MySQL</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos
+no relacional con una complejidad excesiva.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB, Postgress, Redis, MariaDB, SQLLite&#8230;&#8203;</strong></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Arquitectura</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>La forma en la que se estructura la aplicación.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Microservicios</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es una forma sencilla de estructurar; facil de desacoplar y reutilizar.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es una manera simple de organizar, facil de desacoplar y reutilizar.</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Simplemente basada en <strong>front-end y back-end.</strong></em></p></td>
 </tr>
 </tbody>
@@ -2161,8 +2149,17 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
-funcionalidades del proyecto.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
+Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto
+esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Software</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>No podemos asegurar que nuestra aplicación pueda ser utilizada por todos los usuarios ya que en ciertos casos dependerá del sistema operativo de cada usuario.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Hardware</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Dependiendo desde el dispositivo que se acceda a la aplicación si este no cumple los requisitos, como la resolución de pantalla, puede ser que la aplicacion no se vea de la forma esperada.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -2279,7 +2276,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-24 12:38:59 +0100
+Last updated 2024-02-24 23:20:20 +0100
 </div>
 </div>
 </body>
