@@ -41,25 +41,26 @@ There you will find links and examples about ADR.
 |*Lenguaje de Programación* 
 |_Lenguaje en el que se desarrollara la aplicación._
 |*JavaScript*
-|_Nos ha parecido la mejor opción; ya que es el más recomendable para utilizar en proyectos con REACT; y su comprensión y manejo es sencillo._
+|_Hemos elegido esta opción porque es la mejor para usar en proyectos con REACT. Es fácil de entender y de manejar._
 |*TypeScript*, pero creemos que es mas complejo.
 
 |*Framework* 
 |_Marco de trabajo para desarrollar la parte grafica de la aplicación._
 |*React*
-|_Hemos elegido este framework ya que simplifica la creación de interfaces gráficas._
+|_Optamos por este framework debido a su capacidad para simplificar el proceso de creación de interfaces gráficas._
 |*Angular, Vue...*
 
 |*Base de Datos* 
 |_Donde almacenaremos la informacion de los usuarios._
-|*MongoDB*
-|_La hemos elegido porque es una base de datos NoSQL fácil de usar que ya conocemos._
-|*MySQL, Postgress, Redis, MariaDB, SQLLite...*
+|*MySQL*
+|_Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos 
+no relacional con una complejidad excesiva._
+|*MongoDB, Postgress, Redis, MariaDB, SQLLite...*
 
 |*Arquitectura* 
 |_La forma en la que se estructura la aplicación._
 |*Microservicios*
-|_Es una forma sencilla de estructurar; facil de desacoplar y reutilizar._
+|_Es una manera simple de organizar, facil de desacoplar y reutilizar._
 |Simplemente basada en *front-end y back-end.*
 
 |===
