@@ -45,16 +45,15 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 
 ****
 
-* Los usuarios podrán registrarse en la aplicación.
-* Los ususarios registrados podrán iniciar su sesión en la aplicación.
-* Los usuarios registrados podrán jugar.
-** El juego tendrá 5 preguntas con 3 respuestas incorrectas y una correcta cada una, generadas aleatoriamente.
-** Cada pregunta deberá ser respondida en un plazo de tiempo.
-* Los usuarios registrados podrán consultar su historial de participación
-** Número de juegos jugados
-** Preguntas acertadas/falladas
-** Tiempo de respuesta y partida
-*
+* *Frontend Web Desplegado*: Habrá una interfaz web accesible vía navegador.
+* *Registro de Usuarios y Consulta de Historial*: Usuarios podrán registrarse y ver su historial de participación.
+* *Generación Automática de Preguntas desde Wikidata*: Las preguntas se generarán automáticamente usando datos de Wikidata.
+* *Plazo de Tiempo para Responder*: Los usuarios tendrán un límite de tiempo para responder preguntas.
+* *Respuestas Correctas e Incorrectas Automatizadas*: Cada pregunta tendrá una respuesta correcta y varias incorrectas, generadas automáticamente.
+* *Acceso a Información de Usuarios vía API*: Otros sistemas podrán acceder a los datos de los usuarios a través de un API.
+* *Acceso a Información de Preguntas vía API*: Otros sistemas podrán acceder a los detalles de las preguntas generadas mediante un API.
+
+Mira los https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit[Requisitos de la práctica] para obtener más información.
 
 
 === Metas de Calidad
@@ -111,7 +110,7 @@ Table with role names, person names, and their expectations with respect to the 
 [cols="e,2e,2e" options="header"]
 |===
 |Rol/Nombre|Expectativa|Descripción
-| *Cristian Augusto* | _Una aplicación que cumpla todos los requisitos propuestos en la asignatura_ | _Profesor de la asignatura_
+| *Cristian Augusto* | _Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software_ | _Profesor de la asignatura_
 | *HappySw* | _Una aplicación buena para atraer al mayor número de usuarios_ | _Equipo de desarrollo_
 | *Wikidata* | _Usar su aplicacion con precaución, sin sobrecargar sus servicios_ | _Empresa que nos facilita la API para obtener información_
 | *Usuarios Registrados* | _Una aplicación que proporcione los servicios esperados_ | _Los usuarios de la aplicación_
