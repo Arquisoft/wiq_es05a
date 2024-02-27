@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.21">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -465,11 +466,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#section-solution-strategy">4. Estrategia de solución</a></li>
-<li><a href="#section-building-block-view">5. Building Block View</a>
+<li><a href="#section-building-block-view">5. Vista de Bloques</a>
 <ul class="sectlevel2">
-<li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
-<li><a href="#_level_2">5.2. Level 2</a></li>
-<li><a href="#_level_3">5.3. Level 3</a></li>
+<li><a href="#_nivel_1_sistema_general_de_caja_blanca">5.1. Nivel 1: Sistema General de Caja Blanca</a></li>
+<li><a href="#_nivel_2_wiq">5.2. Nivel 2: WIQ</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
@@ -813,7 +813,7 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 </div>
 </div>
 <div class="paragraph">
-<p>Este proyecto está limitado por una serie de restricciones de arquitectura marcadas por los responsables de la asignatura.
+<p>Este proyecto tiene una serie de restricciones de arquitectura marcadas por los responsables de la asignatura.
 Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones las cuales nombraremos a continuación.</p>
 </div>
 <div class="sect2">
@@ -832,17 +832,18 @@ Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GIT</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología es un sistema de control de versiones que nos permite almacenar el proyecto, además de utilizar el servicio de GitHub. Además nos permite
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Además nos permite
 una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
 miembro del equipo mediante el uso de las Issues.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Este sistema es utilizado para desplegar la aplicación web en el entorno de desarrollo como en el de producción.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología de contenerización es utilizada para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
+y realizar las pruebas pertinentes.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Fuente de información desde donde generaremos las preguntas y respuestas correctas e incorrectas del juego.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Fuente de información utilizada para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -869,7 +870,7 @@ para el desarrollo de la aplicación.</em></em></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Experiencia</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Es la primera ocasión en la que los miembros del equipo trabajan en un proyecto de esta envergadura. Al comienzo del proyecto, los miembros del equipo de desarrollo
-estaban poco experimentados con el uso de algunas de las tecnologías necesarias por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
+enfrentaba una curva de aprendizaje considerable con respecto al uso de algunas de las tecnologías necesarias, por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
 con alguna de estas.</em></em></p></td>
 </tr>
 <tr>
@@ -904,14 +905,19 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Accesibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quien sea. Seguiremos los estandares de accesibilidad y
-usaremos el color, tamaño de texto&#8230;&#8203; adecuados para ello.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea. Seguiremos el estándard WCAG de la W3C,
+usando el color, tamaño de texto&#8230;&#8203; adecuados para ello.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Estructura</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estaran separados en carpetas
-principalmente: 'users' para el la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas
+principalmente: 'users' para la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
 para la documentación.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Convenciones del lenguaje de programación</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Es fundamental adherirse a las convenciones de los diferentes lenguajes de programación utilizados para garantizar que la aplicación tenga un código legible,
+que facilite su mantenimiento.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1159,7 +1165,7 @@ Refer to details in the following sections.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-building-block-view">5. Building Block View</h2>
+<h2 id="section-building-block-view">5. Vista de Bloques</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1207,7 +1213,7 @@ Thus it contains the white box description of selected building blocks of level 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_whitebox_overall_system">5.1. Whitebox Overall System</h3>
+<h3 id="_nivel_1_sistema_general_de_caja_blanca">5.1. Nivel 1: Sistema General de Caja Blanca</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1246,33 +1252,19 @@ In the best case you will get away with examples or simple signatures.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/05_sistema-general-caja-blanca.png" alt="Sistema General de Caja Blanca">
+</div>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Motivation</dt>
+<dt class="hdlist1">Motivación</dt>
 <dd>
-<p><em>&lt;text explanation&gt;</em></p>
+<p>La motivación de este diagrama es ofrecer una representación clara y sencilla de cómo el sistema interactúa con los usuarios y los servicios externos.</p>
 </dd>
-<dt class="hdlist1">Contained Building Blocks</dt>
-<dd>
-<p><em>&lt;Description of contained building block (black boxes)&gt;</em></p>
-</dd>
-<dt class="hdlist1">Important Interfaces</dt>
-<dd>
-<p><em>&lt;Description of important interfaces&gt;</em></p>
-</dd>
+<dt class="hdlist1">Bloques de construcción contenidos</dt>
 </dl>
-</div>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Insert your explanations of black boxes from level 1:</p>
-</div>
-<div class="paragraph">
-<p>If you use tabular form you will only describe your black boxes with name and
-responsibility according to the following schema:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1281,183 +1273,73 @@ responsibility according to the following schema:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Responsibility</strong></th>
+<th class="tableblock halign-left valign-top">Nombre</th>
+<th class="tableblock halign-left valign-top">Responsabilidad</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuario que interactua con la aplicación.</em></em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Administrador</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Persona(s) que tienen acceso completo a la aplicación y puede administrarla.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WIQ</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La propia aplicación.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Firebase</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Plataforma para el manejo de sesiones de los usuarios, asi como informacion sobre sus estadisticas.</em></em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>If you use a list of black box descriptions then you fill in a separate black box template for every important building block .
-Its headline is the name of the black box.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_black_box_1">5.1.1. &lt;Name black box 1&gt;</h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Here you describe &lt;black box 1&gt;
-according the the following black box template:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Purpose/Responsibility</p>
-</li>
-<li>
-<p>Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.</p>
-</li>
-<li>
-<p>(Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, &#8230;&#8203;.</p>
-</li>
-<li>
-<p>(Optional) directory/file location</p>
-</li>
-<li>
-<p>(Optional) Fulfilled requirements (if you need traceability to requirements).</p>
-</li>
-<li>
-<p>(Optional) Open issues/problems/risks</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;Purpose/Responsibility&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;Interface(s)&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Quality/Performance Characteristics&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Directory/File Location&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Fulfilled Requirements&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(optional) Open Issues/Problems/Risks&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_black_box_2">5.1.2. &lt;Name black box 2&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;black box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_black_box_n">5.1.3. &lt;Name black box n&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;black box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_interface_1">5.1.4. &lt;Name interface 1&gt;</h4>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_interface_m">5.1.5. &lt;Name interface m&gt;</h4>
-
-</div>
 </div>
 <div class="sect2">
-<h3 id="_level_2">5.2. Level 2</h3>
-<div class="sidebarblock arc42help">
+<h3 id="_nivel_2_wiq">5.2. Nivel 2: WIQ</h3>
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p>Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.</p>
-</div>
-<div class="paragraph">
-<p>You have to decide which building blocks of your system are important enough to justify such a detailed description.
-Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
-Leave out normal, simple, boring or standardized parts of your system</p>
+<img src="./images/05_nivel_2.png" alt="Nivel 2 de la aplicación: WIQ">
 </div>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Bloques de construcción contenidos</dt>
+</dl>
 </div>
-<div class="sect3">
-<h4 id="_white_box_building_block_1">5.2.1. White Box <em>&lt;building block 1&gt;</em></h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>&#8230;&#8203;describes the internal structure of <em>building block 1</em>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_2">5.2.2. White Box <em>&lt;building block 2&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_m">5.2.3. White Box <em>&lt;building block m&gt;</em></h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_level_3">5.3. Level 3</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.</p>
-</div>
-<div class="paragraph">
-<p>When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_x_1">5.3.1. White Box &lt;_building block x.1_&gt;</h4>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>Specifies the internal structure of <em>building block x.1</em>.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_x_2">5.3.2. White Box &lt;_building block x.2_&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_white_box_building_block_y_1">5.3.3. White Box &lt;_building block y.1_&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;white box template&gt;</em></p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Nombre</th>
+<th class="tableblock halign-left valign-top">Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Webapp</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La interfaz con la que interactua el usuario.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>REST</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Manejo de datos de Wikidata.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Users</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El manejo de las cuentas de los usuarios.</em></em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 </div>
 </div>
@@ -2276,7 +2158,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-24 23:20:20 +0100
+Last updated 2024-02-26 14:09:30 +0100
 </div>
 </div>
 </body>
