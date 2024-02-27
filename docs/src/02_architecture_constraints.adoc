@@ -26,7 +26,7 @@ See https://docs.arc42.org/section-2/[Architecture Constraints] in the arc42 doc
 
 ****
 
-Este proyecto está limitado por una serie de restricciones de arquitectura marcadas por los responsables de la asignatura. 
+Este proyecto tiene una serie de restricciones de arquitectura marcadas por los responsables de la asignatura. 
 Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones las cuales nombraremos a continuación.
 
 === Limitaciones técnicas
@@ -36,15 +36,16 @@ Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones
 |Restricción |Explicación
 
 |*GIT*
-|_Esta tecnología es un sistema de control de versiones que nos permite almacenar el proyecto, además de utilizar el servicio de GitHub. Además nos permite 
+|_En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Además nos permite 
 una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
 miembro del equipo mediante el uso de las Issues._
 
 |*Docker*
-|_Este sistema es utilizado para desplegar la aplicación web en el entorno de desarrollo como en el de producción._
+|_Esta tecnología de contenerización es utilizada para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
+y realizar las pruebas pertinentes._
 
 |*Wikidata*
-|_Fuente de información desde donde generaremos las preguntas y respuestas correctas e incorrectas del juego._
+|_Fuente de información utilizada para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego._
 |===
 
 === Limitaciones organizativas
@@ -59,7 +60,7 @@ para el desarrollo de la aplicación._
 
 |*Experiencia*
 |_Es la primera ocasión en la que los miembros del equipo trabajan en un proyecto de esta envergadura. Al comienzo del proyecto, los miembros del equipo de desarrollo 
-estaban poco experimentados con el uso de algunas de las tecnologías necesarias por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
+enfrentaba una curva de aprendizaje considerable con respecto al uso de algunas de las tecnologías necesarias, por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
 con alguna de estas._
 
 |*Reuniones*
@@ -80,13 +81,17 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
 
 |*Accesibilidad*
-|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quien sea. Seguiremos los estandares de accesibilidad y
-usaremos el color, tamaño de texto... adecuados para ello._
+|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea. Seguiremos el estándard WCAG de la W3C,
+usando el color, tamaño de texto... adecuados para ello._
 
 |*Estructura*
-|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estaran separados en carpetas
-principalmente: 'users' para el la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
+|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas
+principalmente: 'users' para la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
 para la documentación._
+
+|*Convenciones del lenguaje de programación*
+|_Es fundamental adherirse a las convenciones de los diferentes lenguajes de programación utilizados para garantizar que la aplicación tenga un código legible, 
+que facilite su mantenimiento._
 
 
 |===
