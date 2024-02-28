@@ -2,31 +2,32 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = ({isLogged}) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [createdAt, setCreatedAt] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-
-  const loginUser = async () => {
-    try {
-      const response = await axios.post(`${apiEndpoint}/login`, { username, password });
-
-      // Extract data from the response
-      const { createdAt: userCreatedAt } = response.data;
-
-      setCreatedAt(userCreatedAt);
-      setLoginSuccess(true);
-
-      setOpenSnackbar(true);
-    } catch (error) {
-      setError(error.response.data.error);
-    }
+    const loginUser = async () => {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+          console.log("LOGIN EXITOSO, MIRAR FIREBASE")
+          setLoginSuccess(true);
+          setOpenSnackbar(true);
+        })
+        .catch((error) => {
+          console.log("LOGIN FALLIDO")
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(errorMessage);
+        });
   };
 
   const handleCloseSnackbar = () => {
@@ -38,10 +39,10 @@ const Login = ({isLogged}) => {
       {loginSuccess ? (
         <div>
           <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
-            Hello {username}!
+            Hello {email}!
           </Typography>
           <Typography component="p" variant="body1" sx={{ textAlign: 'center', marginTop: 2 }}>
-            Your account was created on {new Date(createdAt).toLocaleDateString()}.
+            Ahora puedes jugar y ver tus estadísticas.
           </Typography>
         </div>
       ) : (
@@ -52,9 +53,9 @@ const Login = ({isLogged}) => {
           <TextField
             margin="normal"
             fullWidth
-            label="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             margin="normal"

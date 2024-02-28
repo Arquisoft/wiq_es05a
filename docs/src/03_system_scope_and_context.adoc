@@ -54,7 +54,7 @@ image::03_1_contexto-negocio.png["Diagrama de contexto de negocio"]
 |===
 |Componentes |Explicación
 
-|*Sistema*
+|*WIQ*
 |_Contiene el frontend y backend de la aplicación._
 
 |*Base de Datos*
@@ -64,7 +64,7 @@ image::03_1_contexto-negocio.png["Diagrama de contexto de negocio"]
 |_Los usuarios que interactuaran con la aplicación._
 
 |*Wikidata*
-|_API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación._
+|_Fuente de información para la creación de las preguntas y respuestas._
 
 |===
 
@@ -94,11 +94,11 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |*Sistema*
 |Contiene el frontend y backend de la aplicación.
 
-|*MongoDB*
-|Base de datos no relacional para el almacenamiento de usuarios.
+|*MySQL*
+|Base de datos relacional para el almacenamiento de preguntas y respuestas.
 
 |*Usuario*
-|Los usuarios que interactuaran con la aplicación.
+|El usuario final de la aplicación.
 
 |*Wikidata API*
 |API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.
@@ -114,4 +114,7 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 
 |*Firebase*
 |Plataforma de desarrollo de Google, se utiliza en el login del sistema.
+
+|*Bootstrap*
+|Biblioteca para el diseño de aplicaciónes web.
 |===

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import AddUser from './components/AddUser';
 import Layout from './components/Pages/Layout';
 import Home from './components/Pages/Home';
@@ -7,7 +7,7 @@ import Login from './components/Login';
 import Juego from './components/Pages/Juego';
 import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
-import { Navigate } from 'react-router-dom';
+import Firebase from './components/FirebaseStart';
 
 function App() {
   const [isLogged, setIsLogged] = useState(true);
