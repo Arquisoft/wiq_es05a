@@ -73,22 +73,22 @@ Mapeo de bloques de construcción a infraestructura::
 |Elemento |Descripción
 
 |*Servidor Azure*
-|_Servidor alojado en la nube de Microsoft Azure sobre el que se realiza el despliegue._
+|Servidor alojado en la nube de Microsoft Azure sobre el que se realiza el despliegue.
 
 |*Contenedores Docker*
-|_Son instancias virtualizadas y aisladas que contienen cada una uno de los microservicios que conforman la aplicación._
+|Son instancias virtualizadas y aisladas que contienen cada una uno de los microservicios que conforman la aplicación.
 
 |*WebApp*
-|_Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario._
+|Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario.
 
 |*Rest*
-|_Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola 
-posteriormente en una base de datos MySQL._
+|Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola 
+posteriormente en una base de datos MySQL.
 
 |*Users*
-|_Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase. _
+|Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.
 
 |*Navegador Web*
-|_Programa sobre el que el cliente visualiza e interactúa con la aplicación web._
+|Programa sobre el que el cliente visualiza e interactúa con la aplicación web.
 |===
 
