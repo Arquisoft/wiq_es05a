@@ -108,8 +108,6 @@ Bloques de construcción contenidos::
 |*REST*
 |_Manejo de datos de Wikidata._
 
-|*Users*
-|_El manejo de las cuentas de los usuarios._
 |===
 
 
