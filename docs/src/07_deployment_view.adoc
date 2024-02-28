@@ -3,7 +3,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-deployment-view]]
 
 
-== Deployment View
+== Vista de Despliegue
 
 [role="arc42help"]
 ****
@@ -42,7 +42,7 @@ See https://docs.arc42.org/section-7/[Deployment View] in the arc42 documentatio
 
 ****
 
-=== Infrastructure Level 1
+=== Infrastructura Nivel 1
 
 [role="arc42help"]
 ****
@@ -56,39 +56,39 @@ Describe (usually in a combination of diagrams, tables, and text):
 For multiple environments or alternative deployments please copy and adapt this section of arc42 for all relevant environments.
 ****
 
-_**<Overview Diagram>**_
+image::07_diagramaDespliegue.png["Diagrama de despliegue"]
 
-Motivation::
+Motivación::
 
-_<explanation in text form>_
+El equipo de desarrollo creará nuevas releases desde GitHub, que se desplegarán automáticamente sobre un servidor de Azure con la tecnología de contenedores de Docker.
 
-Quality and/or Performance Features::
+Características de calidad y/o rendimiento::
 
-_<explanation in text form>_
+Esta forma de despliegue consideramos que es muy efectiva tanto por la facilidad para realizar despliegues como por el buen rendimiento que nos ofrecen los servidores 
+alojados en Azure.
 
-Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
+Mapeo de bloques de construcción a infraestructura::
 
+|===
+|Elemento |Descripción
 
-=== Infrastructure Level 2
+|*Servidor Azure*
+|_Servidor alojado en la nube de Microsoft Azure sobre el que se realiza el despliegue._
 
-[role="arc42help"]
-****
-Here you can include the internal structure of (some) infrastructure elements from level 1.
+|*Contenedores Docker*
+|_Son instancias virtualizadas y aisladas que contienen cada una uno de los microservicios que conforman la aplicación._
 
-Please copy the structure from level 1 for each selected element.
-****
+|*WebApp*
+|_Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario._
 
-==== _<Infrastructure Element 1>_
+|*Rest*
+|_Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola 
+posteriormente en una base de datos MySQL._
 
-_<diagram + explanation>_
+|*Users*
+|_Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase. _
 
-==== _<Infrastructure Element 2>_
+|*Navegador Web*
+|_Programa sobre el que el cliente visualiza e interactúa con la aplicación web._
+|===
 
-_<diagram + explanation>_
-
-...
-
-==== _<Infrastructure Element n>_
-
-_<diagram + explanation>_
