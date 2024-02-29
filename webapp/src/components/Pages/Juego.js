@@ -12,11 +12,11 @@ const Juego = ({isLogged}) => {
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
       <h2> PREGUNTA </h2>
-      <div class="button-container">
-        <button id="boton1" class="button" onclick={botonRespuesta}>RESPUESTA PRUEBA PARA VER CUANTO OCUPA 1</button>
-        <button id="boton2" class="button" onclick={botonRespuesta}>RESPUESTA PRUEBA PARA VER UNA RESPUESTA LARGA</button>
-        <button id="boton3" class="button" onclick={botonRespuesta}>RESPUESTA PRUEBA JEJE</button>
-        <button id="boton4" class="button" onclick={botonRespuesta}>RESPUESTA PRUEBA PARA VER QUE TAL</button>
+      <div className="button-container">
+        <button id="boton1" className="button" onClick={botonRespuesta}>RESPUESTA PRUEBA PARA VER CUANTO OCUPA 1</button>
+        <button id="boton2" className="button" onClick={botonRespuesta}>RESPUESTA PRUEBA PARA VER UNA RESPUESTA LARGA</button>
+        <button id="boton3" className="button" onClick={botonRespuesta}>RESPUESTA PRUEBA JEJE</button>
+        <button id="boton4" className="button" onClick={botonRespuesta}>RESPUESTA PRUEBA PARA VER QUE TAL</button>
       </div>
     </Container>
   );
