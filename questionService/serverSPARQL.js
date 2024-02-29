@@ -52,4 +52,4 @@ app.get('/pregunta', async (req, res) => {
 });
 
 // Iniciamos el servidor en el puerto 3000
-app.listen(3000, () => console.log('El servidor está escuchando en el puerto 3000'));
+app.listen(2500, () => console.log('El servidor está escuchando en el puerto 2500'));

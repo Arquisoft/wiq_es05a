@@ -2,10 +2,13 @@
 FROM node:20
 
 # Set the working directory in the container
-WORKDIR /usr/src/questionService
+WORKDIR /usr/src/questionservice
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+
+#Create an optimized version of the webapp
+RUN npm install axios
 
 # Install app dependencies
 RUN npm install
