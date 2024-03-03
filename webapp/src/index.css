@@ -22,3 +22,8 @@ body{
   background-color: #8A6FD6 ;
 }
 
+body h1{
+  font-family: 'Verdana';
+  text-align: center; /* Centra el texto */
+  margin-bottom: 30px;
+}

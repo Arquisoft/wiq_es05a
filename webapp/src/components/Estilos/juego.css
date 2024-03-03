@@ -1,31 +1,43 @@
-
+#botonSiguiente{
+    width: 200px;
+    padding: 10px 20px;
+    color: #ffffff; /* Color del texto */
+    background-color: #4CAF50; /* Color de fondo verde */
+    border: 2px solid #4CAF50; /* Borde verde */
+    }
 
 .button {
-
     padding: 20px 20px 20px 20px ; /* espacio entre borde y el texto dentro del boton */
-    border: 2px solid black; /* Color del borde */
+    border: 2px solid; /* Color del borde */
     font-weight: bold;
     border-radius: 5px; /* Borde redondeado */
     background-color: #613FBB; /* Color de fondo */
     margin-bottom: 10px;
     margin-left:-48px;
-    width: 500px; /* Ajusta el valor según el ancho deseado */
+    background-color: white;
+    width: 500px;
   }
 
+  .button:disabled {
+    color:black;
+  }
+
+
+
   #boton1{
-    background-color: #E14E4E; /* Color de fondo */
+    border: 6px solid #E14E4E;
   }
 
   #boton2{
-    background-color: #E1CB4E; /* Color de fondo */
+    border: 6px solid #CBBA2A; 
   }
 
   #boton3{
-    background-color: #4EE15E; /* Color de fondo */
+    border: 6px solid #05B92B; 
   }
 
   #boton4{
-    background-color: #4E8DE1; /* Color de fondo */
+    border: 6px solid #1948D9; 
   }
 
   body h2 {
