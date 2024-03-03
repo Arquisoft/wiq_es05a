@@ -6,6 +6,7 @@ import { Container, Typography, TextField, Button, Snackbar } from '@mui/materia
 
 const Juego = ({isLogged}) => {
   const [pregunta, setPregunta] = useState("")
+  //Respuesta correcta
   const [resCorr, setResCorr] = useState("")
   const [resFalse, setResFalse] = useState([])
   const [respondido, setRespodido] = useState(false)
@@ -15,12 +16,30 @@ const Juego = ({isLogged}) => {
     //comprobara si la respuesta es correcta o no 
     setRespodido(true)
     if(respuesta == resCorr){
-      console.log("entro a respuesat correcta")
+      console.log("entro a respuesta correcta")
       setVictoria(true)
     }
     else{
       setVictoria(false)
     }
+    
+    //Cambiar color de botones
+    const buttonContainer = document.querySelector('.button-container');
+    const buttons = buttonContainer.querySelectorAll('.button');
+    const botonEncontrado = Array.from(buttons).find((button) => {
+      button.disabled=true; //desactivamos todos los botones
+        if(button.textContent.trim()==respuesta.trim()){
+          //Si era la cambiamos color fondo a verde, si no a rojo
+          if(button.textContent.trim() == resCorr) {
+            button.style.backgroundColor = "#05B92B";
+            button.style.border = "6px solid #05B92B";
+          } else {
+            button.style.backgroundColor = "#E14E4E";
+            button.style.border = "6px solid #E14E4E";
+          }
+        }
+    });
+
   };
   
   async function CargarPregunta(pregunta, resCorr, resFalse){
@@ -33,9 +52,15 @@ const Juego = ({isLogged}) => {
           setResFalse(todo.answers)
         });
     }, []);
-    console.log(pregunta);
-    console.log(resCorr);
-    console.log(resFalse)
+    //console.log(pregunta);
+    //console.log(resCorr);
+    //console.log(resFalse)
+
+    
+  }
+
+  function clickSiguiente() {
+    window.location.href = "game";
   }
 
   CargarPregunta(pregunta, resCorr, resFalse);
@@ -43,25 +68,16 @@ const Juego = ({isLogged}) => {
   
   return (
     <>
-    {respondido ? (
-      <>
-      {victoria ? (
-        <h2> ACERTASTE </h2>
-      ) : (
-        <h2> FALLASTE </h2>
-      )}
-      </>
-      ) : (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         <h2> {pregunta} </h2>
         <div className="button-container">
-          <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}>{resFalse[1]}</button>
-          <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}>{resFalse[2]}</button>
-          <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}>{resFalse[0]}</button>
-          <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}>{resFalse[3]}</button>
+          <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
+          <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
+          <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
+          <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
         </div>
+        <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
       </Container>
-      )}
       </>
   );
 };
