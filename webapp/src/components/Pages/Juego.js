@@ -5,43 +5,35 @@ import '../Estilos/juego.css';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
 
 const Juego = ({isLogged}) => {
+  //La pregunta (string)
   const [pregunta, setPregunta] = useState("")
-  //Respuesta correcta
+  //La Respuesta correcta (string)
   const [resCorr, setResCorr] = useState("")
+  //Array de las cuatros respuestas
   const [resFalse, setResFalse] = useState([])
+  //constante booleana para saber si se ha respondido ya o no (si se ha pulsado un boton se pone a true)
   const [respondido, setRespodido] = useState(false)
+  //constante para saber si ha ganado, booleana
   const [victoria, setVictoria] = useState(false)
 
-  const botonRespuesta = (respuesta) => { 
-    //comprobara si la respuesta es correcta o no 
-    setRespodido(true)
-    if(respuesta == resCorr){
-      console.log("entro a respuesta correcta")
-      setVictoria(true)
-    }
-    else{
-      setVictoria(false)
-    }
-    
-    //Cambiar color de botones
-    const buttonContainer = document.querySelector('.button-container');
-    const buttons = buttonContainer.querySelectorAll('.button');
-    const botonEncontrado = Array.from(buttons).find((button) => {
-      button.disabled=true; //desactivamos todos los botones
-        if(button.textContent.trim()==respuesta.trim()){
-          //Si era la cambiamos color fondo a verde, si no a rojo
-          if(button.textContent.trim() == resCorr) {
-            button.style.backgroundColor = "#05B92B";
-            button.style.border = "6px solid #05B92B";
-          } else {
-            button.style.backgroundColor = "#E14E4E";
-            button.style.border = "6px solid #E14E4E";
-          }
-        }
-    });
+  //Constantes para el tiempo en segundos que va pasando
+  //Comprueba si la url tiene el parametro started
+  const isStarted = !new URLSearchParams(window.location.search).has('started');
+  //El tiempo al acceder a la pagina, si tiene started en la url se inicializa con el tiempo almacenado en local storage
+  const tiempoInicial = isStarted ? 0 : parseInt(localStorage.getItem('tiempoSegundos')) || 0;
+  //Constante que va sumando segundos
+  const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
 
-  };
-  
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      setTiempoSegundos((prevTiempo) => prevTiempo + 1);
+    }, 1000);
+    return () => clearInterval(intervalID);
+  }, []); 
+
+ 
+  //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
   async function CargarPregunta(pregunta, resCorr, resFalse){
     useEffect(() => {
       fetch("http://localhost:2500/pregunta")
@@ -51,24 +43,74 @@ const Juego = ({isLogged}) => {
           setResCorr(todo.answerGood)
           setResFalse(todo.answers)
         });
-    }, []);
-    //console.log(pregunta);
-    //console.log(resCorr);
-    //console.log(resFalse)
-
-    
-  }
-
-  function clickSiguiente() {
-    window.location.href = "game";
+    }, []);    
   }
 
   CargarPregunta(pregunta, resCorr, resFalse);
+
+  /**
+   * Funcion que se llamara al hacer click a una de las respuestas
+   */
+  const botonRespuesta = (respuesta) => { 
+    //Comprueba si la respuesta es correcta o no y pone la variable victoria a true o false
+    //por ahora esta variable no se utiliza para nada
+    setRespodido(true)
+    if(respuesta == resCorr){
+      console.log("entro a respuesta correcta")
+      setVictoria(true)
+    }
+    else{
+      setVictoria(false)
+    }
+    
+    cambiarColorBotones(respuesta);
+
+  };
+
+  /*
+  * Para cambiar el color de los botones al hacer click en uno de ellos
+  */
+  const cambiarColorBotones = (respuesta) => { 
+      //Obtenemos el contenedor de botones
+      const buttonContainer = document.querySelector('.button-container');
+      //Obtenemos los botones dentro del dicho contenedor
+      const buttons = buttonContainer.querySelectorAll('.button');
+      //Recorremos cada boton
+      const botonEncontrado = Array.from(buttons).find((button) => {
+        //Desactivamos TODOS los botones
+        button.disabled=true; 
+        //Ponemos el boton de la respuesta correcta en verde
+        if(button.textContent.trim() == resCorr) {
+          button.style.backgroundColor = "#05B92B";
+          button.style.border = "6px solid #05B92B";
+        }
+        //Ponemos el boton de la marcada en rojo si era incorrecta
+          if(button.textContent.trim()==respuesta.trim()){
+            if(! (button.textContent.trim() == resCorr)) {
+              button.style.backgroundColor = "#E14E4E";
+              button.style.border = "6px solid #E14E4E";
+            }
+          }
+      });
+  }
+  
+ 
+  //Funcion que se llama al hacer click en el boton Siguiente
+  function clickSiguiente() {
+    //Guarda el temporizador en local storage del explorador para que continue y no se reinicie
+    localStorage.setItem('tiempoSegundos', tiempoSegundos.toString());
+    //Recarga la pagina para pasar a la siguiente pregunta, guardando en la url un parametro 'started' para que se guarde
+    //no se reinicie el temporizador
+    window.location.href = `game?started=true`;
+  }
+
+
   
   
   return (
     <>
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
+        <div className="temporizador"> <p> {tiempoSegundos} </p> </div>
         <h2> {pregunta} </h2>
         <div className="button-container">
           <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>

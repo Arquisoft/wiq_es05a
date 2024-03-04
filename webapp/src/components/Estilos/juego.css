@@ -6,6 +6,22 @@
     border: 2px solid #4CAF50; /* Borde verde */
     }
 
+.temporizador {
+      position: fixed;
+      top:75px;
+      right: 25px; /*Colocar en la derecha de la pantalla*/
+      background-color: #4A11AF; /* Color de fondo */
+      color: #fff; /* Color de texto */
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* Esto crea la forma de un círculo */
+      display: flex;
+      justify-content: center; /*Centrar el numero horizontalmente*/
+      align-items: center; /*Centrar numero verticalmente*/
+      font-size: 38px; /*Tamaño numero*/
+      font-weight: bold; /*Poner en negrita*/
+    }
+
 .button {
     padding: 20px 20px 20px 20px ; /* espacio entre borde y el texto dentro del boton */
     border: 2px solid; /* Color del borde */
