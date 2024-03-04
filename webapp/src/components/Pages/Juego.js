@@ -15,22 +15,24 @@ const Juego = ({isLogged}) => {
   const [respondido, setRespodido] = useState(false)
   //constante para saber si ha ganado, booleana
   const [victoria, setVictoria] = useState(false)
-
-  //Constantes para el tiempo en segundos que va pasando
-  //Comprueba si la url tiene el parametro started
-  const isStarted = !new URLSearchParams(window.location.search).has('started');
-  //El tiempo al acceder a la pagina, si tiene started en la url se inicializa con el tiempo almacenado en local storage
-  const tiempoInicial = isStarted ? 0 : parseInt(localStorage.getItem('tiempoSegundos')) || 0;
-  //Constante que va sumando segundos
-  const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
+  //Constante que va restando segundos
+  const [tiempoSegundos, setTiempoSegundos] = useState(22);
+  //Para saber si el temporizador se ha parado al haber respondido una respuesta
+  const [pausarTemporizador, setPausarTemporizador] = useState(false)
 
 
   useEffect(() => {
-    const intervalID = setInterval(() => {
-      setTiempoSegundos((prevTiempo) => prevTiempo + 1);
-    }, 1000);
+    let intervalID;
+
+    if (tiempoSegundos > 0 && !pausarTemporizador) {
+      intervalID = setInterval(() => {
+        setTiempoSegundos((prevTiempo) => prevTiempo - 1);
+      }, 1000);
+    }
+    if(tiempoSegundos<=0)
+      revelarRespuestas();
     return () => clearInterval(intervalID);
-  }, []); 
+  }, [tiempoSegundos, pausarTemporizador]);
 
  
   //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
@@ -55,6 +57,7 @@ const Juego = ({isLogged}) => {
     //Comprueba si la respuesta es correcta o no y pone la variable victoria a true o false
     //por ahora esta variable no se utiliza para nada
     setRespodido(true)
+    setPausarTemporizador(true);
     if(respuesta == resCorr){
       console.log("entro a respuesta correcta")
       setVictoria(true)
@@ -93,15 +96,35 @@ const Juego = ({isLogged}) => {
           }
       });
   }
+
+  /*
+  * Cambiar colores de todos los botones cuando se acaba el tiempo
+  */
+  const revelarRespuestas = () => { 
+    //Obtenemos el contenedor de botones
+    const buttonContainer = document.querySelector('.button-container');
+    //Obtenemos los botones dentro del dicho contenedor
+    const buttons = buttonContainer.querySelectorAll('.button');
+    //Recorremos cada boton
+    const botonEncontrado = Array.from(buttons).find((button) => {
+      //Desactivamos TODOS los botones
+      button.disabled=true; 
+      //Ponemos el boton de la respuesta correcta en verde
+      if(button.textContent.trim() == resCorr) {
+        button.style.backgroundColor = "#05B92B";
+        button.style.border = "6px solid #05B92B";
+      } else{
+        button.style.backgroundColor = "#E14E4E";
+            button.style.border = "6px solid #E14E4E";
+      }
+    });
+}
   
  
   //Funcion que se llama al hacer click en el boton Siguiente
   function clickSiguiente() {
-    //Guarda el temporizador en local storage del explorador para que continue y no se reinicie
-    localStorage.setItem('tiempoSegundos', tiempoSegundos.toString());
-    //Recarga la pagina para pasar a la siguiente pregunta, guardando en la url un parametro 'started' para que se guarde
-    //no se reinicie el temporizador
-    window.location.href = `game?started=true`;
+    //Recarga la pagina para cambiar de pregunta
+    window.location.href = "game";
   }
 
 
