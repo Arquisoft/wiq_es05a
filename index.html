@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.21">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,7 +162,6 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
-body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +327,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -474,8 +473,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
-<li><a href="#_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</a></li>
-<li><a href="#_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</a></li>
+<li><a href="#_inicio_sesión">6.1. &lt;Inicio Sesión&gt;</a></li>
+<li><a href="#_interaccion_con_preguntas">6.2. &lt;Interaccion con preguntas&gt;</a></li>
 <li><a href="#">6.3. &#8230;&#8203;</a></li>
 <li><a href="#_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</a></li>
 </ul>
@@ -1002,7 +1001,7 @@ The title of the table is the name of your system, the three columns contain the
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Sistema</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WIQ</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Contiene el frontend y backend de la aplicación.</em></em></p></td>
 </tr>
 <tr>
@@ -1015,7 +1014,7 @@ The title of the table is the name of your system, the three columns contain the
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Fuente de información para la creación de las preguntas y respuestas.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1061,12 +1060,12 @@ together with a mapping table showing the relationships between channels and inp
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contiene el frontend y backend de la aplicación.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos no relacional para el almacenamiento de usuarios.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MySQL</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos relacional para el almacenamiento de preguntas y respuestas.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Los usuarios que interactuaran con la aplicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario final de la aplicación.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata API</strong></em></p></td>
@@ -1087,6 +1086,10 @@ together with a mapping table showing the relationships between channels and inp
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Firebase</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma de desarrollo de Google, se utiliza en el login del sistema.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Bootstrap</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca para el diseño de aplicaciónes web.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1332,10 +1335,6 @@ In the best case you will get away with examples or simple signatures.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>REST</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Manejo de datos de Wikidata.</em></em></p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Users</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El manejo de las cuentas de los usuarios.</em></em></p></td>
-</tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
@@ -1408,30 +1407,37 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></p>
-</li>
-<li>
-<p><em>&lt;insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.&gt;</em></p>
-</li>
-</ul>
+<h3 id="_inicio_sesión">6.1. &lt;Inicio Sesión&gt;</h3>
+<div class="paragraph">
+<p>A la hora de iniciar sesión nuestra web App nos mostrara la ventana pidiendo los datos necesarios para poder empezar a jugar.</p>
 </div>
 <div class="paragraph">
-<p>It is possible to use a sequence diagram:</p>
+<p>Se le piden una serie de datos al usuario que serán posteriormente pasados a Firebase encargado de controlar estos datos y devolverle a web App el ID del usuario que estará jugando.</p>
+</div>
+<div class="paragraph">
+<p>Una vez que el usario a completado el inicio de sesión de forma exitosa nuestra web App pasará a mostrar la pantalla de inicio del juego.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Sequence%20diagram.png" alt="Sequence diagram" width="332" height="335">
+<img src="./images/06_acceso.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</h3>
-
+<h3 id="_interaccion_con_preguntas">6.2. &lt;Interaccion con preguntas&gt;</h3>
+<div class="paragraph">
+<p>Rest que tiene nuestra base de datos será el encargado de obtener la pregunta con sus respuestas correctas e incorrectas y pasarsela a web App</p>
+</div>
+<div class="paragraph">
+<p>Web App comenzara mostrando por pantalla la pregunta con todas las respuestas disponibles, a lo que el usuario solo podrá escoger una respuesta de todas las posibles.
+Una vez el usuario elige la respuesta se comprobará si los resultados son correctos o errones.</p>
+</div>
+<div class="paragraph">
+<p>En base a la respuesta del usuario web App mostrara si ha acertado o fallado de forma visual que lo pueda entender el usuario.</p>
+</div>
+<div class="paragraph">
+<p>mage::06_pregunta.png["Diagrama vista de tiempo de ejecución para la pregunta"]</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="">6.3. &#8230;&#8203;</h3>
@@ -2162,7 +2168,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-02-26 14:09:30 +0100
+Last updated 2024-03-03 12:45:24 +0100
 </div>
 </div>
 </body>
