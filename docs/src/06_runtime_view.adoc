@@ -37,28 +37,26 @@ See https://docs.arc42.org/section-6/[Runtime View] in the arc42 documentation.
 
 ****
 
-=== <Runtime Scenario 1>
+=== <Inicio Sesión>
 
+A la hora de iniciar sesión nuestra web App nos mostrara la ventana pidiendo los datos necesarios para poder empezar a jugar.
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
+Se le piden una serie de datos al usuario que serán posteriormente pasados a Firebase encargado de controlar estos datos y devolverle a web App el ID del usuario que estará jugando.
 
-It is possible to use a sequence diagram:
+Una vez que el usario a completado el inicio de sesión de forma exitosa nuestra web App pasará a mostrar la pantalla de inicio del juego.
 
-[plantuml,"Sequence diagram",png]
-----
-actor Alice
-actor Bob
-database Pod as "Bob's Pod"
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-Alice  --> Pod: Store route
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
-----
+image::06_acceso.png["Diagrama vista de tiempo de ejecución para el acceso"]
 
-=== <Runtime Scenario 2>
+=== <Interaccion con preguntas>
+
+Rest que tiene nuestra base de datos será el encargado de obtener la pregunta con sus respuestas correctas e incorrectas y pasarsela a web App
+
+Web App comenzara mostrando por pantalla la pregunta con todas las respuestas disponibles, a lo que el usuario solo podrá escoger una respuesta de todas las posibles.
+Una vez el usuario elige la respuesta se comprobará si los resultados son correctos o errones.
+
+En base a la respuesta del usuario web App mostrara si ha acertado o fallado de forma visual que lo pueda entender el usuario.
+
+image::06_pregunta.png["Diagrama vista de tiempo de ejecución para la pregunta"]
 
 === ...
 

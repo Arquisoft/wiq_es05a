@@ -10,7 +10,6 @@ const Layout = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="game">Juego</Nav.Link>
                 <Nav.Link href="stats">Estadísticas</Nav.Link>
               </Nav>
               <Nav>
