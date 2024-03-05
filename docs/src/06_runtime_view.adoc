@@ -56,7 +56,7 @@ Una vez el usuario elige la respuesta se comprobará si los resultados son corre
 
 En base a la respuesta del usuario web App mostrara si ha acertado o fallado de forma visual que lo pueda entender el usuario.
 
-mage::06_pregunta.png["Diagrama vista de tiempo de ejecución para la pregunta"]
+image::06_pregunta.png["Diagrama vista de tiempo de ejecución para la pregunta"]
 
 === ...
 
