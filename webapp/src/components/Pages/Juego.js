@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Estilos/juego.css';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import Temporizador from '../Temporizador';
 
 const Juego = ({isLogged}) => {
   //La pregunta (string)
@@ -15,26 +16,10 @@ const Juego = ({isLogged}) => {
   const [respondido, setRespodido] = useState(false)
   //constante para saber si ha ganado, booleana
   const [victoria, setVictoria] = useState(false)
-  //Constante que va restando segundos
-  const [tiempoSegundos, setTiempoSegundos] = useState(22);
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
-
-
-  useEffect(() => {
-    let intervalID;
-
-    if (tiempoSegundos > 0 && !pausarTemporizador) {
-      intervalID = setInterval(() => {
-        setTiempoSegundos((prevTiempo) => prevTiempo - 1);
-      }, 1000);
-    }
-    if(tiempoSegundos<=0)
-      revelarRespuestas();
-    return () => clearInterval(intervalID);
-  }, [tiempoSegundos, pausarTemporizador]);
-
- 
+  
+  
   //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
   async function CargarPregunta(pregunta, resCorr, resFalse){
     useEffect(() => {
@@ -66,20 +51,22 @@ const Juego = ({isLogged}) => {
       setVictoria(false)
     }
     
-    cambiarColorBotones(respuesta);
+    cambiarColorBotones(respuesta, true);
 
   };
 
   /*
   * Para cambiar el color de los botones al hacer click en uno de ellos
+  * True para modo pulsar uno de ellos (acertar/fallar)
+  * False si se quiere mostrar color de todos (acabar el tiempo)
   */
-  const cambiarColorBotones = (respuesta) => { 
+  const cambiarColorBotones = (respuesta, bool) => { 
       //Obtenemos el contenedor de botones
       const buttonContainer = document.querySelector('.button-container');
       //Obtenemos los botones dentro del dicho contenedor
       const buttons = buttonContainer.querySelectorAll('.button');
       //Recorremos cada boton
-      const botonEncontrado = Array.from(buttons).find((button) => {
+      Array.from(buttons).find((button) => {
         //Desactivamos TODOS los botones
         button.disabled=true; 
         //Ponemos el boton de la respuesta correcta en verde
@@ -87,39 +74,34 @@ const Juego = ({isLogged}) => {
           button.style.backgroundColor = "#05B92B";
           button.style.border = "6px solid #05B92B";
         }
+        if(bool){
         //Ponemos el boton de la marcada en rojo si era incorrecta
-          if(button.textContent.trim()==respuesta.trim()){
-            if(! (button.textContent.trim() == resCorr)) {
-              button.style.backgroundColor = "#E14E4E";
-              button.style.border = "6px solid #E14E4E";
-            }
-          }
+          cambiarColorUno(respuesta, button);
+        }else {
+          cambiarColorTodos(button);
+        }return button; //esta linea evita un warning de sonar cloud, sin uso
       });
+
   }
 
-  /*
-  * Cambiar colores de todos los botones cuando se acaba el tiempo
-  */
-  const revelarRespuestas = () => { 
-    //Obtenemos el contenedor de botones
-    const buttonContainer = document.querySelector('.button-container');
-    //Obtenemos los botones dentro del dicho contenedor
-    const buttons = buttonContainer.querySelectorAll('.button');
-    //Recorremos cada boton
-    const botonEncontrado = Array.from(buttons).find((button) => {
-      //Desactivamos TODOS los botones
-      button.disabled=true; 
-      //Ponemos el boton de la respuesta correcta en verde
-      if(button.textContent.trim() == resCorr) {
-        button.style.backgroundColor = "#05B92B";
-        button.style.border = "6px solid #05B92B";
-      } else{
+  function cambiarColorUno(respuesta, button){
+    if(button.textContent.trim()==respuesta.trim()){
+      if((button.textContent.trim() != resCorr)) {
         button.style.backgroundColor = "#E14E4E";
-            button.style.border = "6px solid #E14E4E";
+        button.style.border = "6px solid #E14E4E";
       }
-    });
-}
-  
+    }
+  }
+
+  function cambiarColorTodos(button){
+    if(button.textContent.trim() == resCorr) {
+      button.style.backgroundColor = "#05B92B";
+      button.style.border = "6px solid #05B92B";
+    } else{
+      button.style.backgroundColor = "#E14E4E";
+          button.style.border = "6px solid #E14E4E";
+    }
+  } 
  
   //Funcion que se llama al hacer click en el boton Siguiente
   function clickSiguiente() {
@@ -127,13 +109,10 @@ const Juego = ({isLogged}) => {
     window.location.href = "game";
   }
 
-
-  
   
   return (
-    <>
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-        <div className="temporizador"> <p> {tiempoSegundos} </p> </div>
+        <Temporizador tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador}/>
         <h2> {pregunta} </h2>
         <div className="button-container">
           <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
@@ -143,10 +122,7 @@ const Juego = ({isLogged}) => {
         </div>
         <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
       </Container>
-      </>
   );
 };
-
-
 
 export default Juego;
