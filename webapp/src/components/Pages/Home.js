@@ -1,28 +1,42 @@
-// src/components/Login.js
-import React, { useState, useEffect } from 'react';
-import '../Estilos/juego.css';
-import { Container } from '@mui/material';
+// Importamos las bibliotecas necesarias
+import React from 'react';
+import '../Estilos/home.css';
+import { Container, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function clickJugar() {
-  window.location.href = "game";
-}
-
-function clickEstadisticas() {
-  window.location.href = "stats";
-}
-
+// Definimos el componente Home
 const Home = () => {
+  // Utilizamos el hook useNavigate para la navegación
+  const navigate = useNavigate();
+
+  // Definimos la función que se ejecutará al hacer clic en el botón "Jugar"
+  const clickJugar = () => {
+    // Navegamos a la ruta "/game"
+    navigate("/game");
+  }
+
+  // Definimos la función que se ejecutará al hacer clic en el botón "Estadísticas"
+  const clickEstadisticas = () => {
+    // Navegamos a la ruta "/stats"
+    navigate("/stats");
+  }
+
+  // Renderizamos el componente
   return (
-    <>
-      <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-        <h1> WIQ_es05 </h1>
-        <div className="button-container">
-          <button id="botonJugar" className="button" onClick={() => clickJugar()}> JUGAR</button>
-          <button id="botonEstadisticas" className="button" onClick={() => clickEstadisticas()}> ESTADÍSTICAS</button>
-         </div>
-      </Container>
-      </>
+    // Utilizamos un contenedor de Material-UI para centrar el contenido
+    <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {/* Mostramos el título del juego */}
+      <h1 className="titulo">WIQ 5A</h1>
+      {/* Creamos un contenedor para los botones */}
+      <div className="button-container">
+        {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}
+        <Button variant="contained" color="primary" className="button" id="btJugar" onClick={clickJugar}>JUGAR</Button>
+        {/* Creamos el botón "Estadísticas" y le asignamos la función clickEstadisticas al evento onClick */}
+        <Button variant="contained" color="secondary" className="button" id="btEstadisticas" onClick={clickEstadisticas}>ESTADÍSTICAS</Button>
+      </div>
+    </Container>
   );
-  };
-  
-  export default Home;
+};
+
+// Exportamos el componente para poder utilizarlo en otras partes de la aplicación
+export default Home;
