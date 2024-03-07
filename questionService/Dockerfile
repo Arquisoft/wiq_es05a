@@ -17,4 +17,4 @@ RUN npm install
 COPY . .
 
 # Define the command to run your app
-CMD ["node", "serverSPARQL.js"]
+CMD ["node", "server.js"]
