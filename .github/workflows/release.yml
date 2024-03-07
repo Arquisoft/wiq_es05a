@@ -43,6 +43,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@v5
       env:
         API_URI: http://${{ secrets.DEPLOY_HOST }}:8000
+        REACT_APP_FIREBASE_KEY: ${{ github.REACT_APP_FIREBASE_KEY }}
       with:
           name: arquisoft/wiq_es05a/webapp
           username: ${{ github.actor }}
@@ -61,8 +62,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
-      env:
-        REACT_APP_FIREBASE_KEY: ${{ github.REACT_APP_FIREBASE_KEY }}
       with:
           name: arquisoft/wiq_es05a/questionservice
           username: ${{ github.actor }}
