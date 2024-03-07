@@ -23,12 +23,9 @@ services:
     networks:
       - mynetwork
     volumes:
-      - ./gatewayservice/monitoring/prometheus:/etc/prometheus
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
-    depends_on: 
-      - gatewayservice
       
   grafana:
     image: grafana/grafana
