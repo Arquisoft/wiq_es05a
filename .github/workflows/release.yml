@@ -30,6 +30,8 @@ jobs:
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
 #    - run: npm --prefix webapp run test:e2e
+    - run: npm --prefix questionservice install
+    - run: npm --prefix questionservice run build
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
     runs-on: ubuntu-latest
@@ -52,7 +54,7 @@ jobs:
           workdir: webapp
           buildargs: API_URI, REACT_APP_FIREBASE_KEY
   docker-push-questionservice:
-    name: Push auth service Docker Image to GitHub Packages
+    name: Push questionservice Docker Image to GitHub Packages
     runs-on: ubuntu-latest
     permissions:
       contents: read
