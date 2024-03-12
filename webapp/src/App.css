@@ -1,10 +1,12 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #6A48C4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +38,9 @@
     transform: rotate(360deg);
   }
 }
+
+.h1 {
+  color: #FFFFFF; /* Cambiamos el color del título a blanco para que contraste con el fondo */
+  font-size: 3em; /* Aumentamos el tamaño del título */
+}
+

@@ -1,0 +1,64 @@
+#botonSiguiente{
+    width: 6em;
+    font-size: 2em;
+    padding: 0.1em;
+    margin-top: 1em;
+    color: #ffffff; /* Color del texto */
+    background-color: #4CAF50; /* Color de fondo verde */
+    border: 2px solid #4CAF50; /* Borde verde */
+    text-align: center;
+}
+
+.temporizador {
+      position: fixed;
+      top:75px;
+      right: 25px; /*Colocar en la derecha de la pantalla*/
+      background-color: #4A11AF; /* Color de fondo */
+      color: #fff; /* Color de texto */
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* Esto crea la forma de un círculo */
+      display: flex;
+      justify-content: center; /*Centrar el numero horizontalmente*/
+      align-items: center; /*Centrar numero verticalmente*/
+      font-size: 38px; /*Tamaño numero*/
+      font-weight: bold; /*Poner en negrita*/
+    }
+
+.button {
+    padding: 20px 20px 20px 20px ; /* espacio entre borde y el texto dentro del boton */
+    border: 2px solid; /* Color del borde */
+    font-weight: bold;
+    border-radius: 5px; /* Borde redondeado */
+    background-color: #613FBB; /* Color de fondo */
+    margin-bottom: 10px;
+    margin-left:-48px;
+    background-color: white;
+    width: 500px;
+  }
+
+  .button:disabled {
+    color:black;
+  }
+
+  #boton1{
+    border: 6px solid #E14E4E;
+  }
+
+  #boton2{
+    border: 6px solid #CBBA2A; 
+  }
+
+  #boton3{
+    border: 6px solid #05B92B; 
+  }
+
+  #boton4{
+    border: 6px solid #1948D9; 
+  }
+
+  body h2 {
+    color: white;
+    font-family: 'Verdana';
+    text-align: center; /* Centra el texto */
+  }

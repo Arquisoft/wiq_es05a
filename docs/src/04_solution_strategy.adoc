@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-solution-strategy]]
-== Solution Strategy
+== Estrategia de solución
 
 
 [role="arc42help"]
@@ -31,14 +31,14 @@ See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentat
 
 ****
 
-* *JavaScript*: Este lenguaje es muy buena opción para utilizar en proyectos en que se emplé la tecnología REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.
+* *JavaScript*: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.
 
-* *React*: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web, simplificando la creación de interfaces gráficas.
+* *React*: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web de forma sencilla.
 
-* *Docker*: Utilizaremos los contenedores de Docker como lugar donde desplegar la aplicacion web, de manera que pueda probarse la aplicación de forma aislada.
+* *Docker*: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.
 
 * *Firebase*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
 
-* *WikiData*: Se trata de otra API a partir de la cual se generarán aleatoriamente las preguntas y respuestas, tanto correctas como incorrectas, que el usuario visualizará.
+* *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.
 
-* *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido por encima de MVC, por la facilidad a la hora de modificar una parte de la aplicación sin afectar al resto.
+* *MySQL:* Es una base de datos relacional ampliamente utilizada en proyectos debido a su fiabilidad, rendimiento y escalabilidad. Su estructura tabular facilita la organización de datos y su consulta a través de un lenguaje estándar (SQL). 

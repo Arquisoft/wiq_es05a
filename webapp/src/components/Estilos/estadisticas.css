@@ -1,0 +1,20 @@
+h2 {
+  margin-bottom: 20px; /* Espacio entre h2 y tabla */
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    background-color:rgb(225, 218, 245);
+    border: 2px solid black; /* Borde alrededor de la tabla */
+    margin: 0 auto;
+  }
+
+  th, td, tr {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid black; /* Borde entre las filas */
+  }
+
+
+  

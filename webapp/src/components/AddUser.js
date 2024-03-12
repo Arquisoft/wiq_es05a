@@ -2,22 +2,31 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
-
-const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const AddUser = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const addUser = async () => {
-    try {
-      await axios.post(`${apiEndpoint}/adduser`, { username, password });
-      setOpenSnackbar(true);
-    } catch (error) {
-      setError(error.response.data.error);
-    }
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        // ...
+        console.log("LOGIN EXITOSO, MIRAR FIREBASE")
+        setOpenSnackbar(true);
+      })
+      .catch((error) => {
+        console.log("LOGIN FALLIDO")
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+        // ..
+      });
   };
 
   const handleCloseSnackbar = () => {
@@ -30,12 +39,12 @@ const AddUser = () => {
         Add User
       </Typography>
       <TextField
-        name="username"
+        name="email"
         margin="normal"
         fullWidth
-        label="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        label="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
         name="password"

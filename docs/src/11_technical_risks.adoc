@@ -42,8 +42,15 @@ suficiente tiempo al desarrollo de este proyecto._
 las planeadas para solucionar este tipo de problemas._
 
 |*Caída de Servicios* 
-|_El desarrollo del proyecto puede verse afectado si alguno de los servicios utilizados, como por ejemplo Docker, pueden no funcionar en algún momento. Esto podría bloquear la entrega de alguna de las
-funcionalidades del proyecto._
+|_Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
+Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto  
+esto podría bloquear la entrega de alguna de las funcionalidades del proyecto._
+
+|*Problemas Software* 
+|_No podemos asegurar que nuestra aplicación pueda ser utilizada por todos los usuarios ya que en ciertos casos dependerá del sistema operativo de cada usuario._
+
+|*Problemas Hardware* 
+|_Dependiendo desde el dispositivo que se acceda a la aplicación si este no cumple los requisitos, como la resolución de pantalla, puede ser que la aplicacion no se vea de la forma esperada._
 
 |===
 

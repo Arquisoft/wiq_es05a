@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
-== Architecture Decisions
+== Decisiones arquitectónicas
 
 
 [role="arc42help"]
@@ -33,3 +33,34 @@ See https://docs.arc42.org/section-9/[Architecture Decisions] in the arc42 docum
 There you will find links and examples about ADR.
 
 ****
+
+[options="header",cols="1,2,1,2,2e"]
+|===
+|Aspecto |Descripción |Decisión |Explicación |Alternativas
+
+|*Lenguaje de Programación* 
+|_Lenguaje en el que se desarrollara la aplicación._
+|*JavaScript*
+|_Hemos elegido esta opción porque es la mejor para usar en proyectos con REACT. Es fácil de entender y de manejar._
+|*TypeScript*, pero creemos que es mas complejo.
+
+|*Framework* 
+|_Marco de trabajo para desarrollar la parte grafica de la aplicación._
+|*React*
+|_Optamos por este framework debido a su capacidad para simplificar el proceso de creación de interfaces gráficas._
+|*Angular, Vue...*
+
+|*Base de Datos* 
+|_Donde almacenaremos la informacion de los usuarios._
+|*MySQL*
+|_Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos 
+no relacional con una complejidad excesiva._
+|*MongoDB, Postgress, Redis, MariaDB, SQLLite...*
+
+|*Arquitectura* 
+|_La forma en la que se estructura la aplicación._
+|*Microservicios*
+|_Es una manera simple de organizar, facil de desacoplar y reutilizar._
+|Simplemente basada en *front-end y back-end.*
+
+|===

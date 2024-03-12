@@ -1,68 +1,18 @@
 version: '3'
 services:
-  mongodb:
-    container_name: mongodb-${teamname:-defaultASW}
-    image: mongo
+  questionservice:
+    container_name: questionservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_es05a/questionservice:latest
     profiles: ["dev", "prod"]
-    volumes:
-      - mongodb_data:/data/db
+    build: ./questionservice
     ports:
-      - "27017:27017"
-    networks:
-      - mynetwork
-
-  authservice:
-    container_name: authservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/authservice:latest
-    profiles: ["dev", "prod"]
-    build: ./users/authservice
-    depends_on:
-      - mongodb
-    ports:
-      - "8002:8002"
-    networks:
-      - mynetwork
-    environment:
-      MONGODB_URI: mongodb://mongodb:27017/userdb
-
-  userservice:
-    container_name: userservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/userservice:latest
-    profiles: ["dev", "prod"]
-    build: ./users/userservice
-    depends_on:
-      - mongodb
-    ports:
-      - "8001:8001"
-    networks:
-      - mynetwork
-    environment:
-      MONGODB_URI: mongodb://mongodb:27017/userdb
-
-  gatewayservice:
-    container_name: gatewayservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/gatewayservice:latest
-    profiles: ["dev", "prod"]
-    build: ./gatewayservice
-    depends_on:
-      - mongodb
-      - userservice
-      - authservice
-    ports:
-      - "8000:8000"
-    networks:
-      - mynetwork
-    environment:
-      AUTH_SERVICE_URL: http://authservice:8002
-      USER_SERVICE_URL: http://userservice:8001
+      - "2500:2500" 
 
   webapp:
     container_name: webapp-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es05a/webapp:latest
     profiles: ["dev", "prod"]
     build: ./webapp
-    depends_on:
-      - gatewayservice
     ports:
       - "3000:3000" 
 
@@ -73,12 +23,9 @@ services:
     networks:
       - mynetwork
     volumes:
-      - ./gatewayservice/monitoring/prometheus:/etc/prometheus
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
-    depends_on: 
-      - gatewayservice
       
   grafana:
     image: grafana/grafana
