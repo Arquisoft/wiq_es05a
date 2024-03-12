@@ -14,6 +14,7 @@ jobs:
         node-version: 20
     - run: npm --prefix webapp ci
 #    - run: npm --prefix webapp test -- --coverage
+    - run: npm --prefix questionservice ci
     - name: Analyze with SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
