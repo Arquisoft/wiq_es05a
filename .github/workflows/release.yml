@@ -14,7 +14,6 @@ jobs:
         node-version: 20
     - run: npm --prefix webapp ci
 #    - run: npm --prefix webapp test -- --coverage
-    - run: npm --prefix questionservice ci
     - name: Analyze with SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
@@ -31,8 +30,6 @@ jobs:
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
 #    - run: npm --prefix webapp run test:e2e
-    - run: npm --prefix questionservice install
-    - run: npm --prefix questionservice run build
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
     runs-on: ubuntu-latest
