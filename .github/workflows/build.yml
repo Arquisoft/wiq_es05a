@@ -14,11 +14,10 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
-    - run: npm install --package-lock-only
     #- run: npm --prefix users/authservice ci
     #- run: npm --prefix users/userservice ci
     #- run: npm --prefix gatewayservice ci
-    - run: npm --prefix questionservice ci
+    - run: npm --prefix questionservice
     - run: npm --prefix webapp ci
     #- run: npm --prefix users/authservice test -- --coverage
     #- run: npm --prefix users/userservice test -- --coverage
