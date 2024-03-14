@@ -1,10 +1,13 @@
 #botonSiguiente{
-    width: 200px;
-    padding: 10px 20px;
+    width: 6em;
+    font-size: 2em;
+    padding: 0.1em;
+    margin-top: 1em;
     color: #ffffff; /* Color del texto */
     background-color: #4CAF50; /* Color de fondo verde */
     border: 2px solid #4CAF50; /* Borde verde */
-    }
+    text-align: center;
+}
 
 .temporizador {
       position: fixed;
@@ -38,8 +41,6 @@
     color:black;
   }
 
-
-
   #boton1{
     border: 6px solid #E14E4E;
   }
@@ -60,8 +61,4 @@
     color: white;
     font-family: 'Verdana';
     text-align: center; /* Centra el texto */
-    
   }
-
-
-  

@@ -34,8 +34,8 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 |===
 |Término |Definición
 
-|*API*
-|Interfaz de programación de aplicaciones que permite la comunicación entre diferentes programas de software.
+|*API Rest*
+|Interfaz de programación de aplicaciones que permite interactuar con un sistema para obtener datos o ejecutar una función, de manera que el sistema comprenda la solicitud y la cumpla.
 
 |*Arc42*
 |Un marco de arquitectura que proporciona un conjunto de prácticas y plantillas para documentar y diseñar arquitecturas de software.
@@ -43,20 +43,22 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 |*Docker*
 |Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.
 
-|*GitHub*
-|Plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git.
-
-|*IDE*
-|Entorno de desarrollo integrado que proporciona herramientas y características para facilitar la escritura y depuración de código.
-
-|*JavaScript*
-|Lenguaje de programación utilizado principalmente para agregar interactividad y dinamismo a sitios web.
+|*MySQL*
+|Es el sistema de gestión de bases de datos relacionales de código abierto más popular del mundo. 
+MySQL es utilizado por muchas de las aplicaciones más accedidas, incluyendo Facebook, Twitter, Netflix, Uber, Airbnb, Shopify y Booking.com.
 
 |*Saber y Ganar*
-|Programa de televisión español de tipo concurso de preguntas y respuestas culturales.
+|Programa televisión española de tipo concurso de preguntas y respuestas culturales.
 
 |*TypeScript*
 |Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.
+
+|*WCAG*
+|Son una serie de pautas de accesibilidad web publicadas por la Iniciativa de Accesibilidad Web (WAI) del Consorcio World Wide Web (W3C). 
+Estas pautas explican cómo hacer que el contenido web sea más accesible para las personas con discapacidades.
+
+|*Web App*
+|Interfaz de usuario en el navegador del cliente. Permite al usuario interactuar con el servidor, enviar solicitudes y recibir respuestas.
 
 |*WikiData*
 |Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.

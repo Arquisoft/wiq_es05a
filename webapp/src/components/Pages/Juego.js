@@ -66,7 +66,7 @@ const Juego = ({isLogged}) => {
       //Obtenemos los botones dentro del dicho contenedor
       const buttons = buttonContainer.querySelectorAll('.button');
       //Recorremos cada boton
-      Array.from(buttons).find((button) => {
+      buttons.forEach((button) => {
         //Desactivamos TODOS los botones
         button.disabled=true; 
         //Ponemos el boton de la respuesta correcta en verde
@@ -92,6 +92,8 @@ const Juego = ({isLogged}) => {
       }
     }
   }
+
+
 
   function cambiarColorTodos(button){
     if(button.textContent.trim() == resCorr) {

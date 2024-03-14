@@ -1,0 +1,40 @@
+/* src/Estilos/home.css */
+
+/* Estilizamos el título del juego */
+.titulo {
+    /* Cambiamos el color del texto a un tono de azul */
+    color: #efeff1;
+    /* Aumentamos el tamaño de la fuente */
+    font-size: 10em;
+    /* Añadimos un margen inferior para separar el título de los botones */
+    margin-bottom: 0.5em;
+    font-family: 'Monaco', monospace;
+}
+  
+/* Estilizamos el contenedor de los botones */
+.button-container {
+    /* Cambiamos la dirección de los elementos a columna para que los botones se apilen verticalmente */
+    display: flex;
+    flex-direction: column;
+    /* Añadimos un espacio entre los botones */
+    gap: 1em;
+}
+  
+/* TODO: CORREGIR ESTA REGLA */
+/* Estilizamos los botones */
+.button {
+    /* Aumentamos el tamaño de la fuente */
+    font-size: 3em; 
+    /* Añadimos padding para dar más espacio alrededor del texto del botón */
+    padding: 2em 4em; 
+}
+
+#btJugar, #btEstadisticas{
+    /* Aumentamos el tamaño de la fuente */
+    font-size: 2em; 
+    font-weight: 400;
+    /* Añadimos padding para dar más espacio alrededor del texto del botón */
+    padding: 1em 4em; 
+    font-family:'Trebuchet MS';
+}
+  
