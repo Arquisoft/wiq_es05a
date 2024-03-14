@@ -30,13 +30,14 @@ app.post('/login', async (req, res) => {
     validateRequiredFields(req, ['username', 'password']);
 
     const { username, password } = req.body;
-
+    console.log("LLEGA")
     // Find the user by username in the database
     const user = await User.findOne({ username });
-
+    console.log("HIZO BUSQUEDA")
     // Check if the user exists and verify the password
     if (user && await bcrypt.compare(password, user.password)) {
       // Generate a JWT token
+      console.log("ENCONTRADO")
       const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
       // Respond with the token and user information
       res.json({ token: token, username: username, createdAt: user.createdAt });
