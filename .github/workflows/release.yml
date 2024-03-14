@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 6
     - run: npm --prefix questionservice ci
     - run: npm --prefix webapp ci
     - run: npm --prefix webapp test -- --coverage
@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 6
     - run: npm --prefix questionservice install
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
