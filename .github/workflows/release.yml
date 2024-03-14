@@ -12,6 +12,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 6
+    - run: npm --prefix questionservice install
     - run: npm --prefix questionservice ci
     - run: npm --prefix webapp ci
     - run: npm --prefix webapp test -- --coverage
