@@ -19,7 +19,10 @@ services:
     ports:
       - "8003:8003" 
     environment:
-      - ACCESS_CONTROL_ALLOW_ORIGIN=http://localhost:3000
+      - ACCESS_CONTROL_ALLOW_ORIGIN=http://webapp:3000 
+      - ACCESS_CONTROL_ALLOW_ORIGIN=http://localhost:3000/game
+    networks:
+      - mynetwork
 
   authservice:
     container_name: authservice-${teamname:-defaultASW}
