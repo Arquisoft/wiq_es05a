@@ -1,4 +1,5 @@
 // user-service.js
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -12,10 +13,9 @@ const port = 8001;
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/userdb';
+//const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/userdb';
+const mongoUri = process.env.MONGODB_URI;
 mongoose.connect(mongoUri);
-
-
 
 // Function to validate required fields in the request body
 function validateRequiredFields(req, requiredFields) {
