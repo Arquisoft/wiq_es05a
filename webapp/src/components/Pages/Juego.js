@@ -21,19 +21,20 @@ const Juego = ({isLogged}) => {
   
   
   //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
-  async function CargarPregunta(pregunta, resCorr, resFalse){
-    useEffect(() => {
-      fetch("http://localhost:2500/pregunta")
-        .then((res) => res.json())
-        .then((todo) => {
-          setPregunta(todo.question)
-          setResCorr(todo.answerGood)
-          setResFalse(todo.answers)
-        });
-    }, []);    
-  }
+  //Esta operación es llamada cuando pregunta esté vacia.
+  useEffect( () => {
+    const crear = async () => {
+      const response = await axios.get('http://localhost:8000/pregunta');
+      setPregunta(response.data.question)
+      setResCorr(response.data.answerGood)
+      setResFalse(response.data.answers)
+    }
+    if(pregunta == ""){
+      setPregunta("CARGANDO...")
+      crear();
+    }
+  }, [pregunta]);    
 
-  CargarPregunta(pregunta, resCorr, resFalse);
 
   /**
    * Funcion que se llamara al hacer click a una de las respuestas

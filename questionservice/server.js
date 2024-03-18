@@ -2,11 +2,11 @@
 const express = require('express');
 // Importamos el módulo Axios para realizar solicitudes HTTP
 const axios = require('axios');
-const cors = require('cors');
+//const cors = require('cors');
 
 // Creamos una nueva aplicación Express
 const app = express();
-app.use(cors());
+//app.use(cors());
 
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
@@ -55,6 +55,6 @@ app.get('/pregunta', async (req, res) => {
 });
 
 // Iniciamos el servidor en el puerto 3000
-const server = app.listen(2500, () => console.log('El servidor está escuchando en el puerto 2500'));
+const server = app.listen(8003, () => console.log('El servidor está escuchando en el puerto 8003'));
 
 module.exports = server

@@ -7,7 +7,6 @@ import Login from './components/Login';
 import Juego from './components/Pages/Juego';
 import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
-import Firebase from './components/FirebaseStart';
 
 function App() {
   const [isLogged, setIsLogged] = useState(true);
