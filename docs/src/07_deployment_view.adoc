@@ -81,11 +81,11 @@ Mapeo de bloques de construcción a infraestructura::
 |*WebApp*
 |Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario.
 
-|*Rest*
+|*QuestionService*
 |Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola 
 posteriormente en una base de datos MySQL.
 
-|*Users*
+|*UserService*
 |Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.
 
 |*Navegador Web*
