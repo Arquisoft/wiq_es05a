@@ -75,6 +75,9 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
  que reflejar el trabajo repartido a cada miembro. Se deberán realizar obligatoriamente cada vez que se realice una reunión y deberán constar los miembros del
  equipo que han participado._
 
+|*Decisiones arquitectónicas*
+|_Las decisiones arquitectónicas pueden ser una limitación organizativa al definir la estructura básica de un sistema de software, lo que podría obstaculizar la capacidad de realizar cambios y adaptarse a nuevas necesidades y tecnologías._
+
 |===
 
 === Convenciones
@@ -91,10 +94,10 @@ es decir, que sea fácil de entender, mantener y modificar, y que garantize la c
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
 
 |*Accesibilidad*
-|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea._
+|_Nos esforzaremos para que nuestra aplicación sea accesible para todos los usuarios, independientemente de su perfil o características individuales._
 
 |*Estructura*
-|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de
+|_Debe seguir una estructura de paquetes fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de
 usuarios (registro y autentificación), 'questionservice' para la comunicación con wikidata y 'webapp' para el desarrollo de la aplicación. Todos estos 
 servicios estarán comunicados por 'gatewayservice'._
 
