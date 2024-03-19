@@ -110,10 +110,10 @@ Table with role names, person names, and their expectations with respect to the 
 [cols="e,2e,2e" options="header"]
 |===
 |Rol/Nombre|Expectativa|Descripción
-| *Cristian Augusto* | _Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software_ | _Profesor de la asignatura_
+| *Profesor* | _Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software_ | _Profesor de la asignatura_
 | *HappySw* | _Una aplicación buena para atraer al mayor número de usuarios_ | _Equipo de desarrollo_
 | *Wikidata* | _Usar su aplicacion con precaución, sin sobrecargar sus servicios_ | _Empresa que nos facilita la API para obtener información_
 | *Usuarios Registrados* | _Poder jugar en la aplicación que recrea el juego sin tener que participar en el programa._ | _Usuarios que ya han jugado anteriormente_
-| *Usuarios No Registrados* | _Un registro fácil y rápido, asi como, una aplicación con buena Usabilidad_ | _Usuarios que nunca jugaron antes_
+| *Usuarios No Registrados* | _Poder registrarse lo más rápido posible para empezar a jugar al juego de preguntas y respuestas_ | _Usuarios que nunca jugaron antes_
 | *RTVE* | _Versión mejorada de "Saber y Ganar" para ganar mayor audiencia e interés social._ | _Dueño del producto_
 |===

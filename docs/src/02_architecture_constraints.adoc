@@ -36,16 +36,15 @@ Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones
 |Restricción |Explicación
 
 |*GIT*
-|_En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Además nos permite 
-una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
-miembro del equipo mediante el uso de las Issues._
+|_En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Asimismo, nos permite 
+una continua integración de forma remota mediante la paralelización del trabajo usando el sistema de ramas._
 
 |*Docker*
-|_Esta tecnología de contenerización es utilizada para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
+|_Esta tecnología de contenerización será requerida ya que la usaremos para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
 y realizar las pruebas pertinentes._
 
 |*Wikidata*
-|_Fuente de información utilizada para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego._
+|_En la asignatura se requiere que esta sea la fuente de información principal para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego._
 |===
 
 === Limitaciones organizativas
@@ -66,6 +65,16 @@ con alguna de estas._
 |*Reuniones*
 |_Para mantener un buen ritmo de trabajo a través de una correcta organización se realizan reuniones semanales en las clases prácticas de la asignatura. Además, mantenemos contacto
 a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reuniones extraordinarias utilizando nuestro servidor de Discord._
+
+|*Issues*
+|_Para el seguimiento y la gestión de las tareas, problemas, mejoras, autoinformes, etc. de la aplicación tendremos que usar las issues ofrecidas por github; esto es una obligación ya
+ que reflejara el trabajo realizado por cada miembro del equipo al poder asignarse cada issue._
+
+|*Actas*
+|_Al igual que las issues, las actas servirán para la organización de las tareas asi como para la toma de decisiones, y tendrán
+ que reflejar el trabajo repartido a cada miembro. Se deberán realizar obligatoriamente cada vez que se realice una reunión y deberán constar los miembros del
+ equipo que han participado._
+
 |===
 
 === Convenciones
@@ -75,19 +84,19 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |Restricción |Explicación
 
 |*Diseño del software*
-|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible._
+|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un código limpio ('clean code'),
+es decir, que sea fácil de entender, mantener y modificar, y que garantize la claridad, simplicidad y legibilidad._
 
 |*Documentación*
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
 
 |*Accesibilidad*
-|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea. Seguiremos el estándard WCAG de la W3C,
-usando el color, tamaño de texto... adecuados para ello._
+|_Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea._
 
 |*Estructura*
-|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas
-principalmente: 'users' para la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
-para la documentación._
+|_Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de
+usuarios (registro y autentificación), 'questionservice' para la comunicación con wikidata y 'webapp' para el desarrollo de la aplicación. Todos estos 
+servicios estarán comunicados por 'gatewayservice'._
 
 |*Convenciones del lenguaje de programación*
 |_Es fundamental adherirse a las convenciones de los diferentes lenguajes de programación utilizados para garantizar que la aplicación tenga un código legible, 

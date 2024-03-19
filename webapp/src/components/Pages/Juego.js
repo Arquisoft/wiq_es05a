@@ -24,7 +24,7 @@ const Juego = ({isLogged}) => {
   //Esta operación es llamada cuando pregunta esté vacia.
   useEffect( () => {
     const crear = async () => {
-      const response = await axios.get('http://localhost:8000/pregunta');
+      const response = await axios.get('http://localhost:8003/pregunta');
       setPregunta(response.data.question)
       setResCorr(response.data.answerGood)
       setResFalse(response.data.answers)
