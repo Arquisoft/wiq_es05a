@@ -80,9 +80,9 @@ A table with quality goals and concrete scenarios, ordered by priorities
 [cols="e,2e" options="header"]
 |===
 |Nombre|Descripción
-|*Usabilidad*| _La aplicación tiene que poder usarse por el mayor tipo de usuarios_
+|*Usabilidad*| _La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto. Además, a medida que los usuarios interactúan más con la aplicación, esta se vuelva más fácil de usar._
 |*Rendimiento*| _El tiempo de respuesta de la aplicación debe ser rápido_
-|*Testeable*| _La aplicación debe pasar las pruebas generadas automaticamente para cada versión_
+|*Testeable*| _Las pruebas deben ser capaces de detectar errores de manera rápida y precisa, fáciles de mantener y actualizar a medida que el código base cambia. Esto implica que las pruebas estén bien estructuradas y documentadas._
 |*Disponibilidad*| _La aplicación debe estar disponible y caerse lo menos posible_
 |===
 === Stakeholders
