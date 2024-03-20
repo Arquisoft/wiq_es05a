@@ -69,7 +69,7 @@ services:
     environment:
       AUTH_SERVICE_URL: http://authservice:8002
       USER_SERVICE_URL: http://userservice:8001
-      QUESTION_SERVICE_URL: http://questionservice:8001
+      QUESTION_SERVICE_URL: http://questionservice:8003
 
 
   webapp:
