@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.21">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,7 +162,6 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
-body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -328,7 +327,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -498,6 +497,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
 <ul class="sectlevel2">
 <li><a href="#_riesgos_técnicos">11.1. Riesgos Técnicos</a></li>
+<li><a href="#_deudas_técnicas">11.2. Deudas Técnicas</a></li>
 </ul>
 </li>
 <li><a href="#section-glossary">12. Glosario</a></li>
@@ -676,7 +676,7 @@ If you as an architect do not know how the quality of your work will be judged&#
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usabilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación tiene que poder usarse por el mayor tipo de usuarios</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto. Además, a medida que los usuarios interactúan más con la aplicación, esta se vuelva más fácil de usar.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Rendimiento</strong></em></p></td>
@@ -684,7 +684,7 @@ If you as an architect do not know how the quality of your work will be judged&#
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Testeable</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación debe pasar las pruebas generadas automaticamente para cada versión</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las pruebas deben ser capaces de detectar errores de manera rápida y precisa, fáciles de mantener y actualizar a medida que el código base cambia. Esto implica que las pruebas estén bien estructuradas y documentadas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Disponibilidad</strong></em></p></td>
@@ -747,7 +747,7 @@ These stakeholders determine the extent and the level of detail of your work and
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Cristian Augusto</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Profesor</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Profesor de la asignatura</em></em></p></td>
 </tr>
@@ -763,17 +763,17 @@ These stakeholders determine the extent and the level of detail of your work and
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios Registrados</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Una aplicación que proporcione los servicios esperados</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Los usuarios de la aplicación</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder jugar en la aplicación que recrea el juego sin tener que participar en el programa.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que ya han jugado anteriormente</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios No Registrados</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Una buena aplicación</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Los usuarios de la aplicación</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder registrarse lo más rápido posible para empezar a jugar al juego de preguntas y respuestas</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que nunca jugaron antes</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>RTVE</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Una buena versión de su juego "Saber y Ganar"</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Versión mejorada de "Saber y Ganar" para ganar mayor audiencia e interés social.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Dueño del producto</em></em></p></td>
 </tr>
 </tbody>
@@ -829,18 +829,17 @@ Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GIT</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Además nos permite
-una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
-miembro del equipo mediante el uso de las Issues.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Asimismo, nos permite
+una continua integración de forma remota mediante la paralelización del trabajo usando el sistema de ramas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología de contenerización es utilizada para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología de contenerización será requerida ya que la usaremos para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
 y realizar las pruebas pertinentes.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Fuente de información utilizada para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere que esta sea la fuente de información principal para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -875,6 +874,21 @@ con alguna de estas.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para mantener un buen ritmo de trabajo a través de una correcta organización se realizan reuniones semanales en las clases prácticas de la asignatura. Además, mantenemos contacto
 a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reuniones extraordinarias utilizando nuestro servidor de Discord.</em></em></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Issues</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para el seguimiento y la gestión de las tareas, problemas, mejoras, autoinformes, etc. de la aplicación tendremos que usar las issues ofrecidas por github; esto es una obligación ya
+ que reflejara el trabajo realizado por cada miembro del equipo al poder asignarse cada issue.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Actas</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Al igual que las issues, las actas servirán para la organización de las tareas asi como para la toma de decisiones, y tendrán
+ que reflejar el trabajo repartido a cada miembro. Se deberán realizar obligatoriamente cada vez que se realice una reunión y deberán constar los miembros del
+ equipo que han participado.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Decisiones arquitectónicas</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las decisiones arquitectónicas pueden ser una limitación organizativa al definir la estructura básica de un sistema de software, lo que podría obstaculizar la capacidad de realizar cambios y adaptarse a nuevas necesidades y tecnologías.</em></em></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -894,7 +908,8 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Diseño del software</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un código limpio ('clean code'),
+es decir, que sea fácil de entender, mantener y modificar, y que garantize la claridad, simplicidad y legibilidad.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Documentación</strong></em></p></td>
@@ -902,14 +917,13 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Accesibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Intentaremos que nuestra aplicación puede ser utilizada por cualquier tipo de usuario, sin importar quién sea. Seguiremos el estándard WCAG de la W3C,
-usando el color, tamaño de texto&#8230;&#8203; adecuados para ello.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nos esforzaremos para que nuestra aplicación sea accesible para todos los usuarios, independientemente de su perfil o características individuales.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Estructura</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debe seguir una estructura fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas
-principalmente: 'users' para la api rest y el registro de usuarios, 'webapp' para el desarrollo de la aplicación, 'docs'
-para la documentación.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debe seguir una estructura de paquetes fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de
+usuarios (registro y autentificación), 'questionservice' para la comunicación con wikidata y 'webapp' para el desarrollo de la aplicación. Todos estos
+servicios estarán comunicados por 'gatewayservice'.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Convenciones del lenguaje de programación</strong></em></p></td>
@@ -1059,8 +1073,8 @@ together with a mapping table showing the relationships between channels and inp
 <td class="tableblock halign-left valign-top"><p class="tableblock">Contiene el frontend y backend de la aplicación.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MySQL</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos relacional para el almacenamiento de preguntas y respuestas.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos no relacional para el almacenamiento de usuarios.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
@@ -1083,12 +1097,24 @@ together with a mapping table showing the relationships between channels and inp
 <td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Firebase</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma de desarrollo de Google, se utiliza en el login del sistema.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Bootstrap</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca para el diseño de aplicaciónes web.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de la interfaz del sistema.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gateway</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1295,10 +1321,6 @@ In the best case you will get away with examples or simple signatures.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Firebase</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Plataforma para el manejo de sesiones de los usuarios, asi como informacion sobre sus estadisticas.</em></em></p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1327,12 +1349,29 @@ In the best case you will get away with examples or simple signatures.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Webapp</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La interfaz con la que interactua el usuario.</em></em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>REST</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Manejo de datos de Wikidata.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gatewayservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de puerta de enlace que actúa como intermediario entre los clientes y 	otros servicios,
+reenviando las solicitudes a los servicios correspondientes y devolviendo las respuestas al cliente.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>authservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de autenticación de usuarios.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para registro de usuarios.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para el manejo de datos de Wikidata.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1408,35 +1447,43 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <div class="sect2">
 <h3 id="_inicio_de_sesión">6.1. Inicio de Sesión</h3>
 <div class="paragraph">
-<p>A la hora de iniciar sesión nuestra web App nos mostrara la ventana pidiendo los datos necesarios para poder empezar a jugar.</p>
+<p>Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.</p>
 </div>
 <div class="paragraph">
-<p>Se le piden una serie de datos al usuario que serán posteriormente pasados a Firebase encargado de controlar estos datos y devolverle a web App el ID del usuario que estará jugando.</p>
+<p>Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. userService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
 </div>
 <div class="paragraph">
-<p>Una vez que el usario a completado el inicio de sesión de forma exitosa nuestra web App pasará a mostrar la pantalla de inicio del juego.</p>
+<p>Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.</p>
+</div>
+<div class="paragraph">
+<p>Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar la pantalla de inicio del juego, donde el usuario podrá acceder a las diferentes opciones de juego y comenzar a participar en las actividades disponibles.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/06_acceso.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
+<img src="./images/06_acceso2.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_interacción_con_preguntas">6.2. Interacción con Preguntas</h3>
 <div class="paragraph">
-<p>Rest que tiene nuestra base de datos será el encargado de obtener la pregunta con sus respuestas correctas e incorrectas y pasarsela a web App</p>
+<p>Comenzaremos con la REST API que se integra con nuestra base de datos y se encargará de la obtención de la pregunta junto con sus opciones de respuestas correctas e incorrectas, proporcionando así la información necesaria para la Web App.</p>
 </div>
 <div class="paragraph">
-<p>Web App comenzara mostrando por pantalla la pregunta con todas las respuestas disponibles, a lo que el usuario solo podrá escoger una respuesta de todas las posibles.
-Una vez el usuario elige la respuesta se comprobará si los resultados son correctos o errones.</p>
+<p>Al obtener dicha información, la Web App mostrará la pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.</p>
 </div>
 <div class="paragraph">
-<p>En base a la respuesta del usuario web App mostrara si ha acertado o fallado de forma visual que lo pueda entender el usuario.</p>
+<p>Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.</p>
+</div>
+<div class="paragraph">
+<p>Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.</p>
+</div>
+<div class="paragraph">
+<p>Este flujo de interacción garantiza una experiencia de usuario fluida y comprensible, optimizando así la participación y el compromiso del usuario con la plataforma.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/06_pregunta.png" alt="Diagrama vista de tiempo de ejecución para la pregunta">
+<img src="./images/06_pregunta2.png" alt="Diagrama vista de tiempo de ejecución para la pregunta">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1572,12 +1619,12 @@ alojados en Azure.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rest</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>QuestionService</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola
 posteriormente en una base de datos MySQL.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Users</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>UserService</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.</p></td>
 </tr>
 <tr>
@@ -2006,6 +2053,8 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 <div class="sect2">
 <h3 id="_riesgos_técnicos">11.1. Riesgos Técnicos</h3>
+<div class="sect3">
+<h4 id="_riesgos_internos">11.1.1. Riesgos internos</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2029,10 +2078,27 @@ de trabajo de los demás compañeros.</em></em></p></td>
 suficiente tiempo al desarrollo de este proyecto.</em></em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Errores</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante las pruebas de la aplicación pueden surgir errores que nos obliguen a realizar importantes cambios en esta. Esto puede provocar que el equipo invierta más horas de
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Errores de diseño</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Los errores que surjan debido al diseño, implementacion o gestion interna del proyecto; nos obligarán a realizar cambios e invertir más horas de
 las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 </tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_riesgos_externos">11.1.2. Riesgos externos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Riesgo</th>
+<th class="tableblock halign-left valign-top">Explicación</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
@@ -2049,6 +2115,13 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deudas_técnicas">11.2. Deudas Técnicas</h3>
+<div class="paragraph">
+<p>TODO</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -2164,7 +2237,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-03-12 18:02:26 +0100
+Last updated 2024-03-03 12:45:24 +0100
 </div>
 </div>
 </body>
