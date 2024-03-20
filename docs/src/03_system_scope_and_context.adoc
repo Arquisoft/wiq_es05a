@@ -94,8 +94,8 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |*Sistema*
 |Contiene el frontend y backend de la aplicación.
 
-|*MySQL*
-|Base de datos relacional para el almacenamiento de preguntas y respuestas.
+|*MongoDB*
+|Base de datos no relacional para el almacenamiento de usuarios.
 
 |*Usuario*
 |El usuario final de la aplicación.
@@ -112,9 +112,19 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |*React*
 |Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.
 
-|*Firebase*
-|Plataforma de desarrollo de Google, se utiliza en el login del sistema.
-
 |*Bootstrap*
 |Biblioteca para el diseño de aplicaciónes web.
+
+
+|*webapp*
+|Módulo del sistema que se encarga de la interfaz del sistema.
+
+|*questionservice*
+|Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.
+
+|*gateway*
+|Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.
+
+|*userservice*
+|Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.
 |===
