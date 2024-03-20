@@ -54,7 +54,7 @@ app.get('/pregunta', async (req, res) => {
     res.json({ question, answerGood, answers });
 });
 
-// Iniciamos el servidor en el puerto 3000
+// Iniciamos el servidor en el puerto 8003
 const server = app.listen(8003, () => console.log('El servidor está escuchando en el puerto 8003'));
 
 module.exports = server
