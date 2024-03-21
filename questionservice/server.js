@@ -2,11 +2,11 @@
 const express = require('express');
 // Importamos el módulo Axios para realizar solicitudes HTTP
 const axios = require('axios');
-//const cors = require('cors');
+const cors = require('cors');
 
 // Creamos una nueva aplicación Express
 const app = express();
-//app.use(cors());
+app.use(cors());
 
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
