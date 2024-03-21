@@ -9,7 +9,7 @@ import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
 
 function App() {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
 //Si intenta acceder a una ruta privada (en este caso Estadistica) se le redirigira al login
 function PrivateRoute({ element, ...props }) {
@@ -21,11 +21,11 @@ function PrivateRoute({ element, ...props }) {
       <Layout/>
       <Router>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/game" element={<Juego />} /> 
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
+        <Route path="/game" element={<Juego isLogged={isLogged}/>} /> 
+        <Route path="/login" element={<Login isLogged={isLogged}/>} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/register" element={<AddUser/>}/>
+        <Route path="/register" element={<AddUser isLogged={isLogged}/>}/>
         
         <Route
             path="/stats"

@@ -5,7 +5,7 @@ import { Container, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // Definimos el componente Home
-const Home = () => {
+const Home = (isLogged) => {
   // Utilizamos el hook useNavigate para la navegación
   const navigate = useNavigate();
 
@@ -23,18 +23,35 @@ const Home = () => {
 
   // Renderizamos el componente
   return (
-    // Utilizamos un contenedor de Material-UI para centrar el contenido
-    <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      {/* Mostramos el título del juego */}
-      <h1 className="titulo">WIQ 5A</h1>
-      {/* Creamos un contenedor para los botones */}
-      <div className="button-container">
-        {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}
-        <Button variant="contained" color="primary" className="button" id="btJugar" onClick={clickJugar}>JUGAR</Button>
-        {/* Creamos el botón "Estadísticas" y le asignamos la función clickEstadisticas al evento onClick */}
-        <Button variant="contained" color="secondary" className="button" id="btEstadisticas" onClick={clickEstadisticas}>ESTADÍSTICAS</Button>
-      </div>
-    </Container>
+    <>
+    {isLogged ? (
+      <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Mostramos el título del juego */}
+        <h1 className="titulo">WIQ 5A</h1>
+        {/* Creamos un contenedor para los botones */}
+        <div className="button-container">
+          {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}
+          <Button variant="contained" color="primary" className="button" id="btJugar" onClick={clickJugar}>INICIA SESIÓN</Button>
+          {/* Creamos el botón "Estadísticas" y le asignamos la función clickEstadisticas al evento onClick */}
+          <Button variant="contained" color="secondary" className="button" id="btEstadisticas" onClick={clickEstadisticas}>REGÍSTRATE</Button>
+        </div>
+      </Container>) : (
+        <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Mostramos el título del juego */}
+        <h1 className="titulo">WIQ 5A</h1>
+        {/* Creamos un contenedor para los botones */}
+        <div className="button-container">
+          {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}
+          <Button variant="contained" color="primary" className="button" id="btJugar" onClick={clickJugar}>JUGAR</Button>
+          {/* Creamos el botón "Estadísticas" y le asignamos la función clickEstadisticas al evento onClick */}
+          <Button variant="contained" color="secondary" className="button" id="btEstadisticas" onClick={clickEstadisticas}>ESTADÍSTICAS</Button>
+        </div>
+      </Container>
+      )
+    } 
+
+    </>
+
   );
 };
 
