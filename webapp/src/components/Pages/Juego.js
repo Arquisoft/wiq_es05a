@@ -5,6 +5,8 @@ import '../Estilos/juego.css';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
 import Temporizador from '../Temporizador';
 
+
+
 const Juego = ({isLogged}) => {
   //La pregunta (string)
   const [pregunta, setPregunta] = useState("")
