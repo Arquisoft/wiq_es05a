@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
-const Layout = () => {
+const Layout = (isLogged) => {
   return (
     <>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
