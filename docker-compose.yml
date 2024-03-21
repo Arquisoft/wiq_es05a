@@ -71,7 +71,6 @@ services:
       USER_SERVICE_URL: http://userservice:8001
       QUESTION_SERVICE_URL: http://questionservice:8003
 
-
   webapp:
     container_name: webapp-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es05a/webapp:latest
@@ -111,7 +110,6 @@ services:
       - "9091:9091"
     depends_on: 
       - prometheus
-
 
 volumes:
   mongodb_data:
