@@ -11,7 +11,7 @@ const Login = ({isLogged, setIsLogged}) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-console.log("LOGIN: " + isLogged)
+  
   const loginUser = async () => {
     try {
       const response = await axios.post(`${apiEndpoint}/login`, { username, password });

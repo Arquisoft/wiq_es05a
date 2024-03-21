@@ -11,8 +11,6 @@ const AddUser = ({isLogged}) => {
   const [error, setError] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-console.log("ADDUSER: " + isLogged)
-
   const addUser = async () => {
     try {
       await axios.post(`${apiEndpoint}/adduser`, { username, password });

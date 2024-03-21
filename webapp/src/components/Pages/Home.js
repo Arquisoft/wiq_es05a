@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 const Home = ({isLogged, setIsLogged}) => {
   // Utilizamos el hook useNavigate para la navegación
   const navigate = useNavigate();
-  console.log("HOME: " + isLogged)
 
   // Definimos la función que se ejecutará al hacer clic en el botón "Jugar"
   const clickJugar = () => {
