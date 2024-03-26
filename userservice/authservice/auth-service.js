@@ -31,7 +31,6 @@ app.post('/login', async (req, res) => {
     validateRequiredFields(req, ['username', 'password']);
 
     const { username, password } = req.body;
-    console.log("LLEGA")
     // Find the user by username in the database
     const user = await User.findOne({ username });
     // Check if the user exists and verify the password
