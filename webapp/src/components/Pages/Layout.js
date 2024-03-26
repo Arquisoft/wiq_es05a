@@ -2,8 +2,6 @@ import { Outlet, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
-
-
   const Layout = ({ isLogged, setIsLogged }) => {
 
     function onLogout(){
@@ -11,7 +9,6 @@ import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
       setIsLogged(false);
     }
 
-    
   return (
     <>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -20,7 +17,9 @@ import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="stats">Estadísticas</Nav.Link>
+                {isLogged && 
+                  <Nav.Link href="stats">Estadísticas</Nav.Link>
+                }
               </Nav>
               <Nav>
                 {isLogged ? (
