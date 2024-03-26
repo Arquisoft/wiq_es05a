@@ -13,6 +13,22 @@ const userSchema = new mongoose.Schema({
       type: Date,
       default: Date.now, 
     },
+    correctAnswers: {
+      type: int,
+      default: 0, 
+    },
+    incorrectAnswers: {
+      type: int,
+      default: 0, 
+    },
+    completedGames: {
+      type: int,
+      default: 0, 
+    },
+    averageTime: {
+      type: int,
+      default: 0, 
+    }
 });
 
 const User = mongoose.model('User', userSchema);
