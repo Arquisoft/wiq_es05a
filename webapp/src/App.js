@@ -25,8 +25,9 @@ function PrivateRoute({ element, ...props }) {
 
   return (
     <>
-      <Layout/>
+      
       <Router>
+      <Layout isLogged={isLogged} setIsLogged={setIsLogged}  />
         <Routes>
           <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
           <Route path="/game" 
