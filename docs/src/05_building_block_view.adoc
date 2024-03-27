@@ -89,8 +89,6 @@ Bloques de construcción contenidos::
 |*Wikidata*
 |_Servicio externo desde donde obtenemos los datos para generar las preguntas._
 
-|*Firebase*
-|_Plataforma para el manejo de sesiones de los usuarios, asi como informacion sobre sus estadisticas._
 |===
 
 === Nivel 2: WIQ
@@ -102,11 +100,24 @@ Bloques de construcción contenidos::
 |===
 |Nombre |Responsabilidad
 
-|*Webapp*
+|*webapp*
 |_La interfaz con la que interactua el usuario._
 
-|*REST*
-|_Manejo de datos de Wikidata._
+|*gatewayservice*
+|_Servicio de puerta de enlace que actúa como intermediario entre los clientes y 	otros servicios, 
+reenviando las solicitudes a los servicios correspondientes y devolviendo las respuestas al cliente._
+
+|*authservice*
+|_Servicio de autenticación de usuarios._
+
+|*userservice*
+|_Servicio para registro de usuarios._
+
+|*questionservice*
+|_Servicio para el manejo de datos de Wikidata._
+
+|*Wikidata*
+|_Servicio externo desde donde obtenemos los datos para generar las preguntas._
 
 |===
 

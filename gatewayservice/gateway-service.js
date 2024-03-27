@@ -6,8 +6,10 @@ const promBundle = require('express-prom-bundle');
 const app = express();
 const port = 8000;
 
-const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
 const userServiceUrl = process.env.USER_SERVICE_URL || 'http://localhost:8001';
+const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
+const questionServiceUrl = process.env.QUESTION_SERVICE_URL || 'http://localhost:8003';
+const statServiceUrl = process.env.STAT_SERVICE_URL || 'http://localhost:8004';
 
 app.use(cors());
 app.use(express.json());
@@ -38,6 +40,26 @@ app.post('/adduser', async (req, res) => {
     res.json(userResponse.data);
   } catch (error) {
     res.status(error.response.status).json({ error: error.response.data.error });
+  }
+});
+
+app.get('/pregunta', async (req, res) => {
+  try{
+    const questionResponse = await axios.get(questionServiceUrl+'/pregunta')
+    res.json(questionResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
+  }
+});
+
+app.get('/updateCorrectAnswers', async (req, res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try{
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?username=${username}`)
+    res.json(updateStatsResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
   }
 });
 

@@ -24,6 +24,7 @@ See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 do
 ****
 
 === Riesgos Técnicos
+==== Riesgos internos
 
 [cols="e,2e" options="header"]
 |===
@@ -37,9 +38,17 @@ de trabajo de los demás compañeros._
 |_Las demás asignaturas en la que están matriculados los miembros del equipo puede exigir una carga importante de trabajo por lo que provocar que el equipo no dedique el
 suficiente tiempo al desarrollo de este proyecto._
 
-|*Errores* 
-|_Durante las pruebas de la aplicación pueden surgir errores que nos obliguen a realizar importantes cambios en esta. Esto puede provocar que el equipo invierta más horas de
+|*Errores de diseño* 
+|_Los errores que surjan debido al diseño, implementacion o gestion interna del proyecto; nos obligarán a realizar cambios e invertir más horas de
 las planeadas para solucionar este tipo de problemas._
+
+|===
+
+==== Riesgos externos
+
+[cols="e,2e" options="header"]
+|===
+|Riesgo |Explicación
 
 |*Caída de Servicios* 
 |_Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
@@ -54,5 +63,6 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto._
 
 |===
 
+=== Deudas Técnicas
 
-
+TODO

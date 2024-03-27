@@ -1,18 +1,83 @@
 version: '3'
 services:
+  mongodb:
+    container_name: mongodb-${teamname:-defaultASW}
+    image: mongo
+    profiles: ["dev", "prod"]
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+
   questionservice:
     container_name: questionservice-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es05a/questionservice:latest
     profiles: ["dev", "prod"]
     build: ./questionservice
     ports:
-      - "2500:2500" 
+      - "8003:8003" 
+    environment:
+      - ACCESS_CONTROL_ALLOW_ORIGIN=http://webapp:3000 
+      - ACCESS_CONTROL_ALLOW_ORIGIN=http://localhost:3000/game
+    networks:
+      - mynetwork
+
+  authservice:
+    container_name: authservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_0/authservice:latest
+    profiles: ["dev", "prod"]
+    build: ./userservice/authservice
+    depends_on:
+      - mongodb
+    ports:
+      - "8002:8002"
+    networks:
+      - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/userdb
+
+  userservice:
+    container_name: userservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_0/userservice:latest
+    profiles: ["dev", "prod"]
+    build: ./userservice/userservice
+    depends_on:
+      - mongodb
+    ports:
+      - "8001:8001"
+    networks:
+      - mynetwork
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/userdb
+
+  gatewayservice:
+    container_name: gatewayservice-${teamname:-defaultASW}
+    image: ghcr.io/arquisoft/wiq_0/gatewayservice:latest
+    profiles: ["dev", "prod"]
+    build: ./gatewayservice
+    depends_on:
+      - mongodb
+      - userservice
+      - authservice
+      - questionservice
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+    environment:
+      AUTH_SERVICE_URL: http://authservice:8002
+      USER_SERVICE_URL: http://userservice:8001
+      QUESTION_SERVICE_URL: http://questionservice:8003
 
   webapp:
     container_name: webapp-${teamname:-defaultASW}
     image: ghcr.io/arquisoft/wiq_es05a/webapp:latest
     profiles: ["dev", "prod"]
     build: ./webapp
+    depends_on:
+      - gatewayservice
     ports:
       - "3000:3000" 
 
@@ -45,7 +110,6 @@ services:
       - "9091:9091"
     depends_on: 
       - prometheus
-
 
 volumes:
   mongodb_data:

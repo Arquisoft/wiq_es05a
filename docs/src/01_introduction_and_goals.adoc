@@ -80,9 +80,9 @@ A table with quality goals and concrete scenarios, ordered by priorities
 [cols="e,2e" options="header"]
 |===
 |Nombre|Descripción
-|*Usabilidad*| _La aplicación tiene que poder usarse por el mayor tipo de usuarios_
+|*Usabilidad*| _La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto. Además, a medida que los usuarios interactúan más con la aplicación, esta se vuelva más fácil de usar._
 |*Rendimiento*| _El tiempo de respuesta de la aplicación debe ser rápido_
-|*Testeable*| _La aplicación debe pasar las pruebas generadas automaticamente para cada versión_
+|*Testeable*| _Las pruebas deben ser capaces de detectar errores de manera rápida y precisa, fáciles de mantener y actualizar a medida que el código base cambia. Esto implica que las pruebas estén bien estructuradas y documentadas._
 |*Disponibilidad*| _La aplicación debe estar disponible y caerse lo menos posible_
 |===
 === Stakeholders
@@ -110,10 +110,10 @@ Table with role names, person names, and their expectations with respect to the 
 [cols="e,2e,2e" options="header"]
 |===
 |Rol/Nombre|Expectativa|Descripción
-| *Cristian Augusto* | _Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software_ | _Profesor de la asignatura_
+| *Profesor* | _Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software_ | _Profesor de la asignatura_
 | *HappySw* | _Una aplicación buena para atraer al mayor número de usuarios_ | _Equipo de desarrollo_
 | *Wikidata* | _Usar su aplicacion con precaución, sin sobrecargar sus servicios_ | _Empresa que nos facilita la API para obtener información_
-| *Usuarios Registrados* | _Una aplicación que proporcione los servicios esperados_ | _Los usuarios de la aplicación_
-| *Usuarios No Registrados* | _Una buena aplicación_ | _Los usuarios de la aplicación_
-| *RTVE* | _Una buena versión de su juego "Saber y Ganar"_ | _Dueño del producto_
+| *Usuarios Registrados* | _Poder jugar en la aplicación que recrea el juego sin tener que participar en el programa._ | _Usuarios que ya han jugado anteriormente_
+| *Usuarios No Registrados* | _Poder registrarse lo más rápido posible para empezar a jugar al juego de preguntas y respuestas_ | _Usuarios que nunca jugaron antes_
+| *RTVE* | _Versión mejorada de "Saber y Ganar" para ganar mayor audiencia e interés social._ | _Dueño del producto_
 |===

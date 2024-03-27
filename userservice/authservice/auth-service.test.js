@@ -1,7 +1,7 @@
 const request = require('supertest');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const bcrypt = require('bcrypt');
-const User = require('./auth-model');
+const User = require('../../webapp/src/model/auth-model');
 
 let mongoServer;
 let app;
