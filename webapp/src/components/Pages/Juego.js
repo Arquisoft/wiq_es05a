@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Estilos/juego.css';
-import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
-
+import { jwtDecode } from 'jwt-decode';
 
 
 const Juego = ({isLogged}) => {
@@ -20,6 +20,27 @@ const Juego = ({isLogged}) => {
   const [victoria, setVictoria] = useState(false)
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
+
+    //Variables para la obtencion y modificacion de estadisticas del usuario
+     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+     const [username, setUsername] = useState('');
+     const User = require('../../models/user-model');
+     const [error, setError] = useState('');
+     const [password, setPassword] = useState('');
+  
+
+     const updateCorrectAnswers = async () => {
+        try {
+            const username = localStorage.getItem('username');
+            const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
+            console.log('Respuesta correcta actualizada con éxito:', response.data);
+            // Realizar otras acciones según sea necesario
+        } catch (error) {
+            console.error('Error al actualizar la respuesta correcta:', error);
+            // Manejar el error de acuerdo a tus necesidades
+        }
+      };
+  ////
   
   
   //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
@@ -48,6 +69,8 @@ const Juego = ({isLogged}) => {
     setPausarTemporizador(true);
     if(respuesta == resCorr){
       console.log("entro a respuesta correcta")
+      //Aumenta en 1 en las estadisticas de juegos ganado
+      updateCorrectAnswers();
       setVictoria(true)
     }
     else{
