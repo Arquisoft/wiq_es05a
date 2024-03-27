@@ -6,9 +6,10 @@ const promBundle = require('express-prom-bundle');
 const app = express();
 const port = 8000;
 
-const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
 const userServiceUrl = process.env.USER_SERVICE_URL || 'http://localhost:8001';
+const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://localhost:8002';
 const questionServiceUrl = process.env.QUESTION_SERVICE_URL || 'http://localhost:8003';
+const statServiceUrl = process.env.STAT_SERVICE_URL || 'http://localhost:8004';
 
 app.use(cors());
 app.use(express.json());
@@ -52,20 +53,13 @@ app.get('/pregunta', async (req, res) => {
 });
 
 app.get('/updateCorrectAnswers', async (req, res) => {
-  console.log("prueba")
-  const { username } = req.body;
-  try {
-      const user = await User.findOne({ username });
-      if (!user) {
-          return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
-      }
-      // Incrementa las respuestas correctas del usuario
-      user.correctAnswers += 1;
-      await user.save();
-      return res.status(200).json({ success: true, message: 'Respuesta correcta actualizada con éxito' });
-  } catch (error) {
-      console.error('Error al actualizar la respuesta correcta:', error);
-      return res.status(500).json({ success: false, message: 'Error al actualizar la respuesta correcta' });
+  console.log(req.query)
+  const { username } = req.query;
+  try{
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?username=${username}`)
+    res.json(updateStatsResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
   }
 });
 

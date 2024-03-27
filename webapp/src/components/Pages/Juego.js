@@ -6,8 +6,7 @@ import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
 import { jwtDecode } from 'jwt-decode';
 
-
-const Juego = ({isLogged}) => {
+const Juego = ({isLogged, username}) => {
   //La pregunta (string)
   const [pregunta, setPregunta] = useState("")
   //La Respuesta correcta (string)
@@ -21,25 +20,22 @@ const Juego = ({isLogged}) => {
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
 
-    //Variables para la obtencion y modificacion de estadisticas del usuario
-     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-     const [username, setUsername] = useState('');
-     const User = require('../../models/user-model');
-     const [error, setError] = useState('');
-     const [password, setPassword] = useState('');
-  
+  //Variables para la obtencion y modificacion de estadisticas del usuario
+  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+  const [error, setError] = useState('');
+  const [password, setPassword] = useState('');
 
-     const updateCorrectAnswers = async () => {
-        try {
-            const username = localStorage.getItem('username');
-            const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
-            console.log('Respuesta correcta actualizada con éxito:', response.data);
-            // Realizar otras acciones según sea necesario
-        } catch (error) {
-            console.error('Error al actualizar la respuesta correcta:', error);
-            // Manejar el error de acuerdo a tus necesidades
-        }
-      };
+
+  const updateCorrectAnswers = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
+        console.log('Respuesta correcta actualizada con éxito:', response.data);
+        // Realizar otras acciones según sea necesario
+    } catch (error) {
+        console.error('Error al actualizar la respuesta correcta:', error);
+        // Manejar el error de acuerdo a tus necesidades
+    }
+  };
   ////
   
   
@@ -47,7 +43,7 @@ const Juego = ({isLogged}) => {
   //Esta operación es llamada cuando pregunta esté vacia.
   useEffect( () => {
     const crear = async () => {
-      const response = await axios.get('http://localhost:8003/pregunta');
+      const response = await axios.get(`${apiEndpoint}/pregunta`);
       setPregunta(response.data.question)
       setResCorr(response.data.answerGood)
       setResFalse(response.data.answers)
@@ -76,10 +72,19 @@ const Juego = ({isLogged}) => {
     else{
       setVictoria(false)
     }
-    
+    //storeResult(victoria)
     cambiarColorBotones(respuesta, true);
 
   };
+
+  async function storeResult(res){
+    if(res){
+      const storeAcertado = await axios.post(`${apiEndpoint}/guardarAcierto`, {username, pregunta, resCorr});
+    }
+    else{
+      const storeAcertado = await axios.post(`${apiEndpoint}/guardarFallo`, {username, pregunta, resCorr});
+    }
+  }
 
   /*
   * Para cambiar el color de los botones al hacer click en uno de ellos

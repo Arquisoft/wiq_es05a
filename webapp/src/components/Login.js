@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
 
-const Login = ({isLogged, setIsLogged}) => {
-  const [username, setUsername] = useState('');
+const Login = ({isLogged, setIsLogged, username, setUsername}) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [createdAt, setCreatedAt] = useState('');
@@ -21,9 +20,8 @@ const Login = ({isLogged, setIsLogged}) => {
       setCreatedAt(datos.createdAt);
       setIsLogged(true);
       localStorage.setItem('isLogged', JSON.stringify(true));
-      //Guardamos nombre de usuario
-      localStorage.setItem('username', username);
-
+      setUsername(datos.username)
+      localStorage.setItem('username', JSON.stringify(datos.username))
       setOpenSnackbar(true);
     } catch (error) {
       setError(error.response.data.error);

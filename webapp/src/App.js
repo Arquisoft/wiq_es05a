@@ -13,11 +13,19 @@ import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     const storedIsLogged = localStorage.getItem('isLogged');
     if (storedIsLogged) {
       setIsLogged(JSON.parse(storedIsLogged));
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(JSON.parse(storedUsername));
     }
   }, []);
 
@@ -39,11 +47,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
           <Route path="/game" 
-          element={<PrivateRoute element={<Juego isLogged={isLogged} />} />}
+          element={<PrivateRoute element={<Juego isLogged={isLogged} username={username} />} />}
           />
-          <Route path="/login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged} />} />
+          <Route path="/login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged}  username={username} setUsername={setUsername}/>} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/register" element={<AddUser isLogged={isLogged}/>}/>
+          <Route path="/register" element={<AddUser isLogged={isLogged} username={username} />}/>
           
           <Route
               path="/stats"
