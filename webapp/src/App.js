@@ -7,6 +7,9 @@ import Login from './components/Login';
 import Juego from './components/Pages/Juego';
 import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -27,14 +30,20 @@ function App() {
   }, []);
 
 //Si intenta acceder a una ruta privada (en este caso Estadistica) se le redirigira al login
-function PrivateRoute({ element, ...props }) {
-  return isLogged ? element : <Navigate to="/login" />;
- }
+ function PrivateRoute({ element, ...props }) {
+  const navigate = useNavigate();
+  if (!isLogged) {
+    navigate('/login');
+    return null;
+  }
+  return element;
+}
 
   return (
     <>
-      <Layout/>
+      
       <Router>
+      <Layout isLogged={isLogged} setIsLogged={setIsLogged}  />
         <Routes>
           <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
           <Route path="/game" 

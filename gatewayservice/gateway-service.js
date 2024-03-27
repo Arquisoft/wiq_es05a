@@ -52,23 +52,16 @@ app.get('/pregunta', async (req, res) => {
   }
 });
 
-app.post('/guardarAcierto', async (req,res) =>{
+app.get('/updateCorrectAnswers', async (req, res) => {
+  console.log(req.query)
+  const { username } = req.query.username;
   try{
-    const statResponse = await axios.post(statServiceUrl + '/guardarAcierto', req.body);
-    res.json(statResponse.data)
-  } catch (error) {
-    res.status(error.response.status).json({ error: error.response.data.error });
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?username=${username}`)
+    res.json(updateStatsResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
   }
-})
-
-app.post('/guardarFallo', async (req,res) =>{
-  try{
-    const statResponse = await axios.post(statServiceUrl + '/guardarFallo', req.body);
-    res.json(statResponse.data)
-  } catch (error) {
-    res.status(error.response.status).json({ error: error.response.data.error });
-  }
-})
+});
 
 // Start the gateway service
 const server = app.listen(port, () => {
