@@ -21,6 +21,9 @@ const Login = ({isLogged, setIsLogged}) => {
       setCreatedAt(datos.createdAt);
       setIsLogged(true);
       localStorage.setItem('isLogged', JSON.stringify(true));
+      //Guardamos nombre de usuario
+      localStorage.setItem('username', username);
+
       setOpenSnackbar(true);
     } catch (error) {
       setError(error.response.data.error);

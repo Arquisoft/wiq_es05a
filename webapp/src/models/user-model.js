@@ -14,19 +14,19 @@ const userSchema = new mongoose.Schema({
       default: Date.now, 
     },
     correctAnswers: {
-      type: int,
+      type: Number,
       default: 0, 
     },
     incorrectAnswers: {
-      type: int,
+      type: Number,
       default: 0, 
     },
     completedGames: {
-      type: int,
+      type: Number,
       default: 0, 
     },
     averageTime: {
-      type: int,
+      type: Number,
       default: 0, 
     }
 });
