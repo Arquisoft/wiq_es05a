@@ -54,7 +54,7 @@ app.get('/pregunta', async (req, res) => {
 
 app.get('/updateCorrectAnswers', async (req, res) => {
   console.log(req.query)
-  const { username } = req.query.username;
+  const { username } = req.query;
   try{
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?username=${username}`)
     res.json(updateStatsResponse.data);
