@@ -36,6 +36,16 @@ const Juego = ({isLogged, username}) => {
         // Manejar el error de acuerdo a tus necesidades
     }
   };
+  const updateIncorrectAnswers = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
+        console.log('Respuesta incorrecta actualizada con éxito:', response.data);
+        // Realizar otras acciones según sea necesario
+    } catch (error) {
+        console.error('Error al actualizar la respuesta incorrecta:', error);
+        // Manejar el error de acuerdo a tus necesidades
+    }
+  };
   ////
   
   
@@ -71,6 +81,7 @@ const Juego = ({isLogged, username}) => {
     }
     else{
       setVictoria(false)
+      updateIncorrectAnswers();
     }
     //storeResult(victoria)
     cambiarColorBotones(respuesta, true);

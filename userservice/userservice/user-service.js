@@ -63,6 +63,23 @@ app.get('/updateCorrectAnswers', async (req,res) => {
   }
 })
 
+app.get('/updateIncorrectAnswers', async (req,res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    // Incrementa las respuestas correctas del usuario
+    user.incorrectAnswers += 1;
+    await user.save();
+    return res.status(200).json({ success: true, message: 'Respuesta incorrecta actualizada con éxito' });
+  } catch (error) {
+    console.error('Error al actualizar la respuesta correcta:', error);
+    return res.status(500).json({ success: false, message: 'Error al actualizar la respuesta incorrecta' });
+  }
+})
 const server = app.listen(port, () => {
   console.log(`User Service listening at http://localhost:${port}`);
 });
