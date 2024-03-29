@@ -1,5 +1,5 @@
 // src/components/Login.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
 import '../Estilos/estadisticas.css';
 import axios from 'axios';
@@ -16,18 +16,22 @@ const Juego = ({isLogged}) => {
     const [completedGames, setCompletedGames] = useState(0);
     const [averageTime, setAverageTime] = useState(0);
 
-    const statsUser = async () => {
-        try {
-          const response = await axios.post(`${apiEndpoint}/login`, { username, password });
-          const datos = response.data;
-          setCorrectAnswers(datos.correctAnswers);
-          setIncorrectAnswers(datos.incorrectAnswers);
-          setCompletedGames(datos.completedGames);
-          setAverageTime(datos.averageTime);
-        } catch (error) {
-          setError(error.response.data.error);
-        }
-      };
+    useEffect(() => {
+      const statsUser = async () => {
+          try {
+            const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
+            const datos = response.data;
+            setCorrectAnswers(datos.correctAnswers);
+            setIncorrectAnswers(datos.incorrectAnswers);
+            setCompletedGames(datos.completedGames);
+            setAverageTime(datos.averageTime);
+          } catch (error) {
+            setError(error.response.data.error);
+          }
+        };
+
+      statsUser();
+    });
 
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
