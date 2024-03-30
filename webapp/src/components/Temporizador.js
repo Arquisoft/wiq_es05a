@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const Temporizador =({tiempoInicial, tiempoAcabado, pausa})=> {
+const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestart})=> {
 
     //Constante que va restando segundos
     const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
     
-
     useEffect(() => {
         let intervalID;
+        console.log("recargado efectivamente")
+        console.log(restart)
+        if(restart){
+            setTiempoSegundos(tiempoInicial);
+            pausa=false;
+            handleRestart();
+        }
+
+        console.log(restart);
+        console.log(tiempoInicial);
+        console.log(tiempoSegundos);
+        console.log(pausa);
+
 
         if (tiempoSegundos > 0 && !pausa) {
         intervalID = setInterval(() => {
