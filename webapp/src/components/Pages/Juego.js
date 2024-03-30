@@ -213,6 +213,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   
   return (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
+        <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
         <Temporizador tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador}/>
         <h2> {pregunta} </h2>
         <div className="button-container">

@@ -9,6 +9,15 @@
     text-align: center;
 }
 
+.numPregunta {
+  position: fixed;
+  top:75px;
+  left: 25px; /*Colocar en la izq de la pantalla*/
+  color: #fff; /* Color de texto */
+  font-size: 38px; /*Tamaño numero*/
+  font-weight: bold; /*Poner en negrita*/
+}
+
 .temporizador {
       position: fixed;
       top:75px;
