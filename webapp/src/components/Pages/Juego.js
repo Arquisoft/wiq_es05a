@@ -6,7 +6,7 @@ import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
 import { jwtDecode } from 'jwt-decode';
 
-const Juego = ({isLogged, username}) => {
+const Juego = ({isLogged, username, numPreguntas}) => {
   //La pregunta (string)
   const [pregunta, setPregunta] = useState("")
   //La Respuesta correcta (string)
@@ -20,12 +20,28 @@ const Juego = ({isLogged, username}) => {
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
 
+  const [firstRender, setFirstRender] = useState(false);
+
+  const[ready, setReady] = useState(false)
+
+  const [numPreguntaActual, setNumPreguntaActual] = useState(0)
+
+  const [arPreg, setArPreg] = useState([])
+
+
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-  const [error, setError] = useState('');
-  const [password, setPassword] = useState('');
+
+  //Primer render para un comportamiento diferente
+  useEffect(() => {
+    if (!firstRender) {
+      crearPreguntas(10);
+      setFirstRender(true);
+    }
+  }, [firstRender])
 
 
+  //Control de las estadísticas
   const updateCorrectAnswers = async () => {
     try {
         const username = localStorage.getItem('username');
@@ -47,22 +63,42 @@ const Juego = ({isLogged, username}) => {
     }
   };
   ////
-  
-  
-  //Operacion asíncrona para cargar pregunta y respuestas en las variables desde el json
-  //Esta operación es llamada cuando pregunta esté vacia.
-  useEffect( () => {
-    const crear = async () => {
-      const response = await axios.get(`${apiEndpoint}/pregunta`);
-      setPregunta(response.data.question)
-      setResCorr(response.data.answerGood)
-      setResFalse(response.data.answers)
+
+  //Función que genera un numero de preguntas determinado
+  async function crearPreguntas(numPreguntas){
+    let tempArray=[];
+    while(numPreguntas>0){
+      console.log("contador:" + numPreguntas)
+      console.log("TAMAÑO ARRAY: " + tempArray.length)
+      try {
+        const response = await axios.get(`${apiEndpoint}/pregunta`);
+        console.log("pregunta: " + response.data.question)
+        console.log("buenarespuesta: " + response.data.answerGood)
+        console.log("malasrespuestas: " + response.data.answers)
+        tempArray.push(
+          { id: numPreguntas, pregunta: response.data.question, resCorr: response.data.answerGood, resFalse: response.data.answers}
+        )
+        arPreg.push(
+          { id: numPreguntas, pregunta: response.data.question, resCorr: response.data.answerGood, resFalse: response.data.answers}
+        )
+      }
+      catch (error) {
+        console.error('Error al actualizar la respuesta correcta:', error);
+        // Manejar el error de acuerdo a tus necesidades
+      }
+      numPreguntas--;
     }
-    if(pregunta == ""){
-      setPregunta("CARGANDO...")
-      crear();
-    }
-  }, [pregunta]);    
+    setReady(true)
+    updateGame();
+    setNumPreguntaActual(numPreguntaActual+1);
+  }
+
+  //Función que actualiza la pregunta que se muestra en pantalla
+  async function updateGame(){
+    setPregunta(arPreg[numPreguntaActual].pregunta)
+    setResCorr(arPreg[numPreguntaActual].resCorr)
+    setResFalse(arPreg[numPreguntaActual].resFalse)
+  }
 
 
   /**
@@ -87,15 +123,6 @@ const Juego = ({isLogged, username}) => {
     cambiarColorBotones(respuesta, true);
 
   };
-
-  async function storeResult(res){
-    if(res){
-      const storeAcertado = await axios.post(`${apiEndpoint}/guardarAcierto`, {username, pregunta, resCorr});
-    }
-    else{
-      const storeAcertado = await axios.post(`${apiEndpoint}/guardarFallo`, {username, pregunta, resCorr});
-    }
-  }
 
   /*
   * Para cambiar el color de los botones al hacer click en uno de ellos
@@ -126,6 +153,7 @@ const Juego = ({isLogged, username}) => {
 
   }
 
+  //Función que cambia el color de un solo boton (acierto)
   function cambiarColorUno(respuesta, button){
     if(button.textContent.trim()==respuesta.trim()){
       if((button.textContent.trim() != resCorr)) {
@@ -135,8 +163,7 @@ const Juego = ({isLogged, username}) => {
     }
   }
 
-
-
+  //Funcion que cambia el color de todos los botones (fallo)
   function cambiarColorTodos(button){
     if(button.textContent.trim() == resCorr) {
       button.style.backgroundColor = "#05B92B";
@@ -146,11 +173,41 @@ const Juego = ({isLogged, username}) => {
           button.style.border = "6px solid #E14E4E";
     }
   } 
+
+  //Función que devuelve el color original a los botones (siguiente)
+  function descolorearTodos(){
+    const buttonContainer = document.querySelector('.button-container');
+    const buttons = buttonContainer.querySelectorAll('.button');
+    buttons.forEach((button) => {
+      //Desactivamos TODOS los botones
+      button.disabled=false; 
+      //Ponemos el boton de la respuesta correcta en verde
+        button.style.backgroundColor = "#FFFFFF";
+      })
+      buttonContainer.querySelector('#boton1').style.border = "6px solid #E14E4E";
+      buttonContainer.querySelector('#boton2').style.border = "6px solid #CBBA2A";
+      buttonContainer.querySelector('#boton3').style.border = "6px solid #05B92B";
+      buttonContainer.querySelector('#boton4').style.border = "6px solid #1948D9";
+  } 
+
+  //Función que finaliza la partida (redirigir/mostrar stats...)
+  function finishGame(){
+    //TODO
+  }
  
   //Funcion que se llama al hacer click en el boton Siguiente
   function clickSiguiente() {
+    if(numPreguntaActual==numPreguntas){
+      finishGame()
+      return
+    }
+    descolorearTodos()
     //Recarga la pagina para cambiar de pregunta
-    window.location.href = "game";
+    //window.location.href = "game";
+    setNumPreguntaActual(numPreguntaActual+1)
+    console.log(numPreguntaActual)
+    updateGame();
+
   }
 
   
@@ -164,7 +221,7 @@ const Juego = ({isLogged, username}) => {
           <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
           <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
         </div>
-        <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
+        {ready ? <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button> : <></>}
       </Container>
   );
 };
