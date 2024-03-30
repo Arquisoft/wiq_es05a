@@ -47,7 +47,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
           <Route path="/game" 
-          element={<PrivateRoute element={<Juego isLogged={isLogged} username={username} />} />}
+          element={<PrivateRoute element={<Juego isLogged={isLogged} username={username} numPreguntas={10}/>} />}
           />
           <Route path="/login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged}  username={username} setUsername={setUsername}/>} />
           <Route path="*" element={<NotFound />} />
