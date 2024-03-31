@@ -5,7 +5,7 @@ import '../Estilos/estadisticas.css';
 import axios from 'axios';
 
 
-const Juego = ({isLogged}) => {
+const Estadisticas = ({isLogged}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
     const [username, setUsername] = useState('');
@@ -15,23 +15,28 @@ const Juego = ({isLogged}) => {
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [completedGames, setCompletedGames] = useState(0);
     const [averageTime, setAverageTime] = useState(0);
+    const [firstRender, setFirstRender] = useState(false);
 
-    useEffect(() => {
-      const statsUser = async () => {
-          try {
-            const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
-            const datos = response.data;
-            setCorrectAnswers(datos.correctAnswers);
-            setIncorrectAnswers(datos.incorrectAnswers);
-            setCompletedGames(datos.completedGames);
-            setAverageTime(datos.averageTime);
-          } catch (error) {
-            setError(error.response.data.error);
-          }
-        };
-
+  useEffect(() => {
+    if (!firstRender) {
       statsUser();
-    });
+      setFirstRender(true);
+    }
+  }, [firstRender])
+
+    
+    async function statsUser(){
+      try {
+        const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
+        const datos = response.data;
+        setCorrectAnswers(datos.correctAnswers);
+        setIncorrectAnswers(datos.incorrectAnswers);
+        setCompletedGames(datos.completedGames);
+        setAverageTime(datos.averageTime);
+      } catch (error) {
+        setError(error.response.data.error);
+      }
+    };
 
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
@@ -61,4 +66,4 @@ const Juego = ({isLogged}) => {
   );
 };
 
-export default Juego;
+export default Estadisticas;

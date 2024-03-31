@@ -28,9 +28,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numPreguntaActual, setNumPreguntaActual] = useState(0)
 
   const [arPreg, setArPreg] = useState([])
-  
- 
-
 
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';

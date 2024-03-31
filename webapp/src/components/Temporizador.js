@@ -7,19 +7,11 @@ const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestar
     
     useEffect(() => {
         let intervalID;
-        console.log("recargado efectivamente")
-        console.log(restart)
         if(restart){
             setTiempoSegundos(tiempoInicial);
             pausa=false;
             handleRestart();
         }
-
-        console.log(restart);
-        console.log(tiempoInicial);
-        console.log(tiempoSegundos);
-        console.log(pausa);
-
 
         if (tiempoSegundos > 0 && !pausa) {
         intervalID = setInterval(() => {
