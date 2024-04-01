@@ -41,7 +41,6 @@ function App() {
 
   return (
     <>
-      
       <Router>
       <Layout isLogged={isLogged} setIsLogged={setIsLogged}  />
         <Routes>

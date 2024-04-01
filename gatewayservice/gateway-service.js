@@ -63,6 +63,41 @@ app.get('/updateCorrectAnswers', async (req, res) => {
   }
 });
 
+app.get('/updateIncorrectAnswers', async (req, res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try{
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateIncorrectAnswers?username=${username}`)
+    res.json(updateStatsResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
+  }
+});
+
+app.get('/updateCompletedGames', async (req, res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try{
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCompletedGames?username=${username}`)
+    res.json(updateStatsResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
+  }
+});
+
+
+
+app.get('/getUserData', async (req, res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try{
+    const getUserDataResponse = await axios.get(userServiceUrl+ `/getUserData?username=${username}`)
+    res.json(getUserDataResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
+  }
+});
+
 // Start the gateway service
 const server = app.listen(port, () => {
   console.log(`Gateway Service listening at http://localhost:${port}`);

@@ -19,6 +19,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [victoria, setVictoria] = useState(false)
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
+  const [restartTemporizador, setRestartTemporizador] = useState(false)
 
   const [firstRender, setFirstRender] = useState(false);
 
@@ -27,7 +28,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numPreguntaActual, setNumPreguntaActual] = useState(0)
 
   const [arPreg, setArPreg] = useState([])
-
 
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -44,12 +44,31 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Control de las estadísticas
   const updateCorrectAnswers = async () => {
     try {
+        const username = localStorage.getItem('username');
         const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
         console.log('Respuesta correcta actualizada con éxito:', response.data);
         // Realizar otras acciones según sea necesario
     } catch (error) {
         console.error('Error al actualizar la respuesta correcta:', error);
         // Manejar el error de acuerdo a tus necesidades
+    }
+  };
+
+  const updateIncorrectAnswers = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
+        console.log('Respuesta incorrecta actualizada con éxito:', response.data);
+    } catch (error) {
+        console.error('Error al actualizar la respuesta incorrecta:', error);
+    }
+  };
+
+  const updateCompletedGames = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateCompletedGames?username=${username}`);
+        console.log('Juegos completados actualizado con éxito:', response.data);
+    } catch (error) {
+        console.error('Error al actualizar Juegos completados:', error);
     }
   };
   ////
@@ -88,6 +107,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setPregunta(arPreg[numPreguntaActual].pregunta)
     setResCorr(arPreg[numPreguntaActual].resCorr)
     setResFalse(arPreg[numPreguntaActual].resFalse)
+    //Poner temporizador a 20 de nuevo
+    setRestartTemporizador(false);
   }
 
 
@@ -106,6 +127,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       setVictoria(true)
     }
     else{
+      updateIncorrectAnswers();
       setVictoria(false)
     }
     //storeResult(victoria)
@@ -181,6 +203,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Función que finaliza la partida (redirigir/mostrar stats...)
   function finishGame(){
+    updateCompletedGames();
     //TODO
   }
  
@@ -196,13 +219,20 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setNumPreguntaActual(numPreguntaActual+1)
     console.log(numPreguntaActual)
     updateGame();
-
+    //Recargar a 20 el temporizador
+    setRestartTemporizador(true);
+    setPausarTemporizador(false);
   }
+
+  const handleRestart = () => {
+    setRestartTemporizador(false); // Cambia el estado de restart a false, se llama aqui desde Temporizador.js
+  };
 
   
   return (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-        <Temporizador tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador}/>
+        <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
+        <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
         <h2> {pregunta} </h2>
         <div className="button-container">
           <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
