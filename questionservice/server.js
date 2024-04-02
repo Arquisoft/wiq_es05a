@@ -3,24 +3,34 @@ const express = require('express');
 // Importamos el módulo Axios para realizar solicitudes HTTP
 const axios = require('axios');
 const cors = require('cors');
+const fs = require('fs');
 
 // Creamos una nueva aplicación Express
 const app = express();
 app.use(cors());
 
+// Cargamos las consultas SPARQL desde el fichero de configuración
+const queries = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
+    // Seleccionamos una consulta SPARQL de forma aleatoria del fichero de configuración
+    const queryItem = queries[Math.floor(Math.random() * queries.length)];
+
     // URL del endpoint SPARQL de Wikidata
     const url = "https://query.wikidata.org/sparql";
     // Consulta SPARQL para obtener países y sus capitales
-    const query = `
+    /*const query = `
     SELECT ?country ?countryLabel ?capital ?capitalLabel WHERE {
       ?country wdt:P31 wd:Q6256;
                wdt:P36 ?capital.
       SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }
     }
     LIMIT 50
-    `;
+    `;*/
+    // Consulta SPARQL seleccionada
+    const query = queryItem.query;
+
     // Realizamos la solicitud HTTP GET al endpoint SPARQL con la consulta
     const response = await axios.get(url, { params: { format: 'json', query } });
     // Extraemos los resultados de la consulta
