@@ -31,7 +31,7 @@ app.get('/pregunta', async (req, res) => {
     // Obtenemos la respuesta correcta
     const correctAnswer = bindings[correctAnswerIndex];
     // Creamos la pregunta
-    const question = `¿Cuál es la capital de ${correctAnswer.countryLabel.value}?`;
+    const question = questionItem.question;
     // Inicializamos las respuestas con la respuesta correcta
     const answerGood = correctAnswer.capitalLabel.value;
     const answers = [answerGood];
