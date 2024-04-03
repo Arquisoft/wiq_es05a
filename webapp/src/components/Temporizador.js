@@ -7,6 +7,7 @@ const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestar
     
     useEffect(() => {
         let intervalID;
+        console.log("estado tempo: " + restart)
         if(restart){
             setTiempoSegundos(tiempoInicial);
             pausa=false;
@@ -21,7 +22,7 @@ const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestar
         if(tiempoSegundos<=0)
             tiempoAcabado();
         return () => clearInterval(intervalID);
-    }, [tiempoSegundos, pausa]);
+    }, [tiempoSegundos, pausa, restart]);
 
     return (
         <div className="temporizador"> <p> {tiempoSegundos} </p> </div>
