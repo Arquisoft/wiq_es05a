@@ -1,6 +1,14 @@
 [
     {
-        "query": "SELECT ?country ?countryLabel ?capital ?capitalLabel WHERE {?country wdt:P31 wd:Q6256; wdt:P36 ?capital.SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],es",
-        "question": "¿Cuál es la capital de ${correctAnswer.countryLabel.value}?"
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q6256; wdt:P36 ?answerSubject.SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "question": "¿Cuál es la capital de {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q11344; wdt:P1086 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es el número atómico del {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q41176; wdt:P2048 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es la altura de {sujetoPregunta}?"
     }
 ]

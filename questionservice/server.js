@@ -15,7 +15,7 @@ const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
     // Seleccionamos una consulta SPARQL de forma aleatoria del fichero de configuración
-    const questionItem = questions[Math.floor(Math.random() * queries.length)];
+    const questionItem = questions[Math.floor(Math.random() * questions.length)];
 
     // URL del endpoint SPARQL de Wikidata
     const url = "https://query.wikidata.org/sparql";
@@ -31,9 +31,10 @@ app.get('/pregunta', async (req, res) => {
     // Obtenemos la respuesta correcta
     const correctAnswer = bindings[correctAnswerIndex];
     // Creamos la pregunta
-    const question = questionItem.question;
+    console.log(questionItem.question);
+    const question = questionItem.question.replace('{sujetoPregunta}', correctAnswer.questionSubjectLabel.value);
     // Inicializamos las respuestas con la respuesta correcta
-    const answerGood = correctAnswer.capitalLabel.value;
+    const answerGood = correctAnswer.answerSubjectLabel.value;
     const answers = [answerGood];
     // Añadimos tres respuestas incorrectas
     for (let i = 0; i < 3; i++) {
@@ -43,7 +44,7 @@ app.get('/pregunta', async (req, res) => {
             randomIndex = Math.floor(Math.random() * bindings.length);
         } while (randomIndex === correctAnswerIndex);
         // Añadimos la capital del país seleccionado aleatoriamente a las respuestas
-        answers.push(bindings[randomIndex].capitalLabel.value);
+        answers.push(bindings[randomIndex].answerSubjectLabel.value);
     }
     // Mezclamos las respuestas
     for (let i = answers.length - 1; i > 0; i--) {
