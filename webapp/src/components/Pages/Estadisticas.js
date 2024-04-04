@@ -27,7 +27,6 @@ const Estadisticas = ({isLogged, username}) => {
     
     async function statsUser(){
       try {
-        //const username = localStorage.getItem('username');
         const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
         const datos = response.data;
         setCorrectAnswers(datos.correctAnswers);
