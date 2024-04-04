@@ -29,6 +29,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   const [arPreg, setArPreg] = useState([])
 
+  const [finishGame, setFinishGame] = useState(false)
+
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
@@ -205,15 +207,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     console.log("termina descolorear")
   } 
 
-  //Función que finaliza la partida (redirigir/mostrar stats...)
-  function finishGame(){
-    updateCompletedGames();
-    //TODO
-  }
+  //Primer render para un comportamiento diferente
+  useEffect(() => {
+    updateCompletedGames()
+  }, [finishGame])
  
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickSiguiente = () => {
     if(numPreguntaActual==numPreguntas){
+      setFinishGame(true)
+      setReady(false)
       finishGame()
       return
     }
@@ -226,23 +229,37 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setPausarTemporizador(false);
   }
 
+  //Funcion que se llama al hacer click en el boton Siguiente
+  const clickFinalizar = () => {
+    //almacenar aqui partida jugada a estadisticas
+    //y lo que se quiera
+  }
+
   const handleRestart = () => {
     setRestartTemporizador(false); // Cambia el estado de restart a false, se llama aqui desde Temporizador.js
   };
+  
 
   
   return (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-        <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
-        <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
-        <h2> {pregunta} </h2>
-        <div className="button-container">
-          <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
-          <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
-          <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
-          <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
-        </div>
-        {ready ? <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button> : <></>}
+        {ready ? <>
+          <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
+          <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
+          <h2> {pregunta} </h2>
+          <div className="button-container">
+            <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
+            <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
+            <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
+            <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
+            <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
+          </div>
+          </>
+        : <h2> CARGANDO... </h2>}
+        {finishGame ? <>
+          <h2> PARTIDA FINALIZADA </h2>
+          <button id="botonSiguiente" className="button" onClick={() =>clickFinalizar()} > FINALIZAR PARTIDA</button>
+          </> : <></>}
       </Container>
   );
 };
