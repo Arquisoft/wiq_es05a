@@ -54,7 +54,7 @@ function App() {
           
           <Route
               path="/stats"
-              element={<PrivateRoute element={<Estadisticas />} />}
+              element={<PrivateRoute element={<Estadisticas isLogged={isLogged} username={username} />} />}
           />
 
         </Routes>

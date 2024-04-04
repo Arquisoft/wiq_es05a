@@ -5,10 +5,10 @@ import '../Estilos/estadisticas.css';
 import axios from 'axios';
 
 
-const Estadisticas = ({isLogged}) => {
+const Estadisticas = ({isLogged, username}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-    const [username, setUsername] = useState('');
+   // const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [correctAnswers, setCorrectAnswers] = useState(0);
