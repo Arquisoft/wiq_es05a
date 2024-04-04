@@ -74,6 +74,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Función que genera un numero de preguntas determinado
   async function crearPreguntas(numPreguntas){
+    setPausarTemporizador(true)
     let tempArray=[];
     while(numPreguntas>0){
       console.log("contador:" + numPreguntas)
@@ -97,6 +98,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       numPreguntas--;
     }
     setReady(true)
+    setPausarTemporizador(false)
     updateGame();
     setNumPreguntaActual(numPreguntaActual+1);
   }
@@ -107,7 +109,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setResCorr(arPreg[numPreguntaActual].resCorr)
     setResFalse(arPreg[numPreguntaActual].resFalse)
     //Poner temporizador a 20 de nuevo
-    setRestartTemporizador(false);
+    setRestartTemporizador(true);
   }
 
 
@@ -185,19 +187,22 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   } 
 
   //Función que devuelve el color original a los botones (siguiente)
-  function descolorearTodos(){
+  async function descolorearTodos(){
+    console.log("entra descolorear")
     const buttonContainer = document.querySelector('.button-container');
     const buttons = buttonContainer.querySelectorAll('.button');
     buttons.forEach((button) => {
+      console.log("boton: " + button)
       //Desactivamos TODOS los botones
       button.disabled=false; 
       //Ponemos el boton de la respuesta correcta en verde
         button.style.backgroundColor = "#FFFFFF";
       })
-      buttonContainer.querySelector('#boton1').style.border = "6px solid #E14E4E";
-      buttonContainer.querySelector('#boton2').style.border = "6px solid #CBBA2A";
-      buttonContainer.querySelector('#boton3').style.border = "6px solid #05B92B";
-      buttonContainer.querySelector('#boton4').style.border = "6px solid #1948D9";
+    buttonContainer.querySelector('#boton1').style.border = "6px solid #E14E4E";
+    buttonContainer.querySelector('#boton2').style.border = "6px solid #CBBA2A";
+    buttonContainer.querySelector('#boton3').style.border = "6px solid #05B92B";
+    buttonContainer.querySelector('#boton4').style.border = "6px solid #1948D9";
+    console.log("termina descolorear")
   } 
 
   //Función que finaliza la partida (redirigir/mostrar stats...)
@@ -207,14 +212,12 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   }
  
   //Funcion que se llama al hacer click en el boton Siguiente
-  function clickSiguiente() {
+  const clickSiguiente = () => {
     if(numPreguntaActual==numPreguntas){
       finishGame()
       return
     }
     descolorearTodos()
-    //Recarga la pagina para cambiar de pregunta
-    //window.location.href = "game";
     setNumPreguntaActual(numPreguntaActual+1)
     console.log(numPreguntaActual)
     updateGame();
