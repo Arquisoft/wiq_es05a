@@ -8,7 +8,7 @@
         "question": "¿Cuál es el número atómico del {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q41176; wdt:P2048 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q570116; wdt:P2048 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
         "question": "¿Cuál es la altura de {sujetoPregunta}?"
     }
 ]

@@ -26,13 +26,22 @@ app.get('/pregunta', async (req, res) => {
     const response = await axios.get(url, { params: { format: 'json', query } });
     // Extraemos los resultados de la consulta
     const bindings = response.data.results.bindings;
-    // Seleccionamos un índice aleatorio para la respuesta correcta
-    const correctAnswerIndex = Math.floor(Math.random() * bindings.length);
-    // Obtenemos la respuesta correcta
-    const correctAnswer = bindings[correctAnswerIndex];
+
+    let wikidataCodePattern = /^Q\d+$/;
+    let correctAnswer = null;
+    let correctAnswerIndex = 0;
+
+    do {
+        // Seleccionamos un índice aleatorio para la respuesta correcta
+        correctAnswerIndex = Math.floor(Math.random() * bindings.length);
+        // Obtenemos la respuesta correcta
+        correctAnswer = bindings[correctAnswerIndex];
+    } while (wikidataCodePattern.test(correctAnswer.questionSubjectLabel.value));
+
     // Creamos la pregunta
     console.log(questionItem.question);
     const question = questionItem.question.replace('{sujetoPregunta}', correctAnswer.questionSubjectLabel.value);
+    
     // Inicializamos las respuestas con la respuesta correcta
     const answerGood = correctAnswer.answerSubjectLabel.value;
     const answers = [answerGood];
