@@ -103,5 +103,5 @@ describe('Gateway Service', () => {
     // Detenemos el proceso de Locust
     locustProcess.kill();
   });
-  //test prueba
+  //test prueba gateway
 });
