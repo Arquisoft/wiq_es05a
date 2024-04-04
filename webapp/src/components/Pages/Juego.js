@@ -44,7 +44,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Control de las estadísticas
   const updateCorrectAnswers = async () => {
     try {
-        const username = localStorage.getItem('username');
         const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
         console.log('Respuesta correcta actualizada con éxito:', response.data);
         // Realizar otras acciones según sea necesario
