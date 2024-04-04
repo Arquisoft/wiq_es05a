@@ -28,11 +28,13 @@ const Estadisticas = ({isLogged, username}) => {
     async function statsUser(){
       try {
         const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
+        console.log('Datos obtenidos con exito:', response.data);
+        console.log('Datos obtenidos con exito:', response.data.user.correctAnswers);
         const datos = response.data;
-        setCorrectAnswers(datos.correctAnswers);
-        setIncorrectAnswers(datos.incorrectAnswers);
-        setCompletedGames(datos.completedGames);
-        setAverageTime(datos.averageTime);
+        setCorrectAnswers(datos.user.correctAnswers);
+        setIncorrectAnswers(datos.user.incorrectAnswers);
+        setCompletedGames(datos.user.completedGames);
+        setAverageTime(datos.user.averageTime);
       } catch (error) {
         setError(error.response.data.error);
       }
