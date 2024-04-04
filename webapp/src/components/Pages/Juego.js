@@ -47,7 +47,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     try {
         //const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
         const params = {username: {username}, numAnswers: {numRespuestasCorrectas}};
-        const response2 = await axios.get(`${apiEndpoint}/updateCorrectAnswers?params=${params}`);
+        const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?params=${params}`);
         console.log('Respuestas correctas actualizada con éxito:', response.data);
         // Realizar otras acciones según sea necesario
     } catch (error) {
@@ -60,7 +60,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     try {
         //const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
         const params = {username: {username}, numAnswers: {numRespuestasIncorrectas}};
-        const response2 = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
+        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
         console.log('Respuesta incorrecta actualizada con éxito:', response.data);
     } catch (error) {
         console.error('Error al actualizar la respuesta incorrecta:', error);
