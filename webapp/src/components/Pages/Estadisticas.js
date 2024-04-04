@@ -5,10 +5,10 @@ import '../Estilos/estadisticas.css';
 import axios from 'axios';
 
 
-const Estadisticas = ({isLogged}) => {
+const Estadisticas = ({isLogged, username}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-    const [username, setUsername] = useState('');
+   // const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -27,6 +27,7 @@ const Estadisticas = ({isLogged}) => {
     
     async function statsUser(){
       try {
+        //const username = localStorage.getItem('username');
         const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
         const datos = response.data;
         setCorrectAnswers(datos.correctAnswers);
