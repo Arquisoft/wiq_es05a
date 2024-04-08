@@ -22,12 +22,13 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [restartTemporizador, setRestartTemporizador] = useState(false)
 
   const [firstRender, setFirstRender] = useState(false);
-
   const[ready, setReady] = useState(false)
-
   const [numPreguntaActual, setNumPreguntaActual] = useState(0)
-
   const [arPreg, setArPreg] = useState([])
+  const [finishGame, setFinishGame] = useState(false)
+
+  const [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
+  const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
 
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -44,9 +45,10 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Control de las estadísticas
   const updateCorrectAnswers = async () => {
     try {
-        const username = localStorage.getItem('username');
-        const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
-        console.log('Respuesta correcta actualizada con éxito:', response.data);
+        //const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
+        const params = {username: {username}, numAnswers: {numRespuestasCorrectas}};
+        const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?params=${params}`);
+        console.log('Respuestas correctas actualizada con éxito:', response.data);
         // Realizar otras acciones según sea necesario
     } catch (error) {
         console.error('Error al actualizar la respuesta correcta:', error);
@@ -56,7 +58,9 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   const updateIncorrectAnswers = async () => {
     try {
-        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
+        //const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
+        const params = {username: {username}, numAnswers: {numRespuestasIncorrectas}};
+        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
         console.log('Respuesta incorrecta actualizada con éxito:', response.data);
     } catch (error) {
         console.error('Error al actualizar la respuesta incorrecta:', error);
@@ -125,11 +129,13 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     if(respuesta == resCorr){
       console.log("entro a respuesta correcta")
       //Aumenta en 1 en las estadisticas de juegos ganado
-      updateCorrectAnswers();
+      setNumRespuestasCorrectas(numRespuestasCorrectas++);
+      //updateCorrectAnswers();
       setVictoria(true)
     }
     else{
-      updateIncorrectAnswers();
+      setNumRespuestasIncorrectas(numRespuestasIncorrectas++);
+      //updateIncorrectAnswers();
       setVictoria(false)
     }
     //storeResult(victoria)
@@ -206,15 +212,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     console.log("termina descolorear")
   } 
 
-  //Función que finaliza la partida (redirigir/mostrar stats...)
-  function finishGame(){
-    updateCompletedGames();
-    //TODO
-  }
+  //Primer render para un comportamiento diferente
+  useEffect(() => {
+    updateCompletedGames()
+  }, [finishGame])
  
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickSiguiente = () => {
     if(numPreguntaActual==numPreguntas){
+      setFinishGame(true)
+      setReady(false)
       finishGame()
       return
     }
@@ -227,23 +234,40 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setPausarTemporizador(false);
   }
 
+  //Funcion que se llama al hacer click en el boton Siguiente
+  const clickFinalizar = () => {
+    //updateCompletedGames();
+    updateCorrectAnswers();
+    updateIncorrectAnswers();
+    //almacenar aqui partida jugada a estadisticas
+    //y lo que se quiera
+  }
+
   const handleRestart = () => {
     setRestartTemporizador(false); // Cambia el estado de restart a false, se llama aqui desde Temporizador.js
   };
+  
 
   
   return (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-        <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
-        <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
-        <h2> {pregunta} </h2>
-        <div className="button-container">
-          <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
-          <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
-          <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
-          <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
-        </div>
-        {ready ? <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button> : <></>}
+        {ready ? <>
+          <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
+          <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
+          <h2> {pregunta} </h2>
+          <div className="button-container">
+            <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
+            <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
+            <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
+            <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
+            <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
+          </div>
+          </>
+        : <h2> CARGANDO... </h2>}
+        {finishGame ? <>
+          <h2> PARTIDA FINALIZADA </h2>
+          <button id="botonSiguiente" className="button" onClick={() =>clickFinalizar()} > FINALIZAR PARTIDA</button>
+          </> : <></>}
       </Container>
   );
 };

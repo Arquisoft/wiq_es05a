@@ -54,9 +54,10 @@ app.get('/pregunta', async (req, res) => {
 
 app.get('/updateCorrectAnswers', async (req, res) => {
   console.log(req.query)
-  const { username } = req.query;
+  const params = {username: req.query.username, numAnswers: req.query.numAnswers};
+  //const { username } = req.query;
   try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?username=${username}`)
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?params=${params}`)
     res.json(updateStatsResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});
@@ -65,9 +66,10 @@ app.get('/updateCorrectAnswers', async (req, res) => {
 
 app.get('/updateIncorrectAnswers', async (req, res) => {
   console.log(req.query)
-  const { username } = req.query;
+  //const { username } = req.query;
+  const params = {username: req.query.username, numAnswers: req.query.numAnswers};
   try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateIncorrectAnswers?username=${username}`)
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateIncorrectAnswers?params=${params}`)
     res.json(updateStatsResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});
