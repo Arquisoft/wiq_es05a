@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import Temporizador from './Temporizador';
 
 describe('Temporizador', () => {
@@ -13,37 +13,41 @@ describe('Temporizador', () => {
   it('decreases countdown time when not paused', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
-    render(<Temporizador tiempoInicial={tiempoInicial} />);
-    jest.advanceTimersByTime(1000);
+    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     const updatedCountdownElement = screen.getByText(tiempoInicial - 1);
     expect(updatedCountdownElement).toBeInTheDocument();
-    jest.useRealTimers();
   });
 
   it('stops countdown time when paused', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
     render(<Temporizador tiempoInicial={tiempoInicial} pausa={true} />);
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     const updatedCountdownElement = screen.getByText(tiempoInicial);
     expect(updatedCountdownElement).toBeInTheDocument();
-    jest.useRealTimers();
   });
 
   it('restarts countdown time when restart prop changes', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
     const { rerender } = render(<Temporizador tiempoInicial={tiempoInicial} />);
-    jest.advanceTimersByTime(1000);
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     const updatedCountdownElement = screen.getByText(tiempoInicial - 1);
     expect(updatedCountdownElement).toBeInTheDocument();
 
     // Simulate restart by changing the restart prop
-    rerender(<Temporizador tiempoInicial={tiempoInicial} restart={true} />);
+    rerender(<Temporizador tiempoInicial={tiempoInicial} restart={true} 
+      handleRestart={jest.fn()} />);
 
     // Countdown should restart
     const restartedCountdownElement = screen.getByText(tiempoInicial);
     expect(restartedCountdownElement).toBeInTheDocument();
-    jest.useRealTimers();
   });
 });
