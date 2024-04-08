@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const { defineFeature, loadFeature }=require('jest-cucumber');
 const setDefaultOptions = require('expect-puppeteer').setDefaultOptions
-const feature = loadFeature('./features/register-form.feature');
+const feature = loadFeature('../features/register-form.feature');
 
 let page;
 let browser;
@@ -31,7 +31,7 @@ defineFeature(feature, test => {
     given('An unregistered user', async () => {
       username = "pablo"
       password = "pabloasw"
-      await expect(page).toClick("button", { text: "Don't have an account? Register here." });
+      await expect(page).toClick("button", { text: "REGÍSTRATE" });
     });
 
     when('I fill the data in the form and press submit', async () => {
