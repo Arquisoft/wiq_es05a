@@ -1,7 +1,10 @@
 const request = require('supertest');
-const axios = require('axios');
 const app = require('./server'); 
 const fs = require('fs');
+
+afterAll(async () => {
+  app.close();
+});
 
 describe('GET /pregunta', () => {
   it('debería devolver una pregunta y respuestas con éxito', async () => {
@@ -12,5 +15,7 @@ describe('GET /pregunta', () => {
     expect(response.body).toHaveProperty('answers');
     expect(response.body.answers).toHaveLength(4);
   });
+
+ 
   
 });
