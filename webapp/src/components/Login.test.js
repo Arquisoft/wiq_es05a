@@ -9,9 +9,7 @@ const mockAxios = new MockAdapter(axios);
 
 describe('Login component', () => {
   beforeEach(() => {
-    mockAxios.reset();
-
-    
+    mockAxios.reset();  
   });
 
   it('should render correctly', async () => {
@@ -21,38 +19,6 @@ describe('Login component', () => {
     expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Login/i })).toBeInTheDocument();
   })
-
-  /*it('should log in successfully', async () => {
-    render(<Login />);
-
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
-
-    userEvent.type(usernameInput, 'testUser')
-    userEvent.type(passwordInput, 'testPassword')
-
-    // Trigger the login button click
-    fireEvent.click(loginButton);
-
-    // Mock the axios.post request to simulate a successful response
-    mockAxios.onPost('http://localhost:8000/login').reply(200, { createdAt: '2024-01-01T12:34:56Z',
-    username: 'testUser',
-    error: {
-      response: {
-        data:{
-          error: 'Unauthorized' }}}});
-
-    
-
-    
-
-    // Verify that the user information is displayed
-    await waitFor(() => {
-      expect(screen.getByText(/Hello testUser!/i)).toBeInTheDocument();
-    });
-    //expect(screen.getByText(/Your account was created on 1\/1\/2024/i)).toBeInTheDocument();
-  });*/
 
   it('should log in successfully', async () => {
     render(<Login isLogged={false} setIsLogged={jest.fn()} username={'testUser'} setUsername={jest.fn()}/>);
@@ -91,12 +57,6 @@ describe('Login component', () => {
     const passwordInput = screen.getByLabelText(/Password/i);
     const loginButton = screen.getByRole('button', { name: /Login/i });
 
-    // Mock the axios.post request to simulate an error response
-    /*mockAxios.onPost('http://localhost:8000/login').reply(401, { error: {
-      response: {
-        data:{
-          error: 'Unauthorized' }}}
-    });*/
 
     mockAxios.onPost('http://localhost:8000/login').reply(401, { error: 'Unauthorized' });
 
@@ -111,9 +71,5 @@ describe('Login component', () => {
     await waitFor(() => {
       expect(screen.getByText(/Error: Unauthorized/i)).toBeInTheDocument();
     });
-
-    // Verify that the user information is not displayed
-    //expect(screen.queryByText(/Hello testUser!/i)).toBeNull();
-    //expect(screen.queryByText(/Your account was created on/i)).toBeNull();
   });
 });
