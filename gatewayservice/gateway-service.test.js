@@ -23,19 +23,11 @@ describe('Gateway Service', () => {
   });
 
   // Test /login endpoint
-  it('should handle authentication securely', async () => {
-    // Datos de prueba para iniciar sesión
-    const loginData = {
-        username: 'testuser',
-        password: 'testpassword'
-    };
-
-    // Realizamos una solicitud POST al endpoint /login
+  it('should forward login request to auth service', async () => {
     const response = await request(app)
-        .post('/login')
-        .send(loginData);
+      .post('/login')
+      .send({ username: 'testuser', password: 'testpassword' });
 
-    // Verificamos que la respuesta tenga un código de estado 200
     expect(response.statusCode).toBe(200);
     expect(response.body.token).toBe('mockedToken');
   });
@@ -63,8 +55,8 @@ describe('Gateway Service', () => {
 
     // Realizamos una solicitud POST al endpoint /login con datos incorrectos
     const response = await request(app)
-        .post('/login')
-        .send(invalidLoginData);
+      .post('/adduser')
+      .send({ username: 'newuser', password: 'newpassword' });
 
     // Verificamos que la respuesta tenga un código de estado 401 (Unauthorized)
     expect(response.statusCode).toBe(401);
@@ -93,6 +85,4 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(200);
     expect(response.body).toEqual(mockData);
   });
-
-  
 });

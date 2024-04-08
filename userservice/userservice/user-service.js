@@ -47,21 +47,76 @@ app.post('/adduser', async (req, res) => {
 
 app.get('/updateCorrectAnswers', async (req,res) => {
   console.log(req.query)
-  const { username } = req.query;
+  //const { username } = req.query;
+  const { username } = req.query.username; 
+  const { numAnswers } = req.query.numAnswers;
   try {
     const user = await User.findOne({ username });
     if (!user) {
         return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
     }
     // Incrementa las respuestas correctas del usuario
-    user.correctAnswers += 1;
+    user.correctAnswers = numAnswers;
     await user.save();
-    return res.status(200).json({ success: true, message: 'Respuesta correcta actualizada con éxito' });
+    return res.status(200).json({ success: true, message: 'Respuestas correctas actualizada con éxito' });
   } catch (error) {
-    console.error('Error al actualizar la respuesta correcta:', error);
-    return res.status(500).json({ success: false, message: 'Error al actualizar la respuesta correcta' });
+    console.error('Error al actualizar las respuestas correctas:', error);
+    return res.status(500).json({ success: false, message: 'Error al actualizar las respuestas correctas' });
   }
 })
+
+app.get('/updateIncorrectAnswers', async (req,res) => {
+  console.log(req.query)
+  //const { username } = req.query;
+  const { username } = req.query.username; 
+  const { numAnswers } = req.query.numAnswers;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    // Incrementa las respuestas incorrectas del usuario
+    user.incorrectAnswers = numAnswers;
+    await user.save();
+    return res.status(200).json({ success: true, message: 'Respuestas incorrectas actualizada con éxito' });
+  } catch (error) {
+    console.error('Error al actualizar la respuesta correcta:', error);
+    return res.status(500).json({ success: false, message: 'Error al actualizar las respuestas incorrectas' });
+  }
+})
+
+app.get('/getUserData', async (req, res) => {
+  const { username } = req.query;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    return res.status(200).json({ user });
+  } catch (error) {
+    console.error('Error al obtener los datos de usuario:', error);
+    return res.status(500).json({ success: false, message: 'Error al obtener los datos de usuario' });
+  }
+});
+
+
+app.get('/updateCompletedGames', async (req,res) => {
+  console.log(req.query)
+  const { username } = req.query;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    user.completedGames += 1;
+    await user.save();
+    return res.status(200).json({ success: true, message: 'Juegos completados actualizado con éxito' });
+  } catch (error) {
+    console.error('Error al actualizar Juegos completados:', error);
+    return res.status(500).json({ success: false, message: 'Error al actualizar Juegos completados' });
+  }
+})
+
 
 const server = app.listen(port, () => {
   console.log(`User Service listening at http://localhost:${port}`);

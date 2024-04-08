@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-const Temporizador =({tiempoInicial, tiempoAcabado, pausa})=> {
+const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestart})=> {
 
     //Constante que va restando segundos
     const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
     
-
     useEffect(() => {
         let intervalID;
+        console.log("estado tempo: " + restart)
+        if(restart){
+            setTiempoSegundos(tiempoInicial);
+            pausa=false;
+            handleRestart();
+        }
 
         if (tiempoSegundos > 0 && !pausa) {
         intervalID = setInterval(() => {
@@ -17,7 +22,7 @@ const Temporizador =({tiempoInicial, tiempoAcabado, pausa})=> {
         if(tiempoSegundos<=0)
             tiempoAcabado();
         return () => clearInterval(intervalID);
-    }, [tiempoSegundos, pausa]);
+    }, [tiempoSegundos, pausa, restart]);
 
     return (
         <div className="temporizador"> <p> {tiempoSegundos} </p> </div>
