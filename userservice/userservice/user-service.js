@@ -46,10 +46,14 @@ app.post('/adduser', async (req, res) => {
     }});
 
 app.get('/updateCorrectAnswers', async (req,res) => {
-  console.log(req.query)
+  const { username1, numAnswers1 } = req.query;
+  console.log("1"+username1+ " " +numAnswers1)
+  console.log("2"+req.query)
+  console.log("3"+req.query.params)
+  console.log("4"+req.query.params.username)
   //const { username } = req.query;
-  const { username } = req.query.username; 
-  const { numAnswers } = req.query.numAnswers;
+  const { username } = req.query.params.username; 
+  const { numAnswers } = req.query.params.numAnswers;
   try {
     const user = await User.findOne({ username });
     if (!user) {

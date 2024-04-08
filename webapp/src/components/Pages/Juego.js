@@ -23,12 +23,12 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   const [firstRender, setFirstRender] = useState(false);
   const[ready, setReady] = useState(false)
-  const [numPreguntaActual, setNumPreguntaActual] = useState(0)
+  let [numPreguntaActual, setNumPreguntaActual] = useState(0)
   const [arPreg, setArPreg] = useState([])
   const [finishGame, setFinishGame] = useState(false)
 
-  const [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
-  const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
+  let [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
+  let [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
 
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -46,7 +46,9 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const updateCorrectAnswers = async () => {
     try {
         //const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
-        const params = {username: {username}, numAnswers: {numRespuestasCorrectas}};
+        const params = {username, numRespuestasCorrectas};
+        console.log(params);
+        console.log(params.username);
         const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?params=${params}`);
         console.log('Respuestas correctas actualizada con éxito:', response.data);
         // Realizar otras acciones según sea necesario
@@ -56,25 +58,25 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     }
   };
 
-  const updateIncorrectAnswers = async () => {
-    try {
-        //const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
-        const params = {username: {username}, numAnswers: {numRespuestasIncorrectas}};
-        const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
-        console.log('Respuesta incorrecta actualizada con éxito:', response.data);
-    } catch (error) {
-        console.error('Error al actualizar la respuesta incorrecta:', error);
-    }
-  };
+  // const updateIncorrectAnswers = async () => {
+  //   try {
+  //       //const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
+  //       const params = {username: {username}, numAnswers: {numRespuestasIncorrectas}};
+  //       const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
+  //       console.log('Respuesta incorrecta actualizada con éxito:', response.data);
+  //   } catch (error) {
+  //       console.error('Error al actualizar la respuesta incorrecta:', error);
+  //   }
+  // };
 
-  const updateCompletedGames = async () => {
-    try {
-        const response = await axios.get(`${apiEndpoint}/updateCompletedGames?username=${username}`);
-        console.log('Juegos completados actualizado con éxito:', response.data);
-    } catch (error) {
-        console.error('Error al actualizar Juegos completados:', error);
-    }
-  };
+  // const updateCompletedGames = async () => {
+  //   try {
+  //       const response = await axios.get(`${apiEndpoint}/updateCompletedGames?username=${username}`);
+  //       console.log('Juegos completados actualizado con éxito:', response.data);
+  //   } catch (error) {
+  //       console.error('Error al actualizar Juegos completados:', error);
+  //   }
+  // };
   ////
 
   //Función que genera un numero de preguntas determinado
@@ -135,7 +137,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     }
     else{
       setNumRespuestasIncorrectas(numRespuestasIncorrectas++);
-      //updateIncorrectAnswers();
       setVictoria(false)
     }
     //storeResult(victoria)
@@ -214,7 +215,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Primer render para un comportamiento diferente
   useEffect(() => {
-    updateCompletedGames()
+    //updateCompletedGames()
   }, [finishGame])
  
   //Funcion que se llama al hacer click en el boton Siguiente
@@ -222,7 +223,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     if(numPreguntaActual==numPreguntas){
       setFinishGame(true)
       setReady(false)
-      finishGame()
+      //finishGame()
       return
     }
     descolorearTodos()
@@ -238,9 +239,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const clickFinalizar = () => {
     //updateCompletedGames();
     updateCorrectAnswers();
-    updateIncorrectAnswers();
-    //almacenar aqui partida jugada a estadisticas
-    //y lo que se quiera
+    //updateIncorrectAnswers();
   }
 
   const handleRestart = () => {
@@ -260,8 +259,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
             <button id="boton2" className="button" onClick={() => botonRespuesta(resFalse[2])}> {resFalse[2]}</button>
             <button id="boton3" className="button" onClick={() => botonRespuesta(resFalse[0])}> {resFalse[0]}</button>
             <button id="boton4" className="button" onClick={() => botonRespuesta(resFalse[3])}> {resFalse[3]}</button>
-            <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
           </div>
+          <button id="botonSiguiente" className="button" onClick={() =>clickSiguiente()} > SIGUIENTE</button>
           </>
         : <h2> CARGANDO... </h2>}
         {finishGame ? <>
