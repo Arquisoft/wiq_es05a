@@ -28,7 +28,6 @@ app.get('/health', (_req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-
   const isValidUser = validateCredentials(req.body.username, req.body.password);
 
   if (!isValidUser) {
