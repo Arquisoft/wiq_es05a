@@ -52,7 +52,12 @@ app.get('/pregunta', async (req, res) => {
     const questionResponse = await axios.get(questionServiceUrl+'/pregunta')
     res.json(questionResponse.data);
   }catch(error){
-    res.status(error.response.status).json({error: error.response.data.error});
+    if (error.response) {
+      res.status(error.response.status).json({ error: error.response.data.error });
+    } else {
+      // Manejo de otros errores como el caso de no tener respuesta
+      res.status(500).json({ error: 'Error desconocido' });
+    }
   }
 });
 
