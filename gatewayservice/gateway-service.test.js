@@ -4,11 +4,11 @@ const app = require('./gateway-service');
 
 // Importamos Locust para realizar pruebas de rendimiento
 const { spawn } = require('child_process');
-const mockResponse = { data: { respuesta: '¡Hola desde el servicio externo!' } };
+const mockResponse = { data: { respuesta: 'Respuesta de Error' } };
 
 afterAll(async () => {
-    return
-  });
+  app.close();
+});
 
 jest.mock('axios');
 
@@ -67,8 +67,7 @@ describe('Gateway Service', () => {
         .send(invalidLoginData);
 
     // Verificamos que la respuesta tenga un código de estado 401 (Unauthorized)
-    // De momento no comprobamos esto en la aplicación por eso devuelve 200.
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(401);
   });
   //test prueba gateway
 
