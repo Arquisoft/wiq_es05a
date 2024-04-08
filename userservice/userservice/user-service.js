@@ -85,6 +85,20 @@ app.get('/updateIncorrectAnswers', async (req,res) => {
   }
 })
 
+app.get('/getUserData', async (req, res) => {
+  const { username } = req.query;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+    }
+    return res.status(200).json({ user });
+  } catch (error) {
+    console.error('Error al obtener los datos de usuario:', error);
+    return res.status(500).json({ success: false, message: 'Error al obtener los datos de usuario' });
+  }
+});
+
 
 app.get('/updateCompletedGames', async (req,res) => {
   console.log(req.query)
@@ -104,23 +118,8 @@ app.get('/updateCompletedGames', async (req,res) => {
 })
 
 
-
 const server = app.listen(port, () => {
   console.log(`User Service listening at http://localhost:${port}`);
-});
-
-app.get('/getUserData', async (req, res) => {
-  const { username } = req.query;
-  try {
-    const user = await User.findOne({ username });
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
-    }
-    return res.status(200).json({ user });
-  } catch (error) {
-    console.error('Error al obtener los datos de usuario:', error);
-    return res.status(500).json({ success: false, message: 'Error al obtener los datos de usuario' });
-  }
 });
 
 // Listen for the 'close' event on the Express.js server
