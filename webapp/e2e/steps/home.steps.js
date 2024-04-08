@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const { defineFeature, loadFeature }=require('jest-cucumber');
 const setDefaultOptions = require('expect-puppeteer').setDefaultOptions
-const feature = loadFeature('../features/home.feature');
+const feature = loadFeature('./features/home.feature');
 
 let page;
 let browser;
