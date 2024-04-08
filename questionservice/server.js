@@ -3,24 +3,25 @@ const express = require('express');
 // Importamos el módulo Axios para realizar solicitudes HTTP
 const axios = require('axios');
 const cors = require('cors');
+const fs = require('fs');
 
 // Creamos una nueva aplicación Express
 const app = express();
 app.use(cors());
 
+// Cargamos las consultas SPARQL desde el fichero de configuración
+const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
+    // Seleccionamos una consulta SPARQL de forma aleatoria del fichero de configuración
+    const questionItem = questions[Math.floor(Math.random() * questions.length)];
+
     // URL del endpoint SPARQL de Wikidata
     const url = "https://query.wikidata.org/sparql";
-    // Consulta SPARQL para obtener países y sus capitales
-    const query = `
-    SELECT ?country ?countryLabel ?capital ?capitalLabel WHERE {
-      ?country wdt:P31 wd:Q6256;
-               wdt:P36 ?capital.
-      SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }
-    }
-    LIMIT 50
-    `;
+    // Consulta SPARQL seleccionada
+    const query = questionItem.query;
+
     // Realizamos la solicitud HTTP GET al endpoint SPARQL con la consulta
     const response = await axios.get(url, { params: { format: 'json', query } });
     // Extraemos los resultados de la consulta
@@ -30,9 +31,10 @@ app.get('/pregunta', async (req, res) => {
     // Obtenemos la respuesta correcta
     const correctAnswer = bindings[correctAnswerIndex];
     // Creamos la pregunta
-    const question = `¿Cuál es la capital de ${correctAnswer.countryLabel.value}?`;
+    console.log(questionItem.question);
+    const question = questionItem.question.replace('{sujetoPregunta}', correctAnswer.questionSubjectLabel.value);
     // Inicializamos las respuestas con la respuesta correcta
-    const answerGood = correctAnswer.capitalLabel.value;
+    const answerGood = correctAnswer.answerSubjectLabel.value;
     const answers = [answerGood];
     // Añadimos tres respuestas incorrectas
     for (let i = 0; i < 3; i++) {
@@ -42,7 +44,7 @@ app.get('/pregunta', async (req, res) => {
             randomIndex = Math.floor(Math.random() * bindings.length);
         } while (randomIndex === correctAnswerIndex);
         // Añadimos la capital del país seleccionado aleatoriamente a las respuestas
-        answers.push(bindings[randomIndex].capitalLabel.value);
+        answers.push(bindings[randomIndex].answerSubjectLabel.value);
     }
     // Mezclamos las respuestas
     for (let i = answers.length - 1; i > 0; i--) {
