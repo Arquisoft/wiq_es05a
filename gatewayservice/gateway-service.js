@@ -56,14 +56,14 @@ app.get('/pregunta', async (req, res) => {
   }
 });
 
-app.get('/updateCorrectAnswers', async (req, res) => {
-  const { username, numAnswers } = req.query;
-  console.log(req.query);
-  console.log(req.query.username);
-  const params = {username: req.query.username, numAnswers: req.query.numAnswers};
-  console.log()
-  try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?params=${params}`)
+app.get('/updateStats', async (req, res) => {
+  //const params = {username: req.query.username, numAnswers: req.query.numAnswers};
+  const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
+  console.log("username: "+username);
+  console.log("correctas: "+numRespuestasCorrectas);
+  console.log("incorrectas: "+numRespuestasIncorrectas);
+  try{  
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`)
     res.json(updateStatsResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});

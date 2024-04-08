@@ -20,15 +20,13 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
   const [restartTemporizador, setRestartTemporizador] = useState(false)
-
   const [firstRender, setFirstRender] = useState(false);
   const[ready, setReady] = useState(false)
-  let [numPreguntaActual, setNumPreguntaActual] = useState(0)
+  const [numPreguntaActual, setNumPreguntaActual] = useState(0)
   const [arPreg, setArPreg] = useState([])
   const [finishGame, setFinishGame] = useState(false)
-
-  let [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
-  let [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
+  const [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
+  const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
 
   //Variables para la obtencion y modificacion de estadisticas del usuario
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -43,41 +41,14 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
 
   //Control de las estadísticas
-  const updateCorrectAnswers = async () => {
+  const updateStats = async () => {
     try {
-        //const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?username=${username}`);
-        const params = {username, numRespuestasCorrectas};
-        console.log(params);
-        console.log(params.username);
-        const response = await axios.get(`${apiEndpoint}/updateCorrectAnswers?params=${params}`);
-        console.log('Respuestas correctas actualizada con éxito:', response.data);
-        // Realizar otras acciones según sea necesario
+        const response = await axios.get(`${apiEndpoint}/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`);
+        console.log('Estadisticas actualizadas con éxito:', response.data);
     } catch (error) {
-        console.error('Error al actualizar la respuesta correcta:', error);
-        // Manejar el error de acuerdo a tus necesidades
+        console.error('Error al actualizar las estadisticas:', error);
     }
   };
-
-  // const updateIncorrectAnswers = async () => {
-  //   try {
-  //       //const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?username=${username}`);
-  //       const params = {username: {username}, numAnswers: {numRespuestasIncorrectas}};
-  //       const response = await axios.get(`${apiEndpoint}/updateIncorrectAnswers?params=${params}`);
-  //       console.log('Respuesta incorrecta actualizada con éxito:', response.data);
-  //   } catch (error) {
-  //       console.error('Error al actualizar la respuesta incorrecta:', error);
-  //   }
-  // };
-
-  // const updateCompletedGames = async () => {
-  //   try {
-  //       const response = await axios.get(`${apiEndpoint}/updateCompletedGames?username=${username}`);
-  //       console.log('Juegos completados actualizado con éxito:', response.data);
-  //   } catch (error) {
-  //       console.error('Error al actualizar Juegos completados:', error);
-  //   }
-  // };
-  ////
 
   //Función que genera un numero de preguntas determinado
   async function crearPreguntas(numPreguntas){
@@ -99,7 +70,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         )
       }
       catch (error) {
-        console.error('Error al actualizar la respuesta correcta:', error);
+        console.error('Error al actualizar las estadisticas:', error);
         // Manejar el error de acuerdo a tus necesidades
       }
       numPreguntas--;
@@ -131,12 +102,13 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     if(respuesta == resCorr){
       console.log("entro a respuesta correcta")
       //Aumenta en 1 en las estadisticas de juegos ganado
-      setNumRespuestasCorrectas(numRespuestasCorrectas++);
-      //updateCorrectAnswers();
+      setNumRespuestasCorrectas(numRespuestasCorrectas+1);
+      console.log("Correctas: "+numRespuestasCorrectas)
       setVictoria(true)
     }
     else{
-      setNumRespuestasIncorrectas(numRespuestasIncorrectas++);
+      setNumRespuestasIncorrectas(numRespuestasIncorrectas + 1);
+      console.log("Incorrectas: "+numRespuestasIncorrectas)
       setVictoria(false)
     }
     //storeResult(victoria)
@@ -237,9 +209,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickFinalizar = () => {
-    //updateCompletedGames();
-    updateCorrectAnswers();
-    //updateIncorrectAnswers();
+    updateStats();
   }
 
   const handleRestart = () => {
