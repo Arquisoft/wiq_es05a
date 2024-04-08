@@ -28,7 +28,7 @@ defineFeature(feature, test => {
     let username;
     let password;
 
-    given('An existing user', async () => {
+    given('A user that is logged in the application', async () => {
       username = "pablo"
       password = "pabloasw"
       await expect(page).toClick("button", { text: "INICIA SESIÓN" });
