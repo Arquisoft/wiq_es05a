@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const { defineFeature, loadFeature }=require('jest-cucumber');
 const setDefaultOptions = require('expect-puppeteer').setDefaultOptions
-const feature = loadFeature('../features/register-form.feature');
+const feature = loadFeature('../features/home.feature');
 
 let page;
 let browser;
@@ -23,25 +23,30 @@ defineFeature(feature, test => {
       .catch(() => {});
   });
 
-  test('The user is not registered in the site', ({given,when,then}) => {
+  test('A registered user enters the app', ({given,when,then}) => {
     
     let username;
     let password;
 
-    given('An unregistered user', async () => {
+    given('A user that is logged in the application', async () => {
       username = "pablo"
       password = "pabloasw"
-      await expect(page).toClick("button", { text: "REGÍSTRATE" });
+      await expect(page).toClick("button", { text: "INICIA SESIÓN" });
     });
 
-    when('I fill the data in the form and press submit', async () => {
+    when('I navigate to the Home page', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Add User' })
+      await expect(page).toClick('button', { text: 'Login' })
+
+      await expect(page).toClick('a[href="/"]', { text: 'WIQ 5A' });
+      await page.waitForNavigation();
+       
     });
 
-    then('A confirmation message should be shown in the screen', async () => {
-        await expect(page).toMatchElement("div", { text: "User added successfully" });
+    then('I should be able to interact with the app', async () => {
+        await expect(page).toMatchElement("button", { text: "JUGAR" });
+        await expect(page).toMatchElement("button", { text: "ESTADÍSTICAS" });
     });
   })
 
