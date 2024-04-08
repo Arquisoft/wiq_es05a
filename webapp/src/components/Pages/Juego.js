@@ -4,7 +4,6 @@ import axios from 'axios';
 import '../Estilos/juego.css';
 import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
-import { jwtDecode } from 'jwt-decode';
 
 const Juego = ({isLogged, username, numPreguntas}) => {
   //La pregunta (string)
