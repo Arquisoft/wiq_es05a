@@ -3,6 +3,11 @@ const axios = require('axios');
 const cors = require('cors');
 const promBundle = require('express-prom-bundle');
 
+//librerias para OpenAPI-Swagger
+const swaggerUi = require('swagger-ui-express'); 
+const fs = require("fs");
+const YAML = require('yaml');
+
 const app = express();
 const port = 8000;
 
@@ -54,7 +59,6 @@ app.get('/pregunta', async (req, res) => {
 app.get('/updateCorrectAnswers', async (req, res) => {
   console.log(req.query)
   const params = {username: req.query.username, numAnswers: req.query.numAnswers};
-  //const { username } = req.query;
   try{
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?params=${params}`)
     res.json(updateStatsResponse.data);
@@ -64,8 +68,6 @@ app.get('/updateCorrectAnswers', async (req, res) => {
 });
 
 app.get('/updateIncorrectAnswers', async (req, res) => {
-  console.log(req.query)
-  //const { username } = req.query;
   const params = {username: req.query.username, numAnswers: req.query.numAnswers};
   try{
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateIncorrectAnswers?params=${params}`)
@@ -76,7 +78,6 @@ app.get('/updateIncorrectAnswers', async (req, res) => {
 });
 
 app.get('/updateCompletedGames', async (req, res) => {
-  console.log(req.query)
   const { username } = req.query;
   try{
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCompletedGames?username=${username}`)
@@ -100,7 +101,7 @@ app.get('/getUserData', async (req, res) => {
 });
 
 // Read the OpenAPI YAML file synchronously
-openapiPath='./openapi.yaml'
+let openapiPath='./openapi.yaml';
 if (fs.existsSync(openapiPath)) {
   const file = fs.readFileSync(openapiPath, 'utf8');
 

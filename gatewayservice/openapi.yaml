@@ -297,7 +297,7 @@ paths:
                     type: string
                     description: Error information.
                     example: Error al actualizar las respuestas incorrectas
- /updateCompletedGames:
+  /updateCompletedGames:
     get:
       summary: Update the number of completed games by the user.
       operationId: updateCompletedGames
@@ -349,7 +349,7 @@ paths:
                     type: string
                     description: Error information.
                     example: Error al actualizar Juegos completados
- /getUserData:
+  /getUserData:
     get:
       summary: Gets the data of an user.
       operationId: getUserData
