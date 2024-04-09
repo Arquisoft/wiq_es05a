@@ -42,17 +42,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     }
   }, [firstRender])
 
-
-  //Control de las estadísticas
-  const updateStats = async () => {
-    try {
-        const response = await axios.get(`${apiEndpoint}/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`);
-        console.log('Estadisticas actualizadas con éxito:', response.data);
-    } catch (error) {
-        console.error('Error al actualizar las estadisticas:', error);
-    }
-  };
-
   //Función que genera un numero de preguntas determinado
   async function crearPreguntas(numPreguntas){
     setPausarTemporizador(true)
@@ -88,6 +77,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setRestartTemporizador(true);
   }
 
+  
+  //Control de las estadísticas
+  const updateStats = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`);
+        console.log('Estadisticas actualizadas con éxito:', response.data);
+    } catch (error) {
+        console.error('Error al actualizar las estadisticas:', error);
+    }
+  };
 
   /**
    * Funcion que se llamara al hacer click a una de las respuestas
@@ -213,7 +212,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         {ready ? <>
           <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
-          <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
+          <Temporizador id="temp" restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
           <h2> {pregunta} </h2>
           <div className="button-container">
             <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
