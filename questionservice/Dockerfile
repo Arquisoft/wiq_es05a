@@ -14,8 +14,7 @@ RUN npm install axios --ignore-scripts
 RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
-COPY server.js ./
-COPY questions.json ./
+COPY . .
 
 # Define the command to run your app
 CMD ["node", "server.js"]
