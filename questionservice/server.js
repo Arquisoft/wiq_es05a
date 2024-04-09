@@ -1,13 +1,20 @@
 // Importamos el módulo Express para crear un servidor web
-const express = require('express');
+let express = require('express');
 // Importamos el módulo Axios para realizar solicitudes HTTP
 const axios = require('axios');
 const cors = require('cors');
 const fs = require('fs');
 
+const crypto = require('crypto');
+
+let corsOptions = {
+    origin: 'http://localhost:8000'
+};
+
 // Creamos una nueva aplicación Express
-const app = express();
-app.use(cors());
+let app = express();
+app.disable("x-powered-by") //disable default information of express
+app.use(cors(corsOptions));
 
 // Cargamos las consultas SPARQL desde el fichero de configuración
 const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
@@ -15,8 +22,11 @@ const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
 // Definimos una ruta GET en '/pregunta'
 app.get('/pregunta', async (req, res) => {
     try{
+        let buf = crypto.randomBytes(1);
+        let randomValue = buf[0]/255;
+        console.log("buf: " + randomValue)
         // Seleccionamos una consulta SPARQL de forma aleatoria del fichero de configuración
-        const questionItem = questions[Math.floor(Math.random() * questions.length)];
+        const questionItem = questions[Math.floor(randomValue * questions.length)];
 
         // URL del endpoint SPARQL de Wikidata
         const url = "https://query.wikidata.org/sparql";
@@ -33,8 +43,10 @@ app.get('/pregunta', async (req, res) => {
         let correctAnswerIndex = 0;
 
         do {
+            buf = crypto.randomBytes(1)
+            randomValue = buf[0]/255
             // Seleccionamos un índice aleatorio para la respuesta correcta
-            correctAnswerIndex = Math.floor(Math.random() * bindings.length);
+            correctAnswerIndex = Math.floor(randomValue * bindings.length);
             // Obtenemos la respuesta correcta
             correctAnswer = bindings[correctAnswerIndex];
         } while (wikidataCodePattern.test(correctAnswer.questionSubjectLabel.value));
@@ -50,8 +62,10 @@ app.get('/pregunta', async (req, res) => {
         for (let i = 0; i < 3; i++) {
             let randomIndex;
             do {
+                buf = crypto.randomBytes(1)
+                randomValue = buf[0]/255
                 // Seleccionamos un índice aleatorio distinto al de la respuesta correcta
-                randomIndex = Math.floor(Math.random() * bindings.length);
+                randomIndex = Math.floor(randomValue * bindings.length);
             } while (randomIndex === correctAnswerIndex);
             // Añadimos la capital del país seleccionado aleatoriamente a las respuestas
             answers.push(bindings[randomIndex].answerSubjectLabel.value);
