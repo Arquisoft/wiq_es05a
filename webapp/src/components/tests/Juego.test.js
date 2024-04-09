@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import Juego from './Juego';
+import Juego from '../Pages/Juego';
 import '@testing-library/jest-dom/extend-expect';
 import { act } from 'react-dom/test-utils';
 

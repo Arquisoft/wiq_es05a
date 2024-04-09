@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; // Extiende las expectativas de Jest
-import Layout from './Layout'; // Importa el componente a probar
+import Layout from '../Pages/Layout'; // Importa el componente a probar
 import { BrowserRouter as Router } from "react-router-dom";
 
 describe('Layout component', () => {

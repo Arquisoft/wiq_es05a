@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import NotFound from './NotFound';
+import NotFound from '../Pages/NotFound';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 jest.useFakeTimers();
