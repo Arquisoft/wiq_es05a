@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import axiosMock from 'axios';
-import Estadisticas from './Estadisticas';
+import Estadisticas from '../Pages/Estadisticas';
 
 // Mock de datos para simular la respuesta del servidor
 const mockUserData = {
