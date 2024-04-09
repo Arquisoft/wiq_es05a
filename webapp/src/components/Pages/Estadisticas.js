@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import '../Estilos/estadisticas.css';
@@ -66,7 +65,7 @@ const Estadisticas = ({isLogged, username}) => {
 };
 
 Estadisticas.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool,
   username: PropTypes.string
 }
 

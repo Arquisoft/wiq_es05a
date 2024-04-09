@@ -69,7 +69,7 @@ const Home = ({isLogged, setIsLogged}) => {
 };
 
 Home.propTypes = {
-  isLogged: PropTypes.string,
+  isLogged: PropTypes.bool,
   setIsLogged: PropTypes.func,
 }
 

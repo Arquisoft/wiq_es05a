@@ -81,7 +81,7 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
 };
 
 Login.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool,
   setIsLogged: PropTypes.func,
   username: PropTypes.string,
   setUsername: PropTypes.func

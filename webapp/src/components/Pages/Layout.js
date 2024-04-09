@@ -42,7 +42,7 @@ import PropTypes from 'prop-types'
 };
 
 Layout.propTypes = {
-  isLogged: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool,
   setIsLogged: PropTypes.func
 }
 
