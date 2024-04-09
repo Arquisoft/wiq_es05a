@@ -11,7 +11,8 @@ COPY package*.json ./
 RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
-COPY . . / /usr/src/authservice/
+COPY auth-service.js ./
+COPY auth-model.js ./
 
 # Expose the port the app runs on
 EXPOSE 8002

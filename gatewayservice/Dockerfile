@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
-COPY . . /usr/src/gatewayservice/
+COPY gateway-service.js ./
 
 # Define the command to run your app
 CMD ["node", "gateway-service.js"]

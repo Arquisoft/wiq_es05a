@@ -11,7 +11,8 @@ COPY package*.json ./
 RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
-COPY . . /usr/src/userservice/
+COPY user-service.js ./
+COPY user-model.js ./
 
 # Expose the port the app runs on
 EXPOSE 8001
