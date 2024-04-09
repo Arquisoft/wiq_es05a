@@ -46,7 +46,7 @@ function App() {
           />
           <Route path="/login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged}  username={username} setUsername={setUsername}/>} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/register" element={<AddUser isLogged={isLogged} username={username} />}/>
+          <Route path="/register" element={<AddUser/>}/>
           
           <Route
               path="/stats"

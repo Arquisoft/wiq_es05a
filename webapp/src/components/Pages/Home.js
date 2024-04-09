@@ -3,6 +3,7 @@ import React from 'react';
 import '../Estilos/home.css';
 import { Container, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 // Definimos el componente Home
 const Home = ({isLogged, setIsLogged}) => {
@@ -66,6 +67,12 @@ const Home = ({isLogged, setIsLogged}) => {
 
   );
 };
+
+Home.propTypes = {
+  isLogged: PropTypes.string,
+  setIsLogged: PropTypes.func,
+}
+
 
 // Exportamos el componente para poder utilizarlo en otras partes de la aplicación
 export default Home;

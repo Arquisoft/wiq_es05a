@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import PropTypes from 'prop-types'
 
 const Login = ({isLogged, setIsLogged, username, setUsername}) => {
   const [password, setPassword] = useState('');
@@ -54,6 +55,7 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
             fullWidth
             label="Username"
             value={username}
+      
             onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
@@ -77,5 +79,12 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
     </Container>
   );
 };
+
+Login.propTypes = {
+  isLogged: PropTypes.string.isRequired,
+  setIsLogged: PropTypes.func,
+  username: PropTypes.string,
+  setUsername: PropTypes.func
+}
 
 export default Login;

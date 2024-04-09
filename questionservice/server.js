@@ -24,7 +24,6 @@ app.get('/pregunta', async (req, res) => {
     try{
         let buf = crypto.randomBytes(1);
         let randomValue = buf[0]/255;
-        console.log("buf: " + randomValue)
         // Seleccionamos una consulta SPARQL de forma aleatoria del fichero de configuración
         const questionItem = questions[Math.floor(randomValue * questions.length)];
 
@@ -52,7 +51,6 @@ app.get('/pregunta', async (req, res) => {
         } while (wikidataCodePattern.test(correctAnswer.questionSubjectLabel.value));
 
         // Creamos la pregunta
-        console.log(questionItem.question);
         const question = questionItem.question.replace('{sujetoPregunta}', correctAnswer.questionSubjectLabel.value);
         
         // Inicializamos las respuestas con la respuesta correcta

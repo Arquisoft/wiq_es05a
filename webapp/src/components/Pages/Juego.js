@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../Estilos/juego.css';
 import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
+import PropTypes from 'prop-types'
 
 const Juego = ({isLogged, username, numPreguntas}) => {
   //La pregunta (string)
@@ -54,13 +55,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setPausarTemporizador(true)
     let tempArray=[];
     while(numPreguntas>0){
-      console.log("contador:" + numPreguntas)
-      console.log("TAMAÑO ARRAY: " + tempArray.length)
       try {
         const response = await axios.get(`${apiEndpoint}/pregunta`);
-        console.log("pregunta: " + response.data.question)
-        console.log("buenarespuesta: " + response.data.answerGood)
-        console.log("malasrespuestas: " + response.data.answers)
         tempArray.push(
           { id: numPreguntas, pregunta: response.data.question, resCorr: response.data.answerGood, resFalse: response.data.answers}
         )
@@ -99,15 +95,12 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setRespodido(true)
     setPausarTemporizador(true);
     if(respuesta == resCorr){
-      console.log("entro a respuesta correcta")
       //Aumenta en 1 en las estadisticas de juegos ganado
       setNumRespuestasCorrectas(numRespuestasCorrectas+1);
-      console.log("Correctas: "+numRespuestasCorrectas)
       setVictoria(true)
     }
     else{
       setNumRespuestasIncorrectas(numRespuestasIncorrectas + 1);
-      console.log("Incorrectas: "+numRespuestasIncorrectas)
       setVictoria(false)
     }
     //storeResult(victoria)
@@ -138,6 +131,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         //Ponemos el boton de la marcada en rojo si era incorrecta
           cambiarColorUno(respuesta, button);
         }else {
+          setNumRespuestasIncorrectas(numRespuestasIncorrectas + 1);
           cambiarColorTodos(button);
         }return button; //esta linea evita un warning de sonar cloud, sin uso
       });
@@ -167,11 +161,9 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Función que devuelve el color original a los botones (siguiente)
   async function descolorearTodos(){
-    console.log("entra descolorear")
     const buttonContainer = document.querySelector('.button-container');
     const buttons = buttonContainer.querySelectorAll('.button');
     buttons.forEach((button) => {
-      console.log("boton: " + button)
       //Desactivamos TODOS los botones
       button.disabled=false; 
       //Ponemos el boton de la respuesta correcta en verde
@@ -181,7 +173,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     buttonContainer.querySelector('#boton2').style.border = "6px solid #CBBA2A";
     buttonContainer.querySelector('#boton3').style.border = "6px solid #05B92B";
     buttonContainer.querySelector('#boton4').style.border = "6px solid #1948D9";
-    console.log("termina descolorear")
   } 
 
   //Primer render para un comportamiento diferente
@@ -199,7 +190,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     }
     descolorearTodos()
     setNumPreguntaActual(numPreguntaActual+1)
-    console.log(numPreguntaActual)
     updateGame();
     //Recargar a 20 el temporizador
     setRestartTemporizador(true);
@@ -239,5 +229,12 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       </Container>
   );
 };
+
+Juego.propTypes = {
+  isLogged: PropTypes.string,
+  username: PropTypes.string,
+  numPreguntas: PropTypes.number
+}
+
 
 export default Juego;

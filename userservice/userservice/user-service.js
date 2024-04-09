@@ -47,18 +47,15 @@ app.post('/adduser', async (req, res) => {
 
 app.get('/updateStats', async (req,res) => {
   const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
-  console.log("username1: "+username);
-  console.log("correctas1: "+numRespuestasCorrectas);
-  console.log("incorrectas1: "+numRespuestasIncorrectas);
   try {
       const user = await User.findOne({ username });
       if (!user) {
           return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
       }
       // Cambia las estadisticas del usuario
-      user.correctAnswers += numRespuestasCorrectas;
-      user.incorrectAnswers += numRespuestasIncorrectas;
-      user.completedGames++;
+      user.correctAnswers += parseInt(numRespuestasCorrectas);
+      user.incorrectAnswers += parseInt(numRespuestasIncorrectas);
+      user.completedGames = parseInt(user.completedGames) + 1;
       await user.save();
       return res.status(200).json({ success: true, message: 'Estadísticas actualizadas con éxito' });
   } catch (error) {
@@ -75,7 +72,6 @@ app.get('/getUserData', async (req, res) => {
     }
     return res.status(200).json({ user });
   } catch (error) {
-    console.error('Error al obtener los datos de usuario:', error);
     return res.status(500).json({ success: false, message: 'Error al obtener los datos de usuario' });
   }
 });

@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import React from 'react';
+import {Container, Nav, Navbar} from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
   const Layout = ({ isLogged, setIsLogged }) => {
 
@@ -23,9 +24,7 @@ import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
               </Nav>
               <Nav>
                 {isLogged ? (
-                  <>
                   <Nav.Link onClick={onLogout}>Cerrar sesión</Nav.Link>
-                  </>
                 ) : (
                   <>
                   <Link to="login" className="nav-link">Inicia Sesión</Link>
@@ -41,5 +40,10 @@ import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
     </>
   )
 };
+
+Layout.propTypes = {
+  isLogged: PropTypes.string.isRequired,
+  setIsLogged: PropTypes.func
+}
 
 export default Layout;

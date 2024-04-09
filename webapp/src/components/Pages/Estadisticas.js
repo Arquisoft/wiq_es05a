@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import '../Estilos/estadisticas.css';
 import axios from 'axios';
+import PropTypes from 'prop-types'
 
 
 const Estadisticas = ({isLogged, username}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-   // const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
@@ -28,8 +27,6 @@ const Estadisticas = ({isLogged, username}) => {
     async function statsUser(){
       try {
         const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
-        console.log('Datos obtenidos con exito:', response.data);
-        console.log('Datos obtenidos con exito:', response.data.user.correctAnswers);
         const datos = response.data;
         setCorrectAnswers(datos.user.correctAnswers);
         setIncorrectAnswers(datos.user.incorrectAnswers);
@@ -67,5 +64,11 @@ const Estadisticas = ({isLogged, username}) => {
     </Container>
   );
 };
+
+Estadisticas.propTypes = {
+  isLogged: PropTypes.string.isRequired,
+  username: PropTypes.string
+}
+
 
 export default Estadisticas;

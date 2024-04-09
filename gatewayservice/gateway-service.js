@@ -77,11 +77,7 @@ app.get('/pregunta', async (req, res) => {
 });
 
 app.get('/updateStats', async (req, res) => {
-  //const params = {username: req.query.username, numAnswers: req.query.numAnswers};
   const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
-  console.log("username: "+username);
-  console.log("correctas: "+numRespuestasCorrectas);
-  console.log("incorrectas: "+numRespuestasIncorrectas);
   try{  
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`)
     res.json(updateStatsResponse.data);
@@ -91,7 +87,6 @@ app.get('/updateStats', async (req, res) => {
 });
 
 app.get('/getUserData', async (req, res) => {
-  console.log(req.query)
   const { username } = req.query;
   try{
     const getUserDataResponse = await axios.get(userServiceUrl+ `/getUserData?username=${username}`)
