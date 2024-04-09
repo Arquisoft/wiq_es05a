@@ -8,12 +8,10 @@ WORKDIR /usr/src/userservice
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install --ignore-scripts
+RUN npm install
 
 # Copy the app source code to the working directory
-COPY user-service.js ./
-COPY user-model.js ./
-
+COPY . .
 # Expose the port the app runs on
 EXPOSE 8001
 
