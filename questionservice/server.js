@@ -70,7 +70,9 @@ app.get('/pregunta', async (req, res) => {
         }
         // Mezclamos las respuestas
         for (let i = answers.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            buf = crypto.randomBytes(1)
+            randomValue = buf[0]/255
+            const j = Math.floor(randomValue * (i + 1));
             // Intercambiamos las respuestas en los índices i y j
             [answers[i], answers[j]] = [answers[j], answers[i]];
         }
