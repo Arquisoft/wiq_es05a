@@ -16,5 +16,7 @@ RUN npm install --ignore-scripts
 # Copy the app source code to the working directory
 COPY . .
 
+EXPOSE 8003
+
 # Define the command to run your app
 CMD ["node", "server.js"]
