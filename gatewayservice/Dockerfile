@@ -8,10 +8,12 @@ WORKDIR /usr/src/gatewayservice
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
 COPY . .
+
+EXPOSE 8000
 
 # Define the command to run your app
 CMD ["node", "gateway-service.js"]

@@ -1,0 +1,38 @@
+[
+    {
+        "query": "SELECT ?country ?countryLabel ?capital ?capitalLabel WHERE {?country wdt:P31 wd:Q6256; wdt:P36 ?capital.SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],es",
+        "question": "¿Cuál es la capital de ${correctAnswer.countryLabel.value}?"
+    },
+    {
+        "query": "SELECT ?painter ?painterLabel ?work ?workLabel WHERE { ?painter wdt:P31 wd:Q5; wdt:P106 wd:Q1028181. ?work wdt:P31 wd:Q3305213; wdt:P170 ?painter. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Quién pintó La última cena?"
+    },
+    {
+        "query": "SELECT ?book ?bookLabel ?author ?authorLabel WHERE { ?book wdt:P31 wd:Q571; wdt:P50 ?author. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Quién escribió Don Quijote de la Mancha?"
+    },
+    {
+        "query": "SELECT ?film ?filmLabel ?director ?directorLabel WHERE { ?film wdt:P31 wd:Q11424; wdt:P57 ?director. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Quién dirigió la película El Padrino?"
+    },
+    {
+        "query": "SELECT ?city ?cityLabel ?population WHERE { ?city wdt:P31 wd:Q515; wdt:P1082 ?population. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es la población de Tokio?"
+    },
+    {
+        "query": "SELECT ?element ?elementLabel ?atomicNumber WHERE { ?element wdt:P31 wd:Q11344; wdt:P1086 ?atomicNumber. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es el número atómico del hidrógeno?"
+    },
+    {
+        "query": "SELECT ?animal ?animalLabel ?lifespan WHERE { ?animal wdt:P31 wd:Q729; wdt:P2250 ?lifespan. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es la esperanza de vida de un elefante?"
+    },
+    {
+        "query": "SELECT ?building ?buildingLabel ?height WHERE { ?building wdt:P31 wd:Q41176; wdt:P2048 ?height. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es la altura del Burj Khalifa?"
+    },
+    {
+        "query": "SELECT ?person ?personLabel ?birthDate WHERE { ?person wdt:P31 wd:Q5; wdt:P569 ?birthDate. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuándo nació Albert Einstein?"
+    }
+]

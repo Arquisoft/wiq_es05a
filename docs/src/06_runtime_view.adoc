@@ -1,7 +1,7 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-runtime-view]]
-== Runtime View
+== Vista en Tiempo de Ejecución
 
 
 [role="arc42help"]
@@ -37,27 +37,28 @@ See https://docs.arc42.org/section-6/[Runtime View] in the arc42 documentation.
 
 ****
 
-=== <Inicio Sesión>
+=== Inicio de Sesión
 
-A la hora de iniciar sesión nuestra web App nos mostrara la ventana pidiendo los datos necesarios para poder empezar a jugar.
+Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.
 
-Se le piden una serie de datos al usuario que serán posteriormente pasados a Firebase encargado de controlar estos datos y devolverle a web App el ID del usuario que estará jugando.
+Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. userService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.
 
-Una vez que el usario a completado el inicio de sesión de forma exitosa nuestra web App pasará a mostrar la pantalla de inicio del juego.
+Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.
 
-image::06_acceso.png["Diagrama vista de tiempo de ejecución para el acceso"]
+Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar la pantalla de inicio del juego, donde el usuario podrá acceder a las diferentes opciones de juego y comenzar a participar en las actividades disponibles.
 
-=== <Interaccion con preguntas>
+image::06_acceso2.png["Diagrama vista de tiempo de ejecución para el acceso"]
 
-Rest que tiene nuestra base de datos será el encargado de obtener la pregunta con sus respuestas correctas e incorrectas y pasarsela a web App
+=== Interacción con Preguntas
 
-Web App comenzara mostrando por pantalla la pregunta con todas las respuestas disponibles, a lo que el usuario solo podrá escoger una respuesta de todas las posibles.
-Una vez el usuario elige la respuesta se comprobará si los resultados son correctos o errones.
+Comenzaremos con la REST API que se integra con nuestra base de datos y se encargará de la obtención de la pregunta junto con sus opciones de respuestas correctas e incorrectas, proporcionando así la información necesaria para la Web App.
 
-En base a la respuesta del usuario web App mostrara si ha acertado o fallado de forma visual que lo pueda entender el usuario.
+Al obtener dicha información, la Web App mostrará la pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.
 
-image::06_pregunta.png["Diagrama vista de tiempo de ejecución para la pregunta"]
+Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.
 
-=== ...
+Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.
 
-=== <Runtime Scenario n>
+Este flujo de interacción garantiza una experiencia de usuario fluida y comprensible, optimizando así la participación y el compromiso del usuario con la plataforma.
+
+image::06_pregunta2.png["Diagrama vista de tiempo de ejecución para la pregunta"]

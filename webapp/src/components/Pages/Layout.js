@@ -1,7 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
-import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import React from 'react';
+import {Container, Nav, Navbar} from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
-const Layout = () => {
+  const Layout = ({ isLogged, setIsLogged }) => {
+
+    function onLogout(){
+      localStorage.setItem('isLogged', JSON.stringify(false));
+      setIsLogged(false);
+    }
+
   return (
     <>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -10,11 +18,19 @@ const Layout = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="stats">Estadísticas</Nav.Link>
+                {isLogged && 
+                  <Nav.Link href="stats">Estadísticas</Nav.Link>
+                }
               </Nav>
               <Nav>
-                <Nav.Link href="login">Inicia Sesión</Nav.Link>
-                <Nav.Link href="register">Regístrate</Nav.Link>
+                {isLogged ? (
+                  <Nav.Link onClick={onLogout}>Cerrar sesión</Nav.Link>
+                ) : (
+                  <>
+                  <Link to="login" className="nav-link">Inicia Sesión</Link>
+                  <Link to="register" className="nav-link">Regístrate</Link>
+                  </>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -24,5 +40,10 @@ const Layout = () => {
     </>
   )
 };
+
+Layout.propTypes = {
+  isLogged: PropTypes.bool,
+  setIsLogged: PropTypes.func
+}
 
 export default Layout;

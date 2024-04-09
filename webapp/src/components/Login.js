@@ -2,32 +2,31 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import PropTypes from 'prop-types'
 
-const Login = ({isLogged}) => {
-  const [email, setEmail] = useState('');
+const Login = ({isLogged, setIsLogged, username, setUsername}) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [createdAt, setCreatedAt] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-    const loginUser = async () => {
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          // ...
-          console.log("LOGIN EXITOSO, MIRAR FIREBASE")
-          setLoginSuccess(true);
-          setOpenSnackbar(true);
-        })
-        .catch((error) => {
-          console.log("LOGIN FALLIDO")
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setError(errorMessage);
-        });
+  const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+  
+  const loginUser = async () => {
+    try {
+      const response = await axios.post(`${apiEndpoint}/login`, { username, password });
+      // Extract data from the response
+      const datos = response.data;
+
+      setCreatedAt(datos.createdAt);
+      setIsLogged(true);
+      localStorage.setItem('isLogged', JSON.stringify(true));
+      setUsername(datos.username)
+      localStorage.setItem('username', JSON.stringify(datos.username))
+      setOpenSnackbar(true);
+    } catch (error) {
+      setError(error.response.data.error);
+    }
   };
 
   const handleCloseSnackbar = () => {
@@ -36,13 +35,13 @@ const Login = ({isLogged}) => {
 
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
-      {loginSuccess ? (
+      {isLogged ? (
         <div>
           <Typography component="h1" variant="h5" sx={{ textAlign: 'center' }}>
-            Hello {email}!
+            Hello {username}!
           </Typography>
           <Typography component="p" variant="body1" sx={{ textAlign: 'center', marginTop: 2 }}>
-            Ahora puedes jugar y ver tus estadísticas.
+            Your account was created on {new Date(createdAt).toLocaleDateString()}.
           </Typography>
         </div>
       ) : (
@@ -51,13 +50,16 @@ const Login = ({isLogged}) => {
             Login
           </Typography>
           <TextField
+            name="username"
             margin="normal"
             fullWidth
-            label="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            label="Username"
+            value={username}
+      
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
+            name="password"
             margin="normal"
             fullWidth
             label="Password"
@@ -77,5 +79,12 @@ const Login = ({isLogged}) => {
     </Container>
   );
 };
+
+Login.propTypes = {
+  isLogged: PropTypes.bool,
+  setIsLogged: PropTypes.func,
+  username: PropTypes.string,
+  setUsername: PropTypes.func
+}
 
 export default Login;
