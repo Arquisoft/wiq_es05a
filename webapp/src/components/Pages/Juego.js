@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Estilos/juego.css';
@@ -27,7 +26,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
   const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
 
-  //Variables para la obtencion y modificacion de estadisticas del usuario
+  //Variables para la obtencion y modificacion de estadisticas del usuario y de preguntas
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
   //Primer render para un comportamiento diferente
@@ -69,7 +68,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         )
       }
       catch (error) {
-        console.error('Error al actualizar las estadisticas:', error);
+        console.error('Error al crear las preguntas:', error);
         // Manejar el error de acuerdo a tus necesidades
       }
       numPreguntas--;
@@ -110,7 +109,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       console.log("Incorrectas: "+numRespuestasIncorrectas)
       setVictoria(false)
     }
-    //storeResult(victoria)
     cambiarColorBotones(respuesta, true);
 
   };
@@ -184,10 +182,10 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     console.log("termina descolorear")
   } 
 
-  //Primer render para un comportamiento diferente
-  useEffect(() => {
-    //updateCompletedGames()
-  }, [finishGame])
+  // //Primer render para un comportamiento diferente
+  // useEffect(() => {
+  //   
+  // }, [finishGame])
  
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickSiguiente = () => {
