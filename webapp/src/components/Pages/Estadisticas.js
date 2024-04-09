@@ -8,8 +8,6 @@ import axios from 'axios';
 const Estadisticas = ({isLogged, username}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-   // const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
@@ -36,13 +34,14 @@ const Estadisticas = ({isLogged, username}) => {
         setCompletedGames(datos.user.completedGames);
         setAverageTime(datos.user.averageTime);
       } catch (error) {
-        setError(error.response.data.error);
+        setError('Error al cargar la información');
       }
     };
 
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         <h2>ESTADÍSTICAS</h2>
+        {error && <p style={{ textAlign: 'center', color: 'red', backgroundColor:'white', fontWeight: 'bold' }}>{error}</p>}
         <table>
             <tbody>
                 <tr>
