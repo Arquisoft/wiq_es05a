@@ -3,6 +3,10 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import Juego from './Juego';
+import '@testing-library/jest-dom/extend-expect';
+import { act } from 'react-dom/test-utils';
+
+jest.useFakeTimers();
 
 describe('Juego component', () => {
   let mock;
@@ -95,7 +99,20 @@ describe('Juego component', () => {
      expect(getByText('FINALIZAR PARTIDA')).toBeDisabled();
      console.log(container.numRespuestasCorrectas)
      //expect(axios.get).toHaveBeenCalledWith('http://localhost:8000/updateStats?username=test&numRespuestasCorrectas=0&numRespuestasIncorrectas=0');
-    }); 
+    });
+    
+    it('el temporizador llega a 0 y se desvelan las respuestas ademas de bloquearse los botones', async () => {
+      const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
+ 
+      await waitFor(() => getByText(mockData.question));
+      act(() => {
+        jest.advanceTimersByTime(30000); // Espera 30 segundos
+      });
+      expect(getByText('París')).toBeDisabled();
+      expect(getByText('Londres')).toBeDisabled();
+      expect(getByText('Berlín')).toBeDisabled();
+      expect(getByText('Madrid')).toBeDisabled();
+    });
 
 
     
