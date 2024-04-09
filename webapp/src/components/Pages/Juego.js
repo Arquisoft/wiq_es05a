@@ -29,7 +29,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
   const [disableFinish, setDisableFinish] = useState(false)
 
-  const navigate= useNavigate()
+  //const navigate= useNavigate()
 
   //Variables para la obtencion y modificacion de estadisticas del usuario y de preguntas
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -202,7 +202,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const clickFinalizar = () => {
     updateStats();
     setDisableFinish(true)
-    navigate('/')
+    //navigate('/')
   }
 
   const handleRestart = () => {
