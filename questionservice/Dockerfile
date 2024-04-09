@@ -14,7 +14,7 @@ RUN npm install axios
 RUN npm install
 
 # Copy the app source code to the working directory
-COPY . .
+COPY . . /usr/src/questionservice/
 
 # Define the command to run your app
 CMD ["node", "server.js"]

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useNavigate, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddUser from './components/AddUser';
 import Layout from './components/Pages/Layout';
 import Home from './components/Pages/Home';
@@ -7,9 +7,6 @@ import Login from './components/Login';
 import Juego from './components/Pages/Juego';
 import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
-import { useNavigate } from 'react-router-dom';
-
-
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -40,7 +37,6 @@ function App() {
 }
 
   return (
-    <>
       <Router>
       <Layout isLogged={isLogged} setIsLogged={setIsLogged}  />
         <Routes>
@@ -59,7 +55,6 @@ function App() {
 
         </Routes>
       </Router>
-    </>
   );
 }
 
