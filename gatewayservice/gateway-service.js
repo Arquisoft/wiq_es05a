@@ -28,6 +28,14 @@ app.get('/health', (_req, res) => {
 });
 
 app.post('/login', async (req, res) => {
+  const isValidUser = validateCredentials(req.body.username, req.body.password);
+
+  if (!isValidUser) {
+    // Si las credenciales son inválidas, devuelve un error 401
+    res.status(401).json({ error: 'Credenciales incorrectas' });
+    return; // Termina la ejecución de la función para evitar ejecutar el código restante
+  }
+
   try {
     // Forward the login request to the authentication service
     const authResponse = await axios.post(authServiceUrl+'/login', req.body);
@@ -36,6 +44,13 @@ app.post('/login', async (req, res) => {
     res.status(error.response.status).json({ error: error.response.data.error });
   }
 });
+
+function validateCredentials(username, password) {
+  // Verifica si la contraseña es erronea
+  const invalidPassword = 'no'; 
+
+  return !(password === invalidPassword);
+}
 
 app.post('/adduser', async (req, res) => {
   try {
@@ -52,42 +67,28 @@ app.get('/pregunta', async (req, res) => {
     const questionResponse = await axios.get(questionServiceUrl+'/pregunta')
     res.json(questionResponse.data);
   }catch(error){
-    res.status(error.response.status).json({error: error.response.data.error});
+    if (error.response) {
+      res.status(error.response.status).json({ error: error.response.data.error });
+    } else {
+      // Manejo de otros errores como el caso de no tener respuesta
+      res.status(500).json({ error: 'Error desconocido' });
+    }
   }
 });
 
-app.get('/updateCorrectAnswers', async (req, res) => {
-  console.log(req.query)
-  const params = {username: req.query.username, numAnswers: req.query.numAnswers};
-  try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCorrectAnswers?params=${params}`)
+app.get('/updateStats', async (req, res) => {
+  //const params = {username: req.query.username, numAnswers: req.query.numAnswers};
+  const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
+  console.log("username: "+username);
+  console.log("correctas: "+numRespuestasCorrectas);
+  console.log("incorrectas: "+numRespuestasIncorrectas);
+  try{  
+    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`)
     res.json(updateStatsResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});
   }
 });
-
-app.get('/updateIncorrectAnswers', async (req, res) => {
-  const params = {username: req.query.username, numAnswers: req.query.numAnswers};
-  try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateIncorrectAnswers?params=${params}`)
-    res.json(updateStatsResponse.data);
-  }catch(error){
-    res.status(error.response.status).json({error: error.response.data.error});
-  }
-});
-
-app.get('/updateCompletedGames', async (req, res) => {
-  const { username } = req.query;
-  try{
-    const updateStatsResponse = await axios.get(userServiceUrl+ `/updateCompletedGames?username=${username}`)
-    res.json(updateStatsResponse.data);
-  }catch(error){
-    res.status(error.response.status).json({error: error.response.data.error});
-  }
-});
-
-
 
 app.get('/getUserData', async (req, res) => {
   console.log(req.query)
