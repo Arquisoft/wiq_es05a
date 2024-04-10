@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import Temporizador from './Temporizador';
+import Temporizador from '../Temporizador';
 
 describe('Temporizador', () => {
   it('renders the initial countdown time', () => {
