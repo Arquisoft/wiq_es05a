@@ -79,6 +79,10 @@ app.get('/pregunta', async (req, res) => {
 app.get('/updateStats', async (req, res) => {
   const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
 
+  if (!username || !numRespuestasCorrectas || !numRespuestasIncorrectas) {
+    return res.status(401).json({ error: 'Faltan parámetros en la solicitud' });
+  }
+
   if (parseInt(numRespuestasCorrectas) > 10 || parseInt(numRespuestasCorrectas) < 0 ||
       parseInt(numRespuestasIncorrectas) > 10 || parseInt(numRespuestasIncorrectas) < 0) {
     return res.status(400).json({ error: 'El número de respuestas incorrectas  o correctas es erróneo' });
