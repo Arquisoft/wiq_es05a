@@ -5,6 +5,7 @@ on:
       - master
       - develop
       - LaraFMz
+      - Pablo-Arreglos
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
