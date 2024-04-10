@@ -10,5 +10,25 @@
     {
         "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q570116; wdt:P2048 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
         "question": "¿Cuál es la altura de {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q10742; wdt:P1082 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. } } LIMIT 50",
+        "question": "¿Cuál es la población de {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?empresa wdt:P31 wd:Q4830453; wdt:P112 ?fundador; SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "question": "¿Quién fundó {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q5; wdt:P106 wd:Q33999; wdt:P800 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "question": "¿En qué destacada obra artística participó {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q35657; wdt:P36 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }}",
+        "question": "¿Cuál es la capital del estado de {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q3220391; wdt:P571 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "question": "¿Cuándo se creo {sujetoPregunta}?"
     }
 ]
