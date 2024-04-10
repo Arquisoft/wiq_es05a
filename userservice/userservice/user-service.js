@@ -48,7 +48,8 @@ app.post('/adduser', async (req, res) => {
 app.get('/updateStats', async (req,res) => {
   const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
   try {
-      const user = await User.findOne({ username });
+      query = { username: username.toString() };
+      const user = await User.findOne(query);
       if (!user) {
           return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
       }
@@ -65,8 +66,9 @@ app.get('/updateStats', async (req,res) => {
 
 app.get('/getUserData', async (req, res) => {
   const { username } = req.query;
+  query = { username: username.toString() };
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne(query);
     if (!user) {
       return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
     }
