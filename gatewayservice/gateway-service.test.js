@@ -82,4 +82,61 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(200);
     expect(response.body).toEqual(mockData);
   });
+
+  // Prueba para la devolución de documentación
+  it('debería devolver la documentación de Swagger correctamente', async () => {
+    const response = await request(app)
+      .get('/api-doc')
+      .redirects(1); // Sigue un máximo de 1 redirección
+  
+    // Verificar que la respuesta tenga un código de estado 200 y contenga contenido HTML de la documentación de Swagger
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toContain('Swagger UI');
+  });
+
+  it('debería redirigir correctamente a la documentación de Swagger', async () => {
+    const response = await request(app)
+      .get('/api-doc');
+  
+    // Verificar que la respuesta tenga un código de estado 301 y que la cabecera "Location" indique la ubicación de la redirección
+    expect(response.statusCode).toBe(301);
+    expect(response.headers['location']).toBe('/api-doc/');
+  });
+
+  it('debería devolver los datos del usuario correctamente', async () => {
+    // Datos de prueba para simular una solicitud GET a /getUserData
+    const userData = {
+      username: 'testuser',
+      // Otros datos del usuario que esperas recibir
+    };
+
+    // Mock de axios para simular una respuesta exitosa del servicio de usuario
+    axios.get.mockResolvedValueOnce({ data: userData });
+
+    // Realizar la solicitud GET a /getUserData con el nombre de usuario
+    const response = await request(app)
+      .get('/getUserData')
+      .query({ username: 'testuser' });
+
+    // Verificar que la respuesta sea exitosa (código de estado 200) y contenga los datos del usuario
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(userData);
+  });
+
+  it('debería manejar correctamente los errores del servicio de usuario', async () => {
+    // Simular un error del servicio de usuario
+    const errorMessage = 'Error al obtener datos del usuario';
+    axios.get.mockRejectedValueOnce({ response: { status: 500, data: { error: errorMessage } } });
+
+    // Realizar la solicitud GET a /getUserData con un nombre de usuario
+    const response = await request(app)
+      .get('/getUserData')
+      .query({ username: 'testuser' });
+
+    // Verificar que la respuesta tenga el código de estado esperado (500) y contenga el mensaje de error adecuado
+    expect(response.status).toBe(500);
+    expect(response.body).toEqual({ error: errorMessage });
+  });
+
+  
 });
