@@ -192,4 +192,15 @@ describe('Gateway Service', () => {
   
     expect(response.status).toBe(400); // Esperamos un error de solicitud incorrecta
   });
+
+  it('debería devolver un error si falta algún parámetro en la solicitud de updateStats', async () => {
+    const response = await request(app)
+      .get('/updateStats')
+      .query({ 
+        username: 'testuser',
+        // numRespuestasCorrectas o numRespuestasIncorrectas están faltando
+      });
+  
+    expect(response.status).toBe(401); // Esperamos un error de solicitud incorrecta
+  });
 });
