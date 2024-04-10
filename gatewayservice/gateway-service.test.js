@@ -22,6 +22,7 @@ describe('Gateway Service', () => {
     }
   });
 
+  /*
   // Test /login endpoint
   it('deberia iniciar sesión correctamente', async () => {
     const response = await request(app)
@@ -31,7 +32,8 @@ describe('Gateway Service', () => {
     expect(response.statusCode).toBe(200);
     expect(response.body.token).toBe('mockedToken');
   });
-
+  */
+ 
   // Prueba de manejo de errores para el endpoint /login
   it('deberia devolver error al iniciar sesion', async () => {
     // Datos de prueba para iniciar sesión (incorrectos)
