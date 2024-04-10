@@ -49,6 +49,21 @@ describe('Gateway Service', () => {
     expect(response.statusCode).toBe(401);
   });
 
+  it('debería manejar correctamente los errores del servicio de autenticación en /login', async () => {
+    // Simular un error del servicio de autenticación
+    const errorMessage = 'Error al autenticar usuario';
+    axios.post.mockRejectedValueOnce({ response: { status: 500, data: { error: errorMessage } } });
+  
+    // Realizar la solicitud POST a /login con datos de usuario válidos
+    const response = await request(app)
+      .post('/login')
+      .send({ username: 'testuser', password: 'testpassword' });
+  
+    // Verificar que la respuesta tenga el código de estado esperado (500) y contenga el mensaje de error adecuado
+    expect(response.status).toBe(500);
+    expect(response.body).toEqual({ error: errorMessage });
+  });
+
   // Test /adduser endpoint
   it('deberia añadir usuario correctamente', async () => {
     const response = await request(app)
@@ -202,5 +217,31 @@ describe('Gateway Service', () => {
       });
   
     expect(response.status).toBe(401); // Esperamos un error de solicitud incorrecta
+  });
+
+  /*
+  it('debería manejar correctamente la carga excesiva', async () => {
+      // Realizar múltiples solicitudes simultáneas a endpoints diferentes
+      const promises = [];
+      for (let i = 0; i < 100; i++) {
+        promises.push(request(app).post('/login').send({ username: `user${i}`, password: 'password' }));
+      }
+    
+      // Esperar a que se completen todas las solicitudes
+      const responses = await Promise.all(promises);
+    
+      // Verificar que todas las respuestas tengan el código de estado esperado (200)
+      responses.forEach(response => {
+        expect(response.status).toBe(200);
+      });
+  });
+  */
+  
+  it('debería devolver un estado de salud "OK"', async () => {
+    const response = await request(app).get('/health');
+  
+    // Verificar que la respuesta tenga el código de estado esperado (200) y contenga un mensaje de estado "OK"
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ status: 'OK' });
   });
 });
