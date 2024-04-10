@@ -138,5 +138,58 @@ describe('Gateway Service', () => {
     expect(response.body).toEqual({ error: errorMessage });
   });
 
+  it('debería actualizar las estadísticas del usuario correctamente', async () => {
+    // Datos de prueba para simular una solicitud GET a /updateStats
+    const username = 'testuser';
+    const numRespuestasCorrectas = 5;
+    const numRespuestasIncorrectas = 2;
+    const updateStatsData = { message: 'Estadísticas actualizadas correctamente' };
+
+    // Mock de axios para simular una respuesta exitosa del servicio de usuario
+    axios.get.mockResolvedValueOnce({ data: updateStatsData });
+
+    // Realizar la solicitud GET a /updateStats con los parámetros de las estadísticas
+    const response = await request(app)
+      .get('/updateStats')
+      .query({ 
+        username: username,
+        numRespuestasCorrectas: numRespuestasCorrectas,
+        numRespuestasIncorrectas: numRespuestasIncorrectas
+      });
+
+    // Verificar que la respuesta sea exitosa (código de estado 200) y contenga el mensaje de éxito
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(updateStatsData);
+  });
+
+  it('debería manejar correctamente los errores del servicio de usuario', async () => {
+    // Simular un error del servicio de usuario
+    const errorMessage = 'Error al actualizar las estadísticas del usuario';
+    axios.get.mockRejectedValueOnce({ response: { status: 500, data: { error: errorMessage } } });
+
+    // Realizar la solicitud GET a /updateStats con los parámetros de las estadísticas
+    const response = await request(app)
+      .get('/updateStats')
+      .query({ 
+        username: 'testuser',
+        numRespuestasCorrectas: 5,
+        numRespuestasIncorrectas: 2
+      });
+
+    // Verificar que la respuesta tenga el código de estado esperado (500) y contenga el mensaje de error adecuado
+    expect(response.status).toBe(500);
+    expect(response.body).toEqual({ error: errorMessage });
+  });
+
+  it('debería devolver un error si los valores de numRespuestasCorrectas o numRespuestasIncorrectas son inválidos', async () => {
+    const response = await request(app)
+      .get('/updateStats')
+      .query({ 
+        username: 'testuser',
+        numRespuestasCorrectas: -1, // Valor negativo, que no debería ser válido
+        numRespuestasIncorrectas: 5,
+      });
   
+    expect(response.status).toBe(400); // Esperamos un error de solicitud incorrecta
+  });
 });
