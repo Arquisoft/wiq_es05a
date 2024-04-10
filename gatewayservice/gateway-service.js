@@ -78,6 +78,12 @@ app.get('/pregunta', async (req, res) => {
 
 app.get('/updateStats', async (req, res) => {
   const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
+
+  if (parseInt(numRespuestasCorrectas) > 10 || parseInt(numRespuestasCorrectas) < 0 ||
+      parseInt(numRespuestasIncorrectas) > 10 || parseInt(numRespuestasIncorrectas) < 0) {
+    return res.status(400).json({ error: 'El número de respuestas incorrectas  o correctas es erróneo' });
+  }
+
   try{  
     const updateStatsResponse = await axios.get(userServiceUrl+ `/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`)
     res.json(updateStatsResponse.data);
