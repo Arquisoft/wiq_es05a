@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
-<title>Documentación wiq_es05a</title>
+<meta name="generator" content="Asciidoctor 2.0.20">
+<title>Template</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
-/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
-/* Uncomment @import statement to use as custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
-article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
-audio,video{display:inline-block}
-audio:not([controls]){display:none;height:0}
-html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
 a{background:none}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
 h1{font-size:2em;margin:.67em 0}
-abbr[title]{border-bottom:1px dotted}
 b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
 dfn{font-style:italic}
-hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+hr{height:0}
 mark{background:#ff0;color:#000}
 code,kbd,pre,samp{font-family:monospace;font-size:1em}
 pre{white-space:pre-wrap}
@@ -34,20 +32,22 @@ sub{bottom:-.25em}
 img{border:0}
 svg:not(:root){overflow:hidden}
 figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
 fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
 legend{border:0;padding:0}
 button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
 button,input{line-height:normal}
 button,select{text-transform:none}
-button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
 button[disabled],html input[disabled]{cursor:default}
-input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type=checkbox],input[type=radio]{padding:0}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
 textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
-*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+*,::before,::after{box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -62,14 +62,12 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
-p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
 p aside{font-size:.875em;line-height:1.35;font-style:italic}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
 h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
@@ -78,46 +76,44 @@ h2{font-size:1.6875em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
 h4,h5{font-size:1.125em}
 h6{font-size:1em}
-hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
 em,i{font-style:italic;line-height:inherit}
 strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
-ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
-ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
-abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
-abbr{text-transform:none}
 blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
-blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
-blockquote cite::before{content:"\2014 \0020"}
-blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
 blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
 @media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
 h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -125,7 +121,7 @@ pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
 em em{font-style:normal}
 strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
-kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
 .menuseq,.menuref{color:#000}
@@ -137,7 +133,7 @@ b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
 b.button::before{content:"[";padding:0 3px 0 2px}
 b.button::after{content:"]";padding:0 2px 0 3px}
 p a>code:hover{color:rgba(0,0,0,.9)}
-#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
 #header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
 #header::after,#content::after,#footnotes::after,#footer::after{clear:both}
 #content{margin-top:1.25em}
@@ -145,7 +141,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
 #header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
-#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
 #header .details br{display:none}
@@ -179,11 +175,11 @@ body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9
 #toc.toc2>ul{font-size:.95em}
 #toc.toc2 ul ul{padding-left:1.25em}
 body.toc2.toc-right{padding-left:0;padding-right:20em}}
-#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
-#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
 @media screen and (min-width:768px){#content{margin-bottom:1.25em}
@@ -196,29 +192,30 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
-details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
 .admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
 table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
-.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
-table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
-.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
-.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
-.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
 .literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
 .listingblock>.content{position:relative}
 .listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
@@ -226,7 +223,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
 .listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
 .listingblock pre.highlightjs{padding:0}
-.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
 .listingblock pre.prettyprint{border-width:0}
 .prettyprint{background:#f7f7f8}
 pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
@@ -236,9 +233,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -247,7 +243,7 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
 .quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
 .verseblock{margin:0 1em 1.25em}
-.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
 .verseblock pre strong{font-weight:400}
 .verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
 .quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
@@ -260,23 +256,22 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
-.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -284,7 +279,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -292,14 +287,15 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
-ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
 ul.inline>li{margin-left:1.25em}
 .unstyled dl dt{font-weight:400;font-style:normal}
 ol.arabic{list-style-type:decimal}
@@ -313,11 +309,12 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
 .colist td:not([class]):last-child{padding:.25em 0}
-.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
 .imageblock.left{margin:.25em .625em 1.25em 0}
 .imageblock.right{margin:.25em 0 1.25em .625em}
 .imageblock>.title{margin-bottom:0}
@@ -337,8 +334,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -385,7 +380,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -393,25 +388,27 @@ pre .conum[data-value]{position:relative;top:-.125em}
 b.conum *{color:inherit!important}
 .conum:not([data-value]):empty{display:none}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
-h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
-.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
 .print-only{display:none!important}
 @page{margin:1.25cm .75cm}
-@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
 html{font-size:80%}
 a{color:inherit!important;text-decoration:underline!important}
 a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
 a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
 abbr[title]::after{content:" (" attr(title) ")"}
 pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
 thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -428,7 +425,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
-@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
 .sect1{padding:0!important}
 .sect1+.sect1{border:0}
 #footer{background:none}
@@ -436,15 +433,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1><span class="image"><img src="./images/arc42-logo.png" alt="arc42"></span> Documentación wiq_es05a</h1>
+<h1><span class="image"><img src="./images/arc42-logo.png" alt="arc42"></span> Template</h1>
 <div class="details">
 <span id="revnumber">version 8.2 EN,</span>
 <span id="revdate">January 2023</span>
 <br><span id="revremark">(based upon AsciiDoc version)</span>
 </div>
-<div id="toc" class="toc2">
+<div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#section-introduction-and-goals">1. Introducción y Metas (wiq_es05a)</a>
@@ -454,56 +451,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_stakeholders">1.3. Stakeholders</a></li>
 </ul>
 </li>
-<li><a href="#section-architecture-constraints">2. Limitaciones de Arquitectura</a>
+<li><a href="#section-architecture-constraints">2. Limitaciones de Arquitectura</a></li>
+<li><a href="#section-system-scope-and-context">3. System Scope and Context</a>
 <ul class="sectlevel2">
-<li><a href="#_limitaciones_técnicas">2.1. Limitaciones técnicas</a></li>
-<li><a href="#_limitaciones_organizativas">2.2. Limitaciones organizativas</a></li>
-<li><a href="#_convenciones">2.3. Convenciones</a></li>
+<li><a href="#_business_context">3.1. Business Context</a></li>
+<li><a href="#_technical_context">3.2. Technical Context</a></li>
 </ul>
 </li>
-<li><a href="#section-system-scope-and-context">3. Alcance y Contexto del Sistema</a>
+<li><a href="#section-solution-strategy">4. Solution Strategy</a></li>
+<li><a href="#section-building-block-view">5. Building Block View</a>
 <ul class="sectlevel2">
-<li><a href="#_contexto_de_negocio">3.1. Contexto de Negocio</a></li>
-<li><a href="#_contexto_técnico">3.2. Contexto Técnico</a></li>
+<li><a href="#_whitebox_overall_system">5.1. Whitebox Overall System</a></li>
+<li><a href="#_level_2">5.2. Level 2</a></li>
+<li><a href="#_level_3">5.3. Level 3</a></li>
 </ul>
 </li>
-<li><a href="#section-solution-strategy">4. Estrategia de solución</a></li>
-<li><a href="#section-building-block-view">5. Vista de Bloques</a>
+<li><a href="#section-runtime-view">6. Runtime View</a>
 <ul class="sectlevel2">
-<li><a href="#_nivel_1_sistema_general_de_caja_blanca">5.1. Nivel 1: Sistema General de Caja Blanca</a></li>
-<li><a href="#_nivel_2_wiq">5.2. Nivel 2: WIQ</a></li>
+<li><a href="#_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</a></li>
+<li><a href="#_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</a></li>
+<li><a href="#">6.3. &#8230;&#8203;</a></li>
+<li><a href="#_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</a></li>
 </ul>
 </li>
-<li><a href="#section-runtime-view">6. Vista en Tiempo de Ejecución</a>
+<li><a href="#section-deployment-view">7. Deployment View</a>
 <ul class="sectlevel2">
-<li><a href="#_inicio_de_sesión">6.1. Inicio de Sesión</a></li>
-<li><a href="#_interacción_con_preguntas">6.2. Interacción con Preguntas</a></li>
+<li><a href="#_infrastructure_level_1">7.1. Infrastructure Level 1</a></li>
+<li><a href="#_infrastructure_level_2">7.2. Infrastructure Level 2</a></li>
 </ul>
 </li>
-<li><a href="#section-deployment-view">7. Vista de Despliegue</a>
+<li><a href="#section-concepts">8. Cross-cutting Concepts</a>
 <ul class="sectlevel2">
-<li><a href="#_infrastructura_nivel_1">7.1. Infrastructura Nivel 1</a></li>
+<li><a href="#_concept_1">8.1. <em>&lt;Concept 1&gt;</em></a></li>
+<li><a href="#_concept_2">8.2. <em>&lt;Concept 2&gt;</em></a></li>
+<li><a href="#_concept_n">8.3. <em>&lt;Concept n&gt;</em></a></li>
 </ul>
 </li>
-<li><a href="#section-concepts">8. Conceptos transversales</a>
+<li><a href="#section-design-decisions">9. Architecture Decisions</a></li>
+<li><a href="#section-quality-scenarios">10. Quality Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#_prototipos_de_pantalla">8.1. Prototipos de pantalla</a></li>
+<li><a href="#_quality_tree">10.1. Quality Tree</a></li>
+<li><a href="#_quality_scenarios">10.2. Quality Scenarios</a></li>
 </ul>
 </li>
-<li><a href="#section-design-decisions">9. Decisiones arquitectónicas</a></li>
-<li><a href="#section-quality-scenarios">10. Requerimientos de Calidad</a>
-<ul class="sectlevel2">
-<li><a href="#_árbol_de_calidad">10.1. Árbol de Calidad</a></li>
-<li><a href="#_escenarios_de_calidad">10.2. Escenarios de Calidad</a></li>
-</ul>
-</li>
-<li><a href="#section-technical-risks">11. Riesgos y Deudas Técnicas</a>
-<ul class="sectlevel2">
-<li><a href="#_riesgos_técnicos">11.1. Riesgos Técnicos</a></li>
-<li><a href="#_deudas_técnicas">11.2. Deudas Técnicas</a></li>
-</ul>
-</li>
-<li><a href="#section-glossary">12. Glosario</a></li>
+<li><a href="#section-technical-risks">11. Risks and Technical Debts</a></li>
+<li><a href="#section-glossary">12. Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -519,6 +511,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 	.arc42help {display:none;}
 }
 </style>
+<div class="paragraph">
+<p><strong>About arc42</strong></p>
+</div>
+<div class="paragraph lead">
+<p>arc42, the template for documentation of software and system architecture.</p>
+</div>
+<div class="paragraph">
+<p>Template Version 8.2 EN. (based upon AsciiDoc version), January 2023</p>
+</div>
+<div class="paragraph">
+<p>Created, maintained and &#169; by Dr. Peter Hruschka, Dr. Gernot Starke and contributors.
+See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
+</div>
+<hr>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="admonitionblock note">
@@ -609,30 +615,18 @@ If requirements documents exist this overview should refer to these documents.</
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Frontend Web Desplegado</strong>: Habrá una interfaz web accesible vía navegador.</p>
+<p>Los usuarios podrá registrarse en la aplicación.</p>
 </li>
 <li>
-<p><strong>Registro de Usuarios y Consulta de Historial</strong>: Usuarios podrán registrarse y ver su historial de participación.</p>
+<p>Los ususarios registrados podrán iniciar su sesión en la aplicación.</p>
 </li>
 <li>
-<p><strong>Generación Automática de Preguntas desde Wikidata</strong>: Las preguntas se generarán automáticamente usando datos de Wikidata.</p>
+<p>Los usuarios registrados podrán jugar.</p>
 </li>
 <li>
-<p><strong>Plazo de Tiempo para Responder</strong>: Los usuarios tendrán un límite de tiempo para responder preguntas.</p>
-</li>
-<li>
-<p><strong>Respuestas Correctas e Incorrectas Automatizadas</strong>: Cada pregunta tendrá una respuesta correcta y varias incorrectas, generadas automáticamente.</p>
-</li>
-<li>
-<p><strong>Acceso a Información de Usuarios vía API</strong>: Otros sistemas podrán acceder a los datos de los usuarios a través de un API.</p>
-</li>
-<li>
-<p><strong>Acceso a Información de Preguntas vía API</strong>: Otros sistemas podrán acceder a los detalles de las preguntas generadas mediante un API.</p>
+<p>Los usuarios registrados podrán consultar su historial de participación: número de juegos, preguntas acertadas/falladas, tiempos, etc.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Mira los <a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit">Requisitos de la práctica</a> para obtener más información.</p>
 </div>
 </div>
 <div class="sect2">
@@ -667,31 +661,25 @@ If you as an architect do not know how the quality of your work will be judged&#
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Nombre</th>
-<th class="tableblock halign-left valign-top">Descripción</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usabilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto. Además, a medida que los usuarios interactúan más con la aplicación, esta se vuelva más fácil de usar.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nombre</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descripción</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Rendimiento</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El tiempo de respuesta de la aplicación debe ser rápido</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usabilidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación tiene que poder usarse por un publico diverso</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Testeable</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las pruebas deben ser capaces de detectar errores de manera rápida y precisa, fáciles de mantener y actualizar a medida que el código base cambia. Esto implica que las pruebas estén bien estructuradas y documentadas.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Privacidad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los datos de los usuarios tienen que ser privados</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Disponibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación debe estar disponible y caerse lo menos posible</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testeable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación debe probarse con cada actualización</p></td>
 </tr>
 </tbody>
 </table>
@@ -750,34 +738,34 @@ These stakeholders determine the extent and the level of detail of your work and
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Profesor</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Aplicar correctamente los conocimientos y competencias adquiridos en la asignatura Arquitectura del Software</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Profesor de la asignatura</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cristian Augusto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profesor de la asignatura</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>HappySw</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Una aplicación buena para atraer al mayor número de usuarios</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Equipo de desarrollo</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HappySw</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una aplicación buena para atraer al mayor número de usuarios</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equipo de desarrollo</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usar su aplicacion con precaución, sin sobrecargar sus servicios</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Empresa que nos facilita la API para obtener información</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wikidata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un buen uso de su aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empresa que nos facilita la API para obtener información</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios Registrados</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder jugar en la aplicación que recrea el juego sin tener que participar en el programa.</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que ya han jugado anteriormente</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usuarios Registrados</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los usuarios de la aplicación</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios No Registrados</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder registrarse lo más rápido posible para empezar a jugar al juego de preguntas y respuestas</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que nunca jugaron antes</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usuarios No Registrados</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena aplicación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Los usuarios de la aplicación</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>RTVE</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Versión mejorada de "Saber y Ganar" para ganar mayor audiencia e interés social.</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Dueño del producto</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RTVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Una buena versión de su juego "Saber y Ganar"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empresa contratista, el cliente</p></td>
 </tr>
 </tbody>
 </table>
@@ -791,33 +779,12 @@ These stakeholders determine the extent and the level of detail of your work and
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
-<div class="title">Contents</div>
-<p>Any requirement that constraints software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.</p>
+<p>Este proyecto está limitado por una serie de pautas marcadas por los responsables de la asignatura.
+Por ello esta aplicación está desarrollada siguiendo una serie de requisitos los cuales nombraremos a continuación.</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.</p>
+<p>=== Limitaciones técnicas</p>
 </div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Simple tables of constraints with explanations.
-If needed you can subdivide them into
-technical constraints, organizational and political constraints and
-conventions (e.g. programming or versioning guidelines, documentation or naming conventions)</p>
-</div>
-<div class="paragraph">
-<div class="title">Further Information</div>
-<p>See <a href="https://docs.arc42.org/section-2/">Architecture Constraints</a> in the arc42 documentation.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Este proyecto tiene una serie de restricciones de arquitectura marcadas por los responsables de la asignatura.
-Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones las cuales nombraremos a continuación.</p>
-</div>
-<div class="sect2">
-<h3 id="_limitaciones_técnicas">2.1. Limitaciones técnicas</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -832,23 +799,23 @@ Por ello esta aplicación está desarrollada siguiendo una serie de limitaciones
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>GIT</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere el uso del sistema de control de versiones GIT, además de emplear GitHub como repositorio. Asimismo, nos permite
-una continua integración de forma remota mediante la paralelización del trabajo usando el sistema de ramas.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología nos permite almacenar el proyecto y llevar un control de versiones de este, utilizando el servicio de GitHub. Además nos permite
+una continua integración mediante la paralelización del trabajo usando el sistema de ramas. También GitHub permite organizar las distintas tareas de cada
+miembro del equipo mediante el uso de las Issues.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Esta tecnología de contenerización será requerida ya que la usaremos para desplegar la aplicación web tanto en el entorno de desarrollo como en el de producción
-y realizar las pruebas pertinentes.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Este programa es utilizado para desplegar aquí la aplicación web y realizar las pruebas pertinentes.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere que esta sea la fuente de información principal para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Todas las preguntas del juego se obtienen a partir de esta plataforma, generando aleatoriamente las preguntas y respuestas correctas y también las falsas.</em></em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>=== Limitaciones organizativas</p>
 </div>
-<div class="sect2">
-<h3 id="_limitaciones_organizativas">2.2. Limitaciones organizativas</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -869,7 +836,7 @@ para el desarrollo de la aplicación.</em></em></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Experiencia</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Es la primera ocasión en la que los miembros del equipo trabajan en un proyecto de esta envergadura. Al comienzo del proyecto, los miembros del equipo de desarrollo
-enfrentaba una curva de aprendizaje considerable con respecto al uso de algunas de las tecnologías necesarias, por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
+estaban poco experimentados con el uso de algunas de las tecnologías necesarias por lo que fue necesario aprender a trabajar, en algunos casos desde cero,
 con alguna de estas.</em></em></p></td>
 </tr>
 <tr>
@@ -877,26 +844,11 @@ con alguna de estas.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para mantener un buen ritmo de trabajo a través de una correcta organización se realizan reuniones semanales en las clases prácticas de la asignatura. Además, mantenemos contacto
 a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reuniones extraordinarias utilizando nuestro servidor de Discord.</em></em></p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Issues</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para el seguimiento y la gestión de las tareas, problemas, mejoras, autoinformes, etc. de la aplicación tendremos que usar las issues ofrecidas por github; esto es una obligación ya
- que reflejara el trabajo realizado por cada miembro del equipo al poder asignarse cada issue.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Actas</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Al igual que las issues, las actas servirán para la organización de las tareas asi como para la toma de decisiones, y tendrán
- que reflejar el trabajo repartido a cada miembro. Se deberán realizar obligatoriamente cada vez que se realice una reunión y deberán constar los miembros del
- equipo que han participado.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Decisiones arquitectónicas</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las decisiones arquitectónicas pueden ser una limitación organizativa al definir la estructura básica de un sistema de software, lo que podría obstaculizar la capacidad de realizar cambios y adaptarse a nuevas necesidades y tecnologías.</em></em></p></td>
-</tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>=== Convenciones</p>
 </div>
-<div class="sect2">
-<h3 id="_convenciones">2.3. Convenciones</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -911,8 +863,7 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Diseño del software</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un código limpio ('clean code'),
-es decir, que sea fácil de entender, mantener y modificar, y que garantize la claridad, simplicidad y legibilidad.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Documentación</strong></em></p></td>
@@ -920,27 +871,17 @@ es decir, que sea fácil de entender, mantener y modificar, y que garantize la c
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Accesibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nos esforzaremos para que nuestra aplicación sea accesible para todos los usuarios, independientemente de su perfil o características individuales.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Estructura</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debe seguir una estructura de paquetes fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de
-usuarios (registro y autentificación), 'questionservice' para la comunicación con wikidata y 'webapp' para el desarrollo de la aplicación. Todos estos
-servicios estarán comunicados por 'gatewayservice'.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Convenciones del lenguaje de programación</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Es fundamental adherirse a las convenciones de los diferentes lenguajes de programación utilizados para garantizar que la aplicación tenga un código legible,
-que facilite su mantenimiento.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestro aplicación puede ser utilizada por cualquier tipo de usuario hispanohablante, sin importar quien sea, ya que será fácil de entender e interactuar.</em></em></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="section-system-scope-and-context">3. Alcance y Contexto del Sistema</h2>
+<h2 id="section-system-scope-and-context">3. System Scope and Context</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -977,7 +918,7 @@ que facilite su mantenimiento.</em></em></p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_contexto_de_negocio">3.1. Contexto de Negocio</h3>
+<h3 id="_business_context">3.1. Business Context</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -999,44 +940,15 @@ The title of the table is the name of your system, the three columns contain the
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/03_1_contexto-negocio2.png" alt="Diagrama de contexto de negocio">
+<div class="paragraph">
+<p><strong>&lt;Diagram or Table&gt;</strong></p>
 </div>
+<div class="paragraph">
+<p><strong>&lt;optionally: Explanation of external domain interfaces&gt;</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Componentes</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Sistema</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Contiene el frontend y backend de la aplicación.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario nuevo</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuario nuevo en la aplicación se registrará y será el propio sistema el que confirme el registro o le muestre un error.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario registrado</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuario antiguo que podrá jugar y el sistema le irá devolviendo feedback de la partida o podrá entrar a consultar datos de partidas anteriores que el sistema le devolverá.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Fuente de información para la creación de las preguntas y respuestas.</em></em></p></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect2">
-<h3 id="_contexto_técnico">3.2. Contexto Técnico</h3>
+<h3 id="_technical_context">3.2. Technical Context</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1054,79 +966,21 @@ together with a mapping table showing the relationships between channels and inp
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/03_2_contexto_tecnico.png" alt="Diagrama de contexto técnico">
+<div class="paragraph">
+<p><strong>&lt;Diagram or Table&gt;</strong></p>
 </div>
+<div class="paragraph">
+<p><strong>&lt;optionally: Explanation of technical interfaces&gt;</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Componentes</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Sistema</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contiene el frontend y backend de la aplicación.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos no relacional para el almacenamiento de usuarios.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario final de la aplicación.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata API</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Javascript</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación principal de la aplicación.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Express JS</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Framework para la creación de aplicaciones web en Javascript, utilizado en el backend.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>React</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Bootstrap</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca para el diseño de aplicaciónes web.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de la interfaz del sistema.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gateway</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p><strong>&lt;Mapping Input/Output to Channels&gt;</strong></p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-solution-strategy">4. Estrategia de solución</h2>
+<h2 id="section-solution-strategy">4. Solution Strategy</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1169,33 +1023,11 @@ Refer to details in the following sections.</p>
 </div>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>JavaScript</strong>: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.</p>
-</li>
-<li>
-<p><strong>React</strong>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web de forma sencilla.</p>
-</li>
-<li>
-<p><strong>Docker</strong>: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.</p>
-</li>
-<li>
-<p><strong>Firebase</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
-</li>
-<li>
-<p><strong>Microservicios:</strong> Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.</p>
-</li>
-<li>
-<p><strong>MySQL:</strong> Es una base de datos relacional ampliamente utilizada en proyectos debido a su fiabilidad, rendimiento y escalabilidad. Su estructura tabular facilita la organización de datos y su consulta a través de un lenguaje estándar (SQL).</p>
-</li>
-</ul>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-building-block-view">5. Vista de Bloques</h2>
+<h2 id="section-building-block-view">5. Building Block View</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1243,7 +1075,7 @@ Thus it contains the white box description of selected building blocks of level 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nivel_1_sistema_general_de_caja_blanca">5.1. Nivel 1: Sistema General de Caja Blanca</h3>
+<h3 id="_whitebox_overall_system">5.1. Whitebox Overall System</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1282,19 +1114,33 @@ In the best case you will get away with examples or simple signatures.</p>
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/05_sistema-general-caja-blanca.png" alt="Sistema General de Caja Blanca">
-</div>
+<div class="paragraph">
+<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Motivación</dt>
+<dt class="hdlist1">Motivation</dt>
 <dd>
-<p>La motivación de este diagrama es ofrecer una representación clara y sencilla de cómo el sistema interactúa con los usuarios y los servicios externos.</p>
+<p><em>&lt;text explanation&gt;</em></p>
 </dd>
-<dt class="hdlist1">Bloques de construcción contenidos</dt>
+<dt class="hdlist1">Contained Building Blocks</dt>
+<dd>
+<p><em>&lt;Description of contained building block (black boxes)&gt;</em></p>
+</dd>
+<dt class="hdlist1">Important Interfaces</dt>
+<dd>
+<p><em>&lt;Description of important interfaces&gt;</em></p>
+</dd>
 </dl>
+</div>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Insert your explanations of black boxes from level 1:</p>
+</div>
+<div class="paragraph">
+<p>If you use tabular form you will only describe your black boxes with name and
+responsibility according to the following schema:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1303,87 +1149,188 @@ In the best case you will get away with examples or simple signatures.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Nombre</th>
-<th class="tableblock halign-left valign-top">Responsabilidad</th>
+<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Responsibility</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuario que interactua con la aplicación.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Administrador</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Persona(s) que tienen acceso completo a la aplicación y puede administrarla.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WIQ</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La propia aplicación.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;black box 2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>If you use a list of black box descriptions then you fill in a separate black box template for every important building block .
+Its headline is the name of the black box.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_1">5.1.1. &lt;Name black box 1&gt;</h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Here you describe &lt;black box 1&gt;
+according the the following black box template:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Purpose/Responsibility</p>
+</li>
+<li>
+<p>Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.</p>
+</li>
+<li>
+<p>(Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, &#8230;&#8203;.</p>
+</li>
+<li>
+<p>(Optional) directory/file location</p>
+</li>
+<li>
+<p>(Optional) Fulfilled requirements (if you need traceability to requirements).</p>
+</li>
+<li>
+<p>(Optional) Open issues/problems/risks</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;Purpose/Responsibility&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;Interface(s)&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Quality/Performance Characteristics&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Directory/File Location&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(Optional) Fulfilled Requirements&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>&lt;(optional) Open Issues/Problems/Risks&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_2">5.1.2. &lt;Name black box 2&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;black box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_black_box_n">5.1.3. &lt;Name black box n&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;black box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_interface_1">5.1.4. &lt;Name interface 1&gt;</h4>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_interface_m">5.1.5. &lt;Name interface m&gt;</h4>
+
+</div>
 </div>
 <div class="sect2">
-<h3 id="_nivel_2_wiq">5.2. Nivel 2: WIQ</h3>
-<div class="imageblock">
+<h3 id="_level_2">5.2. Level 2</h3>
+<div class="sidebarblock arc42help">
 <div class="content">
-<img src="./images/05_nivel_2.png" alt="Nivel 2 de la aplicación: WIQ">
+<div class="paragraph">
+<p>Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.</p>
+</div>
+<div class="paragraph">
+<p>You have to decide which building blocks of your system are important enough to justify such a detailed description.
+Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
+Leave out normal, simple, boring or standardized parts of your system</p>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Bloques de construcción contenidos</dt>
-</dl>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Nombre</th>
-<th class="tableblock halign-left valign-top">Responsabilidad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La interfaz con la que interactua el usuario.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gatewayservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de puerta de enlace que actúa como intermediario entre los clientes y 	otros servicios,
-reenviando las solicitudes a los servicios correspondientes y devolviendo las respuestas al cliente.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>authservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de autenticación de usuarios.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para registro de usuarios.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para el manejo de datos de Wikidata.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect3">
+<h4 id="_white_box_building_block_1">5.2.1. White Box <em>&lt;building block 1&gt;</em></h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>&#8230;&#8203;describes the internal structure of <em>building block 1</em>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_2">5.2.2. White Box <em>&lt;building block 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_m">5.2.3. White Box <em>&lt;building block m&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_level_3">5.3. Level 3</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.</p>
+</div>
+<div class="paragraph">
+<p>When you need more detailed levels of your architecture please copy this
+part of arc42 for additional levels.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_x_1">5.3.1. White Box &lt;_building block x.1_&gt;</h4>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Specifies the internal structure of <em>building block x.1</em>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_x_2">5.3.2. White Box &lt;_building block x.2_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_white_box_building_block_y_1">5.3.3. White Box &lt;_building block y.1_&gt;</h4>
+<div class="paragraph">
+<p><em>&lt;white box template&gt;</em></p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="section-runtime-view">6. Vista en Tiempo de Ejecución</h2>
+<h2 id="section-runtime-view">6. Runtime View</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1448,53 +1395,43 @@ You will mainly capture scenarios in your documentation to communicate your arch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_inicio_de_sesión">6.1. Inicio de Sesión</h3>
-<div class="paragraph">
-<p>Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.</p>
+<h3 id="_runtime_scenario_1">6.1. &lt;Runtime Scenario 1&gt;</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></p>
+</li>
+<li>
+<p><em>&lt;insert description of the notable aspects of the interactions between the
+building block instances depicted in this diagram.&gt;</em></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. userService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
-</div>
-<div class="paragraph">
-<p>Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.</p>
-</div>
-<div class="paragraph">
-<p>Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar la pantalla de inicio del juego, donde el usuario podrá acceder a las diferentes opciones de juego y comenzar a participar en las actividades disponibles.</p>
+<p>It is possible to use a sequence diagram:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/06_acceso2.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
+<img src="./images/Sequence%20diagram.png" alt="Sequence diagram" width="332" height="335">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_interacción_con_preguntas">6.2. Interacción con Preguntas</h3>
-<div class="paragraph">
-<p>Comenzaremos con la REST API que se integra con nuestra base de datos y se encargará de la obtención de la pregunta junto con sus opciones de respuestas correctas e incorrectas, proporcionando así la información necesaria para la Web App.</p>
+<h3 id="_runtime_scenario_2">6.2. &lt;Runtime Scenario 2&gt;</h3>
+
 </div>
-<div class="paragraph">
-<p>Al obtener dicha información, la Web App mostrará la pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.</p>
+<div class="sect2">
+<h3 id="">6.3. &#8230;&#8203;</h3>
+
 </div>
-<div class="paragraph">
-<p>Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.</p>
-</div>
-<div class="paragraph">
-<p>Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.</p>
-</div>
-<div class="paragraph">
-<p>Este flujo de interacción garantiza una experiencia de usuario fluida y comprensible, optimizando así la participación y el compromiso del usuario con la plataforma.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/06_pregunta2.png" alt="Diagrama vista de tiempo de ejecución para la pregunta">
-</div>
-</div>
+<div class="sect2">
+<h3 id="_runtime_scenario_n">6.4. &lt;Runtime Scenario n&gt;</h3>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-deployment-view">7. Vista de Despliegue</h2>
+<h2 id="section-deployment-view">7. Deployment View</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1551,7 +1488,7 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_infrastructura_nivel_1">7.1. Infrastructura Nivel 1</h3>
+<h3 id="_infrastructure_level_1">7.1. Infrastructure Level 1</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1578,79 +1515,65 @@ when your infrastructure is more complex.</p>
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/07_DiagramaDespliegue3.png" alt="Diagrama de despliegue">
-</div>
+<div class="paragraph">
+<p><em><strong>&lt;Overview Diagram&gt;</strong></em></p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Motivación</dt>
+<dt class="hdlist1">Motivation</dt>
 <dd>
-<p>Utilizamos Docker como plataforma de contenedores debido a su capacidad para simplificar el proceso de despliegue de aplicaciones,
-especialmente cuando se combina con servicios en la nube como Azure proporciona una integración sólida con Docker,
-lo que facilita el despliegue de contenedores en su infraestructura en la nube.
-En cuanto a la elección de MySQL como sistema de gestión de bases de datos, optamos por este software debido a su amplia adopción,
-estabilidad y control que ofrece a los desarrolladores y administradores de bases de datos.
-Además, MySQL es compatible con una amplia gama de plataformas y entornos de desarrollo,
-lo que facilita la integración con otras herramientas y servicios que podemos estar utilizando en nuestro entorno, como Docker y Azure.</p>
+<p><em>&lt;explanation in text form&gt;</em></p>
 </dd>
-<dt class="hdlist1">Características de calidad y/o rendimiento</dt>
+<dt class="hdlist1">Quality and/or Performance Features</dt>
 <dd>
-<p>En lo que se refiere a rendimiento no podemos controlar ciertos aspectos como la conexión del usuario a internet, al usar Azure también
-podemos tener problemas con él ya que no podemos asegurar este tipo de recursos; en cuanto a calidad haremos todo lo que este en nuestra
-mano para poder ofrecer la máxima calidad posible al usuario usando los recursos elegidos de la manera más óptima así como las tecnologías
-que estena a nuestro alcance con el fin de reducir los tiempos de espera para las solicitudes de los usuarios.
-Nuestros principales objetivos es que nuestra aplicación web tenga una buena usabilidad asi como una buena mantenibilidad.</p>
+<p><em>&lt;explanation in text form&gt;</em></p>
 </dd>
-<dt class="hdlist1">Mapeo de bloques de construcción a infraestructura</dt>
+<dt class="hdlist1">Mapping of Building Blocks to Infrastructure</dt>
+<dd>
+<p><em>&lt;description of the mapping&gt;</em></p>
+</dd>
 </dl>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Elemento</th>
-<th class="tableblock halign-left valign-top">Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Servidor Azure</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Servidor alojado en la nube de Microsoft Azure sobre el que se realiza el despliegue.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Contenedores Docker</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Son instancias virtualizadas y aisladas que contienen cada una uno de los microservicios que conforman la aplicación.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WebApp</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>QuestionService</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola
-posteriormente en una base de datos MySQL.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>UserService</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Navegador Web</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Programa sobre el que el cliente visualiza e interactúa con la aplicación web.</p></td>
-</tr>
-</tbody>
-</table>
+</div>
+<div class="sect2">
+<h3 id="_infrastructure_level_2">7.2. Infrastructure Level 2</h3>
+<div class="sidebarblock arc42help">
+<div class="content">
+<div class="paragraph">
+<p>Here you can include the internal structure of (some) infrastructure elements from level 1.</p>
+</div>
+<div class="paragraph">
+<p>Please copy the structure from level 1 for each selected element.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastructure_element_1">7.2.1. <em>&lt;Infrastructure Element 1&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastructure_element_2">7.2.2. <em>&lt;Infrastructure Element 2&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_infrastructure_element_n">7.2.3. <em>&lt;Infrastructure Element n&gt;</em></h4>
+<div class="paragraph">
+<p><em>&lt;diagram + explanation&gt;</em></p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="section-concepts">8. Conceptos transversales</h2>
+<h2 id="section-concepts">8. Cross-cutting Concepts</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1752,46 +1675,31 @@ on this list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_prototipos_de_pantalla">8.1. Prototipos de pantalla</h3>
+<h3 id="_concept_1">8.1. <em>&lt;Concept 1&gt;</em></h3>
 <div class="paragraph">
-<p>En la siguiente sección, vamos a mostrar los primeros prototipos de pantalla, aunque pueden estar sujetos a cambios en el futuro.</p>
+<p><em>&lt;explanation&gt;</em></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_concept_2">8.2. <em>&lt;Concept 2&gt;</em></h3>
 <div class="paragraph">
-<p><strong>Pantalla principal</strong>
-La pantalla principal que aparece al entrar en la aplicación, con las opciones de jugar y ver las estadisticas de los juegos
-solo si estás registrado en la aplicación. Además de las propias opciones de iniciar sesión y registrarse.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/08_1_pantalla-principal.png" alt="Prototipo de pantalla principal">
-</div>
+<p><em>&lt;explanation&gt;</em></p>
 </div>
 <div class="paragraph">
-<p><strong>Pantalla de juego</strong>
-Irán apareciendo 5 diferentes preguntas con 4 posibles rspuestas, de las cuales solo una
-será la correcta. También podremos ver el tiempo que trascurre durante todo el juego.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/08_1_pantalla-juego.png" alt="Prototipo de pantalla de juego">
+<p>&#8230;&#8203;</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_concept_n">8.3. <em>&lt;Concept n&gt;</em></h3>
 <div class="paragraph">
-<p><strong>Pantalla de estadísticas</strong>
-Solo se podrá acceder a esta página si estás registrado en la aplicación. Aqui
-podremos observar diferentes estadisticas en los juego que hayas jugado.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/08_1_pantalla-estadisticas.png" alt="Prototipo de pantalla de destadisticas">
-</div>
+<p><em>&lt;explanation&gt;</em></p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-design-decisions">9. Decisiones arquitectónicas</h2>
+<h2 id="section-design-decisions">9. Architecture Decisions</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1837,60 +1745,11 @@ There you will find links and examples about ADR.</p>
 </div>
 </div>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 12.5%;">
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Aspecto</th>
-<th class="tableblock halign-left valign-top">Descripción</th>
-<th class="tableblock halign-left valign-top">Decisión</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-<th class="tableblock halign-left valign-top">Alternativas</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lenguaje de Programación</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje en el que se desarrollara la aplicación.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>JavaScript</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Hemos elegido esta opción porque es la mejor para usar en proyectos con REACT. Es fácil de entender y de manejar.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong>, pero creemos que es mas complejo.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Framework</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Marco de trabajo para desarrollar la parte grafica de la aplicación.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>React</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Optamos por este framework debido a su capacidad para simplificar el proceso de creación de interfaces gráficas.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Angular, Vue&#8230;&#8203;</strong></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base de Datos</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Donde almacenaremos la informacion de los usuarios.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MySQL</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos
-no relacional con una complejidad excesiva.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB, Postgress, Redis, MariaDB, SQLLite&#8230;&#8203;</strong></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Arquitectura</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>La forma en la que se estructura la aplicación.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Microservicios</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es una manera simple de organizar, facil de desacoplar y reutilizar.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Simplemente basada en <strong>front-end y back-end.</strong></em></p></td>
-</tr>
-</tbody>
-</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-quality-scenarios">10. Requerimientos de Calidad</h2>
+<h2 id="section-quality-scenarios">10. Quality Requirements</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -1915,7 +1774,7 @@ concrete and measurable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_árbol_de_calidad">10.1. Árbol de Calidad</h3>
+<h3 id="_quality_tree">10.1. Quality Tree</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1945,14 +1804,9 @@ concrete and measurable.</p>
 </div>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/10_1_arbol-calidad.png" alt="Diagrama de árbol de calidad">
-</div>
-</div>
 </div>
 <div class="sect2">
-<h3 id="_escenarios_de_calidad">10.2. Escenarios de Calidad</h3>
+<h3 id="_quality_scenarios">10.2. Quality Scenarios</h3>
 <div class="sidebarblock arc42help">
 <div class="content">
 <div class="paragraph">
@@ -1991,54 +1845,12 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5714%;">
-<col style="width: 28.5715%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top"><strong>Calidad</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Escenario</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Acciones de usuario</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Respuesta</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usabilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario que nunca ha interactuado con la aplicación</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario quiere iniciar sesión y posteriormente jugar y que todo sea intuitivo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación facilita al usuario iniciar/registrar en la aplicación y posteriormente se le muestra la opción para jugar de forma visual</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Rendimiento</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usario, un poco impaciente y ya registrado quiere jugar tranquilamente una partida</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Empieza la partida y espera a que se procese la pregunta y respuestas, sin importar cuantos usuarios esten jugando en ese momento</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El sistema de obtención de preguntas es ágil y se muestra la pregunta con sus respuestas antes de que el usuario se canse de esperar</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Testeable</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un desarrollador esta realizando una nueva funcionalidad del sistema, pero se equivoca y produce fallos en la aplicación</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Igualmente realiza un commit en su rama con el objetivo de incorporar la nueva funcionalidad al sistema</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Las pruebas automáticas detectan un error de programación e impide que el problema se propague a la aplicación funcional</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Disponibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un usuario quiere jugar a las 03:00 AM, sin que ocurra ninguna caida por mantenimiento o cualquier otro error.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario inicializa  la aplicación de forma estandar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La aplicación es funcional pese a no ser una hora habitual</p></td>
-</tr>
-</tbody>
-</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-technical-risks">11. Riesgos y Deudas Técnicas</h2>
+<h2 id="section-technical-risks">11. Risks and Technical Debts</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -2063,83 +1875,11 @@ more precisely down to a level of scenarios that can be discussed and evaluated.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_riesgos_técnicos">11.1. Riesgos Técnicos</h3>
-<div class="sect3">
-<h4 id="_riesgos_internos">11.1.1. Riesgos internos</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Riesgo</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Abandono</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Durante el desarrollo del proyecto cabe la posibilidad de que alguno de los miembros que conforman el equipo abandone este, provocando un serio problema el ritmo y carga
-de trabajo de los demás compañeros.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Otras Asignaturas</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Las demás asignaturas en la que están matriculados los miembros del equipo puede exigir una carga importante de trabajo por lo que provocar que el equipo no dedique el
-suficiente tiempo al desarrollo de este proyecto.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Errores de diseño</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Los errores que surjan debido al diseño, implementacion o gestion interna del proyecto; nos obligarán a realizar cambios e invertir más horas de
-las planeadas para solucionar este tipo de problemas.</em></em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_riesgos_externos">11.1.2. Riesgos externos</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Riesgo</th>
-<th class="tableblock halign-left valign-top">Explicación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
-Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto
-esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Software</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>No podemos asegurar que nuestra aplicación pueda ser utilizada por todos los usuarios ya que en ciertos casos dependerá del sistema operativo de cada usuario.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Hardware</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Dependiendo desde el dispositivo que se acceda a la aplicación si este no cumple los requisitos, como la resolución de pantalla, puede ser que la aplicacion no se vea de la forma esperada.</em></em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_deudas_técnicas">11.2. Deudas Técnicas</h3>
-<div class="paragraph">
-<p>TODO</p>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="section-glossary">12. Glosario</h2>
+<h2 id="section-glossary">12. Glossary</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -2184,72 +1924,28 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Término</th>
-<th class="tableblock halign-left valign-top">Definición</th>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>API Rest</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaz de programación de aplicaciones que permite interactuar con un sistema para obtener datos o ejecutar una función, de manera que el sistema comprenda la solicitud y la cumpla.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-1&gt;</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Arc42</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un marco de arquitectura que proporciona un conjunto de prácticas y plantillas para documentar y diseñar arquitecturas de software.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Docker</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MySQL</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es el sistema de gestión de bases de datos relacionales de código abierto más popular del mundo.
-MySQL es utilizado por muchas de las aplicaciones más accedidas, incluyendo Facebook, Twitter, Netflix, Uber, Airbnb, Shopify y Booking.com.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Saber y Ganar</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Programa televisión española de tipo concurso de preguntas y respuestas culturales.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WCAG</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Son una serie de pautas de accesibilidad web publicadas por la Iniciativa de Accesibilidad Web (WAI) del Consorcio World Wide Web (W3C).
-Estas pautas explican cómo hacer que el contenido web sea más accesible para las personas con discapacidades.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Web App</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaz de usuario en el navegador del cliente. Permite al usuario interactuar con el servidor, enviar solicitudes y recibir respuestas.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WikiData</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Term-2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;definition-2&gt;</em></p></td>
 </tr>
 </tbody>
 </table>
-<hr>
-<div class="paragraph">
-<p><strong>About arc42</strong></p>
-</div>
-<div class="paragraph lead">
-<p>arc42, the template for documentation of software and system architecture.</p>
-</div>
-<div class="paragraph">
-<p>Template Version 8.2 EN. (based upon AsciiDoc version), January 2023</p>
-</div>
-<div class="paragraph">
-<p>Created, maintained and &#169; by Dr. Peter Hruschka, Dr. Gernot Starke and contributors.
-See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-04-04 10:40:30 +0200
+Last updated 2024-01-22 15:51:43 +0100
 </div>
 </div>
 </body>
