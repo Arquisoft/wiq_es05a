@@ -73,8 +73,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
-      env:
-        API_URI: http://${{ secrets.DEPLOY_HOST }}:8000
       with:
           name: arquisoft/wiq_es05a/authservice
           username: ${{ github.actor }}
@@ -92,8 +90,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
-      env:
-        API_URI: http://${{ secrets.DEPLOY_HOST }}:8000
       with:
         name: arquisoft/wiq_es05a/userservice
         username: ${{ github.actor }}
@@ -115,8 +111,6 @@ jobs:
         sed -i "s/SOMEIP/${DEPLOY_HOST}/g" gatewayservice/openapi.yaml
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
-      env:
-        API_URI: http://${{ secrets.DEPLOY_HOST }}:8000
       with:
         name: arquisoft/wiq_es05a/gatewayservice
         username: ${{ github.actor }}
@@ -134,8 +128,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
-      env:
-        API_URI: http://${{ secrets.DEPLOY_HOST }}:8000
       with:
           name: arquisoft/wiq_es05a/questionservice
           username: ${{ github.actor }}
