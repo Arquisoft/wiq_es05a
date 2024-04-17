@@ -8,10 +8,10 @@ WORKDIR /usr/src/authservice
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install --ignore-scripts
+RUN npm install
 
 # Copy the app source code to the working directory
-COPY . . / /usr/src/authservice/
+COPY . .
 
 # Expose the port the app runs on
 EXPOSE 8002

@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Estilos/juego.css';
@@ -30,9 +29,9 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
   const [disableFinish, setDisableFinish] = useState(false)
 
-  const navigate= useNavigate()
+  //const navigate= useNavigate()
 
-  //Variables para la obtencion y modificacion de estadisticas del usuario
+  //Variables para la obtencion y modificacion de estadisticas del usuario y de preguntas
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
 
   //Primer render para un comportamiento diferente
@@ -42,17 +41,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       setFirstRender(true);
     }
   }, [firstRender])
-
-
-  //Control de las estadísticas
-  const updateStats = async () => {
-    try {
-        const response = await axios.get(`${apiEndpoint}/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`);
-        console.log('Estadisticas actualizadas con éxito:', response.data);
-    } catch (error) {
-        console.error('Error al actualizar las estadisticas:', error);
-    }
-  };
 
   //Función que genera un numero de preguntas determinado
   async function crearPreguntas(numPreguntas){
@@ -69,7 +57,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         )
       }
       catch (error) {
-        console.error('Error al actualizar las estadisticas:', error);
+        console.error('Error al crear las preguntas:', error);
         // Manejar el error de acuerdo a tus necesidades
       }
       numPreguntas--;
@@ -89,6 +77,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     setRestartTemporizador(true);
   }
 
+  
+  //Control de las estadísticas
+  const updateStats = async () => {
+    try {
+        const response = await axios.get(`${apiEndpoint}/updateStats?username=${username}&numRespuestasCorrectas=${numRespuestasCorrectas}&numRespuestasIncorrectas=${numRespuestasIncorrectas}`);
+        console.log('Estadisticas actualizadas con éxito:', response.data);
+    } catch (error) {
+        console.error('Error al actualizar las estadisticas:', error);
+    }
+  };
 
   /**
    * Funcion que se llamara al hacer click a una de las respuestas
@@ -107,7 +105,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       setNumRespuestasIncorrectas(numRespuestasIncorrectas + 1);
       setVictoria(false)
     }
-    //storeResult(victoria)
     cambiarColorBotones(respuesta, true);
 
   };
@@ -179,10 +176,10 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     buttonContainer.querySelector('#boton4').style.border = "6px solid #1948D9";
   } 
 
-  //Primer render para un comportamiento diferente
-  useEffect(() => {
-    //updateCompletedGames()
-  }, [finishGame])
+  // //Primer render para un comportamiento diferente
+  // useEffect(() => {
+  //   
+  // }, [finishGame])
  
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickSiguiente = () => {
@@ -204,7 +201,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const clickFinalizar = () => {
     updateStats();
     setDisableFinish(true)
-    navigate('/')
+    //navigate('/')
   }
 
   const handleRestart = () => {
@@ -215,7 +212,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         {ready ? <>
           <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
-          <Temporizador restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
+          <Temporizador id="temp" restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
           <h2> {pregunta} </h2>
           <div className="button-container">
             <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
