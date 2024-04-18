@@ -85,7 +85,7 @@ together with a mapping table showing the relationships between channels and inp
 
 ****
 
-image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
+image::03_2_contexto_tecnico2.png["Diagrama de contexto técnico"]
 
 [options="header",cols="1e,2"]
 |===
