@@ -95,7 +95,7 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |Contiene el frontend y backend de la aplicación.
 
 |*MongoDB*
-|Base de datos no relacional para el almacenamiento de usuarios.
+|Base de datos no relacional para el almacenamiento de usuarios y registro de sus partidas.
 
 |*Usuario*
 |El usuario final de la aplicación.
@@ -115,12 +115,11 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |*Bootstrap*
 |Biblioteca para el diseño de aplicaciónes web.
 
-
 |*webapp*
 |Módulo del sistema que se encarga de la interfaz del sistema.
 
 |*questionservice*
-|Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.
+|Módulo del sistema que se encarga de la generación de preguntas y respuestas con la API de Wikidata.
 
 |*gateway*
 |Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.
