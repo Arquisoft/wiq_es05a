@@ -101,7 +101,7 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |El usuario final de la aplicación.
 
 |*Wikidata API*
-|API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.
+|API de donde obtendremos las preguntas y respuestas correctas y falsas para el juego de la aplicación.
 
 |*Javascript*
 |Lenguaje de programación principal de la aplicación.
@@ -122,8 +122,11 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |Módulo del sistema que se encarga de la generación de preguntas y respuestas con la API de Wikidata.
 
 |*gateway*
-|Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.
+|Módulo del sistema que se encarga de coordinar el resto de modulos del sistema.
 
 |*userservice*
-|Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.
+|Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación y del registro de partidas.
+
+|*authservice*
+|Módulo del sistema que se encarga de gestionar la autenticación del usuario.
 |===
