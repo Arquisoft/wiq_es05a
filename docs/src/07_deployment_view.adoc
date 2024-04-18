@@ -56,25 +56,15 @@ Describe (usually in a combination of diagrams, tables, and text):
 For multiple environments or alternative deployments please copy and adapt this section of arc42 for all relevant environments.
 ****
 
-image::07_DiagramaDespliegue4.png["Diagrama de despliegue"]
+image::07_DiagramaDespliegue5.png["Diagrama de despliegue"]
 
-Motivación::
+Utilizamos como servidor en la nube Azure como infraestructura principal, dentro de ella tenemos desplegados cinco contenedores de Docker.
+* UserService encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc.
+* WebApp donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.
+* GatewayService es la puerta de enlace entre la aplicación y los servicios subyacentes.
+* QuestionService encargado de obtener las preguntas de un servidor externo que en este caso es wikidata.
+* MongoDB alberga la base de datos para almacenar usuarios y sus estadísticas.
 
-Utilizamos Docker como plataforma de contenedores debido a su capacidad para simplificar el proceso de despliegue de aplicaciones, 
-especialmente cuando se combina con servicios en la nube como Azure proporciona una integración sólida con Docker, 
-lo que facilita el despliegue de contenedores en su infraestructura en la nube. 
-En cuanto a la elección de MySQL como sistema de gestión de bases de datos, optamos por este software debido a su amplia adopción, 
-estabilidad y control que ofrece a los desarrolladores y administradores de bases de datos.
-Además, MySQL es compatible con una amplia gama de plataformas y entornos de desarrollo, 
-lo que facilita la integración con otras herramientas y servicios que podemos estar utilizando en nuestro entorno, como Docker y Azure.
-
-Características de calidad y/o rendimiento::
-
-En lo que se refiere a rendimiento no podemos controlar ciertos aspectos como la conexión del usuario a internet, al usar Azure también
-podemos tener problemas con él ya que no podemos asegurar este tipo de recursos; en cuanto a calidad haremos todo lo que este en nuestra
-mano para poder ofrecer la máxima calidad posible al usuario usando los recursos elegidos de la manera más óptima así como las tecnologías 
-que estena a nuestro alcance con el fin de reducir los tiempos de espera para las solicitudes de los usuarios.
-Nuestros principales objetivos es que nuestra aplicación web tenga una buena usabilidad asi como una buena mantenibilidad.
 
 Mapeo de bloques de construcción a infraestructura::
 
