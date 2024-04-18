@@ -29,7 +29,7 @@ defineFeature(feature, test => {
     let password;
 
     given('A user that is logged in the application', async () => {
-      username = "pablo"
+      username = "pablo@gmail.com"
       password = "pabloasw"
       await expect(page).toClick("button", { text: "INICIA SESIÓN" });
     });
