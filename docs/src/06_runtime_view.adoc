@@ -63,4 +63,4 @@ Tras esto y cuando el jugador solicite la siguiente pregunta se seguirá repitie
 
 Este flujo de interacción garantiza una experiencia de usuario fluida y comprensible, optimizando así la participación y el compromiso del usuario con la plataforma.
 
-image::06_pregunta3.png["Diagrama vista de tiempo de ejecución para la pregunta"]
+image::06_pregunta4.png["Diagrama vista de tiempo de ejecución para la pregunta"]
