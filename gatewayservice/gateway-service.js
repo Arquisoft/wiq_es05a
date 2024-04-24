@@ -66,7 +66,6 @@ app.post('/adduser', async (req, res) => {
   }
 });
 
-
 app.get('/pregunta', async (req, res) => {
   try{
     const questionResponse = await axios.get(questionServiceUrl+'/pregunta')
