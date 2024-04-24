@@ -28,7 +28,7 @@
         "question": "¿Cuál es la capital del estado de {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q3220391; wdt:P571 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel (YEAR(?fechaCreacion) AS ?answerSubjectLabel) WHERE { ?questionSubject wdt:P31 wd:Q3220391; wdt:P571 ?fechaCreacion. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
         "question": "¿Cuándo se creo {sujetoPregunta}?"
     },
     {
