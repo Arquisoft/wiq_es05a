@@ -63,7 +63,7 @@ In the best case you will get away with examples or simple signatures.
 
 ****
 
-image::05_sistema-general-caja-blanca.png["Sistema General de Caja Blanca"]
+image::05_sistema-general-caja-blanca_2.png["Sistema General de Caja Blanca"]
 
 
 Motivación::
@@ -78,13 +78,10 @@ Bloques de construcción contenidos::
 |Nombre |Responsabilidad
 
 |*Usuario*
-|_Usuario que interactua con la aplicación._
-
-|*Administrador*
-|_Persona(s) que tienen acceso completo a la aplicación y puede administrarla._
+|_Cuando alguien usa nuestra aplicación, se comunica con ella a través de Internet usando un lenguaje especial llamado HTTP. Cuando se registra en la aplicación, los datos que ingresa se guardan en una base de datos especial llamada MongoDB. Para que esto suceda, usamos una herramienta llamada Mongoose, que nos ayuda a conectarnos y comunicarnos con la base de datos de una manera fácil y segura. Entonces, cada vez que alguien se registra en nuestra aplicación, Mongoose se asegura de guardar esos datos en la base de datos para que puedan ser utilizados más tarde._
 
 |*WIQ*
-|_La propia aplicación._
+|_La propia aplicación, encargada de pedir las preguntas a wikidata para poder llevar a cabo la partida._
 
 |*Wikidata*
 |_Servicio externo desde donde obtenemos los datos para generar las preguntas._
@@ -93,7 +90,7 @@ Bloques de construcción contenidos::
 
 === Nivel 2: WIQ
 
-image::05_nivel_2.png["Nivel 2 de la aplicación: WIQ"]
+image::05_2_nivel_2.png["Nivel 2 de la aplicación: WIQ"]
 
 Bloques de construcción contenidos::
 [cols="e,2e" options="header"]
@@ -104,20 +101,26 @@ Bloques de construcción contenidos::
 |_La interfaz con la que interactua el usuario._
 
 |*gatewayservice*
-|_Servicio de puerta de enlace que actúa como intermediario entre los clientes y 	otros servicios, 
+|_Servicio de puerta de enlace que actúa como intermediario entre los usuario que quieran juagar y otros servicios, 
 reenviando las solicitudes a los servicios correspondientes y devolviendo las respuestas al cliente._
 
 |*authservice*
-|_Servicio de autenticación de usuarios._
+|_Servicio que se encarga de verificar las credenciales de los usuarios al iniciar sesión en la aplicación. Si las credenciales son correctas, se genera un token de acceso que permite al usuario autenticado acceder a partes protegidas de la aplicación._
 
 |*userservice*
-|_Servicio para registro de usuarios._
+|_Servicio que gestiona el registro de nuevos usuarios en la aplicación. Cuando un usuario se registra, se asegura de que se proporcionen los campos necesarios y luego cifra la contraseña antes de guardarla. También ofrece funciones para actualizar las estadísticas del usuario y obtener información de usuario._
 
 |*questionservice*
-|_Servicio para el manejo de datos de Wikidata._
+|_Este servicio se encarga de proporcionar preguntas y respuestas basadas en datos de Wikidata. Utiliza consultas SPARQL para obtener información de Wikidata y luego genera preguntas aleatorias basadas en estos datos para ser utilizadas en la aplicación."_
 
 |*Wikidata*
 |_Servicio externo desde donde obtenemos los datos para generar las preguntas._
+
+|*MongoDB*
+|_MongoDB es un sistema de gestión de bases de datos NoSQL utilizado en la aplicación para almacenar y organizar los datos de manera eficiente. Su responsabilidad principal es gestionar la persistencia de los datos de la aplicación, permitiendo el almacenamiento, consulta y manipulación de la información de manera escalable y flexible._
+
+|*OpenAPI*
+|_Encargado de la especificación utilizada junto a swagger para la creación de una documentacio de todos los métodos que se realizan en gateway._
 
 |===
 
