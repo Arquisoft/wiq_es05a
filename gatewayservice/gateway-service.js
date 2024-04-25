@@ -28,14 +28,6 @@ app.get('/health', (_req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-  const isValidUser = validateCredentials(req.body.username, req.body.password);
-
-  if (!isValidUser) {
-    // Si las credenciales son inválidas, devuelve un error 401
-    res.status(401).json({ error: 'Credenciales incorrectas' });
-    return; // Termina la ejecución de la función para evitar ejecutar el código restante
-  }
-
   try {
     // Forward the login request to the authentication service
     const authResponse = await axios.post(authServiceUrl+'/login', req.body);
@@ -45,14 +37,26 @@ app.post('/login', async (req, res) => {
   }
 });
 
+
 function validateCredentials(username, password) {
   // Verifica si la contraseña es erronea
-  const invalidPassword = 'no'; 
+  if (password.length < 8) {
+    return false;
+  }
 
-  return !(password === invalidPassword);
+  return true;
 }
 
 app.post('/adduser', async (req, res) => {
+  
+  const isValidUser = validateCredentials(req.body.username, req.body.password);
+
+  if (!isValidUser) {
+    // Si las credenciales son inválidas, devuelve un error 401
+    res.status(401).json({ error: 'Credenciales incorrectas. La contraseña debe contener al menos 8 caracteres' });
+    return; // Termina la ejecución de la función para evitar ejecutar el código restante
+  }
+
   try {
     // Forward the add user request to the user service
     const userResponse = await axios.post(userServiceUrl+'/adduser', req.body);
