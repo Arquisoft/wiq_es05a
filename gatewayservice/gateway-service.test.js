@@ -28,7 +28,7 @@ describe('Gateway Service', () => {
     // Realizamos una solicitud POST al endpoint /login con datos incorrectos
     const response = await request(app)
       .post('/adduser')
-      .send({ username: 'userInvalido', password: 'invalid' });
+      .send({ username: 'userInvalido', password: 'no' });
   
 
     // Verificamos que la respuesta tenga un código de estado 401 (Unauthorized)
