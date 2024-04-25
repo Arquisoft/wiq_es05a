@@ -30,7 +30,7 @@ defineFeature(feature, test => {
 
     given('An unregistered user', async () => {
       username = "pablo@gmail.com"
-      password = "pabloasw"
+      password = "pabloasw1"
       await expect(page).toClick("button", { text: "REGÍSTRATE" });
     });
 

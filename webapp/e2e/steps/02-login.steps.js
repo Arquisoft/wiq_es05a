@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const { defineFeature, loadFeature }=require('jest-cucumber');
 const setDefaultOptions = require('expect-puppeteer').setDefaultOptions
-const feature = loadFeature('./features/home.feature');
+const feature = loadFeature('./features/login.feature');
 
 let page;
 let browser;
@@ -23,30 +23,25 @@ defineFeature(feature, test => {
       .catch(() => {});
   });
 
-  test('A registered user enters the app', ({given,when,then}) => {
+  test('Logging in with valid credentials', ({given,when,then}) => {
     
     let username;
     let password;
 
     given('A user that is logged in the application', async () => {
       username = "pablo@gmail.com"
-      password = "pabloasw"
+      password = "pabloasw1"
       await expect(page).toClick("button", { text: "INICIA SESIÓN" });
     });
 
-    when('I navigate to the Home page', async () => {
+    when('I enter valid username and password', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
       await expect(page).toClick('button', { text: 'Iniciar Sesión' })
-
-      await expect(page).toClick('a[href="/"]', { text: 'WIQ 5A' });
-      await page.waitForNavigation();
-       
     });
 
-    then('I should be able to interact with the app', async () => {
-        await expect(page).toMatchElement("button", { text: "JUGAR" });
-        await expect(page).toMatchElement("button", { text: "ESTADÍSTICAS" });
+    then('A confirmation message should be shown in the screen', async () => {
+        await expect(page).toMatchElement("div", { text: "¡Buenas, "+username+"!" });
     });
   })
 

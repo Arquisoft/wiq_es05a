@@ -3,6 +3,8 @@ import React from 'react';
 import {Container, Nav, Navbar} from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
+const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
+
   const Layout = ({ isLogged, setIsLogged }) => {
 
     function onLogout(){
@@ -23,7 +25,11 @@ import PropTypes from 'prop-types'
                 }
               </Nav>
               <Nav>
+                <Nav.Link href={`${apiEndpoint}/api-doc`} target="_blanck">API</Nav.Link>
+              </Nav>
+              <Nav>
                 {isLogged ? (
+
                   <Nav.Link onClick={onLogout}>Cerrar sesión</Nav.Link>
                 ) : (
                   <>
