@@ -37,7 +37,7 @@ defineFeature(feature, test => {
     when('I navigate to the Home page', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' })
+      await expect(page).toClick('button', { text: 'Iniciar Sesión' })
 
       await expect(page).toClick('a[href="/"]', { text: 'WIQ 5A' });
       await page.waitForNavigation();
