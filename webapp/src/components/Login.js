@@ -47,7 +47,7 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
       ) : (
         <div>
           <Typography component="h1" variant="h5">
-            Login
+            Iniciar Sesión
           </Typography>
           <TextField
             name="username"
