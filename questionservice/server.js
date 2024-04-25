@@ -4,6 +4,7 @@ let express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const fs = require('fs');
+const promBundle = require('express-prom-bundle');
 
 const crypto = require('crypto');
 
