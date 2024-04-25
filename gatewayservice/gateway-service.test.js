@@ -27,7 +27,7 @@ describe('Gateway Service', () => {
     // Datos de prueba para registro (incorrectos)
     const invalidLoginData = {
         username: 'userInvalido',
-        password: 'invalid'
+        password: process.env.INVALID_PASSWORD
     };
 
     // Realizamos una solicitud POST al endpoint /login con datos incorrectos
