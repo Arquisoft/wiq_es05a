@@ -19,17 +19,16 @@ const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000
             <Navbar.Brand href="/">WIQ 5A</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                {isLogged && 
-                  <Nav.Link href="stats">Estadísticas</Nav.Link>
-                }
-              </Nav>
+              { isLogged ? (<Nav className="me-auto">
+                <Nav.Link href="game">Nueva Partida</Nav.Link>
+                <Nav.Link href="stats">Estadísticas</Nav.Link>
+              </Nav>) : <Nav className="me-auto"></Nav>
+              }
               <Nav>
                 <Nav.Link href={`${apiEndpoint}/api-doc`} target="_blanck">API</Nav.Link>
               </Nav>
               <Nav>
                 {isLogged ? (
-
                   <Nav.Link onClick={onLogout}>Cerrar sesión</Nav.Link>
                 ) : (
                   <>
