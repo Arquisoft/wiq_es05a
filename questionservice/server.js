@@ -7,6 +7,10 @@ const fs = require('fs');
 
 const crypto = require('crypto');
 
+//Prometheus configuration
+const metricsMiddleware = promBundle({includeMethod: true});
+app.use(metricsMiddleware);
+
 let corsOptions = {
     origin: 'http://localhost:8000'
 };
