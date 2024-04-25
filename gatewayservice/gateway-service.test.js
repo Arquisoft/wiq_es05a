@@ -21,31 +21,15 @@ describe('Gateway Service', () => {
       return Promise.resolve({ data: { userId: 'mockedUserId' } });
     }
   });
-
-  /*
-  // Test /login endpoint
-  it('deberia iniciar sesión correctamente', async () => {
-    const response = await request(app)
-      .post('/login')
-      .send({ username: 'testuser', password: 'testpassword' });
-
-    expect(response.statusCode).toBe(200);
-    expect(response.body.token).toBe('mockedToken');
-  });
-  */
  
-  // Prueba de manejo de errores para el endpoint /login
-  it('deberia devolver error al iniciar sesion', async () => {
-    // Datos de prueba para iniciar sesión (incorrectos)
-    const invalidLoginData = {
-        username: 'userInvalido',
-        password: 'no'
-    };
+  // Prueba de manejo de errores para el endpoint /adduser
+  it('deberia devolver error al registrate', async () => {
 
     // Realizamos una solicitud POST al endpoint /login con datos incorrectos
     const response = await request(app)
-      .post('/login')
-      .send(invalidLoginData);
+      .post('/adduser')
+      .send({ username: 'userInvalido', password: 'no' });
+  
 
     // Verificamos que la respuesta tenga un código de estado 401 (Unauthorized)
     expect(response.statusCode).toBe(401);

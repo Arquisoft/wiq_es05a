@@ -47,13 +47,13 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
       ) : (
         <div>
           <Typography component="h1" variant="h5">
-            Login
+            Iniciar Sesión
           </Typography>
           <TextField
             name="username"
             margin="normal"
             fullWidth
-            label="Username"
+            label="Usuario"
             value={username}
       
             onChange={(e) => setUsername(e.target.value)}
@@ -62,15 +62,15 @@ const Login = ({isLogged, setIsLogged, username, setUsername}) => {
             name="password"
             margin="normal"
             fullWidth
-            label="Password"
+            label="Contraseña"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button variant="contained" color="primary" onClick={loginUser}>
-            Login
+            Iniciar Sesión
           </Button>
-          <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Login successful" />
+          <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message="Iniciada sesión exitosamente" />
           {error && (
             <Snackbar open={!!error} autoHideDuration={6000} onClose={() => setError('')} message={`Error: ${error}`} />
           )}

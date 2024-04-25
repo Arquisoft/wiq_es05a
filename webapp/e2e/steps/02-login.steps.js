@@ -30,18 +30,18 @@ defineFeature(feature, test => {
 
     given('A user that is logged in the application', async () => {
       username = "pablo@gmail.com"
-      password = "pabloasw"
+      password = "pabloasw1"
       await expect(page).toClick("button", { text: "INICIA SESIÓN" });
     });
 
     when('I enter valid username and password', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' })
+      await expect(page).toClick('button', { text: 'Iniciar Sesión' })
     });
 
     then('A confirmation message should be shown in the screen', async () => {
-        await expect(page).toMatchElement("div", { text: "Hello "+username+"!" });
+        await expect(page).toMatchElement("div", { text: "¡Buenas, "+username+"!" });
     });
   })
 

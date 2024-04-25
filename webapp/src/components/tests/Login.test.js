@@ -15,17 +15,17 @@ describe('Login component', () => {
   it('should render correctly', async () => {
     render(<Login isLogged={false} setIsLogged={jest.fn()} username={''} setUsername={jest.fn()}/>);
 
-    expect(screen.getByLabelText(/Username/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Login/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Usuario/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Contraseña/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Iniciar Sesión/i })).toBeInTheDocument();
   })
 
   it('should log in successfully', async () => {
     render(<Login isLogged={false} setIsLogged={jest.fn()} username={'testUser'} setUsername={jest.fn()}/>);
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
+    const usernameInput = screen.getByLabelText(/Usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const loginButton = screen.getByRole('button', { name: /Iniciar Sesión/i });
 
     // Mock the axios.post request to simulate a successful response
     mockAxios.onPost('http://localhost:8000/login').reply(200, { createdAt: '2024-01-01T12:34:56Z' });
@@ -38,7 +38,7 @@ describe('Login component', () => {
       });
     
     // Verify that the user information is displayed
-    expect(screen.getByText(/Login successful/i)).toBeInTheDocument(); 
+    expect(screen.getByText(/Iniciada sesión exitosamente/i)).toBeInTheDocument(); 
     //expect(screen.getByText(/Your account was created on 1\/1\/2024/i)).toBeInTheDocument();
   });
 
@@ -46,16 +46,16 @@ describe('Login component', () => {
     render(<Login isLogged={true} setIsLogged={jest.fn()} username={'testUser'} setUsername={jest.fn()}/>);
     
     // Verify that the user information is displayed
-    expect(screen.getByText(/Hello testUser!/i)).toBeInTheDocument(); 
-    expect(screen.getByText(/Your account was created on/i)).toBeInTheDocument();
+    expect(screen.getByText(/¡Buenas, testUser!/i)).toBeInTheDocument(); 
+    expect(screen.getByText(/Tu cuenta fue creada el/i)).toBeInTheDocument();
   });
 
   it('should handle error when logging in', async () => {
     render(<Login isLogged={false} setIsLogged={jest.fn()} username={'testUer'} setUsername={jest.fn()}/>);
 
-    const usernameInput = screen.getByLabelText(/Username/i);
-    const passwordInput = screen.getByLabelText(/Password/i);
-    const loginButton = screen.getByRole('button', { name: /Login/i });
+    const usernameInput = screen.getByLabelText(/Usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const loginButton = screen.getByRole('button', { name: /Iniciar Sesión/i });
 
 
     mockAxios.onPost('http://localhost:8000/login').reply(401, { error: 'Unauthorized' });
