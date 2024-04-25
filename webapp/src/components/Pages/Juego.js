@@ -4,6 +4,7 @@ import '../Estilos/juego.css';
 import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
 
 const Juego = ({isLogged, username, numPreguntas}) => {
   //La pregunta (string)
@@ -28,7 +29,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
   const [disableFinish, setDisableFinish] = useState(false)
 
-  //const navigate= useNavigate()
+  const navigate= useNavigate()
 
   //Variables para la obtencion y modificacion de estadisticas del usuario y de preguntas
   const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
@@ -75,7 +76,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
     //Poner temporizador a 20 de nuevo
     setRestartTemporizador(true);
   }
-
   
   //Control de las estadísticas
   const updateStats = async () => {
@@ -199,7 +199,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickFinalizar = () => {
     updateStats();
-    setDisableFinish(true)
+    setDisableFinish(true);
+    navigate("/");
   }
 
   const handleRestart = () => {
