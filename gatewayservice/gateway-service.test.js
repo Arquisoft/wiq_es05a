@@ -24,16 +24,12 @@ describe('Gateway Service', () => {
  
   // Prueba de manejo de errores para el endpoint /adduser
   it('deberia devolver error al registrate', async () => {
-    // Datos de prueba para registro (incorrectos)
-    const invalidLoginData = {
-        username: 'userInvalido',
-        password: process.env.INVALID_PASSWORD
-    };
 
     // Realizamos una solicitud POST al endpoint /login con datos incorrectos
     const response = await request(app)
       .post('/adduser')
-      .send(invalidLoginData);
+      .send({ username: 'userInvalido', password: 'invalid' });
+  
 
     // Verificamos que la respuesta tenga un código de estado 401 (Unauthorized)
     expect(response.statusCode).toBe(401);
