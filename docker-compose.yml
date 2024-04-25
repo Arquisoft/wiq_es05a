@@ -1,7 +1,7 @@
 version: '3'
 services:
   mongodb:
-    container_name: mongodb-${teamname:-defaultASW}
+    container_name: mongodb-${teamname:-wiq5a}
     image: mongo
     profiles: ["dev", "prod"]
     volumes:
@@ -12,7 +12,7 @@ services:
       - mynetwork
 
   questionservice:
-    container_name: questionservice-${teamname:-defaultASW}
+    container_name: questionservice-${teamname:-wiq5a}
     image: ghcr.io/arquisoft/wiq_es05a/questionservice:latest
     profiles: ["dev", "prod"]
     build: ./questionservice
@@ -25,8 +25,8 @@ services:
       - mynetwork
 
   authservice:
-    container_name: authservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/authservice:latest
+    container_name: authservice-${teamname:-wiq5a}
+    image: ghcr.io/arquisoft/wiq_0/authservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/authservice
     depends_on:
@@ -39,8 +39,8 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/userdb
 
   userservice:
-    container_name: userservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/userservice:latest
+    container_name: userservice-${teamname:-wiq5a}
+    image: ghcr.io/arquisoft/wiq_0/userservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/userservice
     depends_on:
@@ -53,8 +53,8 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/userdb
 
   gatewayservice:
-    container_name: gatewayservice-${teamname:-defaultASW}
-    image: ghcr.io/arquisoft/wiq_es05a/gatewayservice:latest
+    container_name: gatewayservice-${teamname:-wiq5a}
+    image: ghcr.io/arquisoft/wiq_0/gatewayservice:latest
     profiles: ["dev", "prod"]
     build: ./gatewayservice
     depends_on:
@@ -72,7 +72,7 @@ services:
       QUESTION_SERVICE_URL: http://questionservice:8003
 
   webapp:
-    container_name: webapp-${teamname:-defaultASW}
+    container_name: webapp-${teamname:-wiq5a}
     image: ghcr.io/arquisoft/wiq_es05a/webapp:latest
     profiles: ["dev", "prod"]
     build: ./webapp
@@ -83,7 +83,7 @@ services:
 
   prometheus:
     image: prom/prometheus
-    container_name: prometheus-${teamname:-defaultASW}
+    container_name: prometheus-${teamname:-wiq5a}
     profiles: ["dev"]
     networks:
       - mynetwork
@@ -94,7 +94,7 @@ services:
       
   grafana:
     image: grafana/grafana
-    container_name: grafana-${teamname:-defaultASW}
+    container_name: grafana-${teamname:-wiq5a}
     profiles: ["dev"]
     networks:
       - mynetwork

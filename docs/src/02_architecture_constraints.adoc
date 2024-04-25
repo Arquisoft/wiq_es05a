@@ -45,6 +45,10 @@ y realizar las pruebas pertinentes._
 
 |*Wikidata*
 |_En la asignatura se requiere que esta sea la fuente de información principal para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego._
+
+|*APIs rest*
+|_Son una limitación por varias razones, no proporcionan seguridad avanzada, no ofrecen un esquema de datos detallados, pueden no ser ideales para
+operaciones mas complejas y requieren endpoints predefinidos._
 |===
 
 === Limitaciones organizativas
@@ -87,14 +91,11 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |Restricción |Explicación
 
 |*Diseño del software*
-|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un código limpio ('clean code'),
-es decir, que sea fácil de entender, mantener y modificar, y que garantize la claridad, simplicidad y legibilidad._
+|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un que sigamos los principios de "codigo limpio"
+en cuanto a modularidad, limpieza, nombrado de métodos y variables._
 
 |*Documentación*
 |_Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica._
-
-|*Accesibilidad*
-|_Nos esforzaremos para que nuestra aplicación sea accesible para todos los usuarios, independientemente de su perfil o características individuales._
 
 |*Estructura*
 |_Debe seguir una estructura de paquetes fija y bajo los mismos estandares. Los diferentes modulos estarán separados en carpetas: 'userservice' para la gestión de

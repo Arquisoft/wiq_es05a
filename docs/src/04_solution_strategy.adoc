@@ -31,13 +31,13 @@ See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentat
 
 ****
 
-* *JavaScript*: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.
+* *JavaScript*: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo. Además usamos Express es una infraestructura de aplicaciones web en Node.js que ofrece una solución rápida, minimalista y flexible para desarrollar aplicaciones web y móviles1
 
 * *React*: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web de forma sencilla.
 
 * *Docker*: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.
 
-* *Firebase*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
+* *Mongo-DB*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
 
 * *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.
 

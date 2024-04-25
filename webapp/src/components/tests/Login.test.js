@@ -46,8 +46,8 @@ describe('Login component', () => {
     render(<Login isLogged={true} setIsLogged={jest.fn()} username={'testUser'} setUsername={jest.fn()}/>);
     
     // Verify that the user information is displayed
-    expect(screen.getByText(/Hello testUser!/i)).toBeInTheDocument(); 
-    expect(screen.getByText(/Your account was created on/i)).toBeInTheDocument();
+    expect(screen.getByText(/¡Buenas, testUser!/i)).toBeInTheDocument(); 
+    expect(screen.getByText(/Tu cuenta fue creada el/i)).toBeInTheDocument();
   });
 
   it('should handle error when logging in', async () => {
