@@ -1,15 +1,13 @@
-// src/components/Login.js
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, TextField, Button, Snackbar } from '@mui/material';
+import { Container } from '@mui/material';
 import '../Estilos/estadisticas.css';
 import axios from 'axios';
+import PropTypes from 'prop-types'
 
 
-const Estadisticas = ({isLogged}) => {
+const Estadisticas = ({isLogged, username}) => {
 
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000';
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
@@ -29,18 +27,19 @@ const Estadisticas = ({isLogged}) => {
       try {
         const response = await axios.get(`${apiEndpoint}/getUserData?username=${username}`);
         const datos = response.data;
-        setCorrectAnswers(datos.correctAnswers);
-        setIncorrectAnswers(datos.incorrectAnswers);
-        setCompletedGames(datos.completedGames);
-        setAverageTime(datos.averageTime);
+        setCorrectAnswers(datos.user.correctAnswers);
+        setIncorrectAnswers(datos.user.incorrectAnswers);
+        setCompletedGames(datos.user.completedGames);
+        setAverageTime(datos.user.averageTime);
       } catch (error) {
-        setError(error.response.data.error);
+        setError('Error al cargar la información');
       }
     };
 
   return (
     <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         <h2>ESTADÍSTICAS</h2>
+        {error && <p style={{ textAlign: 'center', color: 'red', backgroundColor:'white', fontWeight: 'bold' }}>{error}</p>}
         <table>
             <tbody>
                 <tr>
@@ -65,5 +64,11 @@ const Estadisticas = ({isLogged}) => {
     </Container>
   );
 };
+
+Estadisticas.propTypes = {
+  isLogged: PropTypes.bool,
+  username: PropTypes.string
+}
+
 
 export default Estadisticas;

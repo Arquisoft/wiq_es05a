@@ -45,78 +45,41 @@ app.post('/adduser', async (req, res) => {
         res.status(400).json({ error: error.message }); 
     }});
 
-app.get('/updateCorrectAnswers', async (req,res) => {
-  console.log(req.query)
-  const { username } = req.query;
+app.get('/updateStats', async (req,res) => {
+  const { username, numRespuestasCorrectas, numRespuestasIncorrectas} = req.query;
   try {
-    const user = await User.findOne({ username });
-    if (!user) {
-        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
-    }
-    // Incrementa las respuestas correctas del usuario
-    user.correctAnswers += 1;
-    await user.save();
-    return res.status(200).json({ success: true, message: 'Respuesta correcta actualizada con éxito' });
+      let query = { username: username.toString() };
+      const user = await User.findOne(query);
+      if (!user) {
+          return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
+      }
+      // Cambia las estadisticas del usuario
+      user.correctAnswers += parseInt(numRespuestasCorrectas);
+      user.incorrectAnswers += parseInt(numRespuestasIncorrectas);
+      user.completedGames = parseInt(user.completedGames) + 1;
+      await user.save();
+      return res.status(200).json({ success: true, message: 'Estadísticas actualizadas con éxito' });
   } catch (error) {
-    console.error('Error al actualizar la respuesta correcta:', error);
-    return res.status(500).json({ success: false, message: 'Error al actualizar la respuesta correcta' });
+      return res.status(500).json({ success: false, message: 'Error al actualizar las Estadísticas' });
   }
 })
-
-app.get('/updateIncorrectAnswers', async (req,res) => {
-  console.log(req.query)
-  const { username } = req.query;
-  try {
-    const user = await User.findOne({ username });
-    if (!user) {
-        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
-    }
-    // Incrementa las respuestas incorrectas del usuario
-    user.incorrectAnswers += 1;
-    await user.save();
-    return res.status(200).json({ success: true, message: 'Respuesta incorrecta actualizada con éxito' });
-  } catch (error) {
-    console.error('Error al actualizar la respuesta correcta:', error);
-    return res.status(500).json({ success: false, message: 'Error al actualizar la respuesta incorrecta' });
-  }
-})
-
-
-app.get('/updateCompletedGames', async (req,res) => {
-  console.log(req.query)
-  const { username } = req.query;
-  try {
-    const user = await User.findOne({ username });
-    if (!user) {
-        return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
-    }
-    user.completedGames += 1;
-    await user.save();
-    return res.status(200).json({ success: true, message: 'Juegos completados actualizado con éxito' });
-  } catch (error) {
-    console.error('Error al actualizar Juegos completados:', error);
-    return res.status(500).json({ success: false, message: 'Error al actualizar Juegos completados' });
-  }
-})
-
-
-
-const server = app.listen(port, () => {
-  console.log(`User Service listening at http://localhost:${port}`);
-});
 
 app.get('/getUserData', async (req, res) => {
   const { username } = req.query;
+  let query = { username: username.toString() };
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne(query);
     if (!user) {
       return res.status(404).json({ success: false, message: 'Usuario no encontrado' });
     }
     return res.status(200).json({ user });
   } catch (error) {
-    console.error('Error al obtener los datos de usuario:', error);
     return res.status(500).json({ success: false, message: 'Error al obtener los datos de usuario' });
   }
+});
+
+const server = app.listen(port, () => {
+  console.log(`User Service listening at http://localhost:${port}`);
 });
 
 // Listen for the 'close' event on the Express.js server

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useNavigate, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddUser from './components/AddUser';
 import Layout from './components/Pages/Layout';
 import Home from './components/Pages/Home';
@@ -7,9 +7,6 @@ import Login from './components/Login';
 import Juego from './components/Pages/Juego';
 import Estadisticas from './components/Pages/Estadisticas';
 import NotFound from './components/Pages/NotFound';
-import { useNavigate } from 'react-router-dom';
-
-
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -40,7 +37,6 @@ function App() {
 }
 
   return (
-    <>
       <Router>
       <Layout isLogged={isLogged} setIsLogged={setIsLogged}  />
         <Routes>
@@ -50,16 +46,15 @@ function App() {
           />
           <Route path="/login" element={<Login isLogged={isLogged} setIsLogged={setIsLogged}  username={username} setUsername={setUsername}/>} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/register" element={<AddUser isLogged={isLogged} username={username} />}/>
+          <Route path="/register" element={<AddUser/>}/>
           
           <Route
               path="/stats"
-              element={<PrivateRoute element={<Estadisticas />} />}
+              element={<PrivateRoute element={<Estadisticas isLogged={isLogged} username={username} />} />}
           />
 
         </Routes>
       </Router>
-    </>
   );
 }
 

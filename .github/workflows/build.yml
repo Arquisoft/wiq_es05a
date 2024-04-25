@@ -4,6 +4,9 @@ on:
     branches:
       - master
       - develop
+      - LaraFMz
+      - Pablo-Arreglos
+      - Jota
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:

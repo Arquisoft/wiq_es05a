@@ -8,13 +8,15 @@ WORKDIR /usr/src/questionservice
 COPY package*.json ./
 
 #Create an optimized version of the webapp
-RUN npm install axios
+RUN npm install axios --ignore-scripts
 
 # Install app dependencies
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Copy the app source code to the working directory
 COPY . .
+
+EXPOSE 8003
 
 # Define the command to run your app
 CMD ["node", "server.js"]
