@@ -4,6 +4,7 @@ let express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const fs = require('fs');
+const promBundle = require('express-prom-bundle');
 
 const crypto = require('crypto');
 
@@ -15,6 +16,10 @@ let corsOptions = {
 let app = express();
 app.disable("x-powered-by") //disable default information of express
 app.use(cors(corsOptions));
+
+//Prometheus configuration
+const metricsMiddleware = promBundle({includeMethod: true});
+app.use(metricsMiddleware);
 
 // Cargamos las consultas SPARQL desde el fichero de configuración
 const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));

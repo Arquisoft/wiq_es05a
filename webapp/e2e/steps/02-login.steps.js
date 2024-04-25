@@ -37,11 +37,11 @@ defineFeature(feature, test => {
     when('I enter valid username and password', async () => {
       await expect(page).toFill('input[name="username"]', username);
       await expect(page).toFill('input[name="password"]', password);
-      await expect(page).toClick('button', { text: 'Login' })
+      await expect(page).toClick('button', { text: 'Iniciar Sesión' })
     });
 
     then('A confirmation message should be shown in the screen', async () => {
-        await expect(page).toMatchElement("div", { text: "Hello "+username+"!" });
+        await expect(page).toMatchElement("div", { text: "¡Buenas, "+username+"!" });
     });
   })
 
