@@ -4,6 +4,7 @@ let express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const fs = require('fs');
+const promBundle = require('express-prom-bundle');
 
 const crypto = require('crypto');
 
@@ -15,6 +16,10 @@ let corsOptions = {
 let app = express();
 app.disable("x-powered-by") //disable default information of express
 app.use(cors(corsOptions));
+
+//Prometheus configuration
+const metricsMiddleware = promBundle({includeMethod: true});
+app.use(metricsMiddleware);
 
 // Cargamos las consultas SPARQL desde el fichero de configuración
 const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
@@ -37,6 +42,7 @@ app.get('/pregunta', async (req, res) => {
         // Extraemos los resultados de la consulta
         const bindings = response.data.results.bindings;
 
+        // Patrón para identificar los códigos de Wikidata
         let wikidataCodePattern = /^Q\d+$/;
         let correctAnswer = null;
         let correctAnswerIndex = 0;
@@ -48,7 +54,7 @@ app.get('/pregunta', async (req, res) => {
             correctAnswerIndex = Math.floor(randomValue * bindings.length);
             // Obtenemos la respuesta correcta
             correctAnswer = bindings[correctAnswerIndex];
-        } while (wikidataCodePattern.test(correctAnswer.questionSubjectLabel.value));
+        } while (wikidataCodePattern.test(correctAnswer.questionSubjectLabel.value) || wikidataCodePattern.test(correctAnswer.answerSubjectLabel.value));
 
         // Creamos la pregunta
         const question = questionItem.question.replace('{sujetoPregunta}', correctAnswer.questionSubjectLabel.value);
@@ -60,11 +66,12 @@ app.get('/pregunta', async (req, res) => {
         for (let i = 0; i < 3; i++) {
             let randomIndex;
             do {
-                buf = crypto.randomBytes(1)
-                randomValue = buf[0]/255
-                // Seleccionamos un índice aleatorio distinto al de la respuesta correcta
-                randomIndex = Math.floor(randomValue * bindings.length);
-            } while (randomIndex === correctAnswerIndex);
+            buf = crypto.randomBytes(1)
+            randomValue = buf[0]/255
+            // Seleccionamos un índice aleatorio distinto al de la respuesta correcta
+            randomIndex = Math.floor(randomValue * bindings.length);
+            } while (randomIndex === correctAnswerIndex || wikidataCodePattern.test(bindings[randomIndex].answerSubjectLabel.value) 
+                        || answers.includes(bindings[randomIndex].answerSubjectLabel.value));
             // Añadimos la capital del país seleccionado aleatoriamente a las respuestas
             answers.push(bindings[randomIndex].answerSubjectLabel.value);
         }

@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./auth-model')
+const promBundle = require('express-prom-bundle');
+
 
 const app = express();
 const port = 8002; 
@@ -14,6 +16,10 @@ app.use(express.json());
 // Connect to MongoDB
 const mongoUri = process.env.MONGODB_URI;
 mongoose.connect(mongoUri);
+
+//Prometheus configuration
+const metricsMiddleware = promBundle({includeMethod: true});
+app.use(metricsMiddleware);
 
 // Function to validate required fields in the request body
 function validateRequiredFields(req, requiredFields) {

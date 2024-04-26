@@ -85,7 +85,7 @@ together with a mapping table showing the relationships between channels and inp
 
 ****
 
-image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
+image::03_2_contexto_tecnico2.png["Diagrama de contexto técnico"]
 
 [options="header",cols="1e,2"]
 |===
@@ -95,36 +95,38 @@ image::03_2_contexto_tecnico.png["Diagrama de contexto técnico"]
 |Contiene el frontend y backend de la aplicación.
 
 |*MongoDB*
-|Base de datos no relacional para el almacenamiento de usuarios.
+|Base de datos no relacional para el almacenamiento de usuarios y registro de sus partidas.
 
 |*Usuario*
-|El usuario final de la aplicación.
+|Persona que interactua con nuestra aplicación web a través del navegador.
 
 |*Wikidata API*
-|API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.
+|API de donde obtendremos las preguntas y respuestas correctas y falsas para el juego de la aplicación, todas estas preguntas serán cargadas al inicio del juego.
 
 |*Javascript*
-|Lenguaje de programación principal de la aplicación.
+|Lenguaje de programación principal de la aplicación  permite una sintaxis uniforme en toda la aplicación y facilita el mantenimiento del código. Además, al usar JavaScript en el frontend y el backend, se puede compartir lógica entre ambas partes para un desarrollo más eficiente.
 
 |*Express JS*
-|Framework para la creación de aplicaciones web en Javascript, utilizado en el backend.
+|Express es un framework de aplicación web para Node.js, que te permite crear aplicaciones web robustas y escalables en JavaScript para el backend.
 
 |*React*
 |Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.
 
 |*Bootstrap*
-|Biblioteca para el diseño de aplicaciónes web.
-
+|Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla
 
 |*webapp*
 |Módulo del sistema que se encarga de la interfaz del sistema.
 
 |*questionservice*
-|Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.
+|Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata 
 
 |*gateway*
-|Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.
+|Módulo del sistema que funcina como puerta de enlace para coordinar el resto de modulos del sistema.
 
 |*userservice*
-|Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.
+|Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación y del registro de partidas con la ayuda de nuestra base de datos MongoDB.
+
+|*authservice*
+|Módulo del sistema que se encarga de gestionar la autenticación del usuario.
 |===

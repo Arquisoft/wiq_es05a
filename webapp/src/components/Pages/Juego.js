@@ -4,7 +4,6 @@ import '../Estilos/juego.css';
 import { Container } from '@mui/material';
 import Temporizador from '../Temporizador';
 import PropTypes from 'prop-types'
-import {useNavigate} from 'react-router-dom'
 
 const Juego = ({isLogged, username, numPreguntas}) => {
   //La pregunta (string)
@@ -201,7 +200,6 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const clickFinalizar = () => {
     updateStats();
     setDisableFinish(true)
-    //navigate('/')
   }
 
   const handleRestart = () => {
@@ -225,9 +223,12 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         : <h2> CARGANDO... </h2>}
         {finishGame ? <>
           <h2> PARTIDA FINALIZADA </h2>
-          <h3> ACERTADAS: {numRespuestasCorrectas}  FALLADAS: {numRespuestasIncorrectas} </h3>
-          <button id="botonSiguiente" className="button" disabled={disableFinish} onClick={() => {clickFinalizar()}} > FINALIZAR PARTIDA</button>
+          <h2> ACERTADAS: {numRespuestasCorrectas}  FALLADAS: {numRespuestasIncorrectas} </h2>
+          <button id="botonFinal" className="button" disabled={disableFinish} onClick={() => {clickFinalizar()}} > FINALIZAR PARTIDA</button>
           </> : <></>}
+
+        { disableFinish ? ( <h2> Comience nueva partida o visite sus estadísticas!!</h2>) 
+          : <></> }  
       </Container>
   );
 };
@@ -235,7 +236,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 Juego.propTypes = {
   isLogged: PropTypes.bool,
   username: PropTypes.string,
-  numPreguntas: PropTypes.number
+  numPreguntas: PropTypes.number,
 }
 
 

@@ -16,19 +16,35 @@
         "question": "¿Cuál es la población de {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?empresa wdt:P31 wd:Q4830453; wdt:P112 ?fundador; SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q4830453; wdt:P112 ?answerSubject; SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
         "question": "¿Quién fundó {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q5; wdt:P106 wd:Q33999; wdt:P800 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q5; wdt:P106 wd:Q33999; wdt:P800 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
         "question": "¿En qué destacada obra artística participó {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q35657; wdt:P36 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }}",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q35657; wdt:P36 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }}",
         "question": "¿Cuál es la capital del estado de {sujetoPregunta}?"
     },
     {
-        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q3220391; wdt:P571 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }} LIMIT 50",
+        "query": "SELECT ?questionSubject ?questionSubjectLabel (YEAR(?fechaCreacion) AS ?answerSubjectLabel) WHERE { ?questionSubject wdt:P31 wd:Q3220391; wdt:P571 ?fechaCreacion. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
         "question": "¿Cuándo se creo {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q6256; wdt:P38 ?answerSubject; SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "question": "¿Cuál es la moneda oficial de {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE { ?questionSubject wdt:P31 wd:Q476028; wdt:P17 wd:Q29; wdt:P159 ?answerSubject. ?answerSubject wdt:P31 wd:Q515. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "question": "¿De qué ciudad es el equipo {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel (YEAR(?fechaFundacion) AS ?answerSubjectLabel) WHERE { ?questionSubject wdt:P31 wd:Q161726; wdt:P571 ?fechaFundacion. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "question": "¿En que año se fundó {sujetoPregunta}?"
+    },
+    {
+        "query": "SELECT ?questionSubject ?questionSubjectLabel ?answerSubject ?answerSubjectLabel WHERE {?questionSubject wdt:P31 wd:Q6256; wdt:P35 ?answerSubject. SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],es'. }} LIMIT 50",
+        "question": "¿Quién ha sido o es jefe de estado de {sujetoPregunta}?"
     }
 ]
