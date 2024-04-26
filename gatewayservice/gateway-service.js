@@ -37,27 +37,16 @@ app.post('/login', async (req, res) => {
   }
 });
 
-
-function validateCredentials(username, password) {
-  // Verifica si la contraseña es erronea
-  if (password.length < 8) {
-    return false;
-  }
-
-  return true;
-}
-
 app.post('/adduser', async (req, res) => {
-  
-  const isValidUser = validateCredentials(req.body.username, req.body.password);
-
-  if (!isValidUser) {
-    // Si las credenciales son inválidas, devuelve un error 401
-    res.status(401).json({ error: 'Credenciales incorrectas. La contraseña debe contener al menos 8 caracteres' });
-    return; // Termina la ejecución de la función para evitar ejecutar el código restante
-  }
-
   try {
+    const { username, password, valido, mensajeError } = req.body;
+
+    if (!valido) {
+      // Si las credenciales son inválidas, devuelve un error 401
+      res.status(401).json({ error: mensajeError });
+      return; // Termina la ejecución de la función para evitar ejecutar el código restante
+    }
+
     // Forward the add user request to the user service
     const userResponse = await axios.post(userServiceUrl+'/adduser', req.body);
     res.json(userResponse.data);
@@ -104,6 +93,15 @@ app.get('/getUserData', async (req, res) => {
   const { username } = req.query;
   try{
     const getUserDataResponse = await axios.get(userServiceUrl+ `/getUserData?username=${username}`)
+    res.json(getUserDataResponse.data);
+  }catch(error){
+    res.status(error.response.status).json({error: error.response.data.error});
+  }
+});
+
+app.get('/getUsernames', async (req, res) => {
+  try{
+    const getUserDataResponse = await axios.get(userServiceUrl+ `/getUsernames`)
     res.json(getUserDataResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});

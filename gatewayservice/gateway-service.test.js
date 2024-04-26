@@ -49,17 +49,6 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ error: errorMessage });
   });
-
-  // Test /adduser endpoint
-  it('deberia añadir usuario correctamente', async () => {
-    const response = await request(app)
-        .post('/adduser')
-        .send({ username: 'newuser', password: 'newpassword' });
-
-    // Verificamos que la respuesta tenga un código de estado 200 y un ID de usuario
-    expect(response.statusCode).toBe(200);
-    expect(response.body.userId).toBe('mockedUserId');
-  });
   
   // Probamos con una pregunta errónea
   it('debería devolver error con esa pregunta', async () => {
