@@ -6,7 +6,7 @@ on:
       - develop
       - LaraFMz
       - Pablo-Arreglos
-      - Jota
+      - jota
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
