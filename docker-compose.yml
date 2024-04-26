@@ -13,7 +13,7 @@ services:
 
   questionservice:
     container_name: questionservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_es05a/questionservice:latest
+    image: ghcr.io/arquisoft/wiq_5a/questionservice:latest
     profiles: ["dev", "prod"]
     build: ./questionservice
     ports:
@@ -26,7 +26,7 @@ services:
 
   authservice:
     container_name: authservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_0/authservice:latest
+    image: ghcr.io/arquisoft/wiq_5a/authservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/authservice
     depends_on:
@@ -40,7 +40,7 @@ services:
 
   userservice:
     container_name: userservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_0/userservice:latest
+    image: ghcr.io/arquisoft/wiq_5a/userservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/userservice
     depends_on:
@@ -54,7 +54,7 @@ services:
 
   gatewayservice:
     container_name: gatewayservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_0/gatewayservice:latest
+    image: ghcr.io/arquisoft/wiq_5a/gatewayservice:latest
     profiles: ["dev", "prod"]
     build: ./gatewayservice
     depends_on:
@@ -73,7 +73,7 @@ services:
 
   webapp:
     container_name: webapp-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_es05a/webapp:latest
+    image: ghcr.io/arquisoft/wiq_5a/webapp:latest
     profiles: ["dev", "prod"]
     build: ./webapp
     depends_on:
