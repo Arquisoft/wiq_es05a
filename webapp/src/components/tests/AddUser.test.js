@@ -56,4 +56,45 @@ describe('AddUser component', () => {
       expect(screen.getByText(/Error: Internal Server Error/i)).toBeInTheDocument();
     });
   });
+
+
+
+
+
+  // it('should display error message for short password', async () => {
+  //   render(<AddUser />);
+
+  //   const usernameInput = screen.getByLabelText(/Usuario/i);
+  //   const passwordInput = screen.getByLabelText(/Contraseña/i);
+  //   const createUserButton = screen.getByRole('button', { name: /Crear/i });
+
+  //   fireEvent.change(usernameInput, { target: { value: 'newusername' } });
+  //   fireEvent.change(passwordInput, { target: { value: 'err' } });
+
+  //   fireEvent.click(createUserButton);
+
+  //   expect(await screen.findByText(/Error: Credenciales incorrectas. La contraseña debe contener al menos 8 caracteres/i)).toBeInTheDocument();
+  // });
+
+
+  // it('should display error message for repeated username', async () => {
+  //   const mockAxios = new MockAdapter(axios);
+  //   const mockedUsernames = ['existingUser'];
+  //   mockAxios.onGet(`http://localhost:8000/getUsernames`).reply(200, { usernames: mockedUsernames });
+
+  //   render(<AddUser />);
+
+  //   const usernameInput = screen.getByLabelText(/Usuario/i);
+  //   const passwordInput = screen.getByLabelText(/Contraseña/i);
+  //   const createUserButton = screen.getByRole('button', { name: /Crear/i });
+
+  //   fireEvent.change(usernameInput, { target: { value: 'existingUser' } });
+  //   fireEvent.change(passwordInput, { target: { value: 'short123456' } });
+
+  //   fireEvent.click(createUserButton);
+
+  //   expect(await screen.findByText(/Usuario creado correctamente/i)).toBeInTheDocument();
+  // });
+  
 });
+
