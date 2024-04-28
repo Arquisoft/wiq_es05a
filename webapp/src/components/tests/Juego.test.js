@@ -95,9 +95,9 @@ describe('Juego component', () => {
      const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
      await waitFor(() => getByText(mockData.question));
      fireEvent.click(getByText('SIGUIENTE')); 
-     fireEvent.click(getByText('FINALIZAR PARTIDA')); 
-     expect(getByText('FINALIZAR PARTIDA')).toBeDisabled();
-     console.log(container.numRespuestasCorrectas)
+     fireEvent.click(getByText('GUARDAR ESTADÍSTICAS')); 
+     //expect(getByText('GUARDAR ESTADÍSTICAS')).toBeDisabled();
+     expect(getByText('Comience nueva partida o visite sus estadísticas!!')).toBeInTheDocument()
      //expect(axios.get).toHaveBeenCalledWith('http://localhost:8000/updateStats?username=test&numRespuestasCorrectas=0&numRespuestasIncorrectas=0');
     });
     
