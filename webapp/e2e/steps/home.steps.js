@@ -47,7 +47,7 @@ defineFeature(feature, test => {
     then('I should be able to interact with the app', async () => {
         await expect(page).toMatchElement("button", { text: "JUGAR" });
         await expect(page).toMatchElement("button", { text: "ESTADÍSTICAS" });
-    });
+      });
   })
 
   afterAll(async ()=>{
