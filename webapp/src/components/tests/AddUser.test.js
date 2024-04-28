@@ -4,7 +4,13 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import AddUser from '../AddUser';
 
-const mockAxios = new MockAdapter(axios);
+    const mockAxios = new MockAdapter(axios);
+    const mockedUsernames = ['existingUser'];
+    mockAxios.onGet(`http://localhost:8000/getUsernames`).reply(200, { usernames: mockedUsernames });
+
+    const usernameInput = screen.getByLabelText(/Usuario/i);
+    const passwordInput = screen.getByLabelText(/Contraseña/i);
+    const addUserButton = screen.getByRole('button', { name: /Crear/i });
 
 describe('AddUser component', () => {
   beforeEach(() => {
@@ -13,11 +19,6 @@ describe('AddUser component', () => {
 
   it('should add user successfully', async () => {
     render(<AddUser />);
-
-    const usernameInput = screen.getByLabelText(/Usuario/i);
-    const passwordInput = screen.getByLabelText(/Contraseña/i);
-    const addUserButton = screen.getByRole('button', { name: /Crear/i });
-
     // Mock the axios.post request to simulate a successful response
     mockAxios.onPost('http://localhost:8000/adduser').reply(200);
 
@@ -36,11 +37,6 @@ describe('AddUser component', () => {
 
   it('should handle error when adding user', async () => {
     render(<AddUser />);
-
-    const usernameInput = screen.getByLabelText(/Usuario/i);
-    const passwordInput = screen.getByLabelText(/Contraseña/i);
-    const addUserButton = screen.getByRole('button', { name: /Crear/i });
-
     // Mock the axios.post request to simulate an error response
     mockAxios.onPost('http://localhost:8000/adduser').reply(500, { error: 'Internal Server Error' });
 
@@ -59,15 +55,6 @@ describe('AddUser component', () => {
 
   it('should show error of password too short', async () => {
     render(<AddUser />);
-
-    const mockAxios = new MockAdapter(axios);
-    const mockedUsernames = ['existingUser'];
-    mockAxios.onGet(`http://localhost:8000/getUsernames`).reply(200, { usernames: mockedUsernames });
-
-    const usernameInput = screen.getByLabelText(/Usuario/i);
-    const passwordInput = screen.getByLabelText(/Contraseña/i);
-    const addUserButton = screen.getByRole('button', { name: /Crear/i });
-
     // Mock the axios.post request to simulate a successful response
     mockAxios.onPost('http://localhost:8000/adduser').reply(200);
 
@@ -86,15 +73,6 @@ describe('AddUser component', () => {
 
   it('should show error of repeated user', async () => {
     render(<AddUser />);
-
-    const mockAxios = new MockAdapter(axios);
-    const mockedUsernames = ['existingUser'];
-    mockAxios.onGet(`http://localhost:8000/getUsernames`).reply(200, { usernames: mockedUsernames });
-
-    const usernameInput = screen.getByLabelText(/Usuario/i);
-    const passwordInput = screen.getByLabelText(/Contraseña/i);
-    const addUserButton = screen.getByRole('button', { name: /Crear/i });
-
     // Mock the axios.post request to simulate a successful response
     mockAxios.onPost('http://localhost:8000/adduser').reply(200);
 
