@@ -30,10 +30,12 @@ const AddUser = () => {
       const usernames = response.data.usernames;
       if (usernames.includes(username)){
         setMensajeError('Credenciales incorrectas. El nombre de usuario esta en uso')
+        setError('Credenciales incorrectas. El nombre de usuario esta en uso')
         return false; 
       }
       if (password.length < 8) {
         setMensajeError('Credenciales incorrectas. La contraseña debe contener al menos 8 caracteres')
+        setError('Credenciales incorrectas. La contraseña debe contener al menos 8 caracteres')
         return false; 
       }
       return true;
