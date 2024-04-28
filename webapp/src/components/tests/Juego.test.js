@@ -96,9 +96,7 @@ describe('Juego component', () => {
      await waitFor(() => getByText(mockData.question));
      fireEvent.click(getByText('SIGUIENTE')); 
      fireEvent.click(getByText('GUARDAR ESTADÍSTICAS')); 
-     //expect(getByText('GUARDAR ESTADÍSTICAS')).toBeDisabled();
      expect(getByText('Comience nueva partida o visite sus estadísticas!!')).toBeInTheDocument()
-     //expect(axios.get).toHaveBeenCalledWith('http://localhost:8000/updateStats?username=test&numRespuestasCorrectas=0&numRespuestasIncorrectas=0');
     });
     
     it('el temporizador llega a 0 y se desvelan las respuestas ademas de bloquearse los botones', async () => {

@@ -39,7 +39,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/adduser', async (req, res) => {
   try {
-    const { username, password, valido, mensajeError } = req.body;
+    const { valido, mensajeError } = req.body;
 
     if (!valido) {
       // Si las credenciales son inválidas, devuelve un error 401
