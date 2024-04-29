@@ -39,7 +39,7 @@ app.post('/login', async (req, res) => {
 
 app.post('/adduser', async (req, res) => {
   try {
-    const { username, password, valido, mensajeError } = req.body;
+    const { valido, mensajeError } = req.body;
 
     if (!valido) {
       // Si las credenciales son inválidas, devuelve un error 401
@@ -93,7 +93,7 @@ app.get('/getUserData', async (req, res) => {
   const { username } = req.query;
   try{
     const getUserDataResponse = await axios.get(userServiceUrl+ `/getUserData?username=${username}`)
-    res.json(getUserDataResponse.data);
+    res.status(200).json(getUserDataResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});
   }
@@ -102,7 +102,7 @@ app.get('/getUserData', async (req, res) => {
 app.get('/getUsernames', async (req, res) => {
   try{
     const getUserDataResponse = await axios.get(userServiceUrl+ `/getUsernames`)
-    res.json(getUserDataResponse.data);
+    res.status(200).json(getUserDataResponse.data);
   }catch(error){
     res.status(error.response.status).json({error: error.response.data.error});
   }

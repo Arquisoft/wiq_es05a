@@ -183,21 +183,23 @@ paths:
                     type: string
                     description: Error information.
                     example: Internal Server Error
-  /updateCorrectAnswers:
+  /updateStats:
     get:
       summary: Updates the data of the user, increasing his number of correct answers.
-      operationId: updateCorrectAnswers
+      operationId: updateStats
       parameters:
         in: path
         name: params
         required: true
-        description: Parameters for the update (username and numAnswers)
+        description: Parameters for the update (username, numRespuestsasCorrectas, numRespuestasIncorrectas)
         schema:
           type: object
           properties:
             username:
               type: string
-            numAnswers:
+            numRespuestsasCorrectas:
+              type: integer
+            numRespuestasIncorrectas:
               type: integer
       responses:
         '200':
@@ -213,6 +215,16 @@ paths:
                   message:
                     type: string
                     example: Respuestas correctas actualizada con éxito
+        '401':
+          description: Params needed for the get action.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Faltan parámetros en la solicitud.
         '404':
           description: The user is not found.
           content:
@@ -240,115 +252,6 @@ paths:
                     type: string
                     description: Error information.
                     example: Error al actualizar las respuestas correctas
-  /updateIncorrectAnswers:
-    get:
-      summary: Updates the data of the user, increasing his number of incorrect answers.
-      operationId: updateIncorrectAnswers
-      parameters:
-        in: path
-        name: params
-        required: true
-        description: Parameters for the update (username and numAnswers)
-        schema:
-          type: object
-          properties:
-            username:
-              type: string
-            numAnswers:
-              type: integer
-      responses:
-        '200':
-          description: Updates the data correctly.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: Respuestas incorrectas actualizada con éxito
-        '404':
-          description: The user is not found.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                    example: false
-                  message:
-                    type: string
-                    example: Usuario no encontrado
-        '500':
-          description: Internal server error.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                    example: false
-                  message:
-                    type: string
-                    description: Error information.
-                    example: Error al actualizar las respuestas incorrectas
-  /updateCompletedGames:
-    get:
-      summary: Update the number of completed games by the user.
-      operationId: updateCompletedGames
-      parameters:
-        in: path
-        name: username
-        required: true
-        description: Username for the update of data
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Finds the data of the user correctly.
-          content:
-            application/json:
-              schema:
-                type: user
-                properties:
-                  success:
-                    type: boolean
-                    example: true
-                  message:
-                    type: string
-                    example: Juegos completados actualizado con éxito
-        '404':
-          description: The user is not found.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                    example: false
-                  message:
-                    type: string
-                    example: Usuario no encontrado
-        '500':
-          description: Internal server error.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  success:
-                    type: boolean
-                    example: false
-                  message:
-                    type: string
-                    description: Error information.
-                    example: Error al actualizar Juegos completados
   /getUserData:
     get:
       summary: Gets the data of an user.
@@ -397,6 +300,48 @@ paths:
                   message:
                     type: string
                     example: Usuario no encontrado
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    description: Error information.
+                    example: Error al obtener los datos de usuario
+  /getUsernames:
+    get:
+      summary: Gets all the usernames.
+      operationId: getUsernames
+      responses:
+        '200':
+          description: Finds the data of the user correctly (or no users).
+          content:
+            application/json:
+              schema:
+                type: user
+                properties:
+                  username:
+                    type: string
+                    example: Pablo
+                  password:
+                    type: integer
+                    example: pass
+                  createdAt:
+                    type: date
+                  correctAnswers:
+                    type: integer
+                  incorrectAnswers:
+                    type: integer
+                  completedGames:
+                    type: integer
+                  averageTime:
+                    type: integer
         '500':
           description: Internal server error.
           content:

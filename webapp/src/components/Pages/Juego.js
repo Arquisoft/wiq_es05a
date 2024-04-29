@@ -224,7 +224,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         {finishGame ? <>
           <h2> PARTIDA FINALIZADA </h2>
           <h2> ACERTADAS: {numRespuestasCorrectas}  FALLADAS: {numRespuestasIncorrectas} </h2>
-          <button id="botonFinal" className="button" disabled={disableFinish} onClick={() => {clickFinalizar()}} > FINALIZAR PARTIDA</button>
+          { !disableFinish ? <button id="botonFinal" className="button" disabled={disableFinish} onClick={() => {clickFinalizar()}} > GUARDAR ESTADÍSTICAS</button>
+          :  <></> }
           </> : <></>}
 
         { disableFinish ? ( <h2> Comience nueva partida o visite sus estadísticas!!</h2>) 

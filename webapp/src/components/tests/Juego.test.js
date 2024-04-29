@@ -34,7 +34,7 @@ describe('Juego component', () => {
   });
 
   it('obtiene las preguntas y respuestas', async () => {
-     const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
+     const { getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
 
      await waitFor(() => getByText('CARGANDO...'));
 
@@ -49,7 +49,7 @@ describe('Juego component', () => {
    });
 
    it('responde la pregunta correctamente', async () => {
-     const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
+     const { getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
 
      await waitFor(() => getByText(mockData.question));
 
@@ -63,7 +63,7 @@ describe('Juego component', () => {
    });
 
    it('responde la pregunta incorrectamente y despinta al hacer click en Siguiente', async () => {
-     const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={2} />);
+     const { getByText } = render(<Juego isLogged={true} username="test" numPreguntas={2} />);
 
      await waitFor(() => getByText(mockData.question));
 
@@ -92,17 +92,15 @@ describe('Juego component', () => {
    });
 
    it('finalizar Juego', async () => {
-     const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
+     const { getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
      await waitFor(() => getByText(mockData.question));
      fireEvent.click(getByText('SIGUIENTE')); 
-     fireEvent.click(getByText('FINALIZAR PARTIDA')); 
-     expect(getByText('FINALIZAR PARTIDA')).toBeDisabled();
-     console.log(container.numRespuestasCorrectas)
-     //expect(axios.get).toHaveBeenCalledWith('http://localhost:8000/updateStats?username=test&numRespuestasCorrectas=0&numRespuestasIncorrectas=0');
+     fireEvent.click(getByText('GUARDAR ESTADÍSTICAS')); 
+     expect(getByText('Comience nueva partida o visite sus estadísticas!!')).toBeInTheDocument()
     });
     
     it('el temporizador llega a 0 y se desvelan las respuestas ademas de bloquearse los botones', async () => {
-      const { container, getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
+      const { getByText } = render(<Juego isLogged={true} username="test" numPreguntas={1} />);
  
       await waitFor(() => getByText(mockData.question));
       act(() => {
