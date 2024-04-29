@@ -5,7 +5,7 @@ import Temporizador from '../Temporizador';
 describe('Temporizador', () => {
   it('renders the initial countdown time', () => {
     const tiempoInicial = 60;
-    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
+    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} setPausa={jest.fn()} />);
     const countdownElement = screen.getByText(tiempoInicial);
     expect(countdownElement).toBeInTheDocument();
   });
@@ -13,7 +13,7 @@ describe('Temporizador', () => {
   it('decreases countdown time when not paused', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
-    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
+    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} setPausa={jest.fn()} />);
     act(() => {
       jest.advanceTimersByTime(1000);
     });
@@ -24,7 +24,7 @@ describe('Temporizador', () => {
   it('stops countdown time when paused', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
-    render(<Temporizador tiempoInicial={tiempoInicial} pausa={true} />);
+    render(<Temporizador tiempoInicial={tiempoInicial} pausa={true} setPausa={jest.fn()} />);
     act(() => {
       jest.advanceTimersByTime(1000);
     });
@@ -35,7 +35,7 @@ describe('Temporizador', () => {
   it('restarts countdown time when restart prop changes', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
-    const { rerender } = render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
+    const { rerender } = render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} setPausa={jest.fn()} />);
     act(() => {
       jest.advanceTimersByTime(1000);
     });
@@ -43,7 +43,7 @@ describe('Temporizador', () => {
     expect(updatedCountdownElement).toBeInTheDocument();
 
     // Simulate restart by changing the restart prop
-    rerender(<Temporizador tiempoInicial={tiempoInicial} pausa={false} restart={true} handleRestart={jest.fn()} />);
+    rerender(<Temporizador tiempoInicial={tiempoInicial} pausa={false} restart={true} handleRestart={jest.fn()} setPausa={jest.fn()} />);
 
     // Countdown should restart
     const restartedCountdownElement = screen.getByText(tiempoInicial);
