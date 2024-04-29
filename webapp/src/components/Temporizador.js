@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestart})=> {
+const Temporizador =({restart, tiempoInicial, tiempoAcabado, handleRestart})=> {
 
     //Constante que va restando segundos
     const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
