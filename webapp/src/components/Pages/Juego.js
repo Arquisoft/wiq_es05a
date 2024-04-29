@@ -210,7 +210,15 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4 }}>
         {ready ? <>
           <div className="numPregunta"> <p> {numPreguntaActual} / {numPreguntas} </p> </div>
-          <Temporizador id="temp" restart={restartTemporizador} tiempoInicial={20} tiempoAcabado={cambiarColorBotones} pausa={pausarTemporizador} handleRestart={handleRestart}/>
+          <Temporizador
+            id="temp"
+            restart={restartTemporizador}
+            tiempoInicial={20}
+            tiempoAcabado={cambiarColorBotones}
+            pausa={pausarTemporizador}
+            handleRestart={handleRestart}
+            setPausa={setPausarTemporizador}
+          />          
           <h2> {pregunta} </h2>
           <div className="button-container">
             <button id="boton1" className="button" onClick={() => botonRespuesta(resFalse[1])}> {resFalse[1]}</button>
