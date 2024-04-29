@@ -19,7 +19,7 @@ const Estadisticas = ({isLogged, username}) => {
         statsUser();
         setFirstRender(true);
       }
-    }, [firstRender, statsUser])  
+    }, [firstRender])  
     
     async function statsUser(){
       try {

@@ -4,14 +4,12 @@ const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestar
 
     //Constante que va restando segundos
     const [tiempoSegundos, setTiempoSegundos] = useState(tiempoInicial);
-    //Constante que indica si el temporizador esta en pausa
-    const [pausa, setPausa] = useState(false);
 
     useEffect(() => {
         let intervalID;
         if(restart){
             setTiempoSegundos(tiempoInicial);
-            setPausa(false); 
+            pausa=false;
             handleRestart();
         }
 
@@ -20,11 +18,10 @@ const Temporizador =({restart, tiempoInicial, tiempoAcabado, pausa, handleRestar
                 setTiempoSegundos((prevTiempo) => prevTiempo - 1);
             }, 1000);
         }
-        if(tiempoSegundos <= 0)
+        if(tiempoSegundos<=0)
             tiempoAcabado();
         return () => clearInterval(intervalID);
     }, [tiempoSegundos, pausa, restart]);
-
 
     return (
         <div className="temporizador"> <p> {tiempoSegundos} </p> </div>

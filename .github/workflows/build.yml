@@ -6,6 +6,7 @@ on:
       - develop
       - LaraFMz
       - Pablo-Arreglos
+      - Pablo-EntregaFinal
       - jota
   pull_request:
     types: [opened, synchronize, reopened]
