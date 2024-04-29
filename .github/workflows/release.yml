@@ -134,6 +134,44 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
           workdir: questionservice
+  docker-push-grafana:
+    name: Push grafana service Docker Image to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+#    needs: [ e2e-tests ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: arquisoft/wiq_es05a/grafana
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          workdir: monitoring/grafana
+    env:
+      GF_SECURITY_ADMIN_USER: ${{ secrets.GF_SECURITY_ADMIN_USER }}
+      GF_SECURITY_ADMIN_PASSWORD: ${{ secrets.GF_SECURITY_ADMIN_PASSWORD }}
+      GF_SERVER_SERVE_FROM_SUB_PATH: false
+  docker-push-prometheus:
+    name: Push prometheus service Docker Image to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+#    needs: [ e2e-tests ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: arquisoft/wiq_es05a/prometheus
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          workdir: monitoring/prometheus
   deploy:
     name: Deploy over SSH
     runs-on: ubuntu-latest
@@ -143,6 +181,8 @@ jobs:
       - docker-push-gatewayservice
       - docker-push-questionservice
       - docker-push-webapp
+      - docker-push-grafana
+      - docker-push-prometheus
     steps:
     - name: Deploy over SSH
       uses: fifsky/ssh-action@master
