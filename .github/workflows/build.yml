@@ -6,7 +6,8 @@ on:
       - develop
       - LaraFMz
       - Pablo-Arreglos
-      - Jota
+      - jota
+      - Fer-monitorizacion
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:

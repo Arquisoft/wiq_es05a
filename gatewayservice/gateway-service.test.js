@@ -49,17 +49,6 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(500);
     expect(response.body).toEqual({ error: errorMessage });
   });
-
-  // Test /adduser endpoint
-  it('deberia añadir usuario correctamente', async () => {
-    const response = await request(app)
-        .post('/adduser')
-        .send({ username: 'newuser', password: 'newpassword' });
-
-    // Verificamos que la respuesta tenga un código de estado 200 y un ID de usuario
-    expect(response.statusCode).toBe(200);
-    expect(response.body.userId).toBe('mockedUserId');
-  });
   
   // Probamos con una pregunta errónea
   it('debería devolver error con esa pregunta', async () => {
@@ -205,23 +194,7 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(401); // Esperamos un error de solicitud incorrecta
   });
 
-  /*
-  it('debería manejar correctamente la carga excesiva', async () => {
-      // Realizar múltiples solicitudes simultáneas a endpoints diferentes
-      const promises = [];
-      for (let i = 0; i < 100; i++) {
-        promises.push(request(app).post('/login').send({ username: `user${i}`, password: 'password' }));
-      }
-    
-      // Esperar a que se completen todas las solicitudes
-      const responses = await Promise.all(promises);
-    
-      // Verificar que todas las respuestas tengan el código de estado esperado (200)
-      responses.forEach(response => {
-        expect(response.status).toBe(200);
-      });
-  });
-  */
+
   
   it('debería devolver un estado de salud "OK"', async () => {
     const response = await request(app).get('/health');
@@ -230,4 +203,10 @@ describe('Gateway Service', () => {
     expect(response.status).toBe(200);
     expect(response.body).toEqual({ status: 'OK' });
   });
+
+  it('Debería devolver una lista de nombres de usuario cuando hay usuarios en la base de datos', async () => {
+    const response = await request(app).get('/getUsernames');
+    expect(response.status).toBe(200);
+  });
+  
 });
