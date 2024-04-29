@@ -5,7 +5,7 @@ import Temporizador from '../Temporizador';
 describe('Temporizador', () => {
   it('renders the initial countdown time', () => {
     const tiempoInicial = 60;
-    render(<Temporizador tiempoInicial={tiempoInicial} />);
+    render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
     const countdownElement = screen.getByText(tiempoInicial);
     expect(countdownElement).toBeInTheDocument();
   });
@@ -35,7 +35,7 @@ describe('Temporizador', () => {
   it('restarts countdown time when restart prop changes', () => {
     jest.useFakeTimers();
     const tiempoInicial = 60;
-    const { rerender } = render(<Temporizador tiempoInicial={tiempoInicial} />);
+    const { rerender } = render(<Temporizador tiempoInicial={tiempoInicial} pausa={false} />);
     act(() => {
       jest.advanceTimersByTime(1000);
     });
@@ -43,8 +43,7 @@ describe('Temporizador', () => {
     expect(updatedCountdownElement).toBeInTheDocument();
 
     // Simulate restart by changing the restart prop
-    rerender(<Temporizador tiempoInicial={tiempoInicial} restart={true} 
-      handleRestart={jest.fn()} />);
+    rerender(<Temporizador tiempoInicial={tiempoInicial} pausa={false} restart={true} handleRestart={jest.fn()} />);
 
     // Countdown should restart
     const restartedCountdownElement = screen.getByText(tiempoInicial);
