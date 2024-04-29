@@ -14,13 +14,12 @@ const Estadisticas = ({isLogged, username}) => {
     const [completedGames, setCompletedGames] = useState(0);
     const [firstRender, setFirstRender] = useState(false);
 
-  useEffect(() => {
-    if (!firstRender) {
-      statsUser();
-      setFirstRender(true);
-    }
-  }, [firstRender])
-
+    useEffect(() => {
+      if (!firstRender) {
+        statsUser();
+        setFirstRender(true);
+      }
+    }, [firstRender, statsUser])  
     
     async function statsUser(){
       try {
