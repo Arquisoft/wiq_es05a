@@ -12,6 +12,7 @@ const Estadisticas = ({isLogged, username}) => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [incorrectAnswers, setIncorrectAnswers] = useState(0);
     const [completedGames, setCompletedGames] = useState(0);
+    onst [averageTime, setAverageTime] = useState(0);
     const [firstRender, setFirstRender] = useState(false);
 
     useEffect(() => {
@@ -28,6 +29,7 @@ const Estadisticas = ({isLogged, username}) => {
         setCorrectAnswers(datos.user.correctAnswers);
         setIncorrectAnswers(datos.user.incorrectAnswers);
         setCompletedGames(datos.user.completedGames);
+        setAverageTime(datos.user.averageTime);
       } catch (error) {
         setError('Error al cargar la información');
       }
@@ -50,6 +52,10 @@ const Estadisticas = ({isLogged, username}) => {
                 <tr>
                     <td>Nº Juegos completados: </td>
                     <td> {completedGames} </td>
+                </tr>
+                <tr>
+                    <td>Tiempo medio por juego: </td>
+                    <td> {averageTime} </td>
                 </tr>
             </tbody>
     </table>
