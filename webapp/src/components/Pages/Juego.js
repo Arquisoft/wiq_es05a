@@ -13,16 +13,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   //Array de las cuatros respuestas
   const [resFalse, setResFalse] = useState([])
   //constante booleana para saber si se ha respondido ya o no (si se ha pulsado un boton se pone a true)
-  const [respondido, setRespodido] = useState(false)
+  //const [respondido, setRespodido] = useState(false)
   //constante para saber si ha ganado, booleana
-  const [victoria, setVictoria] = useState(false)
+  //const [victoria, setVictoria] = useState(false)
   //Para saber si el temporizador se ha parado al haber respondido una respuesta
   const [pausarTemporizador, setPausarTemporizador] = useState(false)
   const [restartTemporizador, setRestartTemporizador] = useState(false)
   const [firstRender, setFirstRender] = useState(false);
   const[ready, setReady] = useState(false)
   const [numPreguntaActual, setNumPreguntaActual] = useState(0)
-  const [arPreg, setArPreg] = useState([])
+  const [arPreg] = useState([]);
   const [finishGame, setFinishGame] = useState(false)
   const [numRespuestasCorrectas, setNumRespuestasCorrectas] = useState(0)
   const [numRespuestasIncorrectas, setNumRespuestasIncorrectas] = useState(0)
@@ -39,7 +39,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
       crearPreguntas(10);
       setFirstRender(true);
     }
-  }, [firstRender])
+  }, [firstRender, crearPreguntas]);  
 
   //Función que genera un numero de preguntas determinado
   async function crearPreguntas(numPreguntas){
@@ -93,16 +93,16 @@ const Juego = ({isLogged, username, numPreguntas}) => {
   const botonRespuesta = (respuesta) => { 
     //Comprueba si la respuesta es correcta o no y pone la variable victoria a true o false
     //por ahora esta variable no se utiliza para nada
-    setRespodido(true)
+    //setRespodido(true)
     setPausarTemporizador(true);
-    if(respuesta == resCorr){
+    if(respuesta === resCorr){
       //Aumenta en 1 en las estadisticas de juegos ganado
       setNumRespuestasCorrectas(numRespuestasCorrectas+1);
-      setVictoria(true)
+      //setVictoria(true)
     }
     else{
       setNumRespuestasIncorrectas(numRespuestasIncorrectas + 1);
-      setVictoria(false)
+      //setVictoria(false)
     }
     cambiarColorBotones(respuesta, true);
 
@@ -123,7 +123,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
         //Desactivamos TODOS los botones
         button.disabled=true; 
         //Ponemos el boton de la respuesta correcta en verde
-        if(button.textContent.trim() == resCorr) {
+        if(button.textContent.trim() === resCorr) {
           button.style.backgroundColor = "#05B92B";
           button.style.border = "6px solid #05B92B";
         }
@@ -140,8 +140,8 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Función que cambia el color de un solo boton (acierto)
   function cambiarColorUno(respuesta, button){
-    if(button.textContent.trim()==respuesta.trim()){
-      if((button.textContent.trim() != resCorr)) {
+    if(button.textContent.trim() === respuesta.trim()){
+      if((button.textContent.trim() !== resCorr)) {
         button.style.backgroundColor = "#E14E4E";
         button.style.border = "6px solid #E14E4E";
       }
@@ -150,7 +150,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
 
   //Funcion que cambia el color de todos los botones (fallo)
   function cambiarColorTodos(button){
-    if(button.textContent.trim() == resCorr) {
+    if(button.textContent.trim() === resCorr) {
       button.style.backgroundColor = "#05B92B";
       button.style.border = "6px solid #05B92B";
     } else{
@@ -182,7 +182,7 @@ const Juego = ({isLogged, username, numPreguntas}) => {
  
   //Funcion que se llama al hacer click en el boton Siguiente
   const clickSiguiente = () => {
-    if(numPreguntaActual==numPreguntas){
+    if(numPreguntaActual === numPreguntas){
       setFinishGame(true)
       setReady(false)
       //finishGame()
