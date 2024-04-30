@@ -58,12 +58,16 @@ For multiple environments or alternative deployments please copy and adapt this 
 
 image::07_DiagramaDespliegue5.png["Diagrama de despliegue"]
 
+****
+
 Utilizamos como servidor en la nube Azure como infraestructura principal, dentro de ella tenemos desplegados cinco contenedores de Docker.
-* UserService encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc.
-* WebApp donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.
-* GatewayService es la puerta de enlace entre la aplicación y los servicios subyacentes.
-* QuestionService encargado de obtener las preguntas de un servidor externo que en este caso es wikidata.
-* MongoDB alberga la base de datos para almacenar usuarios y sus estadísticas.
+
+* *UserService*: encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc..
+* *WebApp*: donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.
+* *GatewayService*: es la puerta de enlace entre la aplicación y los servicios subyacentes.
+* *QuestionService*: encargado de obtener las preguntas de un servidor externo que en este caso es Wikidata.
+* *MongoDB*: alberga la base de datos para almacenar usuarios y sus estadísticas.
+****
 
 
 Mapeo de bloques de construcción a infraestructura::
@@ -81,11 +85,10 @@ Mapeo de bloques de construcción a infraestructura::
 |Microservicio responsable de las vistas de la aplicación y sus interacciones con el usuario.
 
 |*QuestionService*
-|Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola 
-posteriormente en una base de datos MySQL.
+|Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata.
 
 |*UserService*
-|Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.
+|Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas.
 
 |*Navegador Web*
 |Programa sobre el que el cliente visualiza e interactúa con la aplicación web.

@@ -46,14 +46,14 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 ****
 
 * *Frontend Web Desplegado*: Habrá una interfaz web accesible vía navegador.
-* *Registro de Usuarios y Consulta de Historial*: Usuarios podrán registrarse y ver su historial de participación.
+* *Registro de Usuarios y Consulta de Estadísticas*: Usuarios podrán registrarse y ver sus estadísticas de participación.
 * *Generación Automática de Preguntas desde Wikidata*: Las preguntas se generarán automáticamente usando datos de Wikidata.
 * *Plazo de Tiempo para Responder*: Los usuarios tendrán un límite de tiempo para responder preguntas.
 * *Respuestas Correctas e Incorrectas Automatizadas*: Cada pregunta tendrá una respuesta correcta y varias incorrectas, generadas automáticamente.
 * *Acceso a Información de Usuarios vía API*: Otros sistemas podrán acceder a los datos de los usuarios a través de un API.
 * *Acceso a Información de Preguntas vía API*: Otros sistemas podrán acceder a los detalles de las preguntas generadas mediante un API.
 
-Mira los (https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit)[Requisitos de la práctica] para obtener más información.
+Mira los https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit[Requisitos de la práctica] para obtener más información.
 
 
 === Metas de Calidad
