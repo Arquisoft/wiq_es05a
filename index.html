@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.21">
 <title>Documentación wiq_es05a</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -501,6 +502,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#section-glossary">12. Glosario</a></li>
+<li><a href="#section-testing">13. Testing</a>
+<ul class="sectlevel2">
+<li><a href="#_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</a></li>
+<li><a href="#_tests_de_integración_bdd">13.2. Tests de integración (BDD)</a></li>
+<li><a href="#_tests_de_carga">13.3. Tests de carga</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -570,7 +578,7 @@ These include</p>
 </div>
 </div>
 <div class="paragraph">
-<p>El objetivo es crear una aplicación web llamada WIQ_es05 basada en el programa de televisión "Saber y Ganar".
+<p>El objetivo es crear una aplicación web llamada QuizMaster basada en el programa de televisión "Saber y Ganar".
 La aplicación permitirá registrarse a los usuarios para poder jugar. Dicho juego consiste en una serie de preguntas generadas aleatoriamente, de diferentes temáticas y respuestas, que deberán responderse en un tiempo determinado.
 Por cada respuesta correcta se obtendrá un premio.</p>
 </div>
@@ -629,7 +637,7 @@ If requirements documents exist this overview should refer to these documents.</
 </ul>
 </div>
 <div class="paragraph">
-<p>Mira los <a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit">Requisitos de la práctica</a> para obtener más información.</p>
+<p>Mira los (<a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit)">Requisitos de la práctica</a> para obtener más información.</p>
 </div>
 </div>
 <div class="sect2">
@@ -676,11 +684,11 @@ If you as an architect do not know how the quality of your work will be judged&#
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usabilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto. Además, a medida que los usuarios interactúan más con la aplicación, esta se vuelva más fácil de usar.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación tiene que poder usarse por el mayor tipo de usuarios, promoviendo una experiencia intuitiva y accesible desde el primer contacto.Conforme los usuarios se familiarizan y exploran más la aplicación, su uso se vuelve más intuitivo y sencillo, gracias a la curva de aprendizaje.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Rendimiento</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>El tiempo de respuesta de la aplicación debe ser rápido</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación debe de ofrecer un tiempo de respuesta rápido para garantizar una experiencia fluida y eficiente para los usuarios.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Testeable</strong></em></p></td>
@@ -688,7 +696,7 @@ If you as an architect do not know how the quality of your work will be judged&#
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Disponibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La aplicación debe estar disponible y caerse lo menos posible</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Debemos asegurar que la aplicación esté funcional y operativa durante la mayor parte del tiempo.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -764,12 +772,12 @@ These stakeholders determine the extent and the level of detail of your work and
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios Registrados</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder jugar en la aplicación que recrea el juego sin tener que participar en el programa.</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que ya han jugado anteriormente</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios registrados en la plataforma, pudiendo haber jugado una o más partidas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuarios No Registrados</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Poder registrarse lo más rápido posible para empezar a jugar al juego de preguntas y respuestas</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que nunca jugaron antes</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuarios que nunca se han registrado antes</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>RTVE</strong></em></p></td>
@@ -841,6 +849,11 @@ y realizar las pruebas pertinentes.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>En la asignatura se requiere que esta sea la fuente de información principal para generar aleatoriamente tanto las preguntas como las respuestas correctas e incorrectas del juego.</em></em></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>APIs rest</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Son una limitación por varias razones, no proporcionan seguridad avanzada, no ofrecen un esquema de datos detallados, pueden no ser ideales para
+operaciones mas complejas y requieren endpoints predefinidos.</em></em></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -908,16 +921,12 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Diseño del software</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un código limpio ('clean code'),
-es decir, que sea fácil de entender, mantener y modificar, y que garantize la claridad, simplicidad y legibilidad.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un que sigamos los principios de "codigo limpio"
+en cuanto a modularidad, limpieza, nombrado de métodos y variables.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Documentación</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para crearla usaremos la plantilla Arc42 con la finalidad de que sea sencilla y práctica.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Accesibilidad</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nos esforzaremos para que nuestra aplicación sea accesible para todos los usuarios, independientemente de su perfil o características individuales.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Estructura</strong></em></p></td>
@@ -1053,7 +1062,7 @@ together with a mapping table showing the relationships between channels and inp
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/03_2_contexto_tecnico.png" alt="Diagrama de contexto técnico">
+<img src="./images/03_2_contexto_tecnico2.png" alt="Diagrama de contexto técnico">
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -1074,23 +1083,23 @@ together with a mapping table showing the relationships between channels and inp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos no relacional para el almacenamiento de usuarios.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos no relacional para el almacenamiento de usuarios y registro de sus partidas.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">El usuario final de la aplicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Persona que interactua con nuestra aplicación web a través del navegador.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata API</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API de donde obtendremos las preguntas y respuesta correcta para el juego de la aplicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API de donde obtendremos las preguntas y respuestas correctas y falsas para el juego de la aplicación, todas estas preguntas serán cargadas al inicio del juego.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Javascript</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación principal de la aplicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación principal de la aplicación  permite una sintaxis uniforme en toda la aplicación y facilita el mantenimiento del código. Además, al usar JavaScript en el frontend y el backend, se puede compartir lógica entre ambas partes para un desarrollo más eficiente.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Express JS</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Framework para la creación de aplicaciones web en Javascript, utilizado en el backend.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Express es un framework de aplicación web para Node.js, que te permite crear aplicaciones web robustas y escalables en JavaScript para el backend.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>React</strong></em></p></td>
@@ -1098,7 +1107,7 @@ together with a mapping table showing the relationships between channels and inp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Bootstrap</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca para el diseño de aplicaciónes web.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
@@ -1106,15 +1115,19 @@ together with a mapping table showing the relationships between channels and inp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de la creación de preguntas con la API de Wikidata.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gateway</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de coordinar el resto de modulos del sistmea.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que funcina como puerta de enlace para coordinar el resto de modulos del sistema.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación y del registro de partidas con la ayuda de nuestra base de datos MongoDB.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>authservice</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de gestionar la autenticación del usuario.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1169,7 +1182,7 @@ Refer to details in the following sections.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>JavaScript</strong>: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo.</p>
+<p><strong>JavaScript</strong>: Este lenguaje es muy buena opción para utilizar en proyectos en que se empleé la biblioteca REACT. Nos pareció mejor opción que otros lenguajes como TypeScript debido a que su compresión y manejo es más sencillo. Además usamos Express es una infraestructura de aplicaciones web en Node.js que ofrece una solución rápida, minimalista y flexible para desarrollar aplicaciones web y móviles1</p>
 </li>
 <li>
 <p><strong>React</strong>: Esta libreria de JavaScript permite la creación de interfaces de usuario para la aplicacion web de forma sencilla.</p>
@@ -1178,7 +1191,7 @@ Refer to details in the following sections.</p>
 <p><strong>Docker</strong>: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.</p>
 </li>
 <li>
-<p><strong>Firebase</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
+<p><strong>Mongo-DB</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
 </li>
 <li>
 <p><strong>Microservicios:</strong> Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.</p>
@@ -1281,7 +1294,7 @@ In the best case you will get away with examples or simple signatures.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/05_sistema-general-caja-blanca.png" alt="Sistema General de Caja Blanca">
+<img src="./images/05_sistema-general-caja-blanca_2.png" alt="Sistema General de Caja Blanca">
 </div>
 </div>
 <div class="dlist">
@@ -1307,15 +1320,11 @@ In the best case you will get away with examples or simple signatures.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Usuario</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Usuario que interactua con la aplicación.</em></em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Administrador</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Persona(s) que tienen acceso completo a la aplicación y puede administrarla.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Cuando alguien usa nuestra aplicación, se comunica con ella a través de Internet usando un lenguaje especial llamado HTTP. Cuando se registra en la aplicación, los datos que ingresa se guardan en una base de datos especial llamada MongoDB. Para que esto suceda, usamos una herramienta llamada Mongoose, que nos ayuda a conectarnos y comunicarnos con la base de datos de una manera fácil y segura. Entonces, cada vez que alguien se registra en nuestra aplicación, Mongoose se asegura de guardar esos datos en la base de datos para que puedan ser utilizados más tarde.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WIQ</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La propia aplicación.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>La propia aplicación, encargada de pedir las preguntas a wikidata para poder llevar a cabo la partida.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
@@ -1328,7 +1337,7 @@ In the best case you will get away with examples or simple signatures.</p>
 <h3 id="_nivel_2_wiq">5.2. Nivel 2: WIQ</h3>
 <div class="imageblock">
 <div class="content">
-<img src="./images/05_nivel_2.png" alt="Nivel 2 de la aplicación: WIQ">
+<img src="./images/05_2_nivel_2.png" alt="Nivel 2 de la aplicación: WIQ">
 </div>
 </div>
 <div class="dlist">
@@ -1354,24 +1363,32 @@ In the best case you will get away with examples or simple signatures.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gatewayservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de puerta de enlace que actúa como intermediario entre los clientes y 	otros servicios,
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de puerta de enlace que actúa como intermediario entre los usuario que quieran juagar y otros servicios,
 reenviando las solicitudes a los servicios correspondientes y devolviendo las respuestas al cliente.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>authservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio de autenticación de usuarios.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio que se encarga de verificar las credenciales de los usuarios al iniciar sesión en la aplicación. Si las credenciales son correctas, se genera un token de acceso que permite al usuario autenticado acceder a partes protegidas de la aplicación.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para registro de usuarios.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio que gestiona el registro de nuevos usuarios en la aplicación. Cuando un usuario se registra, se asegura de que se proporcionen los campos necesarios y luego cifra la contraseña antes de guardarla. También ofrece funciones para actualizar las estadísticas del usuario y obtener información de usuario.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio para el manejo de datos de Wikidata.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Este servicio se encarga de proporcionar preguntas y respuestas basadas en datos de Wikidata. Utiliza consultas SPARQL para obtener información de Wikidata y luego genera preguntas aleatorias basadas en estos datos para ser utilizadas en la aplicación."</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Wikidata</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Servicio externo desde donde obtenemos los datos para generar las preguntas.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>MongoDB es un sistema de gestión de bases de datos NoSQL utilizado en la aplicación para almacenar y organizar los datos de manera eficiente. Su responsabilidad principal es gestionar la persistencia de los datos de la aplicación, permitiendo el almacenamiento, consulta y manipulación de la información de manera escalable y flexible.</em></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>OpenAPI</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Encargado de la especificación utilizada junto a swagger para la creación de una documentacio de todos los métodos que se realizan en gateway.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -1450,27 +1467,27 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <p>Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.</p>
 </div>
 <div class="paragraph">
-<p>Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. userService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
+<p>Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService a través de gatewayService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. UserService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
 </div>
 <div class="paragraph">
 <p>Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.</p>
 </div>
 <div class="paragraph">
-<p>Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar la pantalla de inicio del juego, donde el usuario podrá acceder a las diferentes opciones de juego y comenzar a participar en las actividades disponibles.</p>
+<p>Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar que ha iniciado sesión correctamente.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/06_acceso2.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
+<img src="./images/06_acceso3.png" alt="Diagrama vista de tiempo de ejecución para el acceso">
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_interacción_con_preguntas">6.2. Interacción con Preguntas</h3>
 <div class="paragraph">
-<p>Comenzaremos con la REST API que se integra con nuestra base de datos y se encargará de la obtención de la pregunta junto con sus opciones de respuestas correctas e incorrectas, proporcionando así la información necesaria para la Web App.</p>
+<p>Comenzaremos con la REST API que obtendrá las preguntas de Wikidata junto con sus opciones de respuestas correctas e incorrectas.</p>
 </div>
 <div class="paragraph">
-<p>Al obtener dicha información, la Web App mostrará la pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.</p>
+<p>Al obtener dicha información, QuestionService se la transmitirá a GatewayService que a su vez ira mostrando en Web App pregunta por pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.</p>
 </div>
 <div class="paragraph">
 <p>Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.</p>
@@ -1479,11 +1496,14 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <p>Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.</p>
 </div>
 <div class="paragraph">
+<p>Tras esto y cuando el jugador solicite la siguiente pregunta se seguirá repitiendo el proceso de GatewayService proporcionando a WebApp una nueva pregunta hasta terminar el juego.</p>
+</div>
+<div class="paragraph">
 <p>Este flujo de interacción garantiza una experiencia de usuario fluida y comprensible, optimizando así la participación y el compromiso del usuario con la plataforma.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/06_pregunta2.png" alt="Diagrama vista de tiempo de ejecución para la pregunta">
+<img src="./images/06_pregunta4.png" alt="Diagrama vista de tiempo de ejecución para la pregunta">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1577,29 +1597,19 @@ when your infrastructure is more complex.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/07_DiagramaDespliegue3.png" alt="Diagrama de despliegue">
+<img src="./images/07_DiagramaDespliegue5.png" alt="Diagrama de despliegue">
 </div>
+</div>
+<div class="paragraph">
+<p>Utilizamos como servidor en la nube Azure como infraestructura principal, dentro de ella tenemos desplegados cinco contenedores de Docker.
+* UserService encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc.
+* WebApp donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.
+* GatewayService es la puerta de enlace entre la aplicación y los servicios subyacentes.
+* QuestionService encargado de obtener las preguntas de un servidor externo que en este caso es wikidata.
+* MongoDB alberga la base de datos para almacenar usuarios y sus estadísticas.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Motivación</dt>
-<dd>
-<p>Utilizamos Docker como plataforma de contenedores debido a su capacidad para simplificar el proceso de despliegue de aplicaciones,
-especialmente cuando se combina con servicios en la nube como Azure proporciona una integración sólida con Docker,
-lo que facilita el despliegue de contenedores en su infraestructura en la nube.
-En cuanto a la elección de MySQL como sistema de gestión de bases de datos, optamos por este software debido a su amplia adopción,
-estabilidad y control que ofrece a los desarrolladores y administradores de bases de datos.
-Además, MySQL es compatible con una amplia gama de plataformas y entornos de desarrollo,
-lo que facilita la integración con otras herramientas y servicios que podemos estar utilizando en nuestro entorno, como Docker y Azure.</p>
-</dd>
-<dt class="hdlist1">Características de calidad y/o rendimiento</dt>
-<dd>
-<p>En lo que se refiere a rendimiento no podemos controlar ciertos aspectos como la conexión del usuario a internet, al usar Azure también
-podemos tener problemas con él ya que no podemos asegurar este tipo de recursos; en cuanto a calidad haremos todo lo que este en nuestra
-mano para poder ofrecer la máxima calidad posible al usuario usando los recursos elegidos de la manera más óptima así como las tecnologías
-que estena a nuestro alcance con el fin de reducir los tiempos de espera para las solicitudes de los usuarios.
-Nuestros principales objetivos es que nuestra aplicación web tenga una buena usabilidad asi como una buena mantenibilidad.</p>
-</dd>
 <dt class="hdlist1">Mapeo de bloques de construcción a infraestructura</dt>
 </dl>
 </div>
@@ -2129,8 +2139,46 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 <div class="sect2">
 <h3 id="_deudas_técnicas">11.2. Deudas Técnicas</h3>
 <div class="paragraph">
-<p>TODO</p>
+<p>TODO=== Deudas técnicas</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Descripción</th>
+<th class="tableblock halign-left valign-top">Consideraciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Pruebas E2E</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Se han impletado pruebas e2e pero finalmente solo hemos sido capaces de sacar una adelante con exito. Por falta de tiempo no hemos encontrado los errores en las pruebas por lo que nos hemos visto obligados a eliminarlas</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Botón finalizar partida</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test, optamos por modificarlo para que solo guarde las estadísticas y muestre un mensaje al jugador actual, dándole la opción de elegir qué desea hacer a continuación. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como seguir la partida.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Mostrar tiempo de respuesta</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Hemos intentado incorporar el tiempo de respuesta al finalizar la partida en las estadísticas de cada jugador, pero lamentablemente no hemos podido lograrlo. Esta funcionalidad habría sido beneficiosa para mejorar el apartado de las estadísticas de nuestra aplicación.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Requisitos opcionales</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>No hemos abordado los requisitos opcionales porque nuestra atención ha estado centrada en desarrollar la parte fundamental de la aplicación y asegurarnos de que funcione correctamente.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Internacionalización de la web</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Inicialmente, nuestra aplicación estará disponible solo en español. Una vez que hayamos asegurado que todas las funcionalidades están correctamente implementadas, daremos el paso de internacionalizarla. Esto nos permitirá hacerla accesible para usuarios que no hablen español como lengua principal</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Limpieza y organización de código</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Nuestro código podría tener áreas que podrían mejorarse, ya que no se han desarrollado de la manera más eficiente posible. Una estructura más organizada podría facilitar la localización de elementos y la inclusión de comentarios adicionales podría mejorar la comprensión. Esta situación hace que sea complicado mantener, ampliar y depurar el código. Por lo tanto, es crucial realizar revisiones regulares del código, refactorizaciones y actualizaciones de la documentación para garantizar la calidad y la facilidad de mantenimiento del código del proyecto.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -2226,6 +2274,93 @@ Estas pautas explican cómo hacer que el contenido web sea más accesible para l
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-testing">13. Testing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</h3>
+<div class="paragraph">
+<p>Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web.</p>
+</div>
+<div class="paragraph">
+<p>Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra
+aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar
+todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.</p>
+</div>
+<div class="paragraph">
+<p>En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes,
+8 de ellos cubiertos al 100%.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_integración_bdd">13.2. Tests de integración (BDD)</h3>
+<div class="paragraph">
+<p>Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
+Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.</p>
+</div>
+<div class="paragraph">
+<p>Al final, logramos tener 3 pruebas generales e2e.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Registering a new user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: The user is not registered in the site
+    Given An unregistered user
+    When I fill the data in the form and press submit
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Logging in as a user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: Logging in with valid credentials
+    Given A user that is logged in the application
+    When I enter valid username and password
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Access the app</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: A registered user enters the app
+    Given A user that is logged in the application
+    When I navigate to the Home page
+    Then I should be able to interact with the app</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_carga">13.3. Tests de carga</h3>
+<div class="paragraph">
+<p>TODO</p>
+</div>
 <hr>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
@@ -2243,10 +2378,11 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-04-12 17:01:16 +0200
+Last updated 2024-04-30 20:30:54 +0200
 </div>
 </div>
 </body>
