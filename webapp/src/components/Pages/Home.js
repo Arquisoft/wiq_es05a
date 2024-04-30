@@ -40,7 +40,7 @@ const Home = ({isLogged, setIsLogged}) => {
     {!isLogged ? (
       <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Mostramos el título del juego */}
-        <h1 className="titulo">WIQ 5A</h1>
+        <h1 className="titulo">QUIZZ MASTER</h1>
         {/* Creamos un contenedor para los botones */}
         <div className="button-container">
           {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}
@@ -51,7 +51,7 @@ const Home = ({isLogged, setIsLogged}) => {
       </Container>) : (
         <Container component="main" maxWidth="xs" sx={{ marginTop: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Mostramos el título del juego */}
-        <h1 className="titulo">WIQ 5A</h1>
+        <h1 className="titulo">QUIZZ MASTER</h1>
         {/* Creamos un contenedor para los botones */}
         <div className="button-container">
           {/* Creamos el botón "Jugar" y le asignamos la función clickJugar al evento onClick */}

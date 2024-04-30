@@ -16,7 +16,7 @@ const apiEndpoint = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8000
     <>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand href="/">WIQ 5A</Navbar.Brand>
+            <Navbar.Brand href="/">QUIZZ MASTER</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               { isLogged ? (<Nav className="me-auto">
