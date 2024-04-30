@@ -1,0 +1,6 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: "example-nodejs-app"
+    static_configs:
+      - targets: ["gatewayservice-wiq_es05a:8000","userservice-wiq_es05a:8001","authservice-wiq_es05a:8002","questionservice-wiq_es05a:8003"]

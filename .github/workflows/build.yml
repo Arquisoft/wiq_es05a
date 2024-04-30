@@ -4,8 +4,9 @@ on:
     branches:
       - master
       - develop
+      - newDevelop
       - LaraFMz
-      - Pablo-Arreglos
+      - Pablo-AjustesFinales
       - jota
   pull_request:
     types: [opened, synchronize, reopened]
