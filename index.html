@@ -617,7 +617,7 @@ If requirements documents exist this overview should refer to these documents.</
 <p><strong>Frontend Web Desplegado</strong>: Habrá una interfaz web accesible vía navegador.</p>
 </li>
 <li>
-<p><strong>Registro de Usuarios y Consulta de Historial</strong>: Usuarios podrán registrarse y ver su historial de participación.</p>
+<p><strong>Registro de Usuarios y Consulta de Estadísticas</strong>: Usuarios podrán registrarse y ver sus estadísticas de participación.</p>
 </li>
 <li>
 <p><strong>Generación Automática de Preguntas desde Wikidata</strong>: Las preguntas se generarán automáticamente usando datos de Wikidata.</p>
@@ -637,7 +637,7 @@ If requirements documents exist this overview should refer to these documents.</
 </ul>
 </div>
 <div class="paragraph">
-<p>Mira los (<a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit)">Requisitos de la práctica</a> para obtener más información.</p>
+<p>Mira los <a href="https://docs.google.com/document/d/1pahOfYFY&#8212;&#8203;Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit">Requisitos de la práctica</a> para obtener más información.</p>
 </div>
 </div>
 <div class="sect2">
@@ -921,7 +921,7 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Diseño del software</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un que sigamos los principios de "codigo limpio"
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera que sigamos los principios de "codigo limpio"
 en cuanto a modularidad, limpieza, nombrado de métodos y variables.</em></em></p></td>
 </tr>
 <tr>
@@ -1107,7 +1107,7 @@ together with a mapping table showing the relationships between channels and inp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Bootstrap</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>webapp</strong></em></p></td>
@@ -1115,11 +1115,11 @@ together with a mapping table showing the relationships between channels and inp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>questionservice</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>gateway</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que funcina como puerta de enlace para coordinar el resto de modulos del sistema.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Módulo del sistema que funciona como puerta de enlace para coordinar el resto de modulos del sistema.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>userservice</strong></em></p></td>
@@ -1191,13 +1191,10 @@ Refer to details in the following sections.</p>
 <p><strong>Docker</strong>: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.</p>
 </li>
 <li>
-<p><strong>Mongo-DB</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.</p>
+<p><strong>Mongo-DB</strong>: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de sus estadísticas, así como algunas de sus estadísticas.</p>
 </li>
 <li>
 <p><strong>Microservicios:</strong> Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.</p>
-</li>
-<li>
-<p><strong>MySQL:</strong> Es una base de datos relacional ampliamente utilizada en proyectos debido a su fiabilidad, rendimiento y escalabilidad. Su estructura tabular facilita la organización de datos y su consulta a través de un lenguaje estándar (SQL).</p>
 </li>
 </ul>
 </div>
@@ -1464,16 +1461,16 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <div class="sect2">
 <h3 id="_inicio_de_sesión">6.1. Inicio de Sesión</h3>
 <div class="paragraph">
-<p>Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.</p>
+<p>Al iniciar sesión en nuestra WebApp, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.</p>
 </div>
 <div class="paragraph">
-<p>Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService a través de gatewayService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. UserService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
+<p>Una vez que el usuario proporciona estos datos, la WebApp los enviará al servicio userService a través de gatewayService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. UserService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.</p>
 </div>
 <div class="paragraph">
-<p>Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.</p>
+<p>Este token de sesión se devolverá a la WebApp, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.</p>
 </div>
 <div class="paragraph">
-<p>Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar que ha iniciado sesión correctamente.</p>
+<p>Una vez que el proceso de inicio de sesión se completa con éxito, la WebApp cambiará su interfaz para mostrar que ha iniciado sesión correctamente.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1484,13 +1481,13 @@ You will mainly capture scenarios in your documentation to communicate your arch
 <div class="sect2">
 <h3 id="_interacción_con_preguntas">6.2. Interacción con Preguntas</h3>
 <div class="paragraph">
-<p>Comenzaremos con la REST API que obtendrá las preguntas de Wikidata junto con sus opciones de respuestas correctas e incorrectas.</p>
+<p>Comenzaremos con la API REST que obtendrá las preguntas de Wikidata junto con sus opciones de respuestas correctas e incorrectas.</p>
 </div>
 <div class="paragraph">
-<p>Al obtener dicha información, QuestionService se la transmitirá a GatewayService que a su vez ira mostrando en Web App pregunta por pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.</p>
+<p>Al obtener dicha información, QuestionService se la transmitirá a GatewayService que a su vez ira mostrando en WebApp pregunta por pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la WebApp verificará la precisión de la respuesta.</p>
 </div>
 <div class="paragraph">
-<p>Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.</p>
+<p>Posteriormente, basándose en la respuesta proporcionada por el usuario, la WebApp ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.</p>
 </div>
 <div class="paragraph">
 <p>Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.</p>
@@ -1600,13 +1597,31 @@ when your infrastructure is more complex.</p>
 <img src="./images/07_DiagramaDespliegue5.png" alt="Diagrama de despliegue">
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p>Utilizamos como servidor en la nube Azure como infraestructura principal, dentro de ella tenemos desplegados cinco contenedores de Docker.
-* UserService encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc.
-* WebApp donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.
-* GatewayService es la puerta de enlace entre la aplicación y los servicios subyacentes.
-* QuestionService encargado de obtener las preguntas de un servidor externo que en este caso es wikidata.
-* MongoDB alberga la base de datos para almacenar usuarios y sus estadísticas.</p>
+<p>Utilizamos como servidor en la nube Azure como infraestructura principal, dentro de ella tenemos desplegados cinco contenedores de Docker.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>UserService</strong>: encargado de la gestión de usuarios, maneja autenticación, gestión de los perfiles, etc..</p>
+</li>
+<li>
+<p><strong>WebApp</strong>: donde reside la aplicación, con lo que interactúan los usuarios a traves de una interfaz de usuario en el navegador web.</p>
+</li>
+<li>
+<p><strong>GatewayService</strong>: es la puerta de enlace entre la aplicación y los servicios subyacentes.</p>
+</li>
+<li>
+<p><strong>QuestionService</strong>: encargado de obtener las preguntas de un servidor externo que en este caso es Wikidata.</p>
+</li>
+<li>
+<p><strong>MongoDB</strong>: alberga la base de datos para almacenar usuarios y sus estadísticas.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1639,12 +1654,11 @@ when your infrastructure is more complex.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>QuestionService</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata, almacenándola
-posteriormente en una base de datos MySQL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio responsable de generar preguntas y respuestas utilizando la información de Wikidata.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>UserService</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas haciendo uso de la API Firebase.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microservicio encargado de gestionar los diferentes usuarios y sus partidas realizadas.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Navegador Web</strong></p></td>
@@ -1878,11 +1892,10 @@ There you will find links and examples about ADR.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Base de Datos</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Donde almacenaremos la informacion de los usuarios.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MySQL</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos
-no relacional con una complejidad excesiva.</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB, Postgress, Redis, MariaDB, SQLLite&#8230;&#8203;</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Donde almacenaremos la información de los usuarios.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MongoDB</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Decidimos utilizarla porque es una base de datos no relacional que se adapta bien a estructuras de datos flexibles como las que necesitamos para almacenar información de usuarios.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>PostgreSQL, Redis, MariaDB, SQLite&#8230;&#8203;</strong></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Arquitectura</strong></p></td>
@@ -2120,9 +2133,11 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parará de funcionar en algún momento.
-Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto
-esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.</em></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>_Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parara de funcionar en algún momento.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>esto podría bloquear la entrega de alguna de las funcionalidades del proyecto._</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Software</strong></em></p></td>
@@ -2138,9 +2153,6 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 </div>
 <div class="sect2">
 <h3 id="_deudas_técnicas">11.2. Deudas Técnicas</h3>
-<div class="paragraph">
-<p>TODO=== Deudas técnicas</p>
-</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2154,28 +2166,28 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Pruebas E2E</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Se han impletado pruebas e2e pero finalmente solo hemos sido capaces de sacar una adelante con exito. Por falta de tiempo no hemos encontrado los errores en las pruebas por lo que nos hemos visto obligados a eliminarlas</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Pruebas E2E</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Se han impletado pruebas e2e pero finalmente solo hemos sido capaces de sacar una adelante con exito. Por falta de tiempo no hemos encontrado los errores en las pruebas por lo que nos hemos visto obligados a eliminarlas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Botón finalizar partida</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test, optamos por modificarlo para que solo guarde las estadísticas y muestre un mensaje al jugador actual, dándole la opción de elegir qué desea hacer a continuación. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como seguir la partida.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>_Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test,</em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>optamos por modificarlo para que muestre la opción de elegir si desea guardar las estadísticas y, en dicho caso, muestre un mensaje. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como jugar otra partida._</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Mostrar tiempo de respuesta</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Hemos intentado incorporar el tiempo de respuesta al finalizar la partida en las estadísticas de cada jugador, pero lamentablemente no hemos podido lograrlo. Esta funcionalidad habría sido beneficiosa para mejorar el apartado de las estadísticas de nuestra aplicación.</em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Hemos intentado incorporar como estadísitica el tiempo de respuesta medio de las preguntas, pero lamentablemente no hemos podido lograrlo debido a que optamos por centrarnos en arreglar problemas del proyecto. Esta funcionalidad habría sido beneficiosa para mejorar el apartado de las estadísticas de nuestra aplicación.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Requisitos opcionales</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>No hemos abordado los requisitos opcionales porque nuestra atención ha estado centrada en desarrollar la parte fundamental de la aplicación y asegurarnos de que funcione correctamente.</em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>No hemos abordado los requisitos opcionales porque nuestra atención ha estado centrada en desarrollar la parte fundamental de la aplicación y asegurarnos de que funcione correctamente.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Internacionalización de la web</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Inicialmente, nuestra aplicación estará disponible solo en español. Una vez que hayamos asegurado que todas las funcionalidades están correctamente implementadas, daremos el paso de internacionalizarla. Esto nos permitirá hacerla accesible para usuarios que no hablen español como lengua principal</em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Inicialmente, valoramos adaptar la aplicación a otros idiomas como el inglés pero finalmente no se llevo a cabo. Esto hace que la aplicación sea menos accesible para aquellos usuarios que no tengan el español como lengua principal.</em></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Limpieza y organización de código</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Nuestro código podría tener áreas que podrían mejorarse, ya que no se han desarrollado de la manera más eficiente posible. Una estructura más organizada podría facilitar la localización de elementos y la inclusión de comentarios adicionales podría mejorar la comprensión. Esta situación hace que sea complicado mantener, ampliar y depurar el código. Por lo tanto, es crucial realizar revisiones regulares del código, refactorizaciones y actualizaciones de la documentación para garantizar la calidad y la facilidad de mantenimiento del código del proyecto.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -2247,30 +2259,29 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.<
 <td class="tableblock halign-left valign-top"><p class="tableblock">Plataforma de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MySQL</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es el sistema de gestión de bases de datos relacionales de código abierto más popular del mundo.
-MySQL es utilizado por muchas de las aplicaciones más accedidas, incluyendo Facebook, Twitter, Netflix, Uber, Airbnb, Shopify y Booking.com.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>MongoDB</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es un sistema de gestión de bases de datos NoSQL de código abierto que permite el almacenamiento de datos de forma flexible y escalable. MongoDB es ampliamente utilizado en diversas aplicaciones,</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Saber y Ganar</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Programa televisión española de tipo concurso de preguntas y respuestas culturales.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>ofreciendo una estructura de datos dinámica que se adapta bien a casos de uso donde se requiere una manipulación ágil de la información.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Saber y Ganar</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>TypeScript</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Programa televisión española de tipo concurso de preguntas y respuestas culturales.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>TypeScript</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WCAG</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Son una serie de pautas de accesibilidad web publicadas por la Iniciativa de Accesibilidad Web (WAI) del Consorcio World Wide Web (W3C).
-Estas pautas explican cómo hacer que el contenido web sea más accesible para las personas con discapacidades.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lenguaje de programación de código abierto desarrollado por Microsoft que es un superset de JavaScript y añade tipos estáticos opcionales a la sintaxis del lenguaje.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WCAG</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Web App</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Interfaz de usuario en el navegador del cliente. Permite al usuario interactuar con el servidor, enviar solicitudes y recibir respuestas.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Son una serie de pautas de accesibilidad web publicadas por la Iniciativa de Accesibilidad Web (WAI) del Consorcio World Wide Web (W3C).
+Estas pautas explican cómo hacer que el contenido web sea más accesible para las personas con discapacidades.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Web App</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>WikiData</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base de datos colaborativa libre que almacena datos estructurados para respaldar proyectos de la Fundación Wikimedia.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Interfaz de usuario en el navegador del cliente. Permite al usuario interactuar con el servidor, enviar solicitudes y recibir respuestas.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>WikiData</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -2382,7 +2393,7 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-04-30 20:30:54 +0200
+Last updated 2024-04-30 21:23:15 +0200
 </div>
 </div>
 </body>
