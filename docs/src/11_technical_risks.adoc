@@ -65,4 +65,26 @@ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto._
 
 === Deudas Técnicas
 
-TODO
+TODO=== Deudas técnicas
+
+[cols="e,2e" options="header"]
+|===
+
+| Descripción | Consideraciones
+
+
+| *Botón finalizar partida*
+| Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test, optamos por modificarlo para que solo guarde las estadísticas y muestre un mensaje al jugador actual, dándole la opción de elegir qué desea hacer a continuación. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como seguir la partida.
+
+| *Mostrar tiempo de respuesta*
+| Hemos intentado incorporar el tiempo de respuesta al finalizar la partida en las estadísticas de cada jugador, pero lamentablemente no hemos podido lograrlo. Esta funcionalidad habría sido beneficiosa para mejorar el apartado de las estadísticas de nuestra aplicación.
+
+| *Requisitos opcionales*
+| No hemos abordado los requisitos opcionales porque nuestra atención ha estado centrada en desarrollar la parte fundamental de la aplicación y asegurarnos de que funcione correctamente.
+
+| *Internacionalización de la web*
+| Inicialmente, nuestra aplicación estará disponible solo en español. Una vez que hayamos asegurado que todas las funcionalidades están correctamente implementadas, daremos el paso de internacionalizarla. Esto nos permitirá hacerla accesible para usuarios que no hablen español como lengua principal
+
+| *Limpieza y organización de código*
+| Nuestro código podría tener áreas que podrían mejorarse, ya que no se han desarrollado de la manera más eficiente posible. Una estructura más organizada podría facilitar la localización de elementos y la inclusión de comentarios adicionales podría mejorar la comprensión. Esta situación hace que sea complicado mantener, ampliar y depurar el código. Por lo tanto, es crucial realizar revisiones regulares del código, refactorizaciones y actualizaciones de la documentación para garantizar la calidad y la facilidad de mantenimiento del código del proyecto.
+|===
