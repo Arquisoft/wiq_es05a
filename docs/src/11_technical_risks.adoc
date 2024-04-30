@@ -72,6 +72,8 @@ TODO=== Deudas técnicas
 
 | Descripción | Consideraciones
 
+| Pruebas E2E
+| Se han impletado pruebas e2e pero finalmente solo hemos sido capaces de sacar una adelante con exito. Por falta de tiempo no hemos encontrado los errores en las pruebas por lo que nos hemos visto obligados a eliminarlas
 
 | *Botón finalizar partida*
 | Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test, optamos por modificarlo para que solo guarde las estadísticas y muestre un mensaje al jugador actual, dándole la opción de elegir qué desea hacer a continuación. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como seguir la partida.
