@@ -12,7 +12,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_wiq_es05a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_wiq_es05a)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_wiq_es05a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_wiq_es05a)
 
-This is a base repo for the [Software Architecture course](http://arquisoft.github.io/) in [2023/2024 edition](https://arquisoft.github.io/course2324.html). 
+This is a repo for the [Software Architecture course](http://arquisoft.github.io/) in [2023/2024 edition](https://arquisoft.github.io/course2324.html). 
 
 This repo is a basic application composed of several components.
 
@@ -20,6 +20,7 @@ This repo is a basic application composed of several components.
 - **User service**. Express service that handles the insertion of new users in the system.
 - **Auth service**. Express service that handles the authentication of users.
 - **Webapp**. React web application that uses the gateway service to allow basic login and new user features.
+- **Question service**. API Rest service that generates questions and answers for the game using Wikidata. 
 
 Both the user and auth service share a Mongo database that is accessed with mongoose.
 
