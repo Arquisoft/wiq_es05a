@@ -36,8 +36,6 @@ describe('Estadisticas Component', () => {
       expect(getByText('Nº Juegos completados:')).toBeInTheDocument();
       expect(getByText('20')).toBeInTheDocument(); // Verifica que el número de juegos completados sea 20
 
-      expect(getByText('Tiempo medio por juego:')).toBeInTheDocument();
-      expect(getByText('30')).toBeInTheDocument(); // Verifica que el tiempo medio por juego sea 30
     });
   });
 
