@@ -37,8 +37,6 @@ See https://docs.arc42.org/section-4/[Solution Strategy] in the arc42 documentat
 
 * *Docker*: Utilizaremos esta plataforma para desplegar la aplicacion web, de manera que puedan realizarse pruebas aisladas de esta misma.
 
-* *Mongo-DB*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de su historial de partidas, así como algunas de sus estadísticas.
+* *Mongo-DB*: Esta API nos servirá como sistema de autenticación del usuario para poder llevar un registro de sus estadísticas, así como algunas de sus estadísticas.
 
-* *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto.
-
-* *MySQL:* Es una base de datos relacional ampliamente utilizada en proyectos debido a su fiabilidad, rendimiento y escalabilidad. Su estructura tabular facilita la organización de datos y su consulta a través de un lenguaje estándar (SQL). 
+* *Microservicios:* Enfoque arquitectónico donde el software está compuesto por pequeños servicios independientes. Lo hemos elegido debido a la facilidad para modificar una parte de la aplicación sin afectar al resto. 

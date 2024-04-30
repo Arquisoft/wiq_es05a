@@ -39,23 +39,23 @@ See https://docs.arc42.org/section-6/[Runtime View] in the arc42 documentation.
 
 === Inicio de Sesión
 
-Al iniciar sesión en nuestra Web App, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.
+Al iniciar sesión en nuestra WebApp, se presentará una interfaz solicitando al usuario que ingrese los datos necesarios para comenzar a jugar. Estos datos incluirán información de identificación única, como nombre de usuario y contraseña, así como posiblemente otros detalles relevantes para el perfil del jugador.
 
-Una vez que el usuario proporciona estos datos, la Web App los enviará al servicio userService a través de gatewayService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. UserService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.
+Una vez que el usuario proporciona estos datos, la WebApp los enviará al servicio userService a través de gatewayService, que actuará como el backend encargado de autenticar al usuario y gestionar su sesión. UserService verificará la validez de los datos proporcionados por el usuario y, si son correctos, emitirá un token de sesión único que identificará al usuario.
 
-Este token de sesión se devolverá a la Web App, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.
+Este token de sesión se devolverá a la WebApp, donde se utilizará para mantener la sesión del usuario durante su interacción con la plataforma de juego.
 
-Una vez que el proceso de inicio de sesión se completa con éxito, la Web App cambiará su interfaz para mostrar que ha iniciado sesión correctamente.
+Una vez que el proceso de inicio de sesión se completa con éxito, la WebApp cambiará su interfaz para mostrar que ha iniciado sesión correctamente.
 
 image::06_acceso3.png["Diagrama vista de tiempo de ejecución para el acceso"]
 
 === Interacción con Preguntas
 
-Comenzaremos con la REST API que obtendrá las preguntas de Wikidata junto con sus opciones de respuestas correctas e incorrectas.
+Comenzaremos con la API REST que obtendrá las preguntas de Wikidata junto con sus opciones de respuestas correctas e incorrectas.
 
-Al obtener dicha información, QuestionService se la transmitirá a GatewayService que a su vez ira mostrando en Web App pregunta por pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la Web App verificará la precisión de la respuesta.
+Al obtener dicha información, QuestionService se la transmitirá a GatewayService que a su vez ira mostrando en WebApp pregunta por pregunta junto con todas las opciones de respuesta disponibles al usuario, quien podrá seleccionar una única respuesta entre las opciones proporcionadas. Una vez que el usuario ha realizado su selección, la WebApp verificará la precisión de la respuesta.
 
-Posteriormente, basándose en la respuesta proporcionada por el usuario, la Web App ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.
+Posteriormente, basándose en la respuesta proporcionada por el usuario, la WebApp ofrecerá una retroalimentación visual clara que permitirá al usuario comprender si su respuesta fue correcta o incorrecta.
 
 Por tanto, terminaremos con una retroalimentación visual por pantalla del resultado obtenido tras la respuesta del jugador.
 

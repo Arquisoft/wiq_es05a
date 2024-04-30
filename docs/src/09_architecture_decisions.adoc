@@ -51,11 +51,10 @@ There you will find links and examples about ADR.
 |*Angular, Vue...*
 
 |*Base de Datos* 
-|_Donde almacenaremos la informacion de los usuarios._
-|*MySQL*
-|_Decidimos utilizarla porque es una base de datos relacional y para almacenar preguntas con sus respectivas respuestas no necesitamos una base de datos 
-no relacional con una complejidad excesiva._
-|*MongoDB, Postgress, Redis, MariaDB, SQLLite...*
+|_Donde almacenaremos la información de los usuarios._
+|*MongoDB*
+|_Decidimos utilizarla porque es una base de datos no relacional que se adapta bien a estructuras de datos flexibles como las que necesitamos para almacenar información de usuarios._
+|*PostgreSQL, Redis, MariaDB, SQLite...*
 
 |*Arquitectura* 
 |_La forma en la que se estructura la aplicación._

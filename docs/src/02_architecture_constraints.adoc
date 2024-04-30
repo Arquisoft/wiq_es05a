@@ -91,7 +91,7 @@ a través de nuestro grupo de WhatsApp y en casos necesarios realizamos reunione
 |Restricción |Explicación
 
 |*Diseño del software*
-|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera un que sigamos los principios de "codigo limpio"
+|_Para lograr un buen diseño es indispensable que el código de la aplicación sea flexible, mantenible y comprensible. Además se espera que sigamos los principios de "codigo limpio"
 en cuanto a modularidad, limpieza, nombrado de métodos y variables._
 
 |*Documentación*

@@ -113,16 +113,16 @@ image::03_2_contexto_tecnico2.png["Diagrama de contexto técnico"]
 |Biblioteca de Javascript para creación de interfaces de usuario, utilizado en el frontend.
 
 |*Bootstrap*
-|Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla
+|Biblioteca de código abierto que proporciona herramientas y estilos para el diseño de aplicaciones web y sitios responsivo. Podemos crear interfaces de usuario atractivas y funcionales de manera rápida y sencilla.
 
 |*webapp*
 |Módulo del sistema que se encarga de la interfaz del sistema.
 
 |*questionservice*
-|Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata 
+|Módulo del sistema que se encarga de crear preguntas obteniendo tanto preguntas como respuestas correctas e incorrectas de la API Wikidata. 
 
 |*gateway*
-|Módulo del sistema que funcina como puerta de enlace para coordinar el resto de modulos del sistema.
+|Módulo del sistema que funciona como puerta de enlace para coordinar el resto de modulos del sistema.
 
 |*userservice*
 |Módulo del sistema que se encarga de tener los modelos y hacer las consultas para el almacenamiento correcto de los usuarios de la aplicación y del registro de partidas con la ayuda de nuestra base de datos MongoDB.
