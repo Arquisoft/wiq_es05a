@@ -31,6 +31,12 @@ defineFeature(feature, test => {
     given('A user that is logged in the application', async () => {
       username = "pablo@gmail.com"
       password = "pabloasw1"
+      await expect(page).toClick("button", { text: "REGÍSTRATE" });
+      await expect(page).toFill('input[name="username"]', username);
+      await expect(page).toFill('input[name="password"]', password);
+      await expect(page).toClick('button', { text: 'Crear' })
+      await expect(page).toClick('a[href="/"]', { text: 'WIQ 5A' });
+      await page.waitForNavigation();
       await expect(page).toClick("button", { text: "INICIA SESIÓN" });
     });
 

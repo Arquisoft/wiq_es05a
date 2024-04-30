@@ -7,6 +7,7 @@ on:
       - LaraFMz
       - Pablo-Arreglos
       - jota
+      - Larafm5
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -27,6 +28,7 @@ jobs:
     - run: npm --prefix gatewayservice test -- --coverage
     - run: npm --prefix questionservice test -- --coverage
     - run: npm --prefix webapp test -- --coverage
+    - run: npm --prefix webapp run test:e2e
     - name: Analyze with SonarCloud
       uses: sonarsource/sonarcloud-github-action@master
       env:
