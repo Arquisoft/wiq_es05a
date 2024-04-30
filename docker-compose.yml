@@ -1,7 +1,7 @@
 version: '3'
 services:
   mongodb:
-    container_name: mongodb-${teamname:-wiq5a}
+    container_name: mongodb-${teamname:-wiq_es5a}
     image: mongo
     profiles: ["dev", "prod"]
     volumes:
@@ -12,8 +12,8 @@ services:
       - mynetwork
 
   questionservice:
-    container_name: questionservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_5a/questionservice:latest
+    container_name: questionservice-${teamname:-wiq_es5a}
+    image: ghcr.io/arquisoft/wiq_es5a/questionservice:latest
     profiles: ["dev", "prod"]
     build: ./questionservice
     ports:
@@ -25,8 +25,8 @@ services:
       - mynetwork
 
   authservice:
-    container_name: authservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_5a/authservice:latest
+    container_name: authservice-${teamname:-wiq_es5a}
+    image: ghcr.io/arquisoft/wiq_es5a/authservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/authservice
     depends_on:
@@ -39,8 +39,8 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/userdb
 
   userservice:
-    container_name: userservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_5a/userservice:latest
+    container_name: userservice-${teamname:-wiq_es5a}
+    image: ghcr.io/arquisoft/wiq_es5a/userservice:latest
     profiles: ["dev", "prod"]
     build: ./userservice/userservice
     depends_on:
@@ -53,8 +53,8 @@ services:
       MONGODB_URI: mongodb://mongodb:27017/userdb
 
   gatewayservice:
-    container_name: gatewayservice-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_5a/gatewayservice:latest
+    container_name: gatewayservice-${teamname:-wiq_es5a}
+    image: ghcr.io/arquisoft/wiq_es5a/gatewayservice:latest
     profiles: ["dev", "prod"]
     build: ./gatewayservice
     depends_on:
@@ -72,8 +72,8 @@ services:
       QUESTION_SERVICE_URL: http://questionservice:8003
 
   webapp:
-    container_name: webapp-${teamname:-wiq5a}
-    image: ghcr.io/arquisoft/wiq_5a/webapp:latest
+    container_name: webapp-${teamname:-wiq_es5a}
+    image: ghcr.io/arquisoft/wiq_es5a/webapp:latest
     profiles: ["dev", "prod"]
     build: ./webapp
     depends_on:
@@ -82,8 +82,8 @@ services:
       - "3000:3000" 
 
   prometheus:
-    image: ghcr.io/arquisoft/wiq_5a/prometheus:latest
-    container_name: prometheus-${teamname:-wiq5a}
+    image: ghcr.io/arquisoft/wiq_es5a/prometheus:latest
+    container_name: prometheus-${teamname:-wiq_es5a}
     build: ./monitoring/prometheus
     profiles: ["dev", "prod"]
     networks:
@@ -97,8 +97,8 @@ services:
     
       
   grafana:
-    image: ghcr.io/arquisoft/wiq_5a/grafana:latest
-    container_name: grafana-${teamname:-wiq5a}
+    image: ghcr.io/arquisoft/wiq_es5a/grafana:latest
+    container_name: grafana-${teamname:-wiq_es5a}
     build: ./monitoring/grafana
     profiles: ["dev", "prod"]
     networks:
