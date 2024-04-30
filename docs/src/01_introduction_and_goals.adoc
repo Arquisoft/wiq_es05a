@@ -15,7 +15,7 @@ These include
 * relevant stakeholders and their expectations
 ****
 
-El objetivo es crear una aplicación web llamada QuizMaster basada en el programa de televisión "Saber y Ganar".
+El objetivo es crear una aplicación web llamada Quizz Master basada en el programa de televisión "Saber y Ganar".
 La aplicación permitirá registrarse a los usuarios para poder jugar. Dicho juego consiste en una serie de preguntas generadas aleatoriamente, de diferentes temáticas y respuestas, que deberán responderse en un tiempo determinado.
 Por cada respuesta correcta se obtendrá un premio.
 
