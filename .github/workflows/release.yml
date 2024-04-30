@@ -191,6 +191,9 @@ jobs:
         user: ${{ secrets.DEPLOY_USER }}
         key: ${{ secrets.DEPLOY_KEY }}
         command: |
+          mkdir -p wiq_es05a
+          cd wiq_es05a
+          rm -rf ./*
           wget https://raw.githubusercontent.com/arquisoft/wiq_es05a/master/docker-compose.yml -O docker-compose.yml
           wget https://raw.githubusercontent.com/arquisoft/wiq_es05a/master/.env -O .env
           docker compose --profile prod down
