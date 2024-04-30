@@ -94,7 +94,6 @@ services:
       - "9090:9090"
     depends_on: 
       - gatewayservice
-    
       
   grafana:
     image: ghcr.io/arquisoft/wiq_es05a/grafana:latest
@@ -105,7 +104,6 @@ services:
       - mynetwork
     volumes:
       - grafana_data:/var/lib/grafana
-      - ./gatewayservice/monitoring/grafana/provisioning:/etc/grafana/provisioning
     environment:
       - GF_SERVER_HTTP_PORT=9091
       - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER:-admin}

@@ -41,6 +41,10 @@ const Estadisticas = ({isLogged, username}) => {
         <table>
             <tbody>
                 <tr>
+                  <th scope="col">Estadistica</th>
+                  <th scope="col">Valor</th>
+                </tr>
+                <tr>
                     <td>Nº Preguntas acertadas: </td>
                     <td> {correctAnswers} </td>
                 </tr>
