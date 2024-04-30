@@ -6,8 +6,10 @@ on:
       - develop
       - newDevelop
       - LaraFMz
-      - Pablo-AjustesFinales
       - jota
+      - newJota
+      - Pablo-Arreglos
+      - Pablo-AjustesFinales
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
