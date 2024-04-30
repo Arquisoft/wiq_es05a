@@ -4,9 +4,12 @@ on:
     branches:
       - master
       - develop
+      - newDevelop
       - LaraFMz
-      - Pablo-Arreglos
+      - jota
       - newJota
+      - Pablo-Arreglos
+      - Pablo-AjustesFinales
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:

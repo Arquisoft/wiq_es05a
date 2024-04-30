@@ -1,0 +1,51 @@
+ifndef::imagesdir[:imagesdir: ../images]
+
+[[section-testing]]
+== Testing
+=== Tests unitarios (TDD)
+
+Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web. 
+
+Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra 
+aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar 
+todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.
+
+En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes, 
+8 de ellos cubiertos al 100%.
+
+=== Tests de integración (BDD)
+
+Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
+Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.
+
+Al final, logramos tener 3 pruebas generales e2e.
+
+====
+ Feature: Registering a new user
+
+ Scenario: The user is not registered in the site 
+     Given An unregistered user
+     When I fill the data in the form and press submit
+     Then A confirmation message should be shown in the screen 
+====
+
+====
+ Feature: Logging in as a user
+
+ Scenario: Logging in with valid credentials
+     Given A user that is logged in the application
+     When I enter valid username and password
+     Then A confirmation message should be shown in the screen
+====
+
+====
+ Feature: Access the app
+
+ Scenario: A registered user enters the app
+     Given A user that is logged in the application
+     When I navigate to the Home page
+     Then I should be able to interact with the app
+====
+
+=== Tests de carga
+TODO

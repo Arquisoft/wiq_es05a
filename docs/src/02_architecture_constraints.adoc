@@ -105,6 +105,4 @@ servicios estarán comunicados por 'gatewayservice'._
 |*Convenciones del lenguaje de programación*
 |_Es fundamental adherirse a las convenciones de los diferentes lenguajes de programación utilizados para garantizar que la aplicación tenga un código legible, 
 que facilite su mantenimiento._
-
-
 |===
