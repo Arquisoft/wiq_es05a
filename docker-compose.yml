@@ -94,7 +94,6 @@ services:
       - "9090:9090"
     depends_on: 
       - gatewayservice
-    
       
   grafana:
     image: ghcr.io/arquisoft/wiq_es05a/grafana:latest
