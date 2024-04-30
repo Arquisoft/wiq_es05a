@@ -15,7 +15,7 @@ describe('Home component', () => {
     const { getByText } = render(<Router><Home isLogged={false} /></Router>);
     
     // Verifica que el título del juego esté presente
-    expect(getByText('WIQ 5A')).toBeInTheDocument();
+    expect(getByText('QUIZZ MASTER')).toBeInTheDocument();
 
     // Verifica que los botones "INICIA SESIÓN" y "REGÍSTRATE" estén presentes
     expect(getByText('INICIA SESIÓN')).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe('Home component', () => {
     const { getByText } = render(<Router><Home isLogged={true} /></Router>);
     
     // Verifica que el título del juego esté presente
-    expect(getByText('WIQ 5A')).toBeInTheDocument();
+    expect(getByText('QUIZZ MASTER')).toBeInTheDocument();
 
     // Verifica que los botones "JUGAR" y "ESTADÍSTICAS" estén presentes
     expect(getByText('JUGAR')).toBeInTheDocument();
