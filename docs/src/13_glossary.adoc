@@ -45,7 +45,7 @@ See https://docs.arc42.org/section-12/[Glossary] in the arc42 documentation.
 
 |*MongoDB* 
 |Es un sistema de gestión de bases de datos NoSQL de código abierto que permite el almacenamiento de datos de forma flexible y escalable. MongoDB es ampliamente utilizado en diversas aplicaciones, 
-|ofreciendo una estructura de datos dinámica que se adapta bien a casos de uso donde se requiere una manipulación ágil de la información.
+ofreciendo una estructura de datos dinámica que se adapta bien a casos de uso donde se requiere una manipulación ágil de la información.
 
 |*Saber y Ganar*
 |Programa televisión española de tipo concurso de preguntas y respuestas culturales.
