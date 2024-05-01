@@ -501,14 +501,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_deudas_técnicas">11.2. Deudas Técnicas</a></li>
 </ul>
 </li>
-<li><a href="#section-glossary">12. Glosario</a></li>
-<li><a href="#section-testing">13. Testing</a>
+<li><a href="#section-testing">12. Testing</a>
 <ul class="sectlevel2">
-<li><a href="#_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</a></li>
-<li><a href="#_tests_de_integración_bdd">13.2. Tests de integración (BDD)</a></li>
-<li><a href="#_tests_de_carga">13.3. Tests de carga</a></li>
+<li><a href="#_tests_unitarios_tdd">12.1. Tests unitarios (TDD)</a></li>
+<li><a href="#_tests_de_integración_bdd">12.2. Tests de integración (BDD)</a></li>
+<li><a href="#_tests_de_carga">12.3. Tests de carga</a></li>
 </ul>
 </li>
+<li><a href="#section-glossary">13. Glosario</a></li>
 </ul>
 </div>
 </div>
@@ -2195,7 +2195,129 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-glossary">12. Glosario</h2>
+<h2 id="section-testing">12. Testing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tests_unitarios_tdd">12.1. Tests unitarios (TDD)</h3>
+<div class="paragraph">
+<p>Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web.</p>
+</div>
+<div class="paragraph">
+<p>Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra
+aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar
+todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.</p>
+</div>
+<div class="paragraph">
+<p>En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes,
+8 de ellos cubiertos al 100%.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_integración_bdd">12.2. Tests de integración (BDD)</h3>
+<div class="paragraph">
+<p>Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
+Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.</p>
+</div>
+<div class="paragraph">
+<p>Al final, logramos tener 3 pruebas generales e2e, pero solo conseguimos que funcionase la primera en el despliege.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>1 Feature: Registering a new user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: The user is not registered in the site
+    Given An unregistered user
+    When I fill the data in the form and press submit
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>2 Feature: Logging in as a user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: Logging in with valid credentials
+    Given A user that is logged in the application
+    When I enter valid username and password
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>3 Feature: Access the app</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: A registered user enters the app
+    Given A user that is logged in the application
+    When I navigate to the Home page
+    Then I should be able to interact with the app</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_carga">12.3. Tests de carga</h3>
+<div class="paragraph">
+<p>Se ha realizado los siguientes tests de carga con las acciones de:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Registrarse</p>
+</li>
+<li>
+<p>Iniciar Sesion</p>
+</li>
+<li>
+<p>Jugar una Partida.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>La primera prueba se lanzo solamente con un usuario, podemos observar que se han realizado 11 peticiones
+donde solo una tardo mas de 800 milisegundos.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/12_pruebas_carga1.png" alt="Test de carga de 1 usuario">
+</div>
+</div>
+<div class="paragraph">
+<p>La siguiente prueba se lanzo con 10 usuarios, podemos observar que se han realizado 110 peticiones,
+ la mayoria han pasado en menos de 800 milisegundos y una ha fallado.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/12_pruebas_carga2.png" alt="Test de carga de 10 usuario">
+</div>
+</div>
+<div class="paragraph">
+<p>Podemos concluir que a partir de las 100 peticiones, el sistema comienza a tener fallos.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-glossary">13. Glosario</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -2285,93 +2407,6 @@ Estas pautas explican cómo hacer que el contenido web sea más accesible para l
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-testing">13. Testing</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</h3>
-<div class="paragraph">
-<p>Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web.</p>
-</div>
-<div class="paragraph">
-<p>Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra
-aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar
-todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.</p>
-</div>
-<div class="paragraph">
-<p>En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes,
-8 de ellos cubiertos al 100%.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tests_de_integración_bdd">13.2. Tests de integración (BDD)</h3>
-<div class="paragraph">
-<p>Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
-Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.</p>
-</div>
-<div class="paragraph">
-<p>Al final, logramos tener 3 pruebas generales e2e.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>Feature: Registering a new user</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: The user is not registered in the site
-    Given An unregistered user
-    When I fill the data in the form and press submit
-    Then A confirmation message should be shown in the screen</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>Feature: Logging in as a user</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: Logging in with valid credentials
-    Given A user that is logged in the application
-    When I enter valid username and password
-    Then A confirmation message should be shown in the screen</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>Feature: Access the app</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: A registered user enters the app
-    Given A user that is logged in the application
-    When I navigate to the Home page
-    Then I should be able to interact with the app</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tests_de_carga">13.3. Tests de carga</h3>
-<div class="paragraph">
-<p>TODO</p>
-</div>
 <hr>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
@@ -2389,11 +2424,10 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-04-30 21:23:15 +0200
+Last updated 2024-05-01 12:10:40 +0200
 </div>
 </div>
 </body>
