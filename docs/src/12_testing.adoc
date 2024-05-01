@@ -57,11 +57,11 @@ Se ha realizado los siguientes tests de carga con las acciones de:
 La primera prueba se lanzo solamente con un usuario, podemos observar que se han realizado 11 peticiones
 donde solo una tardo mas de 800 milisegundos.
 
-image::12_pruebas_carga1.png["Test de carga de 1 usuario"]
+image::12_pruebas_carga1.PNG["Test de carga de 1 usuario"]
 
 La siguiente prueba se lanzo con 10 usuarios, podemos observar que se han realizado 110 peticiones,
  la mayoria han pasado en menos de 800 milisegundos y una ha fallado.
 
-image::12_pruebas_carga2.png["Test de carga de 10 usuario"]
+image::12_pruebas_carga2.PNG["Test de carga de 10 usuario"]
 
 Podemos concluir que a partir de las 100 peticiones, el sistema comienza a tener fallos. 
