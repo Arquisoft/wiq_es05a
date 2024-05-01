@@ -53,9 +53,6 @@ See https://docs.arc42.org/section-1/[Introduction and Goals] in the arc42 docum
 * *Acceso a Información de Usuarios vía API*: Otros sistemas podrán acceder a los datos de los usuarios a través de un API.
 * *Acceso a Información de Preguntas vía API*: Otros sistemas podrán acceder a los detalles de las preguntas generadas mediante un API.
 
-Mira los https://docs.google.com/document/d/1pahOfYFY--Wi7_9bbxiKOGevB_9tOSyRm78blncgBKg/edit[Requisitos de la práctica] para obtener más información.
-
-
 === Metas de Calidad
 
 [role="arc42help"]
