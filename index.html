@@ -501,14 +501,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_deudas_técnicas">11.2. Deudas Técnicas</a></li>
 </ul>
 </li>
-<li><a href="#section-testing">12. Testing</a>
+<li><a href="#section-glossary">12. Glosario</a></li>
+<li><a href="#section-testing">13. Testing</a>
 <ul class="sectlevel2">
-<li><a href="#_tests_unitarios_tdd">12.1. Tests unitarios (TDD)</a></li>
-<li><a href="#_tests_de_integración_bdd">12.2. Tests de integración (BDD)</a></li>
-<li><a href="#_tests_de_carga">12.3. Tests de carga</a></li>
+<li><a href="#_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</a></li>
+<li><a href="#_tests_de_integración_bdd">13.2. Tests de integración (BDD)</a></li>
+<li><a href="#_tests_de_carga">13.3. Tests de carga</a></li>
 </ul>
 </li>
-<li><a href="#section-glossary">13. Glosario</a></li>
 </ul>
 </div>
 </div>
@@ -2133,11 +2133,9 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Caída de Servicios</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>_Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parara de funcionar en algún momento.</em></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>esto podría bloquear la entrega de alguna de las funcionalidades del proyecto._</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestra aplicacion web puede verse comprometida a errores si alguno de los servicios utilizados, como por ejemplo Docker, parara de funcionar en algún momento.
+ Ya que los servicios no son creados por nosotros no podemos saber si estarán disponibles en todo momento por lo tanto
+ esto podría bloquear la entrega de alguna de las funcionalidades del proyecto.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Problemas Software</strong></em></p></td>
@@ -2171,23 +2169,24 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Botón finalizar partida</strong></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>_Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test,</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Después de finalizar la partida, añadimos un botón con la intención de que al pulsarlo guardara las estadísticas y nos redirigiera a la página principal. Sin embargo, al no lograr que con esta implementación nos pasase los test,
+ optamos por modificarlo para que muestre la opción de elegir si desea guardar las estadísticas y, en dicho caso, muestre un mensaje. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como jugar otra partida.</em></em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>optamos por modificarlo para que muestre la opción de elegir si desea guardar las estadísticas y, en dicho caso, muestre un mensaje. Podria dar confusión a los usuarios ya que se puede dar el caso que no sepan como jugar otra partida._</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Mostrar tiempo de respuesta</strong></em></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Hemos intentado incorporar como estadísitica el tiempo de respuesta medio de las preguntas, pero lamentablemente no hemos podido lograrlo debido a que optamos por centrarnos en arreglar problemas del proyecto. Esta funcionalidad habría sido beneficiosa para mejorar el apartado de las estadísticas de nuestra aplicación.</em></em></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Requisitos opcionales</strong></em></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>No hemos abordado los requisitos opcionales porque nuestra atención ha estado centrada en desarrollar la parte fundamental de la aplicación y asegurarnos de que funcione correctamente.</em></em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Internacionalización de la web</strong></em></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Internacionalización de la web</strong></em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Inicialmente, valoramos adaptar la aplicación a otros idiomas como el inglés pero finalmente no se llevo a cabo. Esto hace que la aplicación sea menos accesible para aquellos usuarios que no tengan el español como lengua principal.</em></em></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>Limpieza y organización de código</strong></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><em>Nuestro código podría tener áreas que podrían mejorarse, ya que no se han desarrollado de la manera más eficiente posible. Una estructura más organizada podría facilitar la localización de elementos y la inclusión de comentarios adicionales podría mejorar la comprensión. Esta situación hace que sea complicado mantener, ampliar y depurar el código. Por lo tanto, es crucial realizar revisiones regulares del código, refactorizaciones y actualizaciones de la documentación para garantizar la calidad y la facilidad de mantenimiento del código del proyecto.</em></em></p></td>
 </tr>
 </tbody>
 </table>
@@ -2196,129 +2195,7 @@ las planeadas para solucionar este tipo de problemas.</em></em></p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="section-testing">12. Testing</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_tests_unitarios_tdd">12.1. Tests unitarios (TDD)</h3>
-<div class="paragraph">
-<p>Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web.</p>
-</div>
-<div class="paragraph">
-<p>Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra
-aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar
-todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.</p>
-</div>
-<div class="paragraph">
-<p>En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes,
-8 de ellos cubiertos al 100%.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tests_de_integración_bdd">12.2. Tests de integración (BDD)</h3>
-<div class="paragraph">
-<p>Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
-Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.</p>
-</div>
-<div class="paragraph">
-<p>Al final, logramos tener 3 pruebas generales e2e, pero solo conseguimos que funcionase la primera en el despliege.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>1 Feature: Registering a new user</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: The user is not registered in the site
-    Given An unregistered user
-    When I fill the data in the form and press submit
-    Then A confirmation message should be shown in the screen</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>2 Feature: Logging in as a user</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: Logging in with valid credentials
-    Given A user that is logged in the application
-    When I enter valid username and password
-    Then A confirmation message should be shown in the screen</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>3 Feature: Access the app</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Scenario: A registered user enters the app
-    Given A user that is logged in the application
-    When I navigate to the Home page
-    Then I should be able to interact with the app</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tests_de_carga">12.3. Tests de carga</h3>
-<div class="paragraph">
-<p>Se han realizado los siguientes tests de carga con las acciones de:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Registrarse</p>
-</li>
-<li>
-<p>Iniciar Sesion</p>
-</li>
-<li>
-<p>Jugar una Partida.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>La primera prueba se lanzo solamente con un usuario, podemos observar que se han realizado 11 peticiones
-donde solo una tardo mas de 800 milisegundos.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/12_pruebas_carga1.png" alt="Test de carga de 1 usuario">
-</div>
-</div>
-<div class="paragraph">
-<p>La siguiente prueba se lanzo con 10 usuarios, podemos observar que se han realizado 110 peticiones,
- la mayoria han pasado en menos de 800 milisegundos y una ha fallado.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="./images/12_pruebas_carga2.png" alt="Test de carga de 10 usuario">
-</div>
-</div>
-<div class="paragraph">
-<p>Podemos concluir que a partir de las 100 peticiones, el sistema comienza a tener fallos.</p>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="section-glossary">13. Glosario</h2>
+<h2 id="section-glossary">12. Glosario</h2>
 <div class="sectionbody">
 <div class="sidebarblock arc42help">
 <div class="content">
@@ -2407,6 +2284,93 @@ Estas pautas explican cómo hacer que el contenido web sea más accesible para l
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-testing">13. Testing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tests_unitarios_tdd">13.1. Tests unitarios (TDD)</h3>
+<div class="paragraph">
+<p>Para los tests unitarios utilizamos Jest y Testing Library de React para probar los componentes de nuestra aplicación web.</p>
+</div>
+<div class="paragraph">
+<p>Creamos pruebas separadas para cada componente, con el fin de probar partes aisladas y verificar si cada aspecto de nuestra
+aplicación funcionaba correctamente, pero enfrentamos algunos problemas en el proceso, ya que resultó ser casi imposible verificar
+todo, principalmente debido a problemas de tiempo y dificultad para probar los errores.</p>
+</div>
+<div class="paragraph">
+<p>En el momento de escribir este documento, alcanzamos una cobertura total del 91% con 14 archivos tests para los componentes,
+8 de ellos cubiertos al 100%.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_integración_bdd">13.2. Tests de integración (BDD)</h3>
+<div class="paragraph">
+<p>Utilizamos Jest y Puppeteer para realizar pruebas de integración en nuestra aplicación.
+Diseñamos pruebas e Historias de Usuario con la estructura: "Dado, Cuando, Entonces", lo que resultó en muchas facilidades al implementarlas.</p>
+</div>
+<div class="paragraph">
+<p>Al final, logramos tener 3 pruebas generales e2e.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Registering a new user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: The user is not registered in the site
+    Given An unregistered user
+    When I fill the data in the form and press submit
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Logging in as a user</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: Logging in with valid credentials
+    Given A user that is logged in the application
+    When I enter valid username and password
+    Then A confirmation message should be shown in the screen</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Feature: Access the app</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scenario: A registered user enters the app
+    Given A user that is logged in the application
+    When I navigate to the Home page
+    Then I should be able to interact with the app</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_de_carga">13.3. Tests de carga</h3>
+<div class="paragraph">
+<p>TODO</p>
+</div>
 <hr>
 <div class="paragraph">
 <p><strong>About arc42</strong></p>
@@ -2424,10 +2388,11 @@ See <a href="https://arc42.org" class="bare">https://arc42.org</a>.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 8.2 EN<br>
-Last updated 2024-05-01 00:34:17 +0200
+Last updated 2024-04-30 21:23:15 +0200
 </div>
 </div>
 </body>
